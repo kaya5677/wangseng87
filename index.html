@@ -163,6 +163,72 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .hero-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .hero-btn i {
+            font-size: 20px;
+        }
+
+        .hero-btn span {
+            white-space: nowrap;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary.hero-btn {
+            background: linear-gradient(135deg, var(--primary-gold), #ffed4e);
+            color: var(--bg-dark);
+            border-color: var(--primary-gold);
+        }
+
+        .btn-primary.hero-btn:hover {
+            background: linear-gradient(135deg, #ffed4e, var(--primary-gold));
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary.hero-btn {
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            color: var(--text-primary);
+            border-color: var(--primary-purple);
+        }
+
+        .btn-secondary.hero-btn:hover {
+            background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(114, 35, 126, 0.4);
+        }
+
+        .btn-accent.hero-btn {
+            background: linear-gradient(135deg, var(--success), #66bb6a);
+            color: var(--text-primary);
+            border-color: var(--success);
+        }
+
+        .btn-accent.hero-btn:hover {
+            background: linear-gradient(135deg, #66bb6a, var(--success));
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
         }
 
         .btn-secondary {
@@ -389,6 +455,50 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+
+            .hero-btn i {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                min-width: 160px;
+            }
+
+            .hero-btn i {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -421,8 +531,18 @@
                 <h1>Welcome to WangSeng87</h1>
                 <p>Experience the ultimate online gaming platform with premium slots, live casino games, and sports betting. Your adventure starts here!</p>
                 <div class="hero-buttons">
-                    <a href="wangseng-games-platform.html" class="btn-primary">Play Now</a>
-                    <a href="#features" class="btn-secondary">Learn More</a>
+                    <a href="slots-games.html" class="btn-primary hero-btn">
+                        <i class="material-icons">slot_machine</i>
+                        <span>Slot Games</span>
+                    </a>
+                    <a href="live-casino.html" class="btn-secondary hero-btn">
+                        <i class="material-icons">casino</i>
+                        <span>Live Casino</span>
+                    </a>
+                    <a href="sports-betting.html" class="btn-accent hero-btn">
+                        <i class="material-icons">sports_soccer</i>
+                        <span>Sports Betting</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -565,7 +685,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 WangSeng87. All rights reserved. | Premium Gaming Platform</p>
+                <p>&​copy; 2024 WangSeng87. All rights reserved. | Premium Gaming Platform</p>
             </div>
         </div>
     </footer>
