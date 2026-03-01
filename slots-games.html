@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WangSeng87 - Slots Games</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #ffd700;
+            --primary-purple: #72237e;
+            --dark-purple: #4a1a52;
+            --bg-dark: #0a0a0a;
+            --bg-medium: #1a1a2e;
+            --bg-light: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --card-bg: rgba(114, 35, 126, 0.2);
+            --border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-video {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .logo-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo h1 {
+            color: var(--primary-gold);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            background: var(--primary-purple);
+            color: var(--text-primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--dark-purple);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .filters {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            color: var(--primary-gold);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .filter-group select {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 12px 8px 40px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
+        }
+
+        .demo-btn {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .game-provider {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .game-rtp {
+            font-size: 12px;
+            color: #4caf50;
+            font-weight: 500;
+        }
+
+        .game-volatility {
+            font-size: 12px;
+            color: #f39c12;
+            font-weight: 500;
+        }
+
+        .game-features {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--primary-gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .jackpot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            border-color: var(--primary-gold);
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .filter-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-video">
+                    <video autoplay muted loop playsinline>
+                        <source src="wangseng-lion.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h1>WangSeng87</h1>
+            </div>
+            
+            <a href="wangseng-games-platform.html" class="back-btn">
+                <i class="material-icons">arrow_back</i>
+                Back to Platform
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">🎰 Slots Games</h1>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>Provider</label>
+                        <select id="providerFilter">
+                            <option value="">All Providers</option>
+                            <option value="netent">NetEnt</option>
+                            <option value="pragmatic">Pragmatic Play</option>
+                            <option value="playngo">Play'n GO</option>
+                            <option value="microgaming">Microgaming</option>
+                            <option value="yggdrasil">Yggdrasil</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Volatility</label>
+                        <select id="volatilityFilter">
+                            <option value="">All Volatility</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Features</label>
+                        <select id="featuresFilter">
+                            <option value="">All Features</option>
+                            <option value="bonus">Bonus Buy</option>
+                            <option value="megaways">Megaways</option>
+                            <option value="jackpot">Jackpot</option>
+                            <option value="free-spins">Free Spins</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-box">
+                        <i class="material-icons">search</i>
+                        <input type="text" placeholder="Search games..." id="searchInput">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Games Grid -->
+            <div class="games-grid">
+                <!-- Progressive Jackpot Games -->
+                <div class="game-card">
+                    <div class="jackpot-badge">MEGA JACKPOT</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Mega+Moolah" alt="Mega Moolah">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mega Moolah</h3>
+                        <p class="game-provider">Microgaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 88.1%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Progressive</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Jackpot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="jackpot-badge">MEGA JACKPOT</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Major+Millions" alt="Major Millions">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Major Millions</h3>
+                        <p class="game-provider">Microgaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 89.4%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Progressive</span>
+                            <span class="feature-tag">3-Reel</span>
+                            <span class="feature-tag">Jackpot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Video Slots -->
+                <div class="game-card">
+                    <div class="new-badge">NEW</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Sweet+Bonanza+Xmas" alt="Sweet Bonanza Xmas">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Sweet Bonanza Xmas</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Tumble</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=The+Dog+House" alt="The Dog House">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">The Dog House</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wild Multipliers</span>
+                            <span class="feature-tag">Sticky Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Book+of+Dead" alt="Book of Dead">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Book of Dead</h3>
+                        <p class="game-provider">Play'n GO</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.2%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Expanding Symbols</span>
+                            <span class="feature-tag">Gamble</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Starburst" alt="Starburst">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Starburst</h3>
+                        <p class="game-provider">NetEnt</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility">Low</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Win Both Ways</span>
+                            <span class="feature-tag">Expanding Wilds</span>
+                            <span class="feature-tag">Re-Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Megaways Games -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Bonanza+Megaways" alt="Bonanza Megaways">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Bonanza Megaways</h3>
+                        <p class="game-provider">Big Time Gaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.0%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Megaways</span>
+                            <span class="feature-tag">Reactions</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Gates+of+Olympus" alt="Gates of Olympus">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Gates of Olympus</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Tumble</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bonus Buy Games -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Money+Train+3" alt="Money Train 3">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Money Train 3</h3>
+                        <p class="game-provider">Relax Gaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus Buy</span>
+                            <span class="feature-tag">Respin</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Fat+Rabbit" alt="Fat Rabbit">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fat Rabbit</h3>
+                        <p class="game-provider">Push Gaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Harvest Feature</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Growing Symbols</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Jammin'Jars" alt="Jammin'Jars">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Jammin'Jars</h3>
+                        <p class="game-provider">Push Gaming</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Cluster Pays</span>
+                            <span class="feature-tag">Rainbow Feature</span>
+                            <span class="feature-tag">Multiplier Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Dead+or+Alive+2" alt="Dead or Alive 2">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Dead or Alive 2</h3>
+                        <p class="game-provider">NetEnt</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Sticky Wilds</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Games from Image -->
+                <div class="game-card">
+                    <div class="new-badge">HOT</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Joker+Jewels" alt="Joker Jewels">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Joker Jewels</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Joker Wild</span>
+                            <span class="feature-tag">5-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Sweet+Bonanza" alt="Sweet Bonanza">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Sweet Bonanza</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Tumble</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Wild+West+Gold" alt="Wild West Gold">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Wild West Gold</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wild Multipliers</span>
+                            <span class="feature-tag">Sticky Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Aztec+Gems" alt="Aztec Gems">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Aztec Gems</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Money Respin</span>
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">3-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Fruit+Party" alt="Fruit Party">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fruit Party</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Cluster Pays</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Great+Rhino" alt="Great Rhino">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Great Rhino</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Chilli+Heat" alt="Chilli Heat">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Chilli Heat</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Money Respin</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=5+Lions" alt="5 Lions">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">5 Lions</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=John+Hunter" alt="John Hunter">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">John Hunter</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Expanding Symbols</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Mustang+Gold" alt="Mustang Gold">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mustang Gold</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Money Collect</span>
+                            <span class="feature-tag">Jackpot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Caishen's+Gold" alt="Caishen's Gold">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Caishen's Gold</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Egyptian+Fortunes" alt="Egyptian Fortunes">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Egyptian Fortunes</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Money Respin</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Piggy+Bank" alt="Piggy Bank">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Piggy Bank</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Money Respin</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Master+Joker" alt="Master Joker">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Master Joker</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">Gamble</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=8+Dragons" alt="8 Dragons">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">8 Dragons</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">High</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Wild</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Triple+Jokers" alt="Triple Jokers">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Triple Jokers</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Low</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">3-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Hot+to+Burn" alt="Hot to Burn">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Hot to Burn</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.7%</span>
+                            <span class="game-volatility">Low</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">5-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Striking+Hot" alt="Striking Hot">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Striking Hot</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Low</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">5-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Super+Joker" alt="Super Joker">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Super Joker</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">3-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Joker's+Jewels" alt="Joker's Jewels">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Joker's Jewels</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">5-Reel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/280x200/72237e/ffffff?text=Fire+Strike" alt="Fire Strike">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="demo-btn">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fire Strike</h3>
+                        <p class="game-provider">Pragmatic Play</p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility">Medium</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Wild</span>
+                            <span class="feature-tag">Jackpot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn">5</button>
+                <button class="page-btn">6</button>
+                <button class="page-btn">7</button>
+                <button class="page-btn">8</button>
+                <button class="page-btn">...</button>
+                <button class="page-btn">42</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize video logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoVideo = document.querySelector('.logo-video video');
+            if (logoVideo) {
+                logoVideo.muted = true;
+                logoVideo.loop = true;
+                logoVideo.playsInline = true;
+                logoVideo.play().catch(e => console.log('Video autoplay prevented'));
+            }
+        });
+
+        // Filter functionality
+        const providerFilter = document.getElementById('providerFilter');
+        const volatilityFilter = document.getElementById('volatilityFilter');
+        const featuresFilter = document.getElementById('featuresFilter');
+        const searchInput = document.getElementById('searchInput');
+
+        function filterGames() {
+            // Implement filtering logic here
+            console.log('Filtering games...');
+        }
+
+        providerFilter.addEventListener('change', filterGames);
+        volatilityFilter.addEventListener('change', filterGames);
+        featuresFilter.addEventListener('change', filterGames);
+        searchInput.addEventListener('input', filterGames);
+
+        // Game card interactions
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('play-btn') && !e.target.classList.contains('demo-btn')) {
+                    console.log('Game card clicked');
+                }
+            });
+        });
+
+        // Play button functionality
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('Launching real play...');
+            });
+        });
+
+        // Demo button functionality
+        document.querySelectorAll('.demo-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('Launching demo play...');
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                console.log('Loading page:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

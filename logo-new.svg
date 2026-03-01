@@ -1,0 +1,72 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="75" cy="75" r="70" fill="#72237e" stroke="#ffd700" stroke-width="3"/>
+  
+  <!-- Lion Dance Head - Based on the red lion image -->
+  <g transform="translate(75, 60)">
+    <!-- Main Head/Mane - Red/orange gradient -->
+    <ellipse cx="0" cy="0" rx="45" ry="40" fill="#E53935"/>
+    <ellipse cx="0" cy="0" rx="42" ry="37" fill="#FF5252"/>
+    
+    <!-- Fur Texture - Multiple layers for depth -->
+    <path d="M -40,-30 Q -35,-40 -25,-38 Q -15,-42 -5,-40 Q 5,-42 15,-38 Q 25,-40 35,-38 Q 40,-30 38,-20" 
+          fill="#D32F2F" opacity="0.8"/>
+    <path d="M -38,-25 Q -32,-35 -22,-33 Q -12,-37 -2,-35 Q 8,-37 18,-33 Q 28,-35 36,-33 Q 38,-25 35,-15" 
+          fill="#B71C1C" opacity="0.6"/>
+    
+    <!-- Eyes - Large and expressive like in the image -->
+    <ellipse cx="-15" cy="-10" rx="12" ry="15" fill="white"/>
+    <ellipse cx="15" cy="-10" rx="12" ry="15" fill="white"/>
+    <circle cx="-15" cy="-8" r="8" fill="#424242"/>
+    <circle cx="15" cy="-8" r="8" fill="#424242"/>
+    <circle cx="-13" cy="-10" r="3" fill="white"/>
+    <circle cx="17" cy="-10" r="3" fill="white"/>
+    
+    <!-- Nose area - Prominent like in the image -->
+    <ellipse cx="0" cy="8" rx="15" ry="12" fill="#FFB300"/>
+    <ellipse cx="0" cy="6" rx="12" ry="10" fill="#FFC107"/>
+    
+    <!-- Mouth - Open and expressive -->
+    <path d="M -20,15 Q 0,25 20,15 L 15,20 Q 0,30 -15,20 Z" fill="#D84315"/>
+    <path d="M -18,18 Q 0,22 18,18" stroke="#B71C1C" stroke-width="2" fill="none"/>
+    
+    <!-- Horns/Antlers - Traditional lion dance elements -->
+    <path d="M -20,-25 L -25,-35 L -15,-30" fill="#FFB300" stroke="#FF6F00" stroke-width="1"/>
+    <path d="M 20,-25 L 25,-35 L 15,-30" fill="#FFB300" stroke="#FF6F00" stroke-width="1"/>
+    
+    <!-- Whiskers -->
+    <line x1="-35" y1="5" x2="-50" y2="8" stroke="#424242" stroke-width="2"/>
+    <line x1="-35" y1="10" x2="-48" y2="15" stroke="#424242" stroke-width="2"/>
+    <line x1="35" y1="5" x2="50" y2="8" stroke="#424242" stroke-width="2"/>
+    <line x1="35" y1="10" x2="48" y2="15" stroke="#424242" stroke-width="2"/>
+    
+    <!-- Forehead decoration - Traditional pattern -->
+    <circle cx="0" cy="-20" r="8" fill="#ffd700"/>
+    <circle cx="0" cy="-20" r="5" fill="#72237e"/>
+  </g>
+  
+  <!-- Number 87 - Integrated into the design -->
+  <g transform="translate(75, 110)">
+    <!-- 8 -->
+    <text x="-18" y="0" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" 
+          fill="#ffd700" stroke="#72237e" stroke-width="2" text-anchor="middle">8</text>
+    <!-- 7 -->
+    <text x="18" y="0" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" 
+          fill="#ffd700" stroke="#72237e" stroke-width="2" text-anchor="middle">7</text>
+  </g>
+  
+  <!-- Decorative elements matching the lion dance theme -->
+  <g transform="translate(75, 75)">
+    <!-- Left side decoration -->
+    <path d="M -55,0 Q -60,-15 -55,-25 Q -50,-30 -45,-25 Q -50,-15 -55,0" 
+          fill="#ffd700" opacity="0.7"/>
+    <!-- Right side decoration -->
+    <path d="M 55,0 Q 60,-15 55,-25 Q 50,-30 45,-25 Q 50,-15 55,0" 
+          fill="#ffd700" opacity="0.7"/>
+  </g>
+  
+  <!-- Bottom banner with WangSeng text -->
+  <rect x="30" y="125" width="90" height="18" rx="9" fill="#ffd700" opacity="0.9"/>
+  <text x="75" y="137" font-family="Arial, sans-serif" font-size="9" font-weight="bold" 
+        fill="#72237e" text-anchor="middle">WANGSENG</text>
+</svg>
