@@ -37,26 +37,175 @@
             --warning: #f39c12;
             --card-bg: rgba(114, 35, 126, 0.2);
             --border-color: rgba(255, 215, 0, 0.2);
+            --gaming-green: #00ff41;
+            --gaming-green-dark: #00cc33;
+            --gaming-green-light: #33ff66;
+            --gaming-bg: #0d1f0d;
+            --gaming-border: #00ff41;
+            --gaming-darker-bg: #0a1a0a;
+            --gaming-card-bg: #1a2e1a;
+            --gaming-text: #e0ffe0;
+            --gaming-text-dim: #a0d0a0;
+            --harmony-purple: #6a4c93;
+            --harmony-pink: #ff6b9d;
+            --harmony-blue: #66d9ef;
+            --harmony-orange: #ffa500;
+            --harmony-bg: #1a1a2e;
+            --harmony-card: #16213e;
+            --harmony-text: #f0f0f0;
+            --harmony-text-secondary: #b0b0b0;
         }
 
         body {
             font-family: 'Poppins', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
-            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--harmony-bg) 0%, var(--gaming-bg) 50%, var(--harmony-card) 100%);
+            color: var(--harmony-text);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
+        /* Top Taskbar Styles */
+        .top-taskbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--harmony-bg), var(--harmony-card));
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--harmony-purple);
+            z-index: 1001;
+            padding: 10px 0;
+            box-shadow: 0 4px 20px rgba(106, 76, 147, 0.3);
+        }
+
+        .top-taskbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-taskbar-left,
+        .top-taskbar-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .top-taskbar-center {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-taskbar-btn {
+            background: rgba(106, 76, 147, 0.2);
+            border: 1px solid var(--harmony-purple);
+            color: var(--harmony-text);
+            padding: 8px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .top-taskbar-btn:hover {
+            background: var(--harmony-purple);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(106, 76, 147, 0.4);
+        }
+
+        .top-taskbar-btn i {
+            font-size: 16px;
+        }
+
+        .notification-badge,
+        .message-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: var(--harmony-pink);
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            border: 1px solid var(--harmony-purple);
+        }
+
+        .message-badge {
+            background: var(--harmony-blue);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(102, 217, 239, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--harmony-blue);
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--harmony-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px rgba(102, 217, 239, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 15px rgba(102, 217, 239, 0.6);
+            }
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 25px rgba(102, 217, 239, 0.8);
+            }
+        }
+
+        .live-text {
+            color: var(--harmony-blue);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(102, 217, 239, 0.4);
+        }
+
+        .current-time {
+            color: var(--harmony-orange);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Roboto', monospace;
+            text-shadow: 0 0 8px rgba(255, 165, 0, 0.3);
+        }
+
         /* Header */
         .header {
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
+            background: linear-gradient(135deg, var(--harmony-bg), var(--harmony-card));
+            backdrop-filter: blur(15px);
+            padding: 18px 0;
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 50px;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--harmony-purple);
+            box-shadow: 0 4px 20px rgba(106, 76, 147, 0.2);
         }
 
         .container {
@@ -104,17 +253,20 @@
             gap: 6px;
             padding: 8px 12px;
             border-radius: 8px;
-            color: var(--text-secondary);
+            color: var(--gaming-text-dim);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
             font-size: 14px;
+            border: 1px solid transparent;
         }
 
         .nav-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            color: var(--primary-gold);
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--gaming-green);
             transform: translateY(-1px);
+            border-color: var(--gaming-green);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
         }
 
         .nav-btn i {
@@ -122,29 +274,31 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-gold), var(--warning));
-            color: var(--bg-dark);
+            background: linear-gradient(135deg, var(--gaming-green), var(--gaming-green-dark));
+            color: var(--gaming-darker-bg);
             padding: 10px 20px;
-            border: none;
+            border: 1px solid var(--gaming-green);
             border-radius: 25px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 2px 10px rgba(0, 255, 65, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.5);
+            background: linear-gradient(135deg, var(--gaming-green-light), var(--gaming-green));
         }
 
         /* Transaction Buttons */
         .btn-refresh {
-            background: linear-gradient(135deg, var(--info), #42a5f5);
-            color: white;
+            background: linear-gradient(135deg, var(--gaming-green), var(--gaming-green-dark));
+            color: var(--gaming-darker-bg);
             padding: 8px 12px;
-            border: none;
+            border: 1px solid var(--gaming-green);
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -153,19 +307,20 @@
             align-items: center;
             gap: 6px;
             font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 255, 65, 0.3);
         }
 
         .btn-refresh:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
-            background: linear-gradient(135deg, #42a5f5, var(--info));
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+            background: linear-gradient(135deg, var(--gaming-green-light), var(--gaming-green));
         }
 
         .btn-deposit {
-            background: linear-gradient(135deg, var(--success), #66bb6a);
-            color: white;
+            background: linear-gradient(135deg, var(--gaming-green), var(--gaming-green-dark));
+            color: var(--gaming-darker-bg);
             padding: 8px 16px;
-            border: none;
+            border: 1px solid var(--gaming-green);
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -174,19 +329,20 @@
             align-items: center;
             gap: 6px;
             font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 255, 65, 0.3);
         }
 
         .btn-deposit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-            background: linear-gradient(135deg, #66bb6a, var(--success));
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+            background: linear-gradient(135deg, var(--gaming-green-light), var(--gaming-green));
         }
 
         .btn-withdraw {
-            background: linear-gradient(135deg, var(--warning), #ffa726);
-            color: white;
+            background: linear-gradient(135deg, var(--gaming-green), var(--gaming-green-dark));
+            color: var(--gaming-darker-bg);
             padding: 8px 16px;
-            border: none;
+            border: 1px solid var(--gaming-green);
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -195,20 +351,21 @@
             align-items: center;
             gap: 6px;
             font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 255, 65, 0.3);
         }
 
         .btn-withdraw:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
-            background: linear-gradient(135deg, #ffa726, var(--warning));
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+            background: linear-gradient(135deg, var(--gaming-green-light), var(--gaming-green));
         }
 
         /* Login/Logout Buttons */
         .btn-login {
-            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--gaming-green), var(--gaming-green-dark));
+            color: var(--gaming-darker-bg);
             padding: 8px 16px;
-            border: none;
+            border: 1px solid var(--gaming-green);
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -217,19 +374,20 @@
             align-items: center;
             gap: 6px;
             font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 255, 65, 0.3);
         }
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(114, 35, 126, 0.3);
-            background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+            background: linear-gradient(135deg, var(--gaming-green-light), var(--gaming-green));
         }
 
         .btn-logout {
             background: linear-gradient(135deg, var(--danger), #ef5350);
             color: white;
             padding: 8px 16px;
-            border: none;
+            border: 1px solid var(--danger);
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -238,36 +396,23 @@
             align-items: center;
             gap: 6px;
             font-size: 14px;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
         }
 
         .btn-logout:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-            background: linear-gradient(135deg, #ef5350, var(--danger));
-        }
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.5);
 
-        /* Balance Display */
-        .balance-display {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid var(--primary-gold);
-            border-radius: 20px;
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-gold);
-        }
+.balance-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gaming-green);
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
 
-        .balance-amount {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        /* Hero Section */
+/* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: 180px 0 80px;
             text-align: center;
             position: relative;
         }
@@ -279,7 +424,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(114, 35, 126, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(106, 76, 147, 0.15) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -289,60 +434,78 @@
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--primary-gold), var(--warning));
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--harmony-purple), var(--harmony-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(106, 76, 147, 0.3);
         }
 
         .hero p {
             font-size: 20px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 45px;
+            color: var(--harmony-text-secondary);
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
             justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
 
         .hero-btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 15px 30px;
-            border-radius: 30px;
+            gap: 10px;
             font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            min-width: 180px;
-            justify-content: center;
+            border: 2px solid var(--harmony-purple);
+            color: white;
+            background: linear-gradient(135deg, var(--harmony-purple), var(--harmony-pink));
+            box-shadow: 0 4px 20px rgba(106, 76, 147, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(106, 76, 147, 0.5);
+            background: linear-gradient(135deg, var(--harmony-pink), var(--harmony-purple));
         }
 
         .hero-btn i {
             font-size: 20px;
         }
 
-        .hero-btn span {
-            white-space: nowrap;
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: rgba(26, 46, 26, 0.3);
         }
 
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--gaming-green);
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .btn-primary.hero-btn {
@@ -1195,11 +1358,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border-color);
+            background: linear-gradient(135deg, var(--harmony-bg), var(--harmony-card));
+            backdrop-filter: blur(15px);
+            border-top: 2px solid var(--harmony-purple);
             z-index: 999;
-            padding: 10px 0;
+            padding: 12px 0;
+            box-shadow: 0 -4px 20px rgba(106, 76, 147, 0.3);
         }
 
         .taskbar-container {
@@ -1211,35 +1375,38 @@
         }
 
         .taskbar-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            padding: 8px 12px;
-            border-radius: 8px;
+            background: rgba(106, 76, 147, 0.2);
+            border: 1px solid var(--harmony-purple);
+            color: var(--harmony-text);
+            padding: 10px 14px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             font-size: 12px;
             font-weight: 500;
-            min-width: 60px;
+            min-width: 65px;
         }
 
         .taskbar-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            color: var(--primary-gold);
-            transform: translateY(-2px);
+            background: var(--harmony-purple);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(106, 76, 147, 0.4);
         }
 
         .taskbar-btn.active {
-            background: rgba(255, 215, 0, 0.2);
-            color: var(--primary-gold);
+            background: rgba(106, 76, 147, 0.4);
+            color: var(--harmony-text);
+            border-color: var(--harmony-pink);
+            box-shadow: 0 0 15px rgba(255, 107, 157, 0.3);
         }
 
         .taskbar-btn i {
-            font-size: 20px;
+            font-size: 22px;
         }
 
         /* Mobile Responsive for Taskbar */
@@ -1248,10 +1415,77 @@
                 padding: 6px 8px;
                 min-width: 50px;
                 font-size: 10px;
+                border-color: var(--gaming-green);
+                color: var(--gaming-green);
+            }
+
+            .taskbar-btn:hover {
+                background: var(--gaming-green);
+                color: var(--bg-dark);
             }
 
             .taskbar-btn i {
                 font-size: 18px;
+            }
+
+            /* Top Taskbar Mobile Optimization */
+            .top-taskbar {
+                padding: 6px 0;
+                background: var(--gaming-bg);
+                border-bottom: 2px solid var(--gaming-border);
+            }
+
+            .top-taskbar-container {
+                padding: 0 10px;
+            }
+
+            .top-taskbar-left,
+            .top-taskbar-right {
+                gap: 8px;
+            }
+
+            .top-taskbar-center {
+                gap: 10px;
+            }
+
+            .top-taskbar-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+                border-color: var(--gaming-green);
+                color: var(--gaming-green);
+            }
+
+            .top-taskbar-btn:hover {
+                background: var(--gaming-green);
+                color: var(--bg-dark);
+            }
+
+            .top-taskbar-btn i {
+                font-size: 14px;
+            }
+
+            .notification-badge,
+            .message-badge {
+                width: 14px;
+                height: 14px;
+                font-size: 9px;
+                border-color: var(--gaming-green);
+            }
+
+            .live-indicator {
+                padding: 2px 6px;
+                background: rgba(0, 255, 65, 0.2);
+                border-color: var(--gaming-green);
+            }
+
+            .live-text {
+                font-size: 9px;
+                color: var(--gaming-green);
+            }
+
+            .current-time {
+                font-size: 10px;
+                color: var(--gaming-green);
             }
         }
 
@@ -1264,10 +1498,548 @@
             body {
                 padding-bottom: 70px;
             }
+
+            /* Top Taskbar Mobile Optimization */
+            .top-taskbar {
+                padding: 6px 0;
+            }
+
+            .top-taskbar-container {
+                padding: 0 10px;
+            }
+
+            .top-taskbar-left,
+            .top-taskbar-right {
+                gap: 8px;
+            }
+
+            .top-taskbar-center {
+                gap: 10px;
+            }
+
+            .top-taskbar-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+
+            .top-taskbar-btn i {
+                font-size: 14px;
+            }
+
+            .notification-badge,
+            .message-badge {
+                width: 14px;
+                height: 14px;
+                font-size: 9px;
+            }
+
+            .live-indicator {
+                padding: 2px 6px;
+            }
+
+            .live-text {
+                font-size: 9px;
+            }
+
+            .current-time {
+                font-size: 10px;
+            }
+
+            /* Hide some elements on mobile */
+            .top-taskbar-right .top-taskbar-btn:nth-child(2),
+            .top-taskbar-right .top-taskbar-btn:nth-child(3) {
+                display: none;
+            }
+
+            /* Header Mobile Adjustment */
+            .header {
+                top: 35px;
+            }
+
+            /* Hero Mobile Adjustment */
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            /* Hide desktop navigation on mobile */
+            .nav-links {
+                display: none;
+            }
+
+            /* Show mobile menu toggle */
+            .mobile-menu-toggle {
+                display: flex;
+                background: transparent;
+                border: none;
+                color: var(--primary-gold);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: 8px;
+                transition: all 0.3s;
+            }
+
+            .mobile-menu-toggle:hover {
+                background: rgba(255, 215, 0, 0.1);
+            }
+
+            .mobile-menu-toggle i {
+                font-size: 24px;
+            }
+
+            /* Mobile Navigation Menu */
+            .mobile-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--bg-medium);
+                border-right: 1px solid var(--border-color);
+                z-index: 1001;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+            }
+
+            .mobile-nav.active {
+                left: 0;
+            }
+
+            .mobile-nav-header {
+                padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .mobile-nav-title {
+                color: var(--primary-gold);
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .mobile-nav-close {
+                background: transparent;
+                border: none;
+                color: var(--text-secondary);
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 50%;
+                transition: color 0.3s;
+            }
+
+            .mobile-nav-close:hover {
+                color: var(--primary-gold);
+            }
+
+            .mobile-nav-links {
+                padding: 20px;
+            }
+
+            .mobile-nav-link {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 0;
+                color: var(--text-secondary);
+                text-decoration: none;
+                font-weight: 500;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+                transition: color 0.3s;
+            }
+
+            .mobile-nav-link:hover {
+                color: var(--primary-gold);
+            }
+
+            .mobile-nav-link i {
+                font-size: 20px;
+            }
+
+            .mobile-nav-section-title {
+                color: var(--primary-gold);
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin: 20px 0 10px 0;
+                padding-bottom: 5px;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            }
+
+            .mobile-nav-section-title:first-child {
+                margin-top: 0;
+            }
+
+            .mobile-nav-actions {
+                padding: 20px;
+                border-top: 1px solid var(--border-color);
+                margin-top: 20px;
+            }
+
+            .mobile-balance-display {
+                background: rgba(255, 215, 0, 0.1);
+                border: 1px solid var(--primary-gold);
+                border-radius: 12px;
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 15px;
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--primary-gold);
+            }
+
+            .mobile-action-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            .mobile-action-btn {
+                background: linear-gradient(135deg, var(--primary-gold), var(--warning));
+                color: var(--bg-dark);
+                padding: 10px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                font-size: 12px;
+            }
+
+            .mobile-action-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+            }
+
+            .mobile-action-btn.secondary {
+                background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+                color: var(--text-primary);
+            }
+
+            .mobile-action-btn.danger {
+                background: linear-gradient(135deg, var(--danger), #ef5350);
+                color: white;
+            }
+
+            .mobile-login-btn {
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+                color: var(--text-primary);
+                padding: 12px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                font-size: 14px;
+            }
+
+            .mobile-login-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 3px 10px rgba(114, 35, 126, 0.3);
+            }
+
+            .mobile-login-btn.danger {
+                background: linear-gradient(135deg, var(--danger), #ef5350);
+                color: white;
+            }
+
+            /* Mobile Overlay */
+            .mobile-nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                display: none;
+            }
+
+            .mobile-nav-overlay.active {
+                display: block;
+            }
+
+            /* Hero Mobile Optimization */
+            .hero h1 {
+                font-size: 28px;
+                line-height: 1.2;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 30px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 250px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .hero-btn i {
+                font-size: 18px;
+            }
+
+            /* Features Mobile */
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-icon {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            .feature-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .feature-description {
+                font-size: 14px;
+            }
+
+            /* Games Mobile */
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-card {
+                margin-bottom: 15px;
+            }
+
+            .game-image {
+                height: 120px;
+            }
+
+            .game-info {
+                padding: 15px;
+            }
+
+            .game-title {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .game-description {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+
+            .play-btn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            /* Modal Mobile Optimization */
+            .modal-content {
+                width: 95%;
+                max-height: 90vh;
+                margin: 5vh auto;
+            }
+
+            .modal-header h3 {
+                font-size: 20px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+
+            .amount-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .amount-btn {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .modal-footer {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .modal-footer button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            /* Footer Mobile */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-section h3 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .footer-section ul li {
+                margin-bottom: 8px;
+            }
+
+            .footer-section ul li a {
+                font-size: 14px;
+            }
+
+            .footer-bottom {
+                font-size: 12px;
+                padding-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .hero-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+                min-width: 140px;
+            }
+
+            .hero-btn i {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .feature-icon {
+                font-size: 32px;
+            }
+
+            .taskbar-btn {
+                padding: 5px 6px;
+                min-width: 45px;
+                font-size: 9px;
+            }
+
+            .taskbar-btn i {
+                font-size: 16px;
+            }
+
+            body {
+                padding-bottom: 65px;
+            }
+
+            .mobile-nav {
+                width: 90%;
+                max-width: 280px;
+            }
+
+            .mobile-action-buttons {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .mobile-action-btn {
+                padding: 8px;
+                font-size: 11px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Top Taskbar -->
+    <div class="top-taskbar">
+        <div class="top-taskbar-container">
+            <div class="top-taskbar-left">
+                <button class="top-taskbar-btn" onclick="showNotifications()">
+                    <i class="material-icons">notifications</i>
+                    <span>Notifications</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="top-taskbar-btn" onclick="showMessages()">
+                    <i class="material-icons">message</i>
+                    <span>Messages</span>
+                    <span class="message-badge">2</span>
+                </button>
+            </div>
+            <div class="top-taskbar-center">
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span class="live-text">LIVE</span>
+                </div>
+                <div class="current-time" id="currentTime">00:00:00</div>
+            </div>
+            <div class="top-taskbar-right">
+                <button class="top-taskbar-btn" onclick="toggleLanguage()">
+                    <i class="material-icons">language</i>
+                    <span>EN</span>
+                </button>
+                <button class="top-taskbar-btn" onclick="toggleTheme()">
+                    <i class="material-icons">brightness_6</i>
+                    <span>Theme</span>
+                </button>
+                <button class="top-taskbar-btn" onclick="showHelp()">
+                    <i class="material-icons">help_outline</i>
+                    <span>Help</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1280,22 +2052,6 @@
                     WangSeng87
                 </a>
                 <div class="nav-links">
-                    <a href="#home" class="nav-btn">
-                        <i class="material-icons">home</i>
-                        <span>Home</span>
-                    </a>
-                    <a href="#games" class="nav-btn">
-                        <i class="material-icons">sports_esports</i>
-                        <span>Games</span>
-                    </a>
-                    <a href="#features" class="nav-btn">
-                        <i class="material-icons">star</i>
-                        <span>Features</span>
-                    </a>
-                    <a href="#contact" class="nav-btn">
-                        <i class="material-icons">contact_support</i>
-                        <span>Contact</span>
-                    </a>
                     <div class="balance-display">
                         <i class="material-icons">account_balance_wallet</i>
                         <span class="balance-amount" id="balanceAmount">$1,250.00</span>
@@ -1320,9 +2076,93 @@
                         Logout
                     </button>
                 </div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="material-icons">menu</i>
+                </button>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-title">Menu</div>
+            <button class="mobile-nav-close" onclick="toggleMobileMenu()">
+                <i class="material-icons">close</i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <div class="mobile-nav-section-title">Navigation</div>
+            <a href="#home" class="mobile-nav-link" onclick="toggleMobileMenu()">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+            <a href="#games" class="mobile-nav-link" onclick="toggleMobileMenu()">
+                <i class="material-icons">sports_esports</i>
+                <span>Games</span>
+            </a>
+            <a href="#features" class="mobile-nav-link" onclick="toggleMobileMenu()">
+                <i class="material-icons">star</i>
+                <span>Features</span>
+            </a>
+            <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">
+                <i class="material-icons">contact_support</i>
+                <span>Contact</span>
+            </a>
+            <div class="mobile-nav-section-title">Quick Access</div>
+            <a href="#" class="mobile-nav-link" onclick="showHistory(); toggleMobileMenu();">
+                <i class="material-icons">history</i>
+                <span>History</span>
+            </a>
+            <a href="#" class="mobile-nav-link" onclick="showPromotion(); toggleMobileMenu();">
+                <i class="material-icons">card_giftcard</i>
+                <span>Promotion</span>
+            </a>
+            <a href="#" class="mobile-nav-link" onclick="showLiveChat(); toggleMobileMenu();">
+                <i class="material-icons">chat</i>
+                <span>Live Chat</span>
+            </a>
+            <a href="#" class="mobile-nav-link" onclick="showSetting(); toggleMobileMenu();">
+                <i class="material-icons">settings</i>
+                <span>Setting</span>
+            </a>
+        </div>
+        <div class="mobile-nav-actions">
+            <div class="mobile-balance-display">
+                <i class="material-icons">account_balance_wallet</i>
+                <span class="balance-amount" id="mobileBalanceAmount">$1,250.00</span>
+            </div>
+            <div class="mobile-action-buttons">
+                <button class="mobile-action-btn" onclick="refreshBalance(); toggleMobileMenu();">
+                    <i class="material-icons">refresh</i>
+                    <span>Refresh</span>
+                </button>
+                <button class="mobile-action-btn" onclick="showDeposit(); toggleMobileMenu();">
+                    <i class="material-icons">add_circle</i>
+                    <span>Deposit</span>
+                </button>
+                <button class="mobile-action-btn secondary" onclick="showWithdraw(); toggleMobileMenu();">
+                    <i class="material-icons">remove_circle</i>
+                    <span>Withdraw</span>
+                </button>
+                <button class="mobile-action-btn secondary" onclick="showHistory(); toggleMobileMenu();">
+                    <i class="material-icons">history</i>
+                    <span>History</span>
+                </button>
+            </div>
+            <button id="mobileLoginBtn" class="mobile-login-btn" onclick="showLogin(); toggleMobileMenu();">
+                <i class="material-icons">login</i>
+                <span>Login</span>
+            </button>
+            <button id="mobileLogoutBtn" class="mobile-login-btn danger" onclick="logout(); toggleMobileMenu();" style="display: none;">
+                <i class="material-icons">logout</i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="toggleMobileMenu()"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -2083,11 +2923,15 @@
         function updateBalanceDisplay() {
             const balanceElement = document.getElementById('balanceAmount');
             const modalBalanceElement = document.getElementById('modalBalance');
+            const mobileBalanceElement = document.getElementById('mobileBalanceAmount');
             
             const formattedBalance = currentBalance.toFixed(2);
             balanceElement.textContent = `$${formattedBalance}`;
             if (modalBalanceElement) {
                 modalBalanceElement.textContent = `$${formattedBalance}`;
+            }
+            if (mobileBalanceElement) {
+                mobileBalanceElement.textContent = `$${formattedBalance}`;
             }
         }
 
@@ -2250,10 +3094,14 @@
         function updateLoginState() {
             const loginBtn = document.getElementById('loginBtn');
             const logoutBtn = document.getElementById('logoutBtn');
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+            const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
             
             if (isLoggedIn) {
                 loginBtn.style.display = 'none';
                 logoutBtn.style.display = 'flex';
+                mobileLoginBtn.style.display = 'none';
+                mobileLogoutBtn.style.display = 'flex';
                 
                 // Update welcome message if needed
                 const heroTitle = document.querySelector('.hero h1');
@@ -2263,12 +3111,29 @@
             } else {
                 loginBtn.style.display = 'flex';
                 logoutBtn.style.display = 'none';
+                mobileLoginBtn.style.display = 'flex';
+                mobileLogoutBtn.style.display = 'none';
                 
                 // Reset welcome message
                 const heroTitle = document.querySelector('.hero h1');
                 if (heroTitle) {
                     heroTitle.textContent = 'Welcome to WangSeng87';
                 }
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('mobileNavOverlay');
+            
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
             }
         }
 
@@ -2433,6 +3298,51 @@
         
         // Check login status on page load
         checkLoginStatus();
+
+        // Top Taskbar Functions
+        function showNotifications() {
+            showNotification('You have 3 new notifications', 'info');
+        }
+
+        function showMessages() {
+            showNotification('You have 2 new messages', 'info');
+        }
+
+        function toggleLanguage() {
+            const currentLang = document.querySelector('.top-taskbar-right .top-taskbar-btn:nth-child(1) span').textContent;
+            const newLang = currentLang === 'EN' ? '中文' : 'EN';
+            document.querySelector('.top-taskbar-right .top-taskbar-btn:nth-child(1) span').textContent = newLang;
+            showNotification(`Language changed to ${newLang}`, 'success');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            showNotification(`Theme changed to ${isLight ? 'Light' : 'Dark'}`, 'success');
+        }
+
+        function showHelp() {
+            showNotification('Help center opened', 'info');
+        }
+
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            const timeElement = document.getElementById('currentTime');
+            if (timeElement) {
+                timeElement.textContent = timeString;
+            }
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call
 
         // Additional Button Functions
         function showHistory() {
