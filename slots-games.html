@@ -69,19 +69,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             text-decoration: none;
         }
 
-.logo-video {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--primary-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    background: rgba(255, 215, 0, 0.1);
-}
+        .logo-video {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            background: rgba(255, 215, 0, 0.1);
+        }
 
         .logo-video video {
             width: 100%;
@@ -91,9 +91,10 @@
 
         .logo h1 {
             color: var(--primary-gold);
-            font-size: 28px;
+            font-size: 48px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
         }
 
         .back-btn {
@@ -143,12 +144,50 @@
         }
 
         /* Categories */
-        .categories {
+        .provider-tabs {
             display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: rgba(114, 35, 126, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .provider-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .provider-tab:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .provider-tab.active {
+            background: linear-gradient(135deg, var(--primary-gold), var(--warning));
+            color: var(--bg-dark);
+            border-color: var(--primary-gold);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .category-nav {
+            display: flex;
+            justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .category-btn {
@@ -309,6 +348,20 @@
             font-weight: 700;
             z-index: 10;
             box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .h5-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
         }
 
         @keyframes pulse {
@@ -485,6 +538,16 @@
                 gap: 15px;
             }
 
+            .logo-video {
+                width: 80px;
+                height: 80px;
+                border: 3px solid var(--primary-gold);
+            }
+
+            .logo h1 {
+                font-size: 32px;
+            }
+
             .main-content {
                 margin-top: 120px;
             }
@@ -535,30 +598,31 @@
             <h1 class="page-title">🎰 Premium Slots Games</h1>
             <p class="page-subtitle">Discover the most exciting slot games with massive jackpots and thrilling features</p>
             
-            <!-- Categories -->
-            <div class="categories">
-                <button class="category-btn active" data-category="all">
-                    <i class="material-icons">grid_view</i>
-                    All Games
-                </button>
-                <button class="category-btn" data-category="jackpot">
-                    <i class="material-icons">diamond</i>
-                    Jackpots
-                </button>
-                <button class="category-btn" data-category="new">
-                    <i class="material-icons">new_releases</i>
-                    New Games
-                </button>
-                <button class="category-btn" data-category="popular">
-                    <i class="material-icons">local_fire_department</i>
-                    Popular
-                </button>
-                <button class="category-btn" data-category="classic">
-                    <i class="material-icons">casino</i>
-                    Classic
-                </button>
+            <!-- Provider Tabs -->
+            <div class="provider-tabs">
+                <button class="provider-tab active" data-provider="all">All Providers</button>
+                <button class="provider-tab" data-provider="yggdrasil">YGGDRASIL</button>
+                <button class="provider-tab" data-provider="evoplay">EVOPLAY</button>
+                <button class="provider-tab" data-provider="slot4d">Slot 4D</button>
+                <button class="provider-tab" data-provider="btgaming">BT GAMING</button>
+                <button class="provider-tab" data-provider="imperium">IMPERIUM</button>
+                <button class="provider-tab" data-provider="mario">MARIO CLUB</button>
+                <button class="provider-tab" data-provider="playace">PLAYACE</button>
             </div>
-            
+
+            <!-- Category Navigation -->
+            <div class="category-nav">
+                <button class="category-btn active" data-category="all">All Games</button>
+                <button class="category-btn" data-category="slots">Slots</button>
+                <button class="category-btn" data-category="fishing">Fishing</button>
+                <button class="category-btn" data-category="arcade">Arcade</button>
+                <button class="category-btn" data-category="classic">Classic</button>
+                <button class="category-btn" data-category="jackpot">Progressive</button>
+                <button class="category-btn" data-category="new">New Games</button>
+                <button class="category-btn" data-category="popular">Popular</button>
+            </div>
+
+                        
             <!-- Filters -->
             <div class="filters">
                 <div class="filter-row">
@@ -908,28 +972,1370 @@
                     </div>
                 </div>
 
-                <div class="game-card" data-provider="pragmatic" data-volatility="medium" data-features="bonus,free-spins" data-category="popular">
+                <!-- Netplay.vip Style Games -->
+                <div class="game-card" data-provider="evo333" data-volatility="high" data-features="free-spins,bonus" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
                     <div class="game-image">
-                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Sweet+Bonanza" alt="Sweet Bonanza">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=EVO333+Warrior" alt="EVO333 Warrior">
                         <div class="game-overlay">
-                            <button class="play-btn" onclick="playGame('sweet-bonanza')">Play Now</button>
-                            <button class="demo-btn" onclick="tryDemo('sweet-bonanza')">Try Demo</button>
+                            <button class="play-btn" onclick="playGame('evo333-warrior')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('evo333-warrior')">Try Demo</button>
                         </div>
                     </div>
                     <div class="game-info">
-                        <h3 class="game-title">Sweet Bonanza</h3>
+                        <h3 class="game-title">Warrior Princess</h3>
                         <p class="game-provider">
                             <i class="material-icons" style="font-size: 16px;">verified</i>
-                            Pragmatic Play
+                            EVO333
                         </p>
                         <div class="game-stats">
-                            <span class="game-rtp">RTP: 96.48%</span>
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evo333" data-volatility="high" data-features="free-spins,multiplier" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=EVO333+Warrior+2" alt="EVO333 Warrior 2">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('evo333-warrior-2')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('evo333-warrior-2')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Warrior Queen</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVO333
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="slot4d" data-volatility="medium" data-features="free-spins,bonus" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Slot4D+Pink+Cat" alt="Slot4D Pink Cat">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('slot4d-pink-cat')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('slot4d-pink-cat')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Pink Cat Fortune</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.2%</span>
                             <span class="game-volatility volatility-medium">Medium Volatility</span>
                         </div>
                         <div class="game-features">
-                            <span class="feature-tag">Cluster Pays</span>
                             <span class="feature-tag">Free Spins</span>
-                            <span class="feature-tag">Bonus Buy</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="free-spins,multiplier" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Yggdrasil+Golden" alt="Yggdrasil Golden Warrior">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('yggdrasil-golden')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('yggdrasil-golden')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Golden Warrior</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="btgaming" data-volatility="medium" data-features="free-spins,bonus" data-category="new">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=BT+Gaming+Anime" alt="BT Gaming Anime">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('btgaming-anime')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('btgaming-anime')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Anime Adventure</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="imperium" data-volatility="high" data-features="free-spins,bonus" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Imperium+Ancient" alt="Imperium Ancient">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('imperium-ancient')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('imperium-ancient')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Ancient Empire</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            IMPERIUM GAMES
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.6%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="mario" data-volatility="low" data-features="classic" data-category="classic">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Mario+Club" alt="Mario Club">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('mario-club')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('mario-club')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mario Adventure</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            MARIO CLUB
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.8%</span>
+                            <span class="game-volatility volatility-low">Low Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="playace" data-volatility="medium" data-features="free-spins,bonus" data-category="new">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=PlayAce+Fantasy" alt="PlayAce Fantasy">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('playace-fantasy')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('playace-fantasy')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fantasy Kingdom</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            PLAYACE YOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Netplay Style Games -->
+                <div class="game-card" data-provider="evo333" data-volatility="high" data-features="jackpot,free-spins" data-category="jackpot">
+                    <div class="jackpot-badge">MEGA JACKPOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=EVO333+Jackpot" alt="EVO333 Jackpot">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('evo333-jackpot')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('evo333-jackpot')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Jackpot Warriors</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVO333
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.5%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Progressive</span>
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="slot4d" data-volatility="medium" data-features="free-spins,multiplier" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Slot4D+Lucky" alt="Slot4D Lucky">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('slot4d-lucky')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('slot4d-lucky')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Lucky Cat Paradise</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.7%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="megaways,free-spins" data-category="new">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Yggdrasil+Megaways" alt="Yggdrasil Megaways">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('yggdrasil-megaways')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('yggdrasil-megaways')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Warrior Megaways</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.0%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Megaways</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="btgaming" data-volatility="medium" data-features="bonus,free-spins" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=BT+Gaming+Anime+2" alt="BT Gaming Anime 2">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('btgaming-anime-2')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('btgaming-anime-2')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Anime Legends</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="imperium" data-volatility="high" data-features="free-spins,bonus" data-category="popular">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Imperium+Rome" alt="Imperium Rome">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('imperium-rome')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('imperium-rome')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Rome Empire</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            IMPERIUM GAMES
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="mario" data-volatility="low" data-features="classic" data-category="classic">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Mario+Racing" alt="Mario Racing">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('mario-racing')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('mario-racing')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mario Racing</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            MARIO CLUB
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.0%</span>
+                            <span class="game-volatility volatility-low">Low Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="playace" data-volatility="medium" data-features="free-spins,multiplier" data-category="new">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=PlayAce+Fantasy+2" alt="PlayAce Fantasy 2">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('playace-fantasy-2')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('playace-fantasy-2')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fantasy Quest</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            PLAYACE YOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YGGDRASIL Games (50+ Games) -->
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="gigablox,free-spins" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Valley+of+the+Gods+2" alt="Valley of the Gods 2">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('valley-gods-2')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('valley-gods-2')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Valley of the Gods 2</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Gigablox</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="medium" data-features="splitz,free-spins" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Temple+of+Thunder" alt="Temple of Thunder">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('temple-thunder')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('temple-thunder')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Temple of Thunder</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Splitz</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="multimax,free-spins" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Multimax+Fortune" alt="Multimax Fortune">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('multimax-fortune')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('multimax-fortune')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Multimax Fortune</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">MultiMAX</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="medium" data-features="gigarise,free-spins" data-category="slots">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=GigaRise+Adventures" alt="GigaRise Adventures">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('gigarise-adventures')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('gigarise-adventures')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">GigaRise Adventures</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.2%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">GigaRise</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="doublemax,free-spins" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=DoubleMax+Riches" alt="DoubleMax Riches">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('doublemax-riches')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('doublemax-riches')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">DoubleMax Riches</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.0%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">DoubleMax</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="medium" data-features="wildfight,free-spins" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Wild+Fight+Arena" alt="Wild Fight Arena">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('wild-fight-arena')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('wild-fight-arena')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Wild Fight Arena</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Wild Fight</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Bonus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="duomax,free-spins" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=DuoMax+Legends" alt="DuoMax Legends">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('duomax-legends')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('duomax-legends')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">DuoMax Legends</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.6%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">DuoMax</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="medium" data-features="fastpot5,jackpot" data-category="jackpot">
+                    <div class="jackpot-badge">PROGRESSIVE</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=FastPot5+Millions" alt="FastPot5 Millions">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('fastpot5-millions')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('fastpot5-millions')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">FastPot5 Millions</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 94.0%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">FastPot5</span>
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Progressive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="yggdrasil" data-volatility="high" data-features="wildenergy,free-spins" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Wild+Energy+Storm" alt="Wild Energy Storm">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('wild-energy-storm')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('wild-energy-storm')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Wild Energy Storm</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            YGGDRASIL
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">WildEnergy</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EVOPLAY Games (30+ Games) -->
+                <div class="game-card" data-provider="evoplay" data-volatility="medium" data-features="bonus,free-spins" data-category="arcade">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Penalty+Shoot-out" alt="Penalty Shoot-out">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('penalty-shootout')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('penalty-shootout')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Penalty Shoot-out</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.0%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Sports</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="high" data-features="free-spins,multiplier" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Hot+Volcano" alt="Hot Volcano">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('hot-volcano')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('hot-volcano')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Hot Volcano</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="medium" data-features="fishing,bonus" data-category="fishing">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Greatest+Catch" alt="Greatest Catch">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('greatest-catch')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('greatest-catch')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Greatest Catch</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.2%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Fishing</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="high" data-features="bonus,free-spins" data-category="slots">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Temple+of+Thunder+2" alt="Temple of Thunder 2">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('temple-thunder-2')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('temple-thunder-2')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Temple of Thunder 2</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="medium" data-features="classic,free-spins" data-category="classic">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Fruit+Super+Nova" alt="Fruit Super Nova">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('fruit-super-nova')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('fruit-super-nova')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fruit Super Nova</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="low" data-features="classic,bonus" data-category="classic">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Hot+Triple+Sevens" alt="Hot Triple Sevens">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('hot-triple-sevens')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('hot-triple-sevens')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Hot Triple Sevens</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility volatility-low">Low Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="high" data-features="arcade,bonus" data-category="arcade">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Adrenaline+Rush" alt="Adrenaline Rush">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('adrenaline-rush')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('adrenaline-rush')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Adrenaline Rush</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Arcade</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Crash</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="medium" data-features="fishing,bonus" data-category="fishing">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Mega+Greatest+Catch" alt="Mega Greatest Catch">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('mega-greatest-catch')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('mega-greatest-catch')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mega Greatest Catch</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Fishing</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="high" data-features="bonus,free-spins" data-category="slots">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Train+of+Riches" alt="Train of Riches">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('train-of-riches')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('train-of-riches')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Train of Riches</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.6%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="evoplay" data-volatility="medium" data-features="bonus,free-spins" data-category="slots">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Sunstone+Riches" alt="Sunstone Riches">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('sunstone-riches')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('sunstone-riches')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Sunstone Riches</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            EVOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slot 4D Games (20+ Games) -->
+                <div class="game-card" data-provider="slot4d" data-volatility="medium" data-features="4d,bonus" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=4D+Dragon" alt="4D Dragon">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('4d-dragon')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('4d-dragon')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">4D Dragon Fortune</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">4D</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="slot4d" data-volatility="high" data-features="4d,jackpot" data-category="jackpot">
+                    <div class="jackpot-badge">PROGRESSIVE</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=4D+Million" alt="4D Million">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('4d-million')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('4d-million')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">4D Million Jackpot</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.8%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">4D</span>
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Progressive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="slot4d" data-volatility="medium" data-features="4d,bonus" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=4D+Phoenix" alt="4D Phoenix">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('4d-phoenix')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('4d-phoenix')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">4D Phoenix Rising</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.1%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">4D</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="slot4d" data-volatility="low" data-features="4d,classic" data-category="classic">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=4D+Lucky" alt="4D Lucky">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('4d-lucky')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('4d-lucky')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">4D Lucky Seven</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            Slot 4D
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-low">Low Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">4D</span>
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Bonus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BT GAMING Games (20+ Games) -->
+                <div class="game-card" data-provider="btgaming" data-volatility="medium" data-features="anime,bonus" data-category="arcade">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Anime+Battle" alt="Anime Battle">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('anime-battle')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('anime-battle')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Anime Battle Arena</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.2%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Anime</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="btgaming" data-volatility="high" data-features="fishing,bonus" data-category="fishing">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Fishing+Master" alt="Fishing Master">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('fishing-master')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('fishing-master')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fishing Master Pro</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Fishing</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="btgaming" data-volatility="medium" data-features="anime,free-spins" data-category="arcade">
+                    <div class="new-badge">NEW</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Anime+Saga" alt="Anime Saga">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('anime-saga')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('anime-saga')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Anime Saga Quest</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.6%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Anime</span>
+                            <span class="feature-tag">Free Spins</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="btgaming" data-volatility="high" data-features="arcade,bonus" data-category="arcade">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Ninja+Rush" alt="Ninja Rush">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('ninja-rush')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('ninja-rush')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Ninja Rush Adventure</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            BT GAMING
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.3%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Arcade</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Multiplier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMPERIUM GAMES (15+ Games) -->
+                <div class="game-card" data-provider="imperium" data-volatility="high" data-features="empire,bonus" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Roman+Empire" alt="Roman Empire">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('roman-empire')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('roman-empire')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Roman Empire Glory</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            IMPERIUM GAMES
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.7%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Empire</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="imperium" data-volatility="medium" data-features="egypt,bonus" data-category="slots">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Egypt+Treasure" alt="Egypt Treasure">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('egypt-treasure')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('egypt-treasure')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Egypt Treasure Hunt</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            IMPERIUM GAMES
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.4%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Egypt</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Wilds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="imperium" data-volatility="high" data-features="jackpot,free-spins" data-category="jackpot">
+                    <div class="jackpot-badge">MEGA JACKPOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Imperial+Jackpot" alt="Imperial Jackpot">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('imperial-jackpot')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('imperial-jackpot')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Imperial Jackpot</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            IMPERIUM GAMES
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.2%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Progressive</span>
+                            <span class="feature-tag">Bonus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MARIO CLUB Games (10+ Games) -->
+                <div class="game-card" data-provider="mario" data-volatility="low" data-features="mario,classic" data-category="classic">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Mario+Kart" alt="Mario Kart">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('mario-kart')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('mario-kart')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mario Kart Racing</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            MARIO CLUB
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.8%</span>
+                            <span class="game-volatility volatility-low">Low Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Mario</span>
+                            <span class="feature-tag">Classic</span>
+                            <span class="feature-tag">Bonus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="mario" data-volatility="medium" data-features="mario,bonus" data-category="arcade">
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Mario+Party" alt="Mario Party">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('mario-party')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('mario-party')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mario Party Fun</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            MARIO CLUB
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.5%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Mario</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAYACE Games (15+ Games) -->
+                <div class="game-card" data-provider="playace" data-volatility="medium" data-features="fantasy,bonus" data-category="slots">
+                    <div class="hot-badge">HOT</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Fantasy+World" alt="Fantasy World">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('fantasy-world')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('fantasy-world')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Fantasy World Magic</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            PLAYACE YOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 96.6%</span>
+                            <span class="game-volatility volatility-medium">Medium Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Fantasy</span>
+                            <span class="feature-tag">Bonus</span>
+                            <span class="feature-tag">Free Spins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-provider="playace" data-volatility="high" data-features="jackpot,free-spins" data-category="jackpot">
+                    <div class="jackpot-badge">PROGRESSIVE</div>
+                    <div class="h5-badge">H5</div>
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/72237e/ffffff?text=Dragon+Jackpot" alt="Dragon Jackpot">
+                        <div class="game-overlay">
+                            <button class="play-btn" onclick="playGame('dragon-jackpot')">Play Now</button>
+                            <button class="demo-btn" onclick="tryDemo('dragon-jackpot')">Try Demo</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Dragon Jackpot King</h3>
+                        <p class="game-provider">
+                            <i class="material-icons" style="font-size: 16px;">verified</i>
+                            PLAYACE YOPLAY
+                        </p>
+                        <div class="game-stats">
+                            <span class="game-rtp">RTP: 95.6%</span>
+                            <span class="game-volatility volatility-high">High Volatility</span>
+                        </div>
+                        <div class="game-features">
+                            <span class="feature-tag">Jackpot</span>
+                            <span class="feature-tag">Progressive</span>
+                            <span class="feature-tag">Bonus</span>
                         </div>
                     </div>
                 </div>
@@ -940,18 +2346,71 @@
     <script>
         // Game data
         const games = [
-            { id: 'mega-moolah', name: 'Mega Moolah', provider: 'Microgaming' },
-            { id: 'gates-of-olympus', name: 'Gates of Olympus', provider: 'Pragmatic Play' },
-            { id: 'sugar-rush', name: 'Sugar Rush', provider: 'Pragmatic Play' },
-            { id: 'starburst', name: 'Starburst', provider: 'NetEnt' },
-            { id: 'dog-house-megaways', name: 'The Dog House Megaways', provider: 'Pragmatic Play' },
-            { id: 'book-of-dead-2', name: 'Book of Dead 2', provider: 'Play\'n GO' },
-            { id: 'gonzo-megaways', name: 'Gonzo\'s Quest Megaways', provider: 'Red Tiger' },
-            { id: 'break-da-bank', name: 'Break Da Bank', provider: 'Microgaming' },
-            { id: 'valley-of-the-gods', name: 'Valley of the Gods', provider: 'Yggdrasil' },
-            { id: 'big-bad-wolf', name: 'Big Bad Wolf', provider: 'Quickspin' },
-            { id: 'jammin-jars-2', name: 'Jammin\' Jars 2', provider: 'Push Gaming' },
-            { id: 'sweet-bonanza', name: 'Sweet Bonanza', provider: 'Pragmatic Play' }
+            // Netplay.vip Style Games
+            { id: 'evo333-warrior', name: 'Warrior Princess', provider: 'EVO333' },
+            { id: 'evo333-warrior-2', name: 'Warrior Queen', provider: 'EVO333' },
+            { id: 'slot4d-pink-cat', name: 'Pink Cat Fortune', provider: 'Slot 4D' },
+            { id: 'yggdrasil-golden', name: 'Golden Warrior', provider: 'YGGDRASIL' },
+            { id: 'btgaming-anime', name: 'Anime Adventure', provider: 'BT GAMING' },
+            { id: 'imperium-ancient', name: 'Ancient Empire', provider: 'IMPERIUM GAMES' },
+            { id: 'mario-club', name: 'Mario Adventure', provider: 'MARIO CLUB' },
+            { id: 'playace-fantasy', name: 'Fantasy Kingdom', provider: 'PLAYACE YOPLAY' },
+            // Additional Netplay Style Games
+            { id: 'evo333-jackpot', name: 'Jackpot Warriors', provider: 'EVO333' },
+            { id: 'slot4d-lucky', name: 'Lucky Cat Paradise', provider: 'Slot 4D' },
+            { id: 'yggdrasil-megaways', name: 'Warrior Megaways', provider: 'YGGDRASIL' },
+            { id: 'btgaming-anime-2', name: 'Anime Legends', provider: 'BT GAMING' },
+            { id: 'imperium-rome', name: 'Rome Empire', provider: 'IMPERIUM GAMES' },
+            { id: 'mario-racing', name: 'Mario Racing', provider: 'MARIO CLUB' },
+            { id: 'playace-fantasy-2', name: 'Fantasy Quest', provider: 'PLAYACE YOPLAY' },
+            
+            // YGGDRASIL Games (50+ Games)
+            { id: 'valley-gods-2', name: 'Valley of the Gods 2', provider: 'YGGDRASIL' },
+            { id: 'temple-thunder', name: 'Temple of Thunder', provider: 'YGGDRASIL' },
+            { id: 'multimax-fortune', name: 'Multimax Fortune', provider: 'YGGDRASIL' },
+            { id: 'gigarise-adventures', name: 'GigaRise Adventures', provider: 'YGGDRASIL' },
+            { id: 'doublemax-riches', name: 'DoubleMax Riches', provider: 'YGGDRASIL' },
+            { id: 'wild-fight-arena', name: 'Wild Fight Arena', provider: 'YGGDRASIL' },
+            { id: 'duomax-legends', name: 'DuoMax Legends', provider: 'YGGDRASIL' },
+            { id: 'fastpot5-millions', name: 'FastPot5 Millions', provider: 'YGGDRASIL' },
+            { id: 'wild-energy-storm', name: 'Wild Energy Storm', provider: 'YGGDRASIL' },
+            
+            // EVOPLAY Games (30+ Games)
+            { id: 'penalty-shootout', name: 'Penalty Shoot-out', provider: 'EVOPLAY' },
+            { id: 'hot-volcano', name: 'Hot Volcano', provider: 'EVOPLAY' },
+            { id: 'greatest-catch', name: 'Greatest Catch', provider: 'EVOPLAY' },
+            { id: 'temple-thunder-2', name: 'Temple of Thunder 2', provider: 'EVOPLAY' },
+            { id: 'fruit-super-nova', name: 'Fruit Super Nova', provider: 'EVOPLAY' },
+            { id: 'hot-triple-sevens', name: 'Hot Triple Sevens', provider: 'EVOPLAY' },
+            { id: 'adrenaline-rush', name: 'Adrenaline Rush', provider: 'EVOPLAY' },
+            { id: 'mega-greatest-catch', name: 'Mega Greatest Catch', provider: 'EVOPLAY' },
+            { id: 'train-of-riches', name: 'Train of Riches', provider: 'EVOPLAY' },
+            { id: 'sunstone-riches', name: 'Sunstone Riches', provider: 'EVOPLAY' },
+            
+            // Slot 4D Games (20+ Games)
+            { id: '4d-dragon', name: '4D Dragon Fortune', provider: 'Slot 4D' },
+            { id: '4d-million', name: '4D Million Jackpot', provider: 'Slot 4D' },
+            { id: '4d-phoenix', name: '4D Phoenix Rising', provider: 'Slot 4D' },
+            { id: '4d-lucky', name: '4D Lucky Seven', provider: 'Slot 4D' },
+            
+            // BT GAMING Games (20+ Games)
+            { id: 'anime-battle', name: 'Anime Battle Arena', provider: 'BT GAMING' },
+            { id: 'fishing-master', name: 'Fishing Master Pro', provider: 'BT GAMING' },
+            { id: 'anime-saga', name: 'Anime Saga Quest', provider: 'BT GAMING' },
+            { id: 'ninja-rush', name: 'Ninja Rush Adventure', provider: 'BT GAMING' },
+            
+            // IMPERIUM GAMES (15+ Games)
+            { id: 'roman-empire', name: 'Roman Empire Glory', provider: 'IMPERIUM GAMES' },
+            { id: 'egypt-treasure', name: 'Egypt Treasure Hunt', provider: 'IMPERIUM GAMES' },
+            { id: 'imperial-jackpot', name: 'Imperial Jackpot', provider: 'IMPERIUM GAMES' },
+            
+            // MARIO CLUB Games (10+ Games)
+            { id: 'mario-kart', name: 'Mario Kart Racing', provider: 'MARIO CLUB' },
+            { id: 'mario-party', name: 'Mario Party Fun', provider: 'MARIO CLUB' },
+            
+            // PLAYACE Games (15+ Games)
+            { id: 'fantasy-world', name: 'Fantasy World Magic', provider: 'PLAYACE YOPLAY' },
+            { id: 'dragon-jackpot', name: 'Dragon Jackpot King', provider: 'PLAYACE YOPLAY' }
         ];
 
         // Play game function
@@ -988,27 +2447,69 @@
             }
         }
 
-        // Category filtering
+        // Get elements once
         const categoryBtns = document.querySelectorAll('.category-btn');
         const gameCards = document.querySelectorAll('.game-card');
+        const providerTabs = document.querySelectorAll('.provider-tab');
 
+        // Provider tabs functionality
+        providerTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                providerTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const selectedProvider = tab.dataset.provider;
+                filterAllGames();
+            });
+        });
+
+        // Category buttons functionality
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                const category = btn.dataset.category;
-                
-                gameCards.forEach(card => {
-                    if (category === 'all' || card.dataset.category.includes(category)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                filterAllGames();
             });
         });
+
+        function getCurrentProvider() {
+            const activeTab = document.querySelector('.provider-tab.active');
+            return activeTab ? activeTab.dataset.provider : 'all';
+        }
+
+        function getCurrentCategory() {
+            const activeBtn = document.querySelector('.category-btn.active');
+            return activeBtn ? activeBtn.dataset.category : 'all';
+        }
+
+        function filterAllGames() {
+            const provider = getCurrentProvider();
+            const category = getCurrentCategory();
+            
+            gameCards.forEach(card => {
+                const cardProvider = card.dataset.provider;
+                const cardCategory = card.dataset.category;
+                
+                const providerMatch = provider === 'all' || cardProvider === provider;
+                const categoryMatch = category === 'all' || cardCategory === category;
+                
+                if (providerMatch && categoryMatch) {
+                    card.style.display = 'block';
+                    // Add animation
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         // Provider filter
         document.getElementById('providerFilter').addEventListener('change', filterGames);
@@ -1064,6 +2565,7 @@
             });
         }, observerOptions);
 
+        
         // Observe game cards
         gameCards.forEach(card => {
             card.style.opacity = '0';
