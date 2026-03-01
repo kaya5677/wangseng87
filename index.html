@@ -35,7 +35,6 @@
             --success: #4caf50;
             --danger: #e74c3c;
             --warning: #f39c12;
-            --info: #2196F3;
             --card-bg: rgba(114, 35, 126, 0.2);
             --border-color: rgba(255, 215, 0, 0.2);
         }
@@ -97,6 +96,29 @@
 
         .nav-links a:hover {
             color: var(--primary-gold);
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary-gold);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn i {
+            font-size: 18px;
         }
 
         .btn-primary {
@@ -179,6 +201,49 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
             background: linear-gradient(135deg, #ffa726, var(--warning));
+        }
+
+        /* Login/Logout Buttons */
+        .btn-login {
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(114, 35, 126, 0.3);
+            background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+        }
+
+        .btn-logout {
+            background: linear-gradient(135deg, var(--danger), #ef5350);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            background: linear-gradient(135deg, #ef5350, var(--danger));
         }
 
         /* Balance Display */
@@ -791,6 +856,338 @@
         .notification-toast.error i {
             color: var(--danger);
         }
+
+        /* Login Modal Styles */
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .login-options a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .login-options a:hover {
+            color: var(--warning);
+        }
+
+        .terms-link {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-link:hover {
+            color: var(--warning);
+            text-decoration: underline;
+        }
+
+        /* History Modal Styles */
+        .history-filters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s;
+        }
+
+        .history-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .history-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .history-icon.win {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+
+        .history-icon.deposit {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--info);
+        }
+
+        .history-icon.bet {
+            background: rgba(255, 193, 7, 0.2);
+            color: var(--warning);
+        }
+
+        .history-icon.withdraw {
+            background: rgba(231, 76, 60, 0.2);
+            color: var(--danger);
+        }
+
+        .history-details {
+            flex: 1;
+        }
+
+        .history-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .history-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .history-amount {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .history-amount.positive {
+            color: var(--success);
+        }
+
+        .history-amount.negative {
+            color: var(--danger);
+        }
+
+        /* Promotion Modal Styles */
+        .promotion-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .promotion-tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .promotion-tab.active,
+        .promotion-tab:hover {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            border-color: var(--primary-gold);
+        }
+
+        .promotion-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .promotion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .promotion-header h4 {
+            color: var(--primary-gold);
+            margin: 0;
+        }
+
+        .promotion-badge {
+            background: var(--success);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .promotion-details {
+            margin-bottom: 15px;
+        }
+
+        .promotion-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+        }
+
+        .promotion-max {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .promotion-code {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--primary-gold);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--primary-gold);
+            display: inline-block;
+        }
+
+        .promotion-requirements p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Live Chat Modal Styles */
+        .live-chat-modal {
+            max-width: 600px;
+            height: 500px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+        }
+
+        .chat-message.user .message-content {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            background: var(--card-bg);
+        }
+
+        .message-text {
+            margin-bottom: 5px;
+        }
+
+        .message-time {
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        .chat-input-container {
+            padding: 0 20px;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+        }
+
+        .chat-send-btn {
+            background: var(--primary-gold);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chat-send-btn:hover {
+            background: var(--warning);
+            transform: scale(1.05);
+        }
+
+        /* Settings Modal Styles */
+        .setting-sections {
+            display: grid;
+            gap: 30px;
+        }
+
+        .setting-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .setting-section h4 {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -806,10 +1203,38 @@
                     WangSeng87
                 </a>
                 <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#games">Games</a>
-                    <a href="#features">Features</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#home" class="nav-btn">
+                        <i class="material-icons">home</i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#games" class="nav-btn">
+                        <i class="material-icons">sports_esports</i>
+                        <span>Games</span>
+                    </a>
+                    <a href="#history" class="nav-btn" onclick="showHistory(); return false;">
+                        <i class="material-icons">history</i>
+                        <span>History</span>
+                    </a>
+                    <a href="#promotion" class="nav-btn" onclick="showPromotion(); return false;">
+                        <i class="material-icons">card_giftcard</i>
+                        <span>Promotion</span>
+                    </a>
+                    <a href="#live-chat" class="nav-btn" onclick="showLiveChat(); return false;">
+                        <i class="material-icons">chat</i>
+                        <span>Live Chat</span>
+                    </a>
+                    <a href="#setting" class="nav-btn" onclick="showSetting(); return false;">
+                        <i class="material-icons">settings</i>
+                        <span>Setting</span>
+                    </a>
+                    <a href="#features" class="nav-btn">
+                        <i class="material-icons">star</i>
+                        <span>Features</span>
+                    </a>
+                    <a href="#contact" class="nav-btn">
+                        <i class="material-icons">contact_support</i>
+                        <span>Contact</span>
+                    </a>
                     <div class="balance-display">
                         <i class="material-icons">account_balance_wallet</i>
                         <span class="balance-amount" id="balanceAmount">$1,250.00</span>
@@ -825,7 +1250,14 @@
                         <i class="material-icons">remove_circle</i>
                         Withdraw
                     </button>
-                    <a href="admin-login.html" class="btn-primary">Admin Login</a>
+                    <button id="loginBtn" class="btn-login" onclick="showLogin()" title="Login">
+                        <i class="material-icons">login</i>
+                        Login
+                    </button>
+                    <button id="logoutBtn" class="btn-logout" onclick="logout()" title="Logout" style="display: none;">
+                        <i class="material-icons">logout</i>
+                        Logout
+                    </button>
                 </div>
             </nav>
         </div>
@@ -1093,6 +1525,376 @@
         <span id="notificationMessage">Transaction successful!</span>
     </div>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Player Login</h3>
+                <button class="modal-close" onclick="closeModal('loginModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Username or Email</label>
+                    <input type="text" id="loginUsername" placeholder="Enter your username or email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                </div>
+                <div class="login-options">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <a href="#" class="register-link" onclick="showRegister(); return false;">Don't have an account? Register</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('loginModal')">Cancel</button>
+                <button class="btn-primary" onclick="processLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="modal-close" onclick="closeModal('registerModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="registerName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="registerUsername" placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="registerPhone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="registerPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms">
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="subscribeNewsletter">
+                        <span class="checkmark"></span>
+                        Subscribe to newsletter for bonuses and promotions
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('registerModal')">Cancel</button>
+                <button class="btn-primary" onclick="processRegister()">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Transaction History</h3>
+                <button class="modal-close" onclick="closeModal('historyModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="history-filters">
+                    <div class="form-group">
+                        <label>Transaction Type</label>
+                        <select id="historyType">
+                            <option value="all">All Transactions</option>
+                            <option value="deposit">Deposits</option>
+                            <option value="withdraw">Withdrawals</option>
+                            <option value="win">Winnings</option>
+                            <option value="bet">Bets</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Range</label>
+                        <select id="historyDateRange">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="all">All Time</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon win">
+                            <i class="material-icons">add_circle</i>
+                        </div>
+                        <div class="history-details">
+                            <div class="history-title">Slot Win - Mega Fortune</div>
+                            <div class="history-date">2024-03-01 14:35</div>
+                        </div>
+                        <div class="history-amount positive">+$250.00</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon deposit">
+                            <i class="material-icons">account_balance</i>
+                        </div>
+                        <div class="history-details">
+                            <div class="history-title">Deposit</div>
+                            <div class="history-date">2024-03-01 12:20</div>
+                        </div>
+                        <div class="history-amount positive">+$100.00</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon bet">
+                            <i class="material-icons">casino</i>
+                        </div>
+                        <div class="history-details">
+                            <div class="history-title">Bet - Lucky 7</div>
+                            <div class="history-date">2024-03-01 11:45</div>
+                        </div>
+                        <div class="history-amount negative">-$25.00</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon withdraw">
+                            <i class="material-icons">money_off</i>
+                        </div>
+                        <div class="history-details">
+                            <div class="history-title">Withdrawal</div>
+                            <div class="history-date">2024-02-28 16:30</div>
+                        </div>
+                        <div class="history-amount negative">-$200.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('historyModal')">Close</button>
+                <button class="btn-primary" onclick="exportHistory()">Export History</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotion Modal -->
+    <div id="promotionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Promotions & Bonuses</h3>
+                <button class="modal-close" onclick="closeModal('promotionModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="promotion-tabs">
+                    <button class="promotion-tab active" onclick="showPromotionTab('welcome')">Welcome Bonus</button>
+                    <button class="promotion-tab" onclick="showPromotionTab('daily')">Daily Bonus</button>
+                    <button class="promotion-tab" onclick="showPromotionTab('vip')">VIP Rewards</button>
+                </div>
+                <div class="promotion-content">
+                    <div class="promotion-card">
+                        <div class="promotion-header">
+                            <h4>Welcome Bonus</h4>
+                            <div class="promotion-badge">NEW</div>
+                        </div>
+                        <div class="promotion-details">
+                            <div class="promotion-amount">200% Match Bonus</div>
+                            <div class="promotion-max">Up to $1,000</div>
+                            <div class="promotion-code">Code: WELCOME200</div>
+                        </div>
+                        <div class="promotion-requirements">
+                            <p><i class="material-icons">info</i> Minimum deposit: $50</p>
+                            <p><i class="material-icons">info</i> Wagering: 35x</p>
+                            <p><i class="material-icons">info</i> Valid for: Slots & Live Casino</p>
+                        </div>
+                        <button class="btn-primary" onclick="claimPromotion('WELCOME200')">Claim Bonus</button>
+                    </div>
+                    <div class="promotion-card">
+                        <div class="promotion-header">
+                            <h4>Daily Reload</h4>
+                            <div class="promotion-badge">DAILY</div>
+                        </div>
+                        <div class="promotion-details">
+                            <div class="promotion-amount">50% Match Bonus</div>
+                            <div class="promotion-max">Up to $200</div>
+                            <div class="promotion-code">Code: DAILY50</div>
+                        </div>
+                        <div class="promotion-requirements">
+                            <p><i class="material-icons">info</i> Available once per day</p>
+                            <p><i class="material-icons">info</i> Minimum deposit: $25</p>
+                            <p><i class="material-icons">info</i> Wagering: 25x</p>
+                        </div>
+                        <button class="btn-primary" onclick="claimPromotion('DAILY50')">Claim Bonus</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('promotionModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Modal -->
+    <div id="liveChatModal" class="modal">
+        <div class="modal-content live-chat-modal">
+            <div class="modal-header">
+                <h3>Live Chat Support</h3>
+                <button class="modal-close" onclick="closeModal('liveChatModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="chat-container">
+                    <div class="chat-messages">
+                        <div class="chat-message support">
+                            <div class="message-avatar">
+                                <i class="material-icons">support_agent</i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-text">Hello! Welcome to WangSeng87 Live Chat. How can I help you today?</div>
+                                <div class="message-time">14:30</div>
+                            </div>
+                        </div>
+                        <div class="chat-message user">
+                            <div class="message-content">
+                                <div class="message-text">Hi, I have a question about the welcome bonus</div>
+                                <div class="message-time">14:32</div>
+                            </div>
+                        </div>
+                        <div class="chat-message support">
+                            <div class="message-avatar">
+                                <i class="material-icons">support_agent</i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-text">I'd be happy to help! Our welcome bonus offers a 200% match up to $1,000 with code WELCOME200. Minimum deposit is $50 with 35x wagering requirement.</div>
+                                <div class="message-time">14:33</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                            <button class="chat-send-btn" onclick="sendChatMessage()">
+                                <i class="material-icons">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('liveChatModal')">Close Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Setting Modal -->
+    <div id="settingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Account Settings</h3>
+                <button class="modal-close" onclick="closeModal('settingModal')">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-sections">
+                    <div class="setting-section">
+                        <h4>Profile Settings</h4>
+                        <div class="form-group">
+                            <label>Display Name</label>
+                            <input type="text" id="displayName" placeholder="Your display name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="settingEmail" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="settingPhone" placeholder="+1234567890">
+                        </div>
+                    </div>
+                    <div class="setting-section">
+                        <h4>Game Preferences</h4>
+                        <div class="form-group">
+                            <label>Default Currency</label>
+                            <select id="currency">
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Sound Effects</label>
+                            <select id="soundEffects">
+                                <option value="on">On</option>
+                                <option value="off">Off</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Animation Quality</label>
+                            <select id="animationQuality">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="setting-section">
+                        <h4>Security Settings</h4>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="twoFactorAuth">
+                                <span class="checkmark"></span>
+                                Enable Two-Factor Authentication
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="loginNotifications">
+                                <span class="checkmark"></span>
+                                Email notifications for login
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="sessionTimeout">
+                                <span class="checkmark"></span>
+                                Auto-logout after 30 minutes
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('settingModal')">Cancel</button>
+                <button class="btn-primary" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1167,6 +1969,8 @@
 
         // Balance and Transaction Functions
         let currentBalance = 1250.00;
+        let isLoggedIn = false;
+        let currentUser = null;
 
         function refreshBalance() {
             const refreshBtn = document.querySelector('.btn-refresh');
@@ -1197,6 +2001,198 @@
             balanceElement.textContent = `$${formattedBalance}`;
             if (modalBalanceElement) {
                 modalBalanceElement.textContent = `$${formattedBalance}`;
+            }
+        }
+
+        function showLogin() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showRegister() {
+            // Close login modal if open
+            closeModal('loginModal');
+            
+            // Open register modal
+            const modal = document.getElementById('registerModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function processLogin() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            if (!username || !password) {
+                showNotification('Please enter both username and password', 'error');
+                return;
+            }
+            
+            // Simulate login process
+            const loginBtn = event.target;
+            loginBtn.innerHTML = '<span class="loading"></span> Logging in...';
+            loginBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Demo login - accept any credentials
+                currentUser = username;
+                isLoggedIn = true;
+                
+                // Store session
+                if (rememberMe) {
+                    localStorage.setItem('wangseng87_user', username);
+                    localStorage.setItem('wangseng87_logged_in', 'true');
+                }
+                
+                updateLoginState();
+                closeModal('loginModal');
+                showNotification(`Welcome back, ${username}!`, 'success');
+                loginBtn.innerHTML = 'Login';
+                loginBtn.disabled = false;
+                
+                // Clear form
+                document.getElementById('loginUsername').value = '';
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('rememberMe').checked = false;
+            }, 1500);
+        }
+
+        function processRegister() {
+            const name = document.getElementById('registerName').value;
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const phone = document.getElementById('registerPhone').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            const subscribeNewsletter = document.getElementById('subscribeNewsletter').checked;
+            
+            // Validation
+            if (!name || !username || !email || !password || !confirmPassword) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            if (username.length < 3) {
+                showNotification('Username must be at least 3 characters', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                showNotification('You must agree to the Terms of Service', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Simulate registration process
+            const registerBtn = event.target;
+            registerBtn.innerHTML = '<span class="loading"></span> Creating Account...';
+            registerBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Store user data (demo)
+                const userData = {
+                    name: name,
+                    username: username,
+                    email: email,
+                    phone: phone,
+                    password: password,
+                    subscribeNewsletter: subscribeNewsletter,
+                    registeredAt: new Date().toISOString()
+                };
+                
+                // Save to localStorage (demo)
+                localStorage.setItem('wangseng87_user_data', JSON.stringify(userData));
+                
+                // Auto-login after registration
+                currentUser = username;
+                isLoggedIn = true;
+                localStorage.setItem('wangseng87_user', username);
+                localStorage.setItem('wangseng87_logged_in', 'true');
+                
+                updateLoginState();
+                closeModal('registerModal');
+                showNotification(`Account created successfully! Welcome to WangSeng87, ${name}!`, 'success');
+                registerBtn.innerHTML = 'Create Account';
+                registerBtn.disabled = false;
+                
+                // Clear form
+                document.getElementById('registerName').value = '';
+                document.getElementById('registerUsername').value = '';
+                document.getElementById('registerEmail').value = '';
+                document.getElementById('registerPhone').value = '';
+                document.getElementById('registerPassword').value = '';
+                document.getElementById('registerConfirmPassword').value = '';
+                document.getElementById('agreeTerms').checked = false;
+                document.getElementById('subscribeNewsletter').checked = false;
+            }, 2000);
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                isLoggedIn = false;
+                currentUser = null;
+                
+                // Clear session
+                localStorage.removeItem('wangseng87_user');
+                localStorage.removeItem('wangseng87_logged_in');
+                
+                updateLoginState();
+                showNotification('You have been logged out successfully', 'success');
+            }
+        }
+
+        function updateLoginState() {
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'flex';
+                
+                // Update welcome message if needed
+                const heroTitle = document.querySelector('.hero h1');
+                if (heroTitle && currentUser) {
+                    heroTitle.textContent = `Welcome back to WangSeng87, ${currentUser}!`;
+                }
+            } else {
+                loginBtn.style.display = 'flex';
+                logoutBtn.style.display = 'none';
+                
+                // Reset welcome message
+                const heroTitle = document.querySelector('.hero h1');
+                if (heroTitle) {
+                    heroTitle.textContent = 'Welcome to WangSeng87';
+                }
+            }
+        }
+
+        function checkLoginStatus() {
+            const savedUser = localStorage.getItem('wangseng87_user');
+            const savedLogin = localStorage.getItem('wangseng87_logged_in');
+            
+            if (savedUser && savedLogin === 'true') {
+                currentUser = savedUser;
+                isLoggedIn = true;
+                updateLoginState();
             }
         }
 
@@ -1347,6 +2343,120 @@
 
         // Initialize balance display
         updateBalanceDisplay();
+        
+        // Check login status on page load
+        checkLoginStatus();
+
+        // Additional Button Functions
+        function showHistory() {
+            const modal = document.getElementById('historyModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showPromotion() {
+            const modal = document.getElementById('promotionModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showLiveChat() {
+            const modal = document.getElementById('liveChatModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showSetting() {
+            const modal = document.getElementById('settingModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function exportHistory() {
+            showNotification('History exported successfully!', 'success');
+        }
+
+        function claimPromotion(code) {
+            showNotification(`Bonus ${code} claimed successfully!`, 'success');
+            closeModal('promotionModal');
+        }
+
+        function showPromotionTab(tab) {
+            // Update tab active state
+            document.querySelectorAll('.promotion-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update content based on tab
+            showNotification(`Showing ${tab} promotions`, 'success');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to chat
+            const chatMessages = document.querySelector('.chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message user';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            
+            // Clear input
+            input.value = '';
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simulate support response
+            setTimeout(() => {
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'chat-message support';
+                responseDiv.innerHTML = `
+                    <div class="message-avatar">
+                        <i class="material-icons">support_agent</i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">Thank you for your message. Our support team will respond shortly.</div>
+                        <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                    </div>
+                `;
+                chatMessages.appendChild(responseDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function saveSettings() {
+            const settings = {
+                displayName: document.getElementById('displayName').value,
+                email: document.getElementById('settingEmail').value,
+                phone: document.getElementById('settingPhone').value,
+                currency: document.getElementById('currency').value,
+                soundEffects: document.getElementById('soundEffects').value,
+                animationQuality: document.getElementById('animationQuality').value,
+                twoFactorAuth: document.getElementById('twoFactorAuth').checked,
+                loginNotifications: document.getElementById('loginNotifications').checked,
+                sessionTimeout: document.getElementById('sessionTimeout').checked
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('wangseng87_settings', JSON.stringify(settings));
+            
+            closeModal('settingModal');
+            showNotification('Settings saved successfully!', 'success');
+        }
     </script>
 </body>
 </html>
