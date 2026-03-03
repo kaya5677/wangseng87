@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WangSeng87 - Premium Gaming Platform</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Load content from admin panel
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAdminContent();
+        });
+
+        function loadAdminContent() {
+            try {
+                const adminContent = localStorage.getItem('wangseng87-live-content');
+                if (adminContent) {
+                    // Parse and extract content
+                    const parser = new DOMParser();
+                    const adminDoc = parser.parseFromString(adminContent, 'text/html');
+                    
+                    // Update promotions
+                    const promos = adminDoc.querySelector('.promotions-grid');
+                    if (promos) {
+                        document.querySelector('.promotions-grid').innerHTML = promos.innerHTML;
+                    }
+                    
+                    // Update hero
+                    const hero = adminDoc.querySelector('.hero-title');
+                    if (hero) {
+                        document.querySelector('.hero-title').textContent = hero.textContent;
+                    }
+                    
+                    showNotification('Content loaded from admin panel!');
+                }
+            } catch (error) {
+                console.log('Using default content');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4caf50;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                z-index: 10000;
+                font-family: 'Roboto', sans-serif;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #ffd700;
+            --primary-purple: #72237e;
+            --bg-dark: #0a0a0a;
+            --bg-medium: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+        }
+
+        body {
+            font-family: 'Poppins', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .promotions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .promo-card {
+            background: rgba(114, 35, 126, 0.2);
+            border: 1px solid var(--primary-gold);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .promo-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+
+        .promo-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .promo-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .promo-btn {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .promo-btn:hover {
+            background: var(--primary-purple);
+            color: var(--text-primary);
+        }
+
+        .refresh-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">WangSeng87</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="hero-title">Welcome to WangSeng87</h1>
+            <p style="color: var(--text-secondary); margin-bottom: 40px;">Premium Gaming Platform Experience</p>
+
+            <button class="refresh-btn" onclick="loadAdminContent()">
+                <i class="material-icons">refresh</i>
+                Load Admin Updates
+            </button>
+
+            <div class="promotions-grid">
+                <div class="promo-card">
+                    <h3 class="promo-title">Welcome Bonus</h3>
+                    <div class="promo-value">100%</div>
+                    <p class="promo-description">Get 100% bonus on your first deposit</p>
+                    <button class="promo-btn">Claim Now</button>
+                </div>
+                <div class="promo-card">
+                    <h3 class="promo-title">Weekend Special</h3>
+                    <div class="promo-value">50%</div>
+                    <p class="promo-description">Extra bonus on weekend deposits</p>
+                    <button class="promo-btn">Claim Now</button>
+                </div>
+                <div class="promo-card">
+                    <h3 class="promo-title">Cashback</h3>
+                    <div class="promo-value">10%</div>
+                    <p class="promo-description">Daily cashback on all games</p>
+                    <button class="promo-btn">Claim Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
