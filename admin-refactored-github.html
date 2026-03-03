@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WangSeng87 Admin Dashboard - File Editor</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #72237e;
+            --dark-purple: #4a1a52;
+            --light-purple: #8b2e98;
+            --accent-yellow: #ffd700;
+            --accent-yellow-light: #ffed4e;
+            --bg-dark: #1a1a2e;
+            --bg-medium: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255,255,255,0.8);
+            --text-muted: rgba(255,255,255,0.6);
+            --border-color: rgba(255,215,0,0.2);
+            --card-bg: rgba(114, 35, 126, 0.3);
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --success: #4caf50;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: var(--primary-purple);
+            padding: var(--spacing-lg);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+        }
+
+        .admin-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--accent-yellow);
+        }
+
+        .admin-logo h2 {
+            color: var(--accent-yellow);
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+            border-left-color: var(--accent-yellow);
+        }
+
+        .nav-item.active {
+            background: rgba(255,215,0,0.2);
+            border-left-color: var(--accent-yellow);
+        }
+
+        .nav-item i {
+            margin-right: var(--spacing-md);
+            color: var(--accent-yellow);
+            font-size: 20px;
+        }
+
+        .nav-item span {
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+            margin-left: 280px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+        }
+
+        /* File Editor Styles - GitHub Pages Compatible */
+        .file-editor-container {
+            flex: 1;
+            margin-left: 280px;
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .editor-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .editor-title h2 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--accent-yellow);
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn-editor {
+            background: var(--primary-purple);
+            color: var(--text-primary);
+            border: 1px solid var(--accent-yellow);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-editor:hover {
+            background: var(--light-purple);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-save {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .btn-save:hover {
+            background: #45a049;
+        }
+
+        .btn-preview {
+            background: var(--warning);
+            border-color: var(--warning);
+            color: #000;
+        }
+
+        .btn-preview:hover {
+            background: #e67e00;
+        }
+
+        #editor {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            background: #1e1e1e;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #f8f8f2;
+            padding: var(--spacing-md);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-y: auto;
+            min-height: 400px;
+            line-height: 1.5;
+        }
+
+        #editor:focus {
+            outline: 2px solid var(--accent-yellow);
+            outline-offset: -2px;
+        }
+
+        .status-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin-top: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+
+        .status-dot.saving {
+            background: var(--warning);
+            animation: pulse 1s infinite;
+        }
+
+        .status-dot.error {
+            background: var(--danger);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Preview Modal */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .preview-content {
+            background: var(--bg-dark);
+            border: 2px solid var(--accent-yellow);
+            border-radius: var(--border-radius-lg);
+            margin: 20px auto;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+        }
+
+        .preview-header {
+            background: var(--primary-purple);
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--accent-yellow);
+        }
+
+        .preview-close {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .preview-body {
+            padding: var(--spacing-lg);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                z-index: 100;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: var(--spacing-md);
+            }
+            
+            .admin-container {
+                flex-direction: column;
+            }
+
+            .file-editor-container {
+                margin-left: 0;
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            z-index: 3000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-size: 14px;
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="admin-logo" id="adminLogo">
+                <h2>WangSeng87 Admin</h2>
+            </div>
+            
+            <!-- Navigation -->
+            <nav>
+                <div class="nav-item" onclick="showSection('dashboard')">
+                    <i class="material-icons">dashboard</i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showSection('content')">
+                    <i class="material-icons">edit</i>
+                    <span>Content</span>
+                </div>
+                <div class="nav-item" onclick="showSection('settings')">
+                    <i class="material-icons">settings</i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Content Section -->
+            <section id="content" class="content-section">
+                <div class="file-editor-container">
+                    <div class="editor-header">
+                        <div class="editor-title">
+                            <span class="material-icons">code</span>
+                            <h2>File Editor: wangseng-games-platform.html</h2>
+                        </div>
+                        <div class="editor-actions">
+                            <button class="btn-editor btn-preview" onclick="previewFile()">
+                                <span class="material-icons">visibility</span>
+                                Preview
+                            </button>
+                            <button class="btn-editor btn-save" onclick="saveFile()">
+                                <span class="material-icons">save</span>
+                                Save File
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="editor" contenteditable="true" spellcheck="false"></div>
+                    
+                    <div class="status-bar">
+                        <div class="status-indicator">
+                            <div class="status-dot" id="statusDot"></div>
+                            <span id="statusText">Ready to edit</span>
+                        </div>
+                        <div>
+                            <span id="fileInfo">wangseng-games-platform.html</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="preview-modal">
+        <div class="preview-content">
+            <div class="preview-header">
+                <h3>Preview: wangseng-games-platform.html</h3>
+                <button class="preview-close" onclick="closePreview()">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="preview-body" id="previewBody">
+                <!-- Preview content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Update navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find and activate the clicked nav item
+            event.target.closest('.nav-item').classList.add('active');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFileEditor();
+        });
+
+        // File Editor Functionality - GitHub Pages Compatible
+        let currentFileContent = '';
+
+        function initializeFileEditor() {
+            // Load file content
+            loadFileContent();
+            
+            // Add input event listener
+            const editor = document.getElementById('editor');
+            editor.addEventListener('input', function() {
+                currentFileContent = editor.textContent;
+            });
+        }
+
+        async function loadFileContent() {
+            // First try to load from localStorage
+            if (loadFromLocalStorage()) {
+                return;
+            }
+            
+            // Try to fetch file
+            try {
+                const response = await fetch('./wangseng-games-platform.html');
+                if (!response.ok) {
+                    throw new Error('File not found');
+                }
+                const content = await response.text();
+                currentFileContent = content;
+                document.getElementById('editor').textContent = content;
+                updateStatus('File loaded successfully', 'success');
+            } catch (error) {
+                console.error('Error loading file:', error);
+                updateStatus('File not found - using default content', 'error');
+                
+                // Set default content
+                const defaultContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WangSeng87 - Premium Gaming Platform</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #ffd700;
+            --primary-purple: #72237e;
+            --dark-purple: #4a1a52;
+            --light-purple: #8b2e98;
+            --bg-dark: #0a0a0a;
+            --bg-medium: #1a1a2e;
+            --bg-light: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --success: #4caf50;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --card-bg: rgba(114, 35, 126, 0.2);
+            --border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">WangSeng87</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="hero-title">Welcome to WangSeng87</h1>
+            <p class="hero-subtitle">Premium Gaming Platform Experience</p>
+            <a href="#" class="cta-button">Get Started</a>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">sports_esports</span>
+                    </div>
+                    <h3 class="feature-title">Premium Games</h3>
+                    <p class="feature-description">Access a wide variety of high-quality gaming experiences with cutting-edge graphics and immersive gameplay.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">security</span>
+                    </div>
+                    <h3 class="feature-title">Secure Platform</h3>
+                    <p class="feature-description">Your security is our priority with advanced encryption and fair gaming practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">emoji_events</span>
+                    </div>
+                    <h3 class="feature-title">Big Rewards</h3>
+                    <p class="feature-description">Exciting promotions and generous rewards for loyal players and new members.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>`;
+                document.getElementById('editor').textContent = defaultContent;
+                currentFileContent = defaultContent;
+            }
+        }
+
+        function saveFile() {
+            updateStatus('Saving...', 'saving');
+            
+            // Get the current content from editor
+            const editor = document.getElementById('editor');
+            const content = editor.textContent;
+            currentFileContent = content;
+            
+            // Save to localStorage
+            try {
+                localStorage.setItem('wangseng-games-platform-content', content);
+                localStorage.setItem('wangseng-games-platform-updated', new Date().toISOString());
+                
+                // Create download link
+                const blob = new Blob([content], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'wangseng-games-platform.html';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                updateStatus('File saved successfully! Download started.', 'success');
+                showNotification('File saved successfully! You can also access it from localStorage.', 'success');
+                
+            } catch (error) {
+                console.error('Error saving file:', error);
+                updateStatus('Error saving file', 'error');
+                showNotification('Error saving file. Please try again.', 'error');
+            }
+        }
+
+        function previewFile() {
+            const content = document.getElementById('editor').textContent;
+            const previewBody = document.getElementById('previewBody');
+            previewBody.innerHTML = content;
+            
+            // Show modal
+            document.getElementById('previewModal').style.display = 'block';
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').style.display = 'none';
+        }
+
+        function updateStatus(message, type) {
+            const statusText = document.getElementById('statusText');
+            const statusDot = document.getElementById('statusDot');
+            
+            statusText.textContent = message;
+            
+            // Remove all status classes
+            statusDot.classList.remove('saving', 'error');
+            
+            // Add appropriate class
+            if (type === 'saving') {
+                statusDot.classList.add('saving');
+            } else if (type === 'error') {
+                statusDot.classList.add('error');
+            }
+            
+            // Clear saving status after 3 seconds
+            if (type === 'saving') {
+                setTimeout(() => {
+                    statusDot.classList.remove('saving');
+                }, 3000);
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const savedContent = localStorage.getItem('wangseng-games-platform-content');
+                const lastUpdated = localStorage.getItem('wangseng-games-platform-updated');
+                
+                if (savedContent) {
+                    currentFileContent = savedContent;
+                    document.getElementById('editor').textContent = savedContent;
+                    
+                    if (lastUpdated) {
+                        const date = new Date(lastUpdated);
+                        updateStatus(`Loaded from localStorage (Last saved: ${date.toLocaleString()})`, 'success');
+                    } else {
+                        updateStatus('Loaded from localStorage', 'success');
+                    }
+                    return true;
+                }
+            } catch (error) {
+                console.error('Error loading from localStorage:', error);
+            }
+            return false;
+        }
+
+        function showNotification(message, type) {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(n => n.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 5000);
+        }
+
+        // Close preview modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target === modal) {
+                closePreview();
+            }
+        }
+
+        // Show content section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('content');
+        });
+    </script>
+</body>
+</html>
