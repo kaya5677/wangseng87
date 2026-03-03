@@ -350,6 +350,100 @@
             }
         }
 
+        /* Login Container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+            padding: var(--spacing-lg);
+        }
+
+        .login-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-yellow);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .login-header h2 {
+            color: var(--accent-yellow);
+            font-size: 28px;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .auth-form {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-yellow);
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--accent-yellow);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-link:hover {
+            color: var(--accent-yellow-light);
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+
+        .form-toggle span {
+            margin-right: var(--spacing-sm);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
@@ -373,6 +467,256 @@
                 margin-left: 0;
                 padding: var(--spacing-md);
             }
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: var(--card-bg);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-section h3 {
+            color: var(--accent-yellow);
+            font-size: 20px;
+            margin-bottom: var(--spacing-lg);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group label {
+            color: var(--accent-yellow);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 0 0 3px rgba(255,215,0,0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: flex-start;
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        th {
+            background: rgba(114, 35, 126, 0.5);
+            color: var(--accent-yellow);
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--accent-yellow);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: var(--spacing-sm);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .card h2 {
+            color: var(--accent-yellow);
+            font-size: 22px;
+            margin-bottom: var(--spacing-lg);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            color: var(--accent-yellow);
+            font-size: 28px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        /* Button Styles */
+        .btn {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: var(--text-primary);
+            border: none;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--primary-purple) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,215,0,0.3);
+        }
+
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--primary-purple);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-yellow-light);
         }
 
         /* Notification Styles */
@@ -403,6 +747,73 @@
 </head>
 <body>
     <div class="admin-container">
+        <!-- Login Section -->
+        <div id="loginSection" style="display: none;">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h2>WangSeng87 Admin</h2>
+                        <p>Secure Admin Login</p>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your Gmail address">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password">
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me for 7 days
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary btn-full" onclick="login()">
+                                <span class="material-icons">login</span>
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Register Form -->
+                    <div id="registerForm" class="auth-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" id="registerEmail" placeholder="Enter your Gmail address">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" placeholder="Create a password (min 6 chars)">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary btn-full" onclick="register()">
+                                <span class="material-icons">person_add</span>
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Toggle -->
+                    <div class="form-toggle">
+                        <span id="toggleText">Don't have an account?</span>
+                        <button class="btn-link" onclick="toggleForm('register')">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" style="display: none;">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="admin-logo" id="adminLogo">
@@ -415,6 +826,22 @@
                     <i class="material-icons">dashboard</i>
                     <span>Dashboard</span>
                 </div>
+                <div class="nav-item" onclick="showSection('users')">
+                    <i class="material-icons">people</i>
+                    <span>Users</span>
+                </div>
+                <div class="nav-item" onclick="showSection('games')">
+                    <i class="material-icons">sports_esports</i>
+                    <span>Games</span>
+                </div>
+                <div class="nav-item" onclick="showSection('promotions')">
+                    <i class="material-icons">card_giftcard</i>
+                    <span>Promotions</span>
+                </div>
+                <div class="nav-item" onclick="showSection('transactions')">
+                    <i class="material-icons">receipt_long</i>
+                    <span>Transactions</span>
+                </div>
                 <div class="nav-item" onclick="showSection('content')">
                     <i class="material-icons">edit</i>
                     <span>Content</span>
@@ -423,13 +850,478 @@
                     <i class="material-icons">settings</i>
                     <span>Settings</span>
                 </div>
+                <div class="nav-item" onclick="logout()" style="margin-top: var(--spacing-lg); background: rgba(244,67,54,0.2);">
+                    <i class="material-icons">logout</i>
+                    <span>Logout</span>
+                </div>
             </nav>
         </aside>
+    </div>
+</div>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Content Section -->
-            <section id="content" class="content-section">
+            <!-- Header -->
+            <header class="header">
+                <h1>Admin Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn" onclick="refreshData()">
+                        <i class="material-icons">refresh</i>
+                        Refresh
+                    </button>
+                    <button class="btn btn-primary" onclick="saveAllChanges()">
+                        <i class="material-icons">save</i>
+                        Save Changes
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalUsers">1,234</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="activeUsers">856</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalRevenue">RM 45,678</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="todayGames">2,345</div>
+                        <div class="stat-label">Games Played Today</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h2>Recent Activity</h2>
+                        <p>Latest user activities and system events are displayed here. Monitor real-time updates and user engagement metrics.</p>
+                        <button class="btn">View All Activity</button>
+                    </div>
+                    <div class="card">
+                        <h2>System Status</h2>
+                        <p>All systems are operational. Server performance is optimal with 99.9% uptime. Database connections are stable.</p>
+                        <button class="btn">View Detailed Status</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="content-section">
+                <div class="form-section">
+                    <h3>User Management</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="userName">User Name</label>
+                            <input type="text" id="userName" placeholder="Enter user name">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email Address</label>
+                            <input type="email" id="userEmail" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">User Role</label>
+                            <select id="userRole">
+                                <option value="">Select role</option>
+                                <option value="admin">Admin</option>
+                                <option value="moderator">Moderator</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userStatus">Account Status</label>
+                            <select id="userStatus">
+                                <option value="">Select status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" onclick="addUser()">Add New User</button>
+                        <button class="btn btn-primary" onclick="saveUserChanges()">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>User List</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>Admin</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editUser('john@example.com')">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>jane@example.com</td>
+                                    <td>User</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editUser('jane@example.com')">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Games Section -->
+            <section id="games" class="content-section">
+                <div class="form-section">
+                    <h3>Game Configuration</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="gameName">Game Name</label>
+                            <input type="text" id="gameName" placeholder="Enter game name">
+                        </div>
+                        <div class="form-group">
+                            <label for="gameType">Game Type</label>
+                            <select id="gameType">
+                                <option value="">Select game type</option>
+                                <option value="slot">Slot Machine</option>
+                                <option value="card">Card Game</option>
+                                <option value="table">Table Game</option>
+                                <option value="live">Live Casino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="minBet">Minimum Bet</label>
+                            <input type="number" id="minBet" placeholder="Enter minimum bet">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxBet">Maximum Bet</label>
+                            <input type="number" id="maxBet" placeholder="Enter maximum bet">
+                        </div>
+                        <div class="form-group">
+                            <label for="rtp">RTP (%)</label>
+                            <input type="number" id="rtp" placeholder="Enter RTP percentage">
+                        </div>
+                        <div class="form-group">
+                            <label for="gameStatus">Game Status</label>
+                            <select id="gameStatus">
+                                <option value="">Select status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" onclick="addGame()">Add New Game</button>
+                        <button class="btn btn-primary" onclick="saveGameChanges()">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Game List</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Game Name</th>
+                                    <th>Type</th>
+                                    <th>Min Bet</th>
+                                    <th>Max Bet</th>
+                                    <th>RTP</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gameTableBody">
+                                <tr>
+                                    <td>Lucky Slots</td>
+                                    <td>Slot Machine</td>
+                                    <td>RM 1</td>
+                                    <td>RM 1000</td>
+                                    <td>96.5%</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editGame('Lucky Slots')">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Blackjack Pro</td>
+                                    <td>Card Game</td>
+                                    <td>RM 10</td>
+                                    <td>RM 5000</td>
+                                    <td>99.2%</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editGame('Blackjack Pro')">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Promotions Section -->
+            <section id="promotions" class="content-section">
+                <div class="form-section">
+                    <h3>Promotion Management</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="promoTitle">Promotion Title</label>
+                            <input type="text" id="promoTitle" placeholder="Enter promotion title">
+                        </div>
+                        <div class="form-group">
+                            <label for="promoType">Promotion Type</label>
+                            <select id="promoType">
+                                <option value="">Select type</option>
+                                <option value="bonus">Bonus</option>
+                                <option value="free-spin">Free Spin</option>
+                                <option value="cashback">Cashback</option>
+                                <option value="deposit">Deposit Bonus</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="promoValue">Promotion Value</label>
+                            <input type="text" id="promoValue" placeholder="Enter value (e.g., 100% or RM50)">
+                        </div>
+                        <div class="form-group">
+                            <label for="minDeposit">Minimum Deposit</label>
+                            <input type="number" id="minDeposit" placeholder="Enter minimum deposit">
+                        </div>
+                        <div class="form-group">
+                            <label for="wagering">Wagering Requirement</label>
+                            <input type="number" id="wagering" placeholder="Enter wagering multiplier">
+                        </div>
+                        <div class="form-group">
+                            <label for="promoStatus">Promotion Status</label>
+                            <select id="promoStatus">
+                                <option value="">Select status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" onclick="addPromotion()">Add New Promotion</button>
+                        <button class="btn btn-primary" onclick="savePromotionChanges()">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Promotion List</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>Min Deposit</th>
+                                    <th>Wagering</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="promoTableBody">
+                                <tr>
+                                    <td>Welcome Bonus</td>
+                                    <td>Deposit Bonus</td>
+                                    <td>100%</td>
+                                    <td>RM 50</td>
+                                    <td>30x</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editPromotion('Welcome Bonus')">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Weekend Cashback</td>
+                                    <td>Cashback</td>
+                                    <td>10%</td>
+                                    <td>RM 100</td>
+                                    <td>5x</td>
+                                    <td>Active</td>
+                                    <td>
+                                        <button class="btn" onclick="editPromotion('Weekend Cashback')">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section id="transactions" class="content-section">
+                <div class="form-section">
+                    <h3>Transaction History</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="transactionDate">Date Range</label>
+                            <input type="date" id="transactionDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionType">Transaction Type</label>
+                            <select id="transactionType">
+                                <option value="">All types</option>
+                                <option value="deposit">Deposit</option>
+                                <option value="withdrawal">Withdrawal</option>
+                                <option value="bonus">Bonus</option>
+                                <option value="bet">Bet</option>
+                                <option value="win">Win</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionStatus">Status</label>
+                            <select id="transactionStatus">
+                                <option value="">All statuses</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userSearch">User Search</label>
+                            <input type="text" id="userSearch" placeholder="Search by username or email">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" onclick="searchTransactions()">Search</button>
+                        <button class="btn btn-primary" onclick="exportTransactions()">Export</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Transaction List</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>User</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionTableBody">
+                                <tr>
+                                    <td>2024-03-04 14:30</td>
+                                    <td>john@example.com</td>
+                                    <td>Deposit</td>
+                                    <td>RM 500</td>
+                                    <td>Completed</td>
+                                    <td>
+                                        <button class="btn" onclick="viewTransaction('TX001')">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2024-03-04 14:25</td>
+                                    <td>jane@example.com</td>
+                                    <td>Withdrawal</td>
+                                    <td>RM 200</td>
+                                    <td>Pending</td>
+                                    <td>
+                                        <button class="btn" onclick="viewTransaction('TX002')">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="form-section">
+                    <h3>System Settings</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="siteName">Site Name</label>
+                            <input type="text" id="siteName" value="WangSeng87">
+                        </div>
+                        <div class="form-group">
+                            <label for="siteEmail">Site Email</label>
+                            <input type="email" id="siteEmail" value="support@wangseng87.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="minDepositAmount">Minimum Deposit</label>
+                            <input type="number" id="minDepositAmount" value="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxWithdrawal">Maximum Withdrawal</label>
+                            <input type="number" id="maxWithdrawal" value="10000">
+                        </div>
+                        <div class="form-group">
+                            <label for="maintenanceMode">Maintenance Mode</label>
+                            <select id="maintenanceMode">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Default Currency</label>
+                            <select id="currency">
+                                <option value="MYR">MYR (Ringgit)</option>
+                                <option value="USD">USD (Dollar)</option>
+                                <option value="SGD">SGD (Singapore Dollar)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" onclick="resetSettings()">Reset to Default</button>
+                        <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Security Settings</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sessionTimeout">Session Timeout (minutes)</label>
+                            <input type="number" id="sessionTimeout" value="30">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxLoginAttempts">Max Login Attempts</label>
+                            <input type="number" id="maxLoginAttempts" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="twoFactorAuth">Two-Factor Authentication</label>
+                            <select id="twoFactorAuth">
+                                <option value="optional">Optional</option>
+                                <option value="required">Required</option>
+                                <option value="disabled">Disabled</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ipWhitelist">IP Whitelist</label>
+                            <input type="text" id="ipWhitelist" placeholder="Enter IP addresses (comma separated)">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" onclick="saveSecuritySettings()">Save Security Settings</button>
+                    </div>
+                </div>
+            </section>
                 <div class="file-editor-container">
                     <div class="editor-header">
                         <div class="editor-title">
@@ -480,6 +1372,184 @@
     </div>
 
     <script>
+        // Authentication System
+        let isAuthenticated = false;
+        let currentUser = null;
+
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthentication();
+        });
+
+        function checkAuthentication() {
+            const savedAuth = localStorage.getItem('wangseng87-auth');
+            if (savedAuth) {
+                const auth = JSON.parse(savedAuth);
+                if (auth.isAuthenticated && auth.expiresAt > Date.now()) {
+                    isAuthenticated = true;
+                    currentUser = auth.user;
+                    showDashboard();
+                } else {
+                    // Clear expired session
+                    localStorage.removeItem('wangseng87-auth');
+                    showLogin();
+                }
+            } else {
+                showLogin();
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+        }
+
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+            
+            // Initialize dashboard components
+            initializeFileEditor();
+            loadSettings();
+            updateDashboardStats();
+            showSection('dashboard');
+        }
+
+        function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const remember = document.getElementById('rememberMe').checked;
+
+            // Validation
+            if (!email || !password) {
+                showNotification('Please enter email and password', 'error');
+                return;
+            }
+
+            // Email validation
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+
+            // Simulate authentication (in production, this would be a server call)
+            authenticateUser(email, password, remember);
+        }
+
+        function authenticateUser(email, password, remember) {
+            // For demo purposes, accept any Gmail with password >= 6 chars
+            // In production, this would be a real authentication API call
+            
+            const isAdminEmail = email.toLowerCase().endsWith('@gmail.com');
+            const isValidPassword = password.length >= 6;
+
+            if (isAdminEmail && isValidPassword) {
+                // Create user session
+                const user = {
+                    email: email,
+                    name: email.split('@')[0],
+                    role: 'admin',
+                    loginTime: new Date().toISOString()
+                };
+
+                const auth = {
+                    isAuthenticated: true,
+                    user: user,
+                    expiresAt: Date.now() + (remember ? 7 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000) // 7 days if remember, 1 day if not
+                };
+
+                localStorage.setItem('wangseng87-auth', JSON.stringify(auth));
+                
+                isAuthenticated = true;
+                currentUser = user;
+                
+                showNotification('Login successful! Welcome back.', 'success');
+                setTimeout(() => {
+                    showDashboard();
+                }, 1000);
+            } else {
+                showNotification('Invalid email or password. Use any Gmail account with password >= 6 characters.', 'error');
+            }
+        }
+
+        function register() {
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validation
+            if (!email || !password || !confirmPassword) {
+                showNotification('Please fill in all fields', 'error');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            if (!email.toLowerCase().endsWith('@gmail.com')) {
+                showNotification('Please use a Gmail account for registration', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+
+            // Simulate registration (in production, this would be a server call)
+            const user = {
+                email: email,
+                name: email.split('@')[0],
+                role: 'admin',
+                registrationTime: new Date().toISOString()
+            };
+
+            showNotification('Registration successful! You can now login.', 'success');
+            
+            // Switch to login tab
+            setTimeout(() => {
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'block';
+            }, 1500);
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('wangseng87-auth');
+                isAuthenticated = false;
+                currentUser = null;
+                showNotification('Logged out successfully', 'success');
+                showLogin();
+            }
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function toggleForm(formType) {
+            if (formType === 'register') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'block';
+            } else {
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'block';
+            }
+        }
         // Navigation functionality
         function showSection(sectionId) {
             // Hide all sections
@@ -865,9 +1935,321 @@
             }
         }
 
-        // Show content section by default
+        // Admin Functions
+        function refreshData() {
+            showNotification('Data refreshed successfully', 'success');
+            // Simulate data refresh
+            updateDashboardStats();
+        }
+
+        function saveAllChanges() {
+            showNotification('All changes saved successfully', 'success');
+        }
+
+        function updateDashboardStats() {
+            // Simulate updating stats with random data
+            document.getElementById('totalUsers').textContent = Math.floor(Math.random() * 2000 + 1000).toLocaleString();
+            document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 1000 + 500).toLocaleString();
+            document.getElementById('totalRevenue').textContent = 'RM ' + Math.floor(Math.random() * 50000 + 30000).toLocaleString();
+            document.getElementById('todayGames').textContent = Math.floor(Math.random() * 3000 + 1000).toLocaleString();
+        }
+
+        // User Management Functions
+        function addUser() {
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const userRole = document.getElementById('userRole').value;
+            const userStatus = document.getElementById('userStatus').value;
+
+            if (!userName || !userEmail || !userRole || !userStatus) {
+                showNotification('Please fill in all user fields', 'error');
+                return;
+            }
+
+            // Add user to table
+            const userTableBody = document.getElementById('userTableBody');
+            const newRow = userTableBody.insertRow(0);
+            newRow.innerHTML = `
+                <td>${userName}</td>
+                <td>${userEmail}</td>
+                <td>${userRole}</td>
+                <td>${userStatus}</td>
+                <td>
+                    <button class="btn" onclick="editUser('${userEmail}')">Edit</button>
+                </td>
+            `;
+
+            // Clear form
+            document.getElementById('userName').value = '';
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userRole').value = '';
+            document.getElementById('userStatus').value = '';
+
+            showNotification('User added successfully', 'success');
+        }
+
+        function saveUserChanges() {
+            showNotification('User changes saved successfully', 'success');
+        }
+
+        function editUser(email) {
+            showNotification(`Editing user: ${email}`, 'success');
+            // Find user data and populate form
+            const userTableBody = document.getElementById('userTableBody');
+            const rows = userTableBody.getElementsByTagName('tr');
+            
+            for (let row of rows) {
+                if (row.cells[1].textContent === email) {
+                    document.getElementById('userName').value = row.cells[0].textContent;
+                    document.getElementById('userEmail').value = email;
+                    document.getElementById('userRole').value = row.cells[2].textContent.toLowerCase();
+                    document.getElementById('userStatus').value = row.cells[3].textContent.toLowerCase();
+                    break;
+                }
+            }
+        }
+
+        // Game Configuration Functions
+        function addGame() {
+            const gameName = document.getElementById('gameName').value;
+            const gameType = document.getElementById('gameType').value;
+            const minBet = document.getElementById('minBet').value;
+            const maxBet = document.getElementById('maxBet').value;
+            const rtp = document.getElementById('rtp').value;
+            const gameStatus = document.getElementById('gameStatus').value;
+
+            if (!gameName || !gameType || !minBet || !maxBet || !rtp || !gameStatus) {
+                showNotification('Please fill in all game fields', 'error');
+                return;
+            }
+
+            // Add game to table
+            const gameTableBody = document.getElementById('gameTableBody');
+            const newRow = gameTableBody.insertRow(0);
+            newRow.innerHTML = `
+                <td>${gameName}</td>
+                <td>${gameType}</td>
+                <td>RM ${minBet}</td>
+                <td>RM ${maxBet}</td>
+                <td>${rtp}%</td>
+                <td>${gameStatus}</td>
+                <td>
+                    <button class="btn" onclick="editGame('${gameName}')">Edit</button>
+                </td>
+            `;
+
+            // Clear form
+            document.getElementById('gameName').value = '';
+            document.getElementById('gameType').value = '';
+            document.getElementById('minBet').value = '';
+            document.getElementById('maxBet').value = '';
+            document.getElementById('rtp').value = '';
+            document.getElementById('gameStatus').value = '';
+
+            showNotification('Game added successfully', 'success');
+        }
+
+        function saveGameChanges() {
+            showNotification('Game changes saved successfully', 'success');
+        }
+
+        function editGame(gameName) {
+            showNotification(`Editing game: ${gameName}`, 'success');
+            // Find game data and populate form
+            const gameTableBody = document.getElementById('gameTableBody');
+            const rows = gameTableBody.getElementsByTagName('tr');
+            
+            for (let row of rows) {
+                if (row.cells[0].textContent === gameName) {
+                    document.getElementById('gameName').value = gameName;
+                    document.getElementById('gameType').value = row.cells[1].textContent.toLowerCase().replace(' ', '-');
+                    document.getElementById('minBet').value = row.cells[2].textContent.replace('RM ', '');
+                    document.getElementById('maxBet').value = row.cells[3].textContent.replace('RM ', '');
+                    document.getElementById('rtp').value = row.cells[4].textContent.replace('%', '');
+                    document.getElementById('gameStatus').value = row.cells[5].textContent.toLowerCase();
+                    break;
+                }
+            }
+        }
+
+        // Promotion Management Functions
+        function addPromotion() {
+            const promoTitle = document.getElementById('promoTitle').value;
+            const promoType = document.getElementById('promoType').value;
+            const promoValue = document.getElementById('promoValue').value;
+            const minDeposit = document.getElementById('minDeposit').value;
+            const wagering = document.getElementById('wagering').value;
+            const promoStatus = document.getElementById('promoStatus').value;
+
+            if (!promoTitle || !promoType || !promoValue || !minDeposit || !wagering || !promoStatus) {
+                showNotification('Please fill in all promotion fields', 'error');
+                return;
+            }
+
+            // Add promotion to table
+            const promoTableBody = document.getElementById('promoTableBody');
+            const newRow = promoTableBody.insertRow(0);
+            newRow.innerHTML = `
+                <td>${promoTitle}</td>
+                <td>${promoType}</td>
+                <td>${promoValue}</td>
+                <td>RM ${minDeposit}</td>
+                <td>${wagering}x</td>
+                <td>${promoStatus}</td>
+                <td>
+                    <button class="btn" onclick="editPromotion('${promoTitle}')">Edit</button>
+                </td>
+            `;
+
+            // Clear form
+            document.getElementById('promoTitle').value = '';
+            document.getElementById('promoType').value = '';
+            document.getElementById('promoValue').value = '';
+            document.getElementById('minDeposit').value = '';
+            document.getElementById('wagering').value = '';
+            document.getElementById('promoStatus').value = '';
+
+            showNotification('Promotion added successfully', 'success');
+        }
+
+        function savePromotionChanges() {
+            showNotification('Promotion changes saved successfully', 'success');
+        }
+
+        function editPromotion(promoTitle) {
+            showNotification(`Editing promotion: ${promoTitle}`, 'success');
+            // Find promotion data and populate form
+            const promoTableBody = document.getElementById('promoTableBody');
+            const rows = promoTableBody.getElementsByTagName('tr');
+            
+            for (let row of rows) {
+                if (row.cells[0].textContent === promoTitle) {
+                    document.getElementById('promoTitle').value = promoTitle;
+                    document.getElementById('promoType').value = row.cells[1].textContent.toLowerCase().replace(' ', '-');
+                    document.getElementById('promoValue').value = row.cells[2].textContent;
+                    document.getElementById('minDeposit').value = row.cells[3].textContent.replace('RM ', '');
+                    document.getElementById('wagering').value = row.cells[4].textContent.replace('x', '');
+                    document.getElementById('promoStatus').value = row.cells[5].textContent.toLowerCase();
+                    break;
+                }
+            }
+        }
+
+        // Transaction Functions
+        function searchTransactions() {
+            const transactionType = document.getElementById('transactionType').value;
+            const transactionStatus = document.getElementById('transactionStatus').value;
+            const userSearch = document.getElementById('userSearch').value;
+            
+            showNotification('Searching transactions...', 'success');
+            
+            // Simulate search delay
+            setTimeout(() => {
+                showNotification('Search completed', 'success');
+            }, 1000);
+        }
+
+        function exportTransactions() {
+            showNotification('Exporting transactions...', 'success');
+            
+            // Simulate export
+            setTimeout(() => {
+                showNotification('Transactions exported successfully', 'success');
+            }, 1500);
+        }
+
+        function viewTransaction(transactionId) {
+            showNotification(`Viewing transaction: ${transactionId}`, 'success');
+        }
+
+        // Settings Functions
+        function saveSettings() {
+            const siteName = document.getElementById('siteName').value;
+            const siteEmail = document.getElementById('siteEmail').value;
+            const minDepositAmount = document.getElementById('minDepositAmount').value;
+            const maxWithdrawal = document.getElementById('maxWithdrawal').value;
+            const maintenanceMode = document.getElementById('maintenanceMode').value;
+            const currency = document.getElementById('currency').value;
+
+            // Save to localStorage
+            const settings = {
+                siteName,
+                siteEmail,
+                minDepositAmount,
+                maxWithdrawal,
+                maintenanceMode,
+                currency
+            };
+            
+            localStorage.setItem('wangseng87-settings', JSON.stringify(settings));
+            showNotification('Settings saved successfully', 'success');
+        }
+
+        function resetSettings() {
+            if (confirm('Are you sure you want to reset all settings to default values?')) {
+                document.getElementById('siteName').value = 'WangSeng87';
+                document.getElementById('siteEmail').value = 'support@wangseng87.com';
+                document.getElementById('minDepositAmount').value = '50';
+                document.getElementById('maxWithdrawal').value = '10000';
+                document.getElementById('maintenanceMode').value = 'off';
+                document.getElementById('currency').value = 'MYR';
+                
+                localStorage.removeItem('wangseng87-settings');
+                showNotification('Settings reset to default', 'success');
+            }
+        }
+
+        function saveSecuritySettings() {
+            const sessionTimeout = document.getElementById('sessionTimeout').value;
+            const maxLoginAttempts = document.getElementById('maxLoginAttempts').value;
+            const twoFactorAuth = document.getElementById('twoFactorAuth').value;
+            const ipWhitelist = document.getElementById('ipWhitelist').value;
+
+            // Save to localStorage
+            const securitySettings = {
+                sessionTimeout,
+                maxLoginAttempts,
+                twoFactorAuth,
+                ipWhitelist
+            };
+            
+            localStorage.setItem('wangseng87-security-settings', JSON.stringify(securitySettings));
+            showNotification('Security settings saved successfully', 'success');
+        }
+
+        // Load settings on page load
+        function loadSettings() {
+            try {
+                const settings = localStorage.getItem('wangseng87-settings');
+                if (settings) {
+                    const parsedSettings = JSON.parse(settings);
+                    document.getElementById('siteName').value = parsedSettings.siteName || 'WangSeng87';
+                    document.getElementById('siteEmail').value = parsedSettings.siteEmail || 'support@wangseng87.com';
+                    document.getElementById('minDepositAmount').value = parsedSettings.minDepositAmount || '50';
+                    document.getElementById('maxWithdrawal').value = parsedSettings.maxWithdrawal || '10000';
+                    document.getElementById('maintenanceMode').value = parsedSettings.maintenanceMode || 'off';
+                    document.getElementById('currency').value = parsedSettings.currency || 'MYR';
+                }
+
+                const securitySettings = localStorage.getItem('wangseng87-security-settings');
+                if (securitySettings) {
+                    const parsedSecuritySettings = JSON.parse(securitySettings);
+                    document.getElementById('sessionTimeout').value = parsedSecuritySettings.sessionTimeout || '30';
+                    document.getElementById('maxLoginAttempts').value = parsedSecuritySettings.maxLoginAttempts || '5';
+                    document.getElementById('twoFactorAuth').value = parsedSecuritySettings.twoFactorAuth || 'optional';
+                    document.getElementById('ipWhitelist').value = parsedSecuritySettings.ipWhitelist || '';
+                }
+            } catch (error) {
+                console.error('Error loading settings:', error);
+            }
+        }
+
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            showSection('content');
+            initializeFileEditor();
+            loadSettings();
+            updateDashboardStats();
+            showSection('dashboard'); // Show dashboard by default
         });
     </script>
 </body>
