@@ -268,6 +268,53 @@
             background: linear-gradient(45deg, #ffd700, #ffed4e);
             border-radius: 2px;
         }
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .provider-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .provider-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            background: rgba(255,215,0,0.1);
+        }
+        .provider-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        .provider-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+        }
+        .provider-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-top: 0.5rem;
+        }
         .game-card {
             background: rgba(255,255,255,0.1);
             border-radius: 15px;
@@ -574,14 +621,6 @@
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
         }
-        .game-category {
-            margin: 2rem 0;
-        }
-        .game-category h3 {
-            color: #ffd700;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -688,6 +727,173 @@
         <!-- Games Section -->
         <div id="games" class="section">
             <h2>🎮 Premium Games Collection</h2>
+            
+            <!-- Game Providers -->
+            <div class="game-category">
+                <h3>🎰 Game Providers</h3>
+                <div class="provider-grid">
+                    <div class="provider-card" onclick="openProvider('evo888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" loading="lazy" class="provider-logo">
+                        <div class="provider-name">EVO888 H5</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('evo888-app')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" loading="lazy" class="provider-logo">
+                        <div class="provider-name">EVO888-APP</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('slot4d')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" loading="lazy" class="provider-logo">
+                        <div class="provider-name">SLOT4D</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('ygg')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" loading="lazy" class="provider-logo">
+                        <div class="provider-name">YGG</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('btgaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" loading="lazy" class="provider-logo">
+                        <div class="provider-name">BTGAMING</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('imperium')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" loading="lazy" class="provider-logo">
+                        <div class="provider-name">IMPERIUM</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('marioclub')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" loading="lazy" class="provider-logo">
+                        <div class="provider-name">MARIOCLUB</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('playace-yp')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PLAYACE-YP</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('playace-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PLAYACE-SLOT</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('epicwin')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" loading="lazy" class="provider-logo">
+                        <div class="provider-name">EPICWIN</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('scr888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" loading="lazy" class="provider-logo">
+                        <div class="provider-name">SCR888</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('uuslots')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" loading="lazy" class="provider-logo">
+                        <div class="provider-name">UUSLOTS</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('duofu')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" loading="lazy" class="provider-logo">
+                        <div class="provider-name">DUOFU</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('vpower')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" loading="lazy" class="provider-logo">
+                        <div class="provider-name">VPOWER</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('jili')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" loading="lazy" class="provider-logo">
+                        <div class="provider-name">JILI</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('pragmatic-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PRAGMATIC SLOT</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('lucky365')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" loading="lazy" class="provider-logo">
+                        <div class="provider-name">LUCKY365</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('monkey-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" loading="lazy" class="provider-logo">
+                        <div class="provider-name">MONKEY KING</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('pegasus')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PEGASUS</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('918kiss-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" loading="lazy" class="provider-logo">
+                        <div class="provider-name">918KISS H5</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('mega888-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" loading="lazy" class="provider-logo">
+                        <div class="provider-name">MEGA888 H5</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('gw99')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" loading="lazy" class="provider-logo">
+                        <div class="provider-name">GW 99</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('advant-play')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" loading="lazy" class="provider-logo">
+                        <div class="provider-name">ADVANT PLAY</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('ace333')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" loading="lazy" class="provider-logo">
+                        <div class="provider-name">ACE333</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('joker')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" loading="lazy" class="provider-logo">
+                        <div class="provider-name">JOKER</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('pg-soft')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PG SOFT</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('live22')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" loading="lazy" class="provider-logo">
+                        <div class="provider-name">LIVE22</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('lion-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" loading="lazy" class="provider-logo">
+                        <div class="provider-name">LION KING</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('spade-gaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" loading="lazy" class="provider-logo">
+                        <div class="provider-name">SPADE GAMING</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('habanero')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" loading="lazy" class="provider-logo">
+                        <div class="provider-name">HABANERO</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('clotplay')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" loading="lazy" class="provider-logo">
+                        <div class="provider-name">CLOTPLAY</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('mega-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" loading="lazy" class="provider-logo">
+                        <div class="provider-name">MEGA H5</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('amb-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" loading="lazy" class="provider-logo">
+                        <div class="provider-name">AMB SLOT</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('nextspin')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" loading="lazy" class="provider-logo">
+                        <div class="provider-name">NEXTSPIN</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('scr2')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" loading="lazy" class="provider-logo">
+                        <div class="provider-name">SCR 2</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('xe88')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" loading="lazy" class="provider-logo">
+                        <div class="provider-name">XE88</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('suncity')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" loading="lazy" class="provider-logo">
+                        <div class="provider-name">SUNCITY</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('pussy888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" loading="lazy" class="provider-logo">
+                        <div class="provider-name">PUSSY888</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('918kiss')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" loading="lazy" class="provider-logo">
+                        <div class="provider-name">918KISS</div>
+                    </div>
+                    <div class="provider-card" onclick="openProvider('mega888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" loading="lazy" class="provider-logo">
+                        <div class="provider-name">MEGA888</div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Slot Games -->
             <div class="game-category">
@@ -1111,7 +1317,7 @@
                         <button class="game-button">Play Now</button>
                     </div>
                     <div class="game-card" onclick="playGame('toto-4d')">
-                        <div class="game-icon">�</div>
+                        <div class="game-icon">🎯</div>
                         <div class="game-title">Toto 4D</div>
                         <div class="game-provider">WangSeng • 94% RTP • High Volatility</div>
                         <div class="game-provider">SGPools • 94.5% RTP • Variable</div>
@@ -1796,6 +2002,69 @@
                 const stats = userStats[currentUser.username] || {};
                 stats.sportsBets = (stats.sportsBets || 0) + 1;
                 stats.vipPoints = (stats.vipPoints || 0) + 5;
+                localStorage.setItem('wangsengStats', JSON.stringify(userStats));
+            }
+        }
+
+        // Provider functions
+        function openProvider(providerId) {
+            if (!currentUser) {
+                alert('🔐 Please login first to access game providers!');
+                showSection('login');
+                return;
+            }
+            
+            const providerNames = {
+                'evo888': 'EVO888 H5',
+                'evo888-app': 'EVO888-APP',
+                'slot4d': 'SLOT4D',
+                'ygg': 'YGG',
+                'btgaming': 'BTGAMING',
+                'imperium': 'IMPERIUM',
+                'marioclub': 'MARIOCLUB',
+                'playace-yp': 'PLAYACE-YP',
+                'playace-slot': 'PLAYACE-SLOT',
+                'epicwin': 'EPICWIN',
+                'scr888': 'SCR888',
+                'uuslots': 'UUSLOTS',
+                'duofu': 'DUOFU',
+                'vpower': 'VPOWER',
+                'jili': 'JILI',
+                'pragmatic-slot': 'PRAGMATIC SLOT',
+                'lucky365': 'LUCKY365',
+                'monkey-king': 'MONKEY KING',
+                'pegasus': 'PEGASUS',
+                '918kiss-h5': '918KISS H5',
+                'mega888-h5': 'MEGA888 H5',
+                'gw99': 'GW 99',
+                'advant-play': 'ADVANT PLAY',
+                'ace333': 'ACE333',
+                'joker': 'JOKER',
+                'pg-soft': 'PG SOFT',
+                'live22': 'LIVE22',
+                'lion-king': 'LION KING',
+                'spade-gaming': 'SPADE GAMING',
+                'habanero': 'HABANERO',
+                'clotplay': 'CLOTPLAY',
+                'mega-h5': 'MEGA H5',
+                'amb-slot': 'AMB SLOT',
+                'nextspin': 'NEXTSPIN',
+                'scr2': 'SCR 2',
+                'xe88': 'XE88',
+                'suncity': 'SUNCITY',
+                'pussy888': 'PUSSY888',
+                '918kiss': '918KISS',
+                'mega888': 'MEGA888'
+            };
+            
+            const providerName = providerNames[providerId] || providerId.toUpperCase();
+            alert(`🎰 Loading ${providerName}...\n\n🎮 Accessing premium slot games!`);
+            
+            // Update user stats
+            if (currentUser) {
+                const stats = userStats[currentUser.username] || {};
+                stats.gamesPlayed = (stats.gamesPlayed || 0) + 1;
+                stats.vipPoints = (stats.vipPoints || 0) + 10;
                 localStorage.setItem('wangsengStats', JSON.stringify(userStats));
             }
         }
