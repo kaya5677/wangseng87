@@ -524,25 +524,7 @@
             background: linear-gradient(45deg, #ffd700, #ffed4e);
             border-radius: 2px;
         }
-        .provider-wrapper {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 6px;
-            margin: 2rem 0;
-        }
-        
-        @media (max-width: 992px) {
-            .provider-wrapper {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .provider-wrapper {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
+                
         .cursor-pointer {
             width: 100%;
             height: 100%;
@@ -563,6 +545,13 @@
         
         .cursor-pointer:hover .game_image {
             transform: scale(1.05);
+        }
+
+        /* Provider Grid Refactor */
+        .provider-wrapper .col-lg-2,
+        .provider-wrapper .col-md-3,
+        .provider-wrapper .col-3 {
+            padding: 6px;
         }
         .game-card {
             background: rgba(255,255,255,0.1);
@@ -928,20 +917,7 @@
     
     <div class="container">
         <div class="logo-container">
-            <!-- WangSeng87 Video Logo -->
-            <video class="main-logo" autoplay muted loop playsinline 
-                   onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';">
-                <source src="wangseng-lion.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <!-- Fallback Logo if video fails -->
-            <div id="fallbackLogo" style="display: none; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffed4e); align-items: center; justify-content: center; font-size: 4rem; font-weight: bold; color: #1a1a2e; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: logoPulse 3s infinite; margin: 0 auto;">
-                WS87
-            </div>
-            
-            <div class="platform-name">WangSeng</div>
-        </div>
+                    </div>
         
         <div class="navbar">
             <div class="nav-content">
