@@ -955,7 +955,6 @@
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
-        <div class="particle"></div>
     </div>
     
     <!-- Premium Red Lanterns -->
@@ -1174,7 +1173,7 @@
                     </div>
                     <div class="game-card" onclick="playGame('curse-of-the-werewolf')">
                         <div class="game-icon">🐺</div>
-                        <div class="game-title">Curse of the Werewolf</div>
+                        <div class="game-title">Curse of Werewolf</div>
                         <div class="game-provider">Pragmatic Play • 96.5 • High </div>
                         <button class="game-button">Play Now</button>
                     </div>
@@ -2386,176 +2385,4 @@
         function logout() {
             currentUser = null;
             updateAuthUI();
-            alert('🚪 Logged out successfully!');
-            showSection('home');
-        }
-
-        function updateAuthUI() {
-            const authButtons = document.getElementById('authButtons');
-            const userInfo = document.getElementById('userInfo');
-            const guestContent = document.getElementById('guestContent');
-            const userContent = document.getElementById('userContent');
-            
-            if (currentUser) {
-                authButtons.style.display = 'none';
-                userInfo.style.display = 'block';
-                guestContent.style.display = 'none';
-                userContent.style.display = 'block';
-                document.getElementById('displayUsername').textContent = currentUser.username;
-                document.getElementById('welcomeUser').textContent = currentUser.username;
-            } else {
-                authButtons.style.display = 'flex';
-                userInfo.style.display = 'none';
-                guestContent.style.display = 'block';
-                userContent.style.display = 'none';
-            }
-        }
-
-        // Game functions
-        function playGame(gameId) {
-            if (!currentUser) {
-                alert('🔐 Please login first to play!');
-                showSection('login');
-                return;
-            }
-            
-            alert(`🎮 Loading ${gameId.replace('-', ' ').toUpperCase()}...\n\n🎰 Get ready for premium gaming experience!`);
-            
-            // Update user stats
-            if (currentUser) {
-                const stats = userStats[currentUser.username] || {};
-                stats.gamesPlayed = (stats.gamesPlayed || 0) + 1;
-                stats.vipPoints = (stats.vipPoints || 0) + 10;
-                localStorage.setItem('wangsengStats', JSON.stringify(userStats));
-            }
-        }
-
-        // Sports betting functions
-        function openSport(sportType) {
-            if (!currentUser) {
-                alert('🔐 Please login first to access sports betting!');
-                showSection('login');
-                return;
-            }
-            
-            alert(`⚽ Opening ${sportType.toUpperCase()} betting...\n\n📊 Browse live matches and odds!`);
-            
-            // Update user stats
-            if (currentUser) {
-                const stats = userStats[currentUser.username] || {};
-                stats.sportsBets = (stats.sportsBets || 0) + 1;
-                stats.vipPoints = (stats.vipPoints || 0) + 5;
-                localStorage.setItem('wangsengStats', JSON.stringify(userStats));
-            }
-        }
-
-        // Provider functions
-        function openProvider(providerId) {
-            if (!currentUser) {
-                alert('🔐 Please login first to access game providers!');
-                showSection('login');
-                return;
-            }
-            
-            const providerNames = {
-                'evo888': 'EVO888 H5',
-                'evo888-app': 'EVO888-APP',
-                'slot4d': 'SLOT4D',
-                'ygg': 'YGG',
-                'btgaming': 'BTGAMING',
-                'imperium': 'IMPERIUM',
-                'marioclub': 'MARIOCLUB',
-                'playace-yp': 'PLAYACE-YP',
-                'playace-slot': 'PLAYACE-SLOT',
-                'epicwin': 'EPICWIN',
-                'scr888': 'SCR888',
-                'uuslots': 'UUSLOTS',
-                'duofu': 'DUOFU',
-                'vpower': 'VPOWER',
-                'jili': 'JILI',
-                'pragmatic-slot': 'PRAGMATIC SLOT',
-                'lucky365': 'LUCKY365',
-                'monkey-king': 'MONKEY KING',
-                'pegasus': 'PEGASUS',
-                '918kiss-h5': '918KISS H5',
-                'mega888-h5': 'MEGA888 H5',
-                'gw99': 'GW 99',
-                'advant-play': 'ADVANT PLAY',
-                'ace333': 'ACE333',
-                'joker': 'JOKER',
-                'pg-soft': 'PG SOFT',
-                'live22': 'LIVE22',
-                'lion-king': 'LION KING',
-                'spade-gaming': 'SPADE GAMING',
-                'habanero': 'HABANERO',
-                'clotplay': 'CLOTPLAY',
-                'mega-h5': 'MEGA H5',
-                'amb-slot': 'AMB SLOT',
-                'nextspin': 'NEXTSPIN',
-                'scr2': 'SCR 2',
-                'xe88': 'XE88',
-                'suncity': 'SUNCITY',
-                'pussy888': 'PUSSY888',
-                '918kiss': '918KISS',
-                'mega888': 'MEGA888'
-            };
-            
-            const providerName = providerNames[providerId] || providerId.toUpperCase();
-            alert(`🎰 Loading ${providerName}...\n\n🎮 Accessing premium slot games!`);
-            
-            // Update user stats
-            if (currentUser) {
-                const stats = userStats[currentUser.username] || {};
-                stats.gamesPlayed = (stats.gamesPlayed || 0) + 1;
-                stats.vipPoints = (stats.vipPoints || 0) + 10;
-                localStorage.setItem('wangsengStats', JSON.stringify(userStats));
-            }
-        }
-
-        
-        function placeBet(matchId, oddValue) {
-            if (!currentUser) {
-                alert('🔐 Please login first to place bets!');
-                showSection('login');
-                return;
-            }
-            
-            const betAmount = prompt(`💰 Enter bet amount for odds ${oddValue}:`);
-            if (betAmount && !isNaN(betAmount) && parseFloat(betAmount) > 0) {
-                alert(`✅ Bet placed successfully!\n\n📊 Match: ${matchId}\n💰 Amount: $${betAmount}\n📈 Odds: ${oddValue}\n🏆 Potential Win: $${(parseFloat(betAmount) * parseFloat(oddValue)).toFixed(2)}`);
-                
-                // Update user stats
-                if (currentUser) {
-                    const stats = userStats[currentUser.username] || {};
-                    stats.totalBets = (stats.totalBets || 0) + 1;
-                    stats.totalWagered = (stats.totalWagered || 0) + parseFloat(betAmount);
-                    stats.vipPoints = (stats.vipPoints || 0) + 15;
-                    localStorage.setItem('wangsengStats', JSON.stringify(userStats));
-                }
-            } else {
-                alert('❌ Invalid bet amount!');
-            }
-        }
-
-        // Keyboard support
-        document.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                const activeElement = document.activeElement;
-                if (activeElement.id === 'loginUsername' || activeElement.id === 'loginPassword') {
-                    login();
-                } else if (activeElement.id === 'registerUsername' || activeElement.id === 'registerEmail' || 
-                          activeElement.id === 'registerPassword' || activeElement.id === 'confirmPassword') {
-                    register();
-                }
-            }
-        });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            updateAuthUI();
-            console.log('👑 WangSeng87 Premium Gaming Platform Loaded');
-            console.log('🚀 All systems ready for premium gaming action!');
-        });
-    </script>
-</body>
-</html>
+            alert('🚪 Logged
