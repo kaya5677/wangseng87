@@ -344,49 +344,60 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 10px 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 20, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 8px 0;
             z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
         }
         .taskbar-content {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
+            width: 100%;
+            padding: 0 10px;
         }
         .taskbar-item {
             display: flex;
+            flex: 1;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
-            padding: 8px 15px;
-            border-radius: 8px;
+            padding: 12px 8px;
+            border-radius: 12px;
             transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            min-height: 60px;
+            position: relative;
         }
         .taskbar-item:hover {
             background: rgba(255, 215, 0, 0.15);
             color: #ffd700;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
         }
         .taskbar-item.active {
             color: #ffd700;
-            background: rgba(255,215,0,0.2);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 140, 0, 0.15) 100%);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
         .taskbar-icon {
-            font-size: 1.5rem;
-            margin-bottom: 4px;
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+            display: block;
+            line-height: 1;
         }
         .taskbar-label {
-            font-size: 0.75rem;
-            font-weight: 500;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
         }
         
         .header {
@@ -551,49 +562,64 @@
         .provider-wrapper {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
+            gap: 12px;
             margin: 2rem 0;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 1200px) {
+            .provider-wrapper {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
         
         @media (max-width: 992px) {
             .provider-wrapper {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
             }
         }
         
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
             .provider-wrapper {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
             }
         }
-
-        .provider-wrapper .col-lg-2,
-        .provider-wrapper .col-md-3,
-        .provider-wrapper .col-3 {
-            padding: 4px;
+        
+        @media (max-width: 480px) {
+            .provider-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
         }
 
         .cursor-pointer {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 3 / 4;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 18px;
             background: transparent;
             cursor: pointer;
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
         }
 
         .cursor-pointer:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            z-index: 10;
         }
 
         .game_image.img-fluid {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 18px;
             display: block;
             transition: transform 0.3s ease;
         }
