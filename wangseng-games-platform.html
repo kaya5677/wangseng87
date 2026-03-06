@@ -8,9 +8,262 @@
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: 
+                radial-gradient(ellipse at top, #1a1f3e 0%, #0f1529 40%, #0a0a1a 100%);
             min-height: 100vh;
             color: white;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Premium Animated Background Layers */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 75% 75%, rgba(220, 20, 60, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.04) 0%, transparent 60%);
+            animation: backgroundGlow 10s ease-in-out infinite;
+            z-index: -3;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 20% 70%, rgba(220, 20, 60, 0.08) 0%, transparent 40%);
+            animation: shimmerEffect 15s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        /* Floating Golden Particles System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.9), rgba(255, 237, 78, 0.6));
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(0.5px);
+            animation: particleFloat 18s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 8%; animation-delay: 0s; animation-duration: 16s; }
+        .particle:nth-child(2) { left: 23%; animation-delay: 3s; animation-duration: 19s; }
+        .particle:nth-child(3) { left: 38%; animation-delay: 6s; animation-duration: 17s; }
+        .particle:nth-child(4) { left: 53%; animation-delay: 9s; animation-duration: 20s; }
+        .particle:nth-child(5) { left: 68%; animation-delay: 12s; animation-duration: 18s; }
+        .particle:nth-child(6) { left: 83%; animation-delay: 15s; animation-duration: 21s; }
+        .particle:nth-child(7) { left: 12%; animation-delay: 2s; animation-duration: 15s; }
+        .particle:nth-child(8) { left: 27%; animation-delay: 5s; animation-duration: 22s; }
+        .particle:nth-child(9) { left: 42%; animation-delay: 8s; animation-duration: 16s; }
+        .particle:nth-child(10) { left: 57%; animation-delay: 11s; animation-duration: 19s; }
+        .particle:nth-child(11) { left: 72%; animation-delay: 14s; animation-duration: 17s; }
+        .particle:nth-child(12) { left: 87%; animation-delay: 17s; animation-duration: 20s; }
+
+        /* Premium Red Lanterns */
+        .lantern {
+            position: absolute;
+            width: 28px;
+            height: 38px;
+            background: linear-gradient(135deg, #dc143c 0%, #ff6b6b 50%, #dc143c 100%);
+            border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+            box-shadow: 
+                0 0 25px rgba(220, 20, 60, 0.7),
+                inset 0 0 15px rgba(255, 107, 107, 0.3);
+            animation: lanternGentleSway 8s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 10px;
+            background: linear-gradient(90deg, #8b0000, #a52a2a, #8b0000);
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .lantern::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 18px;
+            background: linear-gradient(180deg, #8b0000, transparent);
+        }
+
+        .lantern1 { top: 25px; left: 12%; animation-delay: 0s; }
+        .lantern2 { top: 18px; left: 88%; animation-delay: 2.5s; }
+        .lantern3 { top: 30px; left: 48%; animation-delay: 5s; }
+        .lantern4 { top: 22px; left: 28%; animation-delay: 7.5s; }
+
+        /* Logo Container Radial Light */
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.08) 25%, transparent 60%);
+            border-radius: 50%;
+            animation: logoRadialGlow 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        /* Premium Title Bar Shimmer */
+        .header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            animation: titleShimmer 6s ease-in-out infinite;
+        }
+
+        /* Enhanced Navigation Glow */
+        .nav-item.active {
+            color: #ffd700;
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .nav-item:hover {
+            background: rgba(255,215,0,0.15);
+            color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Enhanced Card Glow */
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Premium Background Animations */
+        @keyframes backgroundGlow {
+            0%, 100% { 
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmerEffect {
+            0%, 100% { 
+                opacity: 0.5;
+                transform: scale(1) rotate(0deg);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: scale(1.1) rotate(1deg);
+            }
+        }
+
+        @keyframes particleFloat {
+            0% { 
+                opacity: 0;
+                transform: translateY(100vh) translateX(0) scale(0);
+            }
+            5% {
+                opacity: 0.8;
+                transform: translateY(95vh) translateX(5px) scale(1);
+            }
+            25% {
+                opacity: 1;
+                transform: translateY(75vh) translateX(-3px) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(50vh) translateX(8px) scale(1);
+            }
+            75% {
+                opacity: 1;
+                transform: translateY(25vh) translateX(-5px) scale(1);
+            }
+            95% {
+                opacity: 0.8;
+                transform: translateY(5vh) translateX(3px) scale(1);
+            }
+            100% { 
+                opacity: 0;
+                transform: translateY(0vh) translateX(0) scale(0);
+            }
+        }
+
+        @keyframes lanternGentleSway {
+            0%, 100% { 
+                transform: rotate(-2deg) translateX(0) translateY(0);
+            }
+            25% {
+                transform: rotate(1deg) translateX(3px) translateY(-2px);
+            }
+            50% { 
+                transform: rotate(2deg) translateX(6px) translateY(0);
+            }
+            75% {
+                transform: rotate(1deg) translateX(3px) translateY(2px);
+            }
+        }
+
+        @keyframes logoRadialGlow {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+                filter: brightness(1);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 0.8;
+                filter: brightness(1.2);
+            }
+        }
+
+        @keyframes titleShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         .container {
             max-width: 1200px;
@@ -116,13 +369,16 @@
             text-decoration: none;
         }
         .taskbar-item:hover {
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 215, 0, 0.15);
             color: #ffd700;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
         .taskbar-item.active {
             color: #ffd700;
             background: rgba(255,215,0,0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
         }
         .taskbar-icon {
             font-size: 1.5rem;
@@ -322,6 +578,7 @@
         .game-card:hover {
             transform: translateY(-5px);
             border-color: #ffd700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
         .game-card::before {
             content: '';
@@ -362,6 +619,11 @@
             color: #1a1a2e;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
         .promo-card::before {
             content: '';
@@ -411,6 +673,7 @@
         .payment-method:hover {
             background: rgba(255,215,0,0.1);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
         .stats-grid {
             display: grid;
@@ -456,6 +719,7 @@
         .match-card:hover {
             transform: translateY(-5px);
             border-color: #ffd700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
         .match-card::before {
             content: '';
@@ -542,6 +806,7 @@
         .sport-card:hover {
             transform: translateY(-5px);
             border-color: #ffd700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
         .sport-icon {
             font-size: 3rem;
@@ -587,6 +852,7 @@
         .market-card:hover {
             background: rgba(255,215,0,0.1);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
         .market-card h4 {
             color: #ffd700;
@@ -637,6 +903,29 @@
     </style>
 </head>
 <body>
+    <!-- Premium Animated Background Elements -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Premium Red Lanterns -->
+    <div class="lantern lantern1"></div>
+    <div class="lantern lantern2"></div>
+    <div class="lantern lantern3"></div>
+    <div class="lantern lantern4"></div>
+    
     <div class="container">
         <div class="logo-container">
             <!-- WangSeng87 Video Logo -->
@@ -662,6 +951,7 @@
                 <div class="nav-item" onclick="showSection('sports')">⚽ Sports</div>
                 <div class="nav-item" onclick="showSection('promotions')">🎁 Promotions</div>
                 <div class="nav-item" onclick="showSection('vip')">👑 VIP</div>
+                <div class="nav-item" onclick="showSection('agi')">🤖 AGI</div>
             </div>
         </div>
         
@@ -1691,6 +1981,127 @@
                 </div>
             </div>
         </div>
+
+        <!-- AGI Platform Section -->
+        <div id="agi" class="section">
+            <h2>🤖 AGI Gaming Platform</h2>
+            
+            <!-- AI Gaming Features -->
+            <div class="game-category">
+                <h3>🧠 AI-Powered Gaming</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playAGI('ai-slots')">
+                        <div class="game-icon">🎰</div>
+                        <div class="game-title">AI Slot Generator</div>
+                        <div class="game-provider">Neural Networks • Dynamic RTP • Infinite Variations</div>
+                        <button class="game-button">Launch AI</button>
+                    </div>
+                    <div class="game-card" onclick="playAGI('ai-predictor')">
+                        <div class="game-icon">🔮</div>
+                        <div class="game-title">AI Predictions Engine</div>
+                        <div class="game-provider">Machine Learning • 95% Accuracy • Real-time Analysis</div>
+                        <button class="game-button">Start Predicting</button>
+                    </div>
+                    <div class="game-card" onclick="playAGI('ai-strategy')">
+                        <div class="game-icon">♟️</div>
+                        <div class="game-title">AI Strategy Assistant</div>
+                        <div class="game-provider">Deep Learning • Optimal Moves • Pattern Recognition</div>
+                        <button class="game-button">Get Strategy</button>
+                    </div>
+                    <div class="game-card" onclick="playAGI('ai-companion')">
+                        <div class="game-icon">🤖</div>
+                        <div class="game-title">AI Gaming Companion</div>
+                        <div class="game-provider">ChatGPT Integration • 24/7 Support • Personal Tips</div>
+                        <button class="game-button">Activate Companion</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AGI Tools -->
+            <div class="game-category">
+                <h3>🛠️ AGI Development Tools</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="openAGITool('game-creator')">
+                        <div class="game-icon">🎮</div>
+                        <div class="game-title">AI Game Creator</div>
+                        <div class="game-provider">Generate custom games with AI • No coding required</div>
+                        <button class="game-button">Create Game</button>
+                    </div>
+                    <div class="game-card" onclick="openAGITool('ai-analyzer')">
+                        <div class="game-icon">📊</div>
+                        <div class="game-title">AI Game Analyzer</div>
+                        <div class="game-provider">Analyze patterns • Optimize strategies • Win rate improvement</div>
+                        <button class="game-button">Analyze Games</button>
+                    </div>
+                    <div class="game-card" onclick="openAGITool('ai-trainer')">
+                        <div class="game-icon">🎯</div>
+                        <div class="game-title">AI Skill Trainer</div>
+                        <div class="game-provider">Personalized training • Adaptive difficulty • Real-time feedback</div>
+                        <button class="game-button">Start Training</button>
+                    </div>
+                    <div class="game-card" onclick="openAGITool('ai-market')">
+                        <div class="game-icon">🏪</div>
+                        <div class="game-title">AI Game Market</div>
+                        <div class="game-provider">Buy/sell AI-generated games • Blockchain integration</div>
+                        <button class="game-button">Enter Market</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AGI Stats -->
+            <div class="game-category">
+                <h3>📈 AGI Performance Analytics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">98.5%</div>
+                        <div class="stat-label">AI Prediction Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1.2M</div>
+                        <div class="stat-label">AI Games Generated</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">AI Assistant Online</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">500K</div>
+                        <div class="stat-label">Active AI Players</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AGI Features -->
+            <div class="game-category">
+                <h3>🌟 Advanced AGI Features</h3>
+                <div class="promo-grid">
+                    <div class="promo-card">
+                        <h3>🧠 Neural Gaming</h3>
+                        <p style="font-size: 1.5rem; margin: 1rem 0;">Experience games that adapt to your playstyle!</p>
+                        <p>AI learns from your gaming patterns and creates personalized experiences</p>
+                        <button class="game-button" style="margin-top: 1rem;">Activate Neural Mode</button>
+                    </div>
+                    <div class="promo-card">
+                        <h3>🤖 AI Chat Integration</h3>
+                        <p style="font-size: 1.5rem; margin: 1rem 0;">Chat with AI while gaming!</p>
+                        <p>Get real-time tips, strategies, and companionship during gameplay</p>
+                        <button class="game-button" style="margin-top: 1rem;">Enable AI Chat</button>
+                    </div>
+                    <div class="promo-card">
+                        <h3>🎯 Predictive Analytics</h3>
+                        <p style="font-size: 1.5rem; margin: 1rem 0;">Predict outcomes with 95% accuracy!</p>
+                        <p>Advanced machine learning algorithms analyze game patterns and predict results</p>
+                        <button class="game-button" style="margin-top: 1rem;">Start Predicting</button>
+                    </div>
+                    <div class="promo-card">
+                        <h3>🌐 Multi-Platform AGI</h3>
+                        <p style="font-size: 1.5rem; margin: 1rem 0;">Connect AI across all gaming platforms!</p>
+                        <p>Unified AI experience across desktop, mobile, and VR gaming</p>
+                        <button class="game-button" style="margin-top: 1rem;">Sync Platforms</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Task Bar -->
@@ -1719,6 +2130,10 @@
             <div class="taskbar-item" onclick="showSection('vip')" id="vipTaskbar">
                 <div class="taskbar-icon">👑</div>
                 <div class="taskbar-label">VIP</div>
+            </div>
+            <div class="taskbar-item" onclick="showSection('agi')" id="agiTaskbar">
+                <div class="taskbar-icon">🤖</div>
+                <div class="taskbar-label">AGI</div>
             </div>
         </div>
     </div>
@@ -2022,6 +2437,7 @@
             }
         }
 
+        
         function placeBet(matchId, oddValue) {
             if (!currentUser) {
                 alert('🔐 Please login first to place bets!');
