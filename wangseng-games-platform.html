@@ -558,52 +558,118 @@
             transform: scale(1.05);
         }
 
-        /* Premium Slot Provider Grid - Casino Lobby Style */
+        /* Premium Provider Section - Casino Style */
+        .premium-provider-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .premium-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.1);
+            margin: 0;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        .title-decoration {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 50%;
+            animation: decorationPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes decorationPulse {
+            0%, 100% { 
+                width: 200px; 
+                opacity: 0.6;
+            }
+            50% { 
         .provider-wrapper {
-            display: grid !important;
+            display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
             gap: 14px;
-            max-width: 1450px;
+            width: 100%;
+            max-width: 1420px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 6px 4px;
+            box-sizing: border-box;
+            align-items: start;
         }
-        
-        @media (max-width: 1100px) {
-            .provider-wrapper {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .provider-wrapper {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .provider-wrapper {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 8px;
-            }
-        }
-
         .provider-wrapper > div {
-            padding: 0 !important;
-            margin: 0 !important;
-            width: auto !important;
-            max-width: none !important;
-            flex: unset !important;
+            min-width: 0;
         }
-
         .provider-wrapper .cursor-pointer {
+            position: relative;
             display: block;
             width: 100%;
             overflow: hidden;
             border-radius: 20px;
-            background: transparent !important;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255, 215, 0, 0.14);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.04);
+            cursor: pointer;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, filter 0.28s ease;
         }
-
+        .provider-wrapper .cursor-pointer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(255,255,255,0.06) 35%,
+                rgba(255,215,0,0.12) 50%,
+                rgba(255,255,255,0.06) 65%,
+                transparent 100%
+            );
+            transform: translateX(-120%);
+            transition: transform 0.6s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .provider-wrapper .cursor-pointer:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(255, 215, 0, 0.42);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.42), 0 0 24px rgba(255, 215, 0, 0.14);
+            filter: brightness(1.04);
+        }
+        .provider-wrapper .cursor-pointer:hover::before {
+            transform: translateX(120%);
+        }
         .provider-wrapper .game_image {
             display: block;
             width: 100% !important;
@@ -611,25 +677,37 @@
             object-fit: cover;
             border-radius: 20px;
             background: transparent !important;
-            padding: 0 !important;
-            margin: 0 !important;
             border: none !important;
+            transition: transform 0.35s ease, filter 0.35s ease;
         }
-
-        /* Override Bootstrap column classes inside provider-wrapper */
-        .provider-wrapper .col-lg-2,
-        .provider-wrapper .col-md-3,
-        .provider-wrapper .col-3 {
-            padding: 0 !important;
-            margin: 0 !important;
-            width: auto !important;
-            max-width: none !important;
-            flex: unset !important;
+        .provider-wrapper .cursor-pointer:hover .game_image {
+            transform: scale(1.06);
+            filter: saturate(1.08) contrast(1.03);
         }
-
-        /* Hide Old Game Section */
-        .game-category.hidden {
-            display: none !important;
+        @media (max-width: 1150px) {
+            .provider-wrapper {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 12px;
+            }
+        }
+        @media (max-width: 768px) {
+            .provider-wrapper {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .provider-wrapper .cursor-pointer,
+            .provider-wrapper .game_image {
+                border-radius: 16px;
+            }
+            .game-category h3 {
+                font-size: 1.35rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .provider-wrapper {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
         }
         .game-card {
             background: rgba(255,255,255,0.1);
@@ -1104,129 +1182,210 @@
                         <div class="game-icon">❄️</div>
                         <div class="game-title">Bigger Bass Blizzard</div>
                         <div class="game-provider">Pragmatic Play • 96.7 • High </div>
-            <!-- Slot Providers Section -->
+            <!-- Premium Slot Providers Section -->
         <div class="game-category">
             <h3>🎰 Premium Slot Providers</h3>
             <div class="provider-wrapper">
+                <div>
                     <div class="cursor-pointer" onclick="openProvider('evo888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" loading="lazy" class="game_image img-fluid">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" loading="lazy" class="game_image">
                     </div>
                 </div>
-                <div class="cursor-pointer" onclick="openProvider('evo888-app')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" loading="lazy" class="game_image img-fluid">
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('evo888-app')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('slot4d')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('slot4d')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('ygg')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('ygg')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('btgaming')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('btgaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('imperium')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('imperium')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('marioclub')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('marioclub')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('playace-yp')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('playace-yp')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('playace-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('playace-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('epicwin')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('epicwin')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('scr888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('scr888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('uuslots')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('uuslots')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('duofu')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('duofu')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('vpower')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('vpower')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('jili')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('jili')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('lucky365')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('lucky365')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('monkey-king')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('monkey-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('pegasus')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('pegasus')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('918kiss-h5')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('918kiss-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('mega888-h5')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('mega888-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('gw99')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('gw99')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('advant-play')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('advant-play')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('ace333')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('ace333')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('joker')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('joker')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('pg-soft')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('pg-soft')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('live22')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('live22')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('lion-king')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('lion-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('spade-gaming')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('spade-gaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('habanero')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('habanero')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('clotplay')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('clotplay')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('mega-h5')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('mega-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('amb-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('amb-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('nextspin')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('nextspin')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('scr2')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('scr2')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('xe88')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('xe88')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('suncity')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('suncity')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('pussy888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('pussy888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('918kiss')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" loading="lazy" class="game_image img-fluid">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('918kiss')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" loading="lazy" class="game_image">
                     </div>
-                <div class="cursor-pointer" onclick="openProvider('mega888')">
+                </div>
+                <div>
+                    <div class="cursor-pointer" onclick="openProvider('mega888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" loading="lazy" class="game_image">
+                    </div>
+                </div>
             </div>
         </div>
 
