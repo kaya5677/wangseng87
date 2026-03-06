@@ -552,6 +552,14 @@
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
         }
+        .game-category {
+            margin: 2rem 0;
+        }
+        .game-category h3 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -658,42 +666,122 @@
         <!-- Games Section -->
         <div id="games" class="section">
             <h2>🎮 Premium Games Collection</h2>
-            <div class="game-grid">
-                <div class="game-card" onclick="playGame('mega-fortune')">
-                    <div class="game-icon">💰</div>
-                    <div class="game-title">Mega Fortune</div>
-                    <div class="game-provider">NetEnt • 96.6% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
+            
+            <!-- Slot Games -->
+            <div class="game-category">
+                <h3>🎰 Slot Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('mega-fortune')">
+                        <div class="game-icon">💰</div>
+                        <div class="game-title">Mega Fortune</div>
+                        <div class="game-provider">NetEnt • 96.6% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('starburst')">
+                        <div class="game-icon">⭐</div>
+                        <div class="game-title">Starburst</div>
+                        <div class="game-provider">NetEnt • 96.1% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('gonzo')">
+                        <div class="game-icon">🗿</div>
+                        <div class="game-title">Gonzo's Quest</div>
+                        <div class="game-provider">NetEnt • 95.97% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('book-of-dead')">
+                        <div class="game-icon">📖</div>
+                        <div class="game-title">Book of Dead</div>
+                        <div class="game-provider">Play'n GO • 96.21% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('sweet-bonanza')">
+                        <div class="game-icon">🍬</div>
+                        <div class="game-title">Sweet Bonanza</div>
+                        <div class="game-provider">Pragmatic Play • 96.51% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('gates-of-olympus')">
+                        <div class="game-icon">⚡</div>
+                        <div class="game-title">Gates of Olympus</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('starburst')">
-                    <div class="game-icon">⭐</div>
-                    <div class="game-title">Starburst</div>
-                    <div class="game-provider">NetEnt • 96.1% RTP • Low Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Fishing Games -->
+            <div class="game-category">
+                <h3>🐟 Fishing Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('fishing-frenzy')">
+                        <div class="game-icon">🎣</div>
+                        <div class="game-title">Fishing Frenzy</div>
+                        <div class="game-provider">JILI • 97.2% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('ocean-king')">
+                        <div class="game-icon">👑</div>
+                        <div class="game-title">Ocean King</div>
+                        <div class="game-provider">Spadegaming • 96.8% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('lucky-fishing')">
+                        <div class="game-icon">🐠</div>
+                        <div class="game-title">Lucky Fishing</div>
+                        <div class="game-provider">Playtech • 95.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('gonzo')">
-                    <div class="game-icon">🗿</div>
-                    <div class="game-title">Gonzo's Quest</div>
-                    <div class="game-provider">NetEnt • 95.97% RTP • Medium Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Arcade Games -->
+            <div class="game-category">
+                <h3>🕹️ Arcade Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('fruit-blast')">
+                        <div class="game-icon">🍎</div>
+                        <div class="game-title">Fruit Blast</div>
+                        <div class="game-provider">Microgaming • 96.3% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('space-shooter')">
+                        <div class="game-icon">🚀</div>
+                        <div class="game-title">Space Shooter</div>
+                        <div class="game-provider">Habanero • 94.8% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('puzzle-master')">
+                        <div class="game-icon">🧩</div>
+                        <div class="game-title">Puzzle Master</div>
+                        <div class="game-provider">Yggdrasil • 96.9% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('book-of-dead')">
-                    <div class="game-icon">📖</div>
-                    <div class="game-title">Book of Dead</div>
-                    <div class="game-provider">Play'n GO • 96.21% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('sweet-bonanza')">
-                    <div class="game-icon">🍬</div>
-                    <div class="game-title">Sweet Bonanza</div>
-                    <div class="game-provider">Pragmatic Play • 96.51% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('gates-of-olympus')">
-                    <div class="game-icon">⚡</div>
-                    <div class="game-title">Gates of Olympus</div>
-                    <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Lottery Games -->
+            <div class="game-category">
+                <h3>🎟 Lottery Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('4d-lottery')">
+                        <div class="game-icon">🎱</div>
+                        <div class="game-title">4D Lottery</div>
+                        <div class="game-provider">Local Provider • 95% RTP • Variable</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('toto-4d')">
+                        <div class="game-icon">🎰</div>
+                        <div class="game-title">Toto 4D</div>
+                        <div class="game-provider">SGPools • 94.5% RTP • Variable</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('mega-sweep')">
+                        <div class="game-icon">🧹</div>
+                        <div class="game-title">Mega Sweep</div>
+                        <div class="game-provider">88Fortunes • 93.8% RTP • Variable</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -737,149 +825,6 @@
                     <div class="game-title">Texas Hold'em</div>
                     <div class="game-provider">Live poker tournaments</div>
                     <button class="game-button">Join Table</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sports Betting Section -->
-        <div id="sports" class="section">
-            <h2>⚽ Sports Betting</h2>
-            
-            <!-- Live Matches -->
-            <div class="sports-category">
-                <h3>🔴 Live Matches</h3>
-                <div class="matches-grid">
-                    <div class="match-card">
-                        <div class="teams">
-                            <span class="team">Manchester United</span>
-                            <span class="vs">VS</span>
-                            <span class="team">Liverpool</span>
-                        </div>
-                        <div class="odds">
-                            <span class="odd">2.45</span>
-                            <span class="odd">3.20</span>
-                            <span class="odd">2.80</span>
-                        </div>
-                        <div class="match-info">
-                            <span class="league">Premier League</span>
-                            <span class="time">Live 45'</span>
-                        </div>
-                        <button class="game-button">Bet Now</button>
-                    </div>
-                    
-                    <div class="match-card">
-                        <div class="teams">
-                            <span class="team">Real Madrid</span>
-                            <span class="vs">VS</span>
-                            <span class="team">Barcelona</span>
-                        </div>
-                        <div class="odds">
-                            <span class="odd">1.95</span>
-                            <span class="odd">3.60</span>
-                            <span class="odd">3.85</span>
-                        </div>
-                        <div class="match-info">
-                            <span class="league">La Liga</span>
-                            <span class="time">Live 67'</span>
-                        </div>
-                        <button class="game-button">Bet Now</button>
-                    </div>
-                    
-                    <div class="match-card">
-                        <div class="teams">
-                            <span class="team">Lakers</span>
-                            <span class="vs">VS</span>
-                            <span class="team">Celtics</span>
-                        </div>
-                        <div class="odds">
-                            <span class="odd">1.85</span>
-                            <span class="odd">2.10</span>
-                            <span class="odd">2.25</span>
-                        </div>
-                        <div class="match-info">
-                            <span class="league">NBA</span>
-                            <span class="time">Q3 8:24</span>
-                        </div>
-                        <button class="game-button">Bet Now</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Popular Sports -->
-            <div class="sports-list">
-                <h3>🏆 Popular Sports</h3>
-                <div class="sport-grid">
-                    <div class="sport-card" onclick="openSport('football')">
-                        <div class="sport-icon">⚽</div>
-                        <div class="sport-name">Football</div>
-                        <div class="sport-count">245 Live</div>
-                        <div class="sport-markets">1X2, Over/Under, BTTS</div>
-                    </div>
-                    
-                    <div class="sport-card" onclick="openSport('basketball')">
-                        <div class="sport-icon">🏀</div>
-                        <div class="sport-name">Basketball</div>
-                        <div class="sport-count">89 Live</div>
-                        <div class="sport-markets">Moneyline, Spread, Total</div>
-                    </div>
-                    
-                    <div class="sport-card" onclick="openSport('tennis')">
-                        <div class="sport-icon">🎾</div>
-                        <div class="sport-name">Tennis</div>
-                        <div class="sport-count">67 Live</div>
-                        <div class="sport-markets">Match Winner, Sets, Games</div>
-                    </div>
-                    
-                    <div class="sport-card" onclick="openSport('cricket')">
-                        <div class="sport-icon">🏏</div>
-                        <div class="sport-name">Cricket</div>
-                        <div class="sport-count">45 Live</div>
-                        <div class="sport-markets">Match Winner, Top Batsman</div>
-                    </div>
-                    
-                    <div class="sport-card" onclick="openSport('esports')">
-                        <div class="sport-icon">🎮</div>
-                        <div class="sport-name">E-Sports</div>
-                        <div class="sport-count">156 Live</div>
-                        <div class="sport-markets">LOL, Dota 2, CS:GO</div>
-                    </div>
-                    
-                    <div class="sport-card" onclick="openSport('boxing')">
-                        <div class="sport-icon">🥊</div>
-                        <div class="sport-name">Boxing</div>
-                        <div class="sport-count">12 Live</div>
-                        <div class="sport-markets">Winner, Round, Method</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Betting Markets -->
-            <div class="betting-markets">
-                <h3>💰 Popular Markets</h3>
-                <div class="markets-grid">
-                    <div class="market-card">
-                        <h4>🏠 Match Winner</h4>
-                        <p>Bet on who will win the match</p>
-                        <div class="market-example">1X2 - Home/Draw/Away</div>
-                    </div>
-                    
-                    <div class="market-card">
-                        <h4>📊 Over/Under</h4>
-                        <p>Bet on total goals/points</p>
-                        <div class="market-example">Over 2.5 Goals</div>
-                    </div>
-                    
-                    <div class="market-card">
-                        <h4>🎯 Both Teams Score</h4>
-                        <p>Will both teams score?</p>
-                        <div class="market-example">Yes/No</div>
-                    </div>
-                    
-                    <div class="market-card">
-                        <h4>📈 Handicap</h4>
-                        <p>Give teams virtual advantage</p>
-                        <div class="market-example">-1.5 / +1.5</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1017,6 +962,209 @@
             </div>
         </div>
 
+        <!-- Sports Betting Section -->
+        <div id="sports" class="section">
+            <h2>⚽ Sports Betting</h2>
+            
+            <!-- Live Matches -->
+            <div class="sports-category">
+                <h3>🔴 Live Matches</h3>
+                <div class="matches-grid">
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Manchester United</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Liverpool</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">2.45</span>
+                            <span class="odd">3.20</span>
+                            <span class="odd">2.80</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">Premier League</span>
+                            <span class="time">Live 45'</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Real Madrid</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Barcelona</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.95</span>
+                            <span class="odd">3.60</span>
+                            <span class="odd">3.85</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">La Liga</span>
+                            <span class="time">Live 67'</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Lakers</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Celtics</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.85</span>
+                            <span class="odd">2.10</span>
+                            <span class="odd">2.25</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">NBA</span>
+                            <span class="time">Q3 8:24</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popular Sports -->
+            <div class="sports-list">
+                <h3>🏆 Popular Sports</h3>
+                <div class="sport-grid">
+                    <div class="sport-card" onclick="openSport('football')">
+                        <div class="sport-icon">⚽</div>
+                        <div class="sport-name">Football</div>
+                        <div class="sport-count">245 Live</div>
+                        <div class="sport-markets">1X2, Over/Under, BTTS</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('basketball')">
+                        <div class="sport-icon">🏀</div>
+                        <div class="sport-name">Basketball</div>
+                        <div class="sport-count">89 Live</div>
+                        <div class="sport-markets">Moneyline, Spread, Total</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('tennis')">
+                        <div class="sport-icon">🎾</div>
+                        <div class="sport-name">Tennis</div>
+                        <div class="sport-count">67 Live</div>
+                        <div class="sport-markets">Match Winner, Sets, Games</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('cricket')">
+                        <div class="sport-icon">🏏</div>
+                        <div class="sport-name">Cricket</div>
+                        <div class="sport-count">45 Live</div>
+                        <div class="sport-markets">Match Winner, Top Batsman</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('esports')">
+                        <div class="sport-icon">🎮</div>
+                        <div class="sport-name">E-Sports</div>
+                        <div class="sport-count">156 Live</div>
+                        <div class="sport-markets">LOL, Dota 2, CS:GO</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('boxing')">
+                        <div class="sport-icon">🥊</div>
+                        <div class="sport-name">Boxing</div>
+                        <div class="sport-count">12 Live</div>
+                        <div class="sport-markets">Winner, Round, Method</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- E-Sports Matches -->
+            <div class="sports-category">
+                <h3>🎮 E-Sports Matches</h3>
+                <div class="matches-grid">
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Team Liquid</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Cloud9</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.75</span>
+                            <span class="odd">2.40</span>
+                            <span class="odd">3.10</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">CS:GO Major</span>
+                            <span class="time">Live Map 2</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">T1</span>
+                            <span class="vs">VS</span>
+                            <span class="team">G2 Esports</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.55</span>
+                            <span class="odd">2.85</span>
+                            <span class="odd">3.20</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">League of Legends</span>
+                            <span class="time">Game 3 Live</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">OG</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Team Secret</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.90</span>
+                            <span class="odd">2.35</span>
+                            <span class="odd">2.95</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">Dota 2 International</span>
+                            <span class="time">Live 42:15</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Betting Markets -->
+            <div class="betting-markets">
+                <h3>💰 Popular Markets</h3>
+                <div class="markets-grid">
+                    <div class="market-card">
+                        <h4>🏠 Match Winner</h4>
+                        <p>Bet on who will win match</p>
+                        <div class="market-example">1X2 - Home/Draw/Away</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>📊 Over/Under</h4>
+                        <p>Bet on total goals/points</p>
+                        <div class="market-example">Over 2.5 Goals</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>🎯 Both Teams Score</h4>
+                        <p>Will both teams score?</p>
+                        <div class="market-example">Yes/No</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>📈 Handicap</h4>
+                        <p>Give teams virtual advantage</p>
+                        <div class="market-example">-1.5 / +1.5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Payment Methods Section -->
         <div id="payments" class="section">
             <h2>💳 Payment Methods</h2>
@@ -1079,8 +1227,59 @@
         let currentUser = null;
 
         // User management
-        const users = JSON.parse(localStorage.getItem('wangsengUsers')) || [];
+        const users = JSON.parse(localStorage.getItem('wangsengUsers')) || [
+            // Pre-registered demo accounts
+            {
+                username: 'demo87',
+                email: 'demo@wangseng87.com',
+                password: 'demo123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Bronze'
+            },
+            {
+                username: 'vip87',
+                email: 'vip@wangseng87.com',
+                password: 'vip123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Gold'
+            },
+            {
+                username: 'highroller87',
+                email: 'highroller@wangseng87.com',
+                password: 'high123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Diamond'
+            },
+            {
+                username: 'sports87',
+                email: 'sports@wangseng87.com',
+                password: 'sports123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Silver'
+            }
+        ];
         let userStats = JSON.parse(localStorage.getItem('wangsengStats')) || {};
+
+        // Initialize demo accounts with stats if they don't exist
+        if (!localStorage.getItem('wangsengUsers')) {
+            localStorage.setItem('wangsengUsers', JSON.stringify(users));
+        }
+        
+        // Initialize demo user stats
+        const demoUsers = ['demo87', 'vip87', 'highroller87', 'sports87'];
+        demoUsers.forEach(username => {
+            if (!userStats[username]) {
+                userStats[username] = {
+                    totalWagered: Math.floor(Math.random() * 5000),
+                    totalWon: Math.floor(Math.random() * 3000),
+                    gamesPlayed: Math.floor(Math.random() * 100),
+                    vipPoints: Math.floor(Math.random() * 500),
+                    sportsBets: Math.floor(Math.random() * 50),
+                    totalBets: Math.floor(Math.random() * 30)
+                };
+            }
+        });
+        localStorage.setItem('wangsengStats', JSON.stringify(userStats));
 
         // Navigation
         function showSection(sectionId) {
