@@ -3,9 +3,905 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WangSeng87 - Clean Page</title>
+    <title>WangSeng87 - Premium Gaming Lobby</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #0f1529 25%, #1a1f3e 50%, #0f1529 75%, #0a0a1a 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Premium Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.04) 0%, transparent 60%);
+            animation: backgroundGlow 12s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 20% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
+            animation: shimmerEffect 18s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        /* Floating Gold Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 237, 78, 0.4));
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 20s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 8%; animation-delay: 0s; animation-duration: 16s; }
+        .particle:nth-child(2) { left: 23%; animation-delay: 3s; animation-duration: 19s; }
+        .particle:nth-child(3) { left: 38%; animation-delay: 6s; animation-duration: 17s; }
+        .particle:nth-child(4) { left: 53%; animation-delay: 9s; animation-duration: 20s; }
+        .particle:nth-child(5) { left: 68%; animation-delay: 12s; animation-duration: 18s; }
+        .particle:nth-child(6) { left: 83%; animation-delay: 15s; animation-duration: 21s; }
+        .particle:nth-child(7) { left: 12%; animation-delay: 2s; animation-duration: 15s; }
+        .particle:nth-child(8) { left: 27%; animation-delay: 5s; animation-duration: 22s; }
+        .particle:nth-child(9) { left: 42%; animation-delay: 8s; animation-duration: 16s; }
+        .particle:nth-child(10) { left: 57%; animation-delay: 11s; animation-duration: 19s; }
+        .particle:nth-child(11) { left: 72%; animation-delay: 14s; animation-duration: 17s; }
+        .particle:nth-child(12) { left: 87%; animation-delay: 17s; animation-duration: 20s; }
+
+        /* Premium Header */
+        .header {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 10, 20, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .main-logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid #ffd700;
+            box-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.5),
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 215, 0, 0.2);
+            background: #000;
+        }
+
+        .main-logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.08) 25%, transparent 60%);
+            border-radius: 50%;
+            animation: logoRadialGlow 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .main-logo video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .platform-title {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0a0a1a;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .title-decoration {
+            width: 200px;
+            height: 3px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 2px;
+            animation: decorationPulse 2s ease-in-out infinite;
+        }
+
+        /* Premium Provider Container */
+        .provider-container {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .provider-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+        }
+
+        /* Provider Grid */
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+
+        /* Provider Card */
+        .provider-card {
+            position: relative;
+            background: linear-gradient(180deg, rgba(20, 20, 40, 0.8), rgba(10, 10, 20, 0.9));
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .provider-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.05) 35%,
+                rgba(255, 215, 0, 0.1) 50%,
+                rgba(255, 255, 255, 0.05) 65%,
+                transparent 100%
+            );
+            transform: translateX(-120%);
+            transition: transform 0.6s ease;
+            z-index: 2;
+        }
+
+        .provider-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 
+                0 12px 30px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .provider-card:hover::before {
+            transform: translateX(120%);
+        }
+
+        .provider-card:hover .provider-image {
+            transform: scale(1.05);
+            filter: saturate(1.1) contrast(1.05);
+        }
+
+        .provider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            border-radius: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .provider-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .provider-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .provider-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .main-container {
+                padding: 30px 15px 100px;
+            }
+            
+            .provider-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .provider-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .logo-container {
+                gap: 10px;
+            }
+            
+            .main-logo {
+                width: 120px;
+                height: 120px;
+                border-width: 2px;
+            }
+            
+            .main-logo::before {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .platform-title {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 20, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 8px 0;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            min-height: 60px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animations */
+        @keyframes backgroundGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        @keyframes shimmerEffect {
+            0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.8; transform: scale(1.1) rotate(1deg); }
+        }
+
+        @keyframes particleFloat {
+            0% { opacity: 0; transform: translateY(100vh) translateX(0) scale(0); }
+            5% { opacity: 0.8; transform: translateY(95vh) translateX(5px) scale(1); }
+            25% { opacity: 1; transform: translateY(75vh) translateX(-3px) scale(1); }
+            50% { opacity: 1; transform: translateY(50vh) translateX(8px) scale(1); }
+            75% { opacity: 1; transform: translateY(25vh) translateX(-5px) scale(1); }
+            95% { opacity: 0.8; transform: translateY(5vh) translateX(3px) scale(1); }
+            100% { opacity: 0; transform: translateY(0vh) translateX(0) scale(0); }
+        }
+
+        @keyframes decorationPulse {
+            0%, 100% { width: 200px; opacity: 0.6; }
+            50% { width: 260px; opacity: 1; }
+        }
+
+        @keyframes logoRadialGlow {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+                filter: brightness(1);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 0.8;
+                filter: brightness(1.2);
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <!-- Animated Background Particles -->
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <!-- Premium Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="main-logo">
+                    <video autoplay loop muted playsinline>
+                        <source src="wangseng-lion.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="platform-title">WangSeng87</div>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-secondary" onclick="showLogin()">
+                    <span>🔐</span>
+                    <span>Login</span>
+                </button>
+                <button class="btn btn-primary" onclick="showRegister()">
+                    <span>📝</span>
+                    <span>Register</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h1 class="section-title">Premium Slot Providers</h1>
+            <div class="title-decoration"></div>
+        </div>
+
+        <!-- Premium Provider Container -->
+        <div class="provider-container">
+            <div class="provider-grid">
+                <!-- EVO888 H5 -->
+                <div class="provider-card" onclick="openProvider('evo888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" class="provider-image">
+                </div>
+
+                <!-- EVO888-APP -->
+                <div class="provider-card" onclick="openProvider('evo888-app')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" class="provider-image">
+                </div>
+
+                <!-- SLOT4D -->
+                <div class="provider-card" onclick="openProvider('slot4d')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" class="provider-image">
+                </div>
+
+                <!-- YGG -->
+                <div class="provider-card" onclick="openProvider('ygg')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" class="provider-image">
+                </div>
+
+                <!-- BTGAMING -->
+                <div class="provider-card" onclick="openProvider('btgaming')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" class="provider-image">
+                </div>
+
+                <!-- IMPERIUM -->
+                <div class="provider-card" onclick="openProvider('imperium')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" class="provider-image">
+                </div>
+
+                <!-- MARIOCLUB -->
+                <div class="provider-card" onclick="openProvider('marioclub')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" class="provider-image">
+                </div>
+
+                <!-- PLAYACE-YP -->
+                <div class="provider-card" onclick="openProvider('playace-yp')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" class="provider-image">
+                </div>
+
+                <!-- PLAYACE-SLOT -->
+                <div class="provider-card" onclick="openProvider('playace-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" class="provider-image">
+                </div>
+
+                <!-- EPICWIN -->
+                <div class="provider-card" onclick="openProvider('epicwin')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" class="provider-image">
+                </div>
+
+                <!-- SCR888 -->
+                <div class="provider-card" onclick="openProvider('scr888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" class="provider-image">
+                </div>
+
+                <!-- UUSLOTS -->
+                <div class="provider-card" onclick="openProvider('uuslots')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" class="provider-image">
+                </div>
+
+                <!-- DUOFU -->
+                <div class="provider-card" onclick="openProvider('duofu')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" class="provider-image">
+                </div>
+
+                <!-- VPOWER -->
+                <div class="provider-card" onclick="openProvider('vpower')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" class="provider-image">
+                </div>
+
+                <!-- JILI -->
+                <div class="provider-card" onclick="openProvider('jili')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" class="provider-image">
+                </div>
+
+                <!-- PRAGMATIC SLOT -->
+                <div class="provider-card" onclick="openProvider('pragmatic-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" class="provider-image">
+                </div>
+
+                <!-- LUCKY365 -->
+                <div class="provider-card" onclick="openProvider('lucky365')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" class="provider-image">
+                </div>
+
+                <!-- MONKEY KING -->
+                <div class="provider-card" onclick="openProvider('monkey-king')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" class="provider-image">
+                </div>
+
+                <!-- PEGASUS -->
+                <div class="provider-card" onclick="openProvider('pegasus')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" class="provider-image">
+                </div>
+
+                <!-- 918KISS H5 -->
+                <div class="provider-card" onclick="openProvider('918kiss-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" class="provider-image">
+                </div>
+
+                <!-- MEGA888 H5 -->
+                <div class="provider-card" onclick="openProvider('mega888-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" class="provider-image">
+                </div>
+
+                <!-- GW 99 -->
+                <div class="provider-card" onclick="openProvider('gw99')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" class="provider-image">
+                </div>
+
+                <!-- ADVANT PLAY -->
+                <div class="provider-card" onclick="openProvider('advant-play')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" class="provider-image">
+                </div>
+
+                <!-- ACE333 -->
+                <div class="provider-card" onclick="openProvider('ace333')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" class="provider-image">
+                </div>
+
+                <!-- JOKER -->
+                <div class="provider-card" onclick="openProvider('joker')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" class="provider-image">
+                </div>
+
+                <!-- PG SOFT -->
+                <div class="provider-card" onclick="openProvider('pg-soft')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" class="provider-image">
+                </div>
+
+                <!-- LIVE22 -->
+                <div class="provider-card" onclick="openProvider('live22')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" class="provider-image">
+                </div>
+
+                <!-- LION KING -->
+                <div class="provider-card" onclick="openProvider('lion-king')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" class="provider-image">
+                </div>
+
+                <!-- SPADE GAMING -->
+                <div class="provider-card" onclick="openProvider('spade-gaming')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" class="provider-image">
+                </div>
+
+                <!-- HABANERO -->
+                <div class="provider-card" onclick="openProvider('habanero')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" class="provider-image">
+                </div>
+
+                <!-- CLOTPLAY -->
+                <div class="provider-card" onclick="openProvider('clotplay')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" class="provider-image">
+                </div>
+
+                <!-- MEGA H5 -->
+                <div class="provider-card" onclick="openProvider('mega-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" class="provider-image">
+                </div>
+
+                <!-- AMB SLOT -->
+                <div class="provider-card" onclick="openProvider('amb-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" class="provider-image">
+                </div>
+
+                <!-- NEXTSPIN -->
+                <div class="provider-card" onclick="openProvider('nextspin')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" class="provider-image">
+                </div>
+
+                <!-- SCR 2 -->
+                <div class="provider-card" onclick="openProvider('scr2')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" class="provider-image">
+                </div>
+
+                <!-- XE88 -->
+                <div class="provider-card" onclick="openProvider('xe88')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" class="provider-image">
+                </div>
+
+                <!-- SUNCITY -->
+                <div class="provider-card" onclick="openProvider('suncity')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" class="provider-image">
+                </div>
+
+                <!-- PUSSY888 -->
+                <div class="provider-card" onclick="openProvider('pussy888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" class="provider-image">
+                </div>
+
+                <!-- 918KISS -->
+                <div class="provider-card" onclick="openProvider('918kiss')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" class="provider-image">
+                </div>
+
+                <!-- MEGA888 -->
+                <div class="provider-card" onclick="openProvider('mega888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" class="provider-image">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-content">
+            <a href="#" class="nav-item active" onclick="setActiveNav(this)">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                <span class="nav-icon">🎰</span>
+                <span class="nav-label">Live</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                <span class="nav-icon">⚽</span>
+                <span class="nav-label">Sports</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                <span class="nav-icon">🎁</span>
+                <span class="nav-label">Promo</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                <span class="nav-icon">👑</span>
+                <span class="nav-label">VIP</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                <span class="nav-icon">💳</span>
+                <span class="nav-label">Pay</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Provider data mapping
+        const providerNames = {
+            'evo888': 'EVO888 H5',
+            'evo888-app': 'EVO888-APP',
+            'slot4d': 'SLOT4D',
+            'ygg': 'YGG',
+            'btgaming': 'BTGAMING',
+            'imperium': 'IMPERIUM',
+            'marioclub': 'MARIOCLUB',
+            'playace-yp': 'PLAYACE-YP',
+            'playace-slot': 'PLAYACE-SLOT',
+            'epicwin': 'EPICWIN',
+            'scr888': 'SCR888',
+            'uuslots': 'UUSLOTS',
+            'duofu': 'DUOFU',
+            'vpower': 'VPOWER',
+            'jili': 'JILI',
+            'pragmatic-slot': 'PRAGMATIC SLOT',
+            'lucky365': 'LUCKY365',
+            'monkey-king': 'MONKEY KING',
+            'pegasus': 'PEGASUS',
+            '918kiss-h5': '918KISS H5',
+            'mega888-h5': 'MEGA888 H5',
+            'gw99': 'GW 99',
+            'advant-play': 'ADVANT PLAY',
+            'ace333': 'ACE333',
+            'joker': 'JOKER',
+            'pg-soft': 'PG SOFT',
+            'live22': 'LIVE22',
+            'lion-king': 'LION KING',
+            'spade-gaming': 'SPADE GAMING',
+            'habanero': 'HABANERO',
+            'clotplay': 'CLOTPLAY',
+            'mega-h5': 'MEGA H5',
+            'amb-slot': 'AMB SLOT',
+            'nextspin': 'NEXTSPIN',
+            'scr2': 'SCR 2',
+            'xe88': 'XE88',
+            'suncity': 'SUNCITY',
+            'pussy888': 'PUSSY888',
+            '918kiss': '918KISS',
+            'mega888': 'MEGA888'
+        };
+
+        // Open provider function
+        function openProvider(providerId) {
+            const providerName = providerNames[providerId] || providerId.toUpperCase();
+            showNotification(`🎰 Loading ${providerName}...`, 'Accessing premium slot games!');
+        }
+
+        // Navigation functions
+        function setActiveNav(element) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            const label = element.querySelector('.nav-label').textContent;
+            showNotification(`📱 ${label}`, 'Section coming soon!');
+        }
+
+        function showLogin() {
+            showNotification('🔐 Login', 'Login feature coming soon!');
+        }
+
+        function showRegister() {
+            showNotification('📝 Register', 'Registration feature coming soon!');
+        }
+
+        // Notification system
+        function showNotification(title, message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 20, 0.95));
+                border: 1px solid rgba(255, 215, 0, 0.3);
+                border-radius: 16px;
+                padding: 24px 32px;
+                color: white;
+                z-index: 10000;
+                backdrop-filter: blur(20px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                min-width: 300px;
+                animation: notificationSlide 0.3s ease-out;
+            `;
+            
+            notification.innerHTML = `
+                <div style="font-size: 24px; margin-bottom: 8px;">${title}</div>
+                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.8);">${message}</div>
+            `;
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes notificationSlide {
+                    from {
+                        opacity: 0;
+                        transform: translate(-50%, -50%) scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translate(-50%, -50%) scale(1);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 2 seconds
+            setTimeout(() => {
+                notification.style.animation = 'notificationSlide 0.3s ease-out reverse';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                    document.head.removeChild(style);
+                }, 300);
+            }, 2000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('👑 WangSeng87 Premium Gaming Lobby Loaded');
+            console.log('🎰 All providers ready for premium gaming!');
+        });
+    </script>
 </body>
 </html>
