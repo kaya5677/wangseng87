@@ -479,38 +479,6 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            background: none;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #ffd700;
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
         /* Premium Header */
         .header {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 10, 20, 0.9) 100%);
@@ -1133,13 +1101,13 @@
                 display: flex !important;
             }
             
-            /* Mobile sidebar behavior */
+            /* Ultra-compact mobile sidebar like Netplay */
             .sidebar {
                 position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
-                width: 280px !important;
-                max-width: 82vw !important;
+                width: 260px !important;
+                max-width: 75vw !important;
                 height: 100vh !important;
                 transform: translateX(-100%) !important;
                 transition: transform 0.28s ease !important;
@@ -1155,25 +1123,326 @@
             
             .sidebar-mobile-header {
                 display: flex !important;
+                padding: 12px 16px !important;
+                background: rgba(0,0,0,0.4) !important;
+                border-bottom: 1px solid rgba(255,215,0,0.1) !important;
+            }
+            
+            .sidebar-title {
+                font-size: 16px !important;
+                font-weight: 600 !important;
             }
             
             .sidebar-close {
                 display: flex !important;
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 14px !important;
             }
             
             .sidebar-nav {
-                padding: 10px 0 !important;
-                max-height: calc(100vh - 70px) !important;
+                padding: 8px 0 !important;
+                max-height: calc(100vh - 60px) !important;
                 overflow-y: auto !important;
             }
             
             .sidebar-item {
-                padding: 15px 20px !important;
+                padding: 12px 16px !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                margin-bottom: 1px !important;
+                gap: 12px !important;
+            }
+            
+            .sidebar-icon {
+                font-size: 18px !important;
+                margin-right: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .sidebar-item span:last-child {
+                font-size: 13px !important;
+                line-height: 1 !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 0 !important;
+                transition: margin-left 0.28s ease !important;
+            }
+            
+            .main-wrapper.sidebar-open {
+                margin-left: 0 !important;
+            }
+            
+            /* Ultra-compact header */
+            .header {
+                padding: 4px 0 !important;
+                min-height: 50px !important;
+            }
+            
+            .header-content {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                gap: 6px !important;
+                padding: 0 8px 0 60px !important;
+            }
+            
+            .logo-container {
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 6px !important;
+            }
+            
+            .main-logo {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            
+            .platform-title {
+                font-size: 13px !important;
+                line-height: 1 !important;
+            }
+            
+            .auth-buttons {
+                flex-direction: row !important;
+                width: auto !important;
+                gap: 3px !important;
+            }
+            
+            .btn {
+                width: auto !important;
+                padding: 5px 8px !important;
+                font-size: 10px !important;
+                min-height: 28px !important;
+                min-width: 45px !important;
+            }
+            
+            /* Ultra-compact jackpot and stats */
+            .jackpot-container {
+                margin: 3px 0 !important;
+                padding: 6px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2px !important;
+            }
+            
+            .jackpot-item {
+                padding: 4px !important;
+            }
+            
+            .jackpot-amount {
+                font-size: 11px !important;
+            }
+            
+            .jackpot-label {
+                font-size: 7px !important;
+                margin-bottom: 1px !important;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 2px !important;
+                margin: 3px 0 !important;
+            }
+            
+            .live-stat-card {
+                padding: 4px !important;
+            }
+            
+            .live-stat-value {
+                font-size: 10px !important;
+            }
+            
+            .live-stat-label {
+                font-size: 6px !important;
+            }
+            
+            /* Ultra-dense provider section */
+            .main-container {
+                padding: 4px 3px calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+                margin-bottom: env(safe-area-inset-bottom, 0px);
+            }
+            
+            .section-title {
+                font-size: 13px !important;
+                text-align: center !important;
+                margin-bottom: 3px !important;
+            }
+            
+            .provider-search-container {
+                margin: 3px 0 !important;
+            }
+            
+            .search-input {
+                padding: 6px 8px 6px 30px !important;
+                font-size: 11px !important;
+                min-height: 28px !important;
+                border-radius: 16px !important;
+            }
+            
+            .search-icon {
+                left: 10px !important;
+                font-size: 12px !important;
+            }
+            
+            .category-filter-container {
+                gap: 2px !important;
+                justify-content: center !important;
+                margin: 3px 0 !important;
+            }
+            
+            .category-btn {
+                padding: 3px 6px !important;
+                font-size: 8px !important;
+                min-height: 20px !important;
+                border-radius: 10px !important;
+            }
+            
+            /* Netplay-style dense provider grid */
+            .provider-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 2px !important;
+            }
+            
+            .provider-container {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* Ultra-compact provider cards */
+            .cursor-pointer {
+                border-radius: 6px !important;
+                padding: 1px !important;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+                transition: all 0.2s ease !important;
+            }
+            
+            .cursor-pointer:hover {
+                transform: translateY(-1px) !important;
+                box-shadow: 0 2px 4px rgba(255,215,0,0.2) !important;
+            }
+            
+            .provider-ribbon {
+                font-size: 6px !important;
+                padding: 1px 8px !important;
+                top: 2px !important;
+                left: -16px !important;
+            }
+            
+            /* Compact bottom nav */
+            .taskbar {
+                height: calc(55px + env(safe-area-inset-bottom, 0px)) !important;
+                padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+            }
+            
+            .taskbar-item {
+                min-width: 40px !important;
+                padding: 4px 2px !important;
+            }
+            
+            .taskbar-icon {
+                font-size: 14px !important;
+            }
+            
+            .taskbar-label {
+                font-size: 8px !important;
+            }
+            
+            .recent-win-popup {
+                right: 3px !important;
+                bottom: calc(58px + env(safe-area-inset-bottom, 0px)) !important;
+                min-width: 180px !important;
+                padding: 6px !important;
+            }
+            
+            .win-text {
+                font-size: 10px !important;
+            }
+            
+            /* Compact forms */
+            .auth-container, .payment-container {
+                padding: 3px !important;
+            }
+            
+            .auth-card, .payment-card {
+                padding: 12px !important;
+            }
+            
+            .form-input, .form-select {
+                padding: 6px 8px !important;
+                font-size: 11px !important;
+                min-height: 32px !important;
+            }
+            
+            .auth-btn, .payment-btn {
+                padding: 6px 12px !important;
+                font-size: 11px !important;
+                min-height: 32px !important;
+            }
+        }
+
+        /* Small Mobile (481px - 576px) */
+        @media (min-width: 481px) and (max-width: 576px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+            
+            /* Ultra-compact mobile sidebar like Netplay */
+            .sidebar {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 280px !important;
+                max-width: 78vw !important;
+                height: 100vh !important;
+                transform: translateX(-100%) !important;
+                transition: transform 0.28s ease !important;
+                z-index: 1002 !important;
+                padding: 0 !important;
+                background: rgba(10,10,20,0.98) !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0) !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: flex !important;
+                padding: 14px 18px !important;
+                background: rgba(0,0,0,0.4) !important;
+                border-bottom: 1px solid rgba(255,215,0,0.1) !important;
+            }
+            
+            .sidebar-title {
+                font-size: 17px !important;
+                font-weight: 600 !important;
+            }
+            
+            .sidebar-close {
+                display: flex !important;
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 15px !important;
+            }
+            
+            .sidebar-nav {
+                padding: 10px 0 !important;
+                max-height: calc(100vh - 65px) !important;
+                overflow-y: auto !important;
+            }
+            
+            .sidebar-item {
+                padding: 14px 18px !important;
                 flex-direction: row !important;
                 justify-content: flex-start !important;
                 align-items: center !important;
                 margin-bottom: 2px !important;
-                gap: 15px !important;
+                gap: 14px !important;
             }
             
             .sidebar-icon {
@@ -1196,10 +1465,10 @@
                 margin-left: 0 !important;
             }
             
-            /* Compact header */
+            /* Ultra-compact header */
             .header {
-                padding: 8px 0 !important;
-                min-height: auto !important;
+                padding: 6px 0 !important;
+                min-height: 55px !important;
             }
             
             .header-content {
@@ -1207,7 +1476,7 @@
                 justify-content: space-between !important;
                 align-items: center !important;
                 gap: 8px !important;
-                padding: 0 10px 0 70px !important;
+                padding: 0 12px 0 65px !important;
             }
             
             .logo-container {
@@ -1217,8 +1486,8 @@
             }
             
             .main-logo {
-                width: 50px !important;
-                height: 50px !important;
+                width: 45px !important;
+                height: 45px !important;
             }
             
             .platform-title {
@@ -1240,19 +1509,19 @@
                 min-width: 50px !important;
             }
             
-            /* Compact jackpot and stats */
+            /* Ultra-compact jackpot and stats */
             .jackpot-container {
-                margin: 5px 0 !important;
+                margin: 4px 0 !important;
                 padding: 8px !important;
             }
             
             .jackpot-grid {
                 grid-template-columns: 1fr !important;
-                gap: 4px !important;
+                gap: 3px !important;
             }
             
             .jackpot-item {
-                padding: 6px !important;
+                padding: 5px !important;
             }
             
             .jackpot-amount {
@@ -1266,12 +1535,12 @@
             
             .live-stats-container {
                 grid-template-columns: repeat(3, 1fr) !important;
-                gap: 4px !important;
-                margin: 5px 0 !important;
+                gap: 3px !important;
+                margin: 4px 0 !important;
             }
             
             .live-stat-card {
-                padding: 6px !important;
+                padding: 5px !important;
             }
             
             .live-stat-value {
@@ -1282,38 +1551,38 @@
                 font-size: 7px !important;
             }
             
-            /* Compact provider section */
+            /* Ultra-dense provider section */
             .main-container {
-                padding: 8px 5px calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+                padding: 6px 4px calc(60px + env(safe-area-inset-bottom, 0px)) !important;
                 margin-bottom: env(safe-area-inset-bottom, 0px);
             }
             
             .section-title {
                 font-size: 14px !important;
                 text-align: center !important;
-                margin-bottom: 5px !important;
+                margin-bottom: 4px !important;
             }
             
             .provider-search-container {
-                margin: 5px 0 !important;
+                margin: 4px 0 !important;
             }
             
             .search-input {
                 padding: 8px 10px 8px 35px !important;
                 font-size: 12px !important;
                 min-height: 32px !important;
-                border-radius: 20px !important;
+                border-radius: 18px !important;
             }
             
             .search-icon {
                 left: 12px !important;
-                font-size: 14px !important;
+                font-size: 13px !important;
             }
             
             .category-filter-container {
                 gap: 3px !important;
                 justify-content: center !important;
-                margin: 5px 0 !important;
+                margin: 4px 0 !important;
             }
             
             .category-btn {
@@ -1323,49 +1592,50 @@
                 border-radius: 12px !important;
             }
             
-            /* Dense provider grid like Netplay */
+            /* Netplay-style dense provider grid */
             .provider-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 4px !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 3px !important;
             }
             
             .provider-container {
                 padding: 0 !important;
+                margin: 0 !important;
             }
             
-            /* Compact provider cards */
+            /* Ultra-compact provider cards */
             .cursor-pointer {
-                border-radius: 8px !important;
-                padding: 2px !important;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+                border-radius: 7px !important;
+                padding: 1px !important;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
                 transition: all 0.2s ease !important;
             }
             
             .cursor-pointer:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: 0 4px 8px rgba(255,215,0,0.2) !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 3px 6px rgba(255,215,0,0.2) !important;
             }
             
             .provider-ribbon {
                 font-size: 7px !important;
-                padding: 2px 12px !important;
-                top: 4px !important;
-                left: -20px !important;
+                padding: 2px 10px !important;
+                top: 3px !important;
+                left: -18px !important;
             }
             
             /* Compact bottom nav */
             .taskbar {
-                height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+                height: calc(58px + env(safe-area-inset-bottom, 0px)) !important;
                 padding-bottom: env(safe-area-inset-bottom, 0px) !important;
             }
             
             .taskbar-item {
-                min-width: 45px !important;
-                padding: 6px 4px !important;
+                min-width: 42px !important;
+                padding: 5px 3px !important;
             }
             
             .taskbar-icon {
-                font-size: 16px !important;
+                font-size: 15px !important;
             }
             
             .taskbar-label {
@@ -1373,206 +1643,35 @@
             }
             
             .recent-win-popup {
-                right: 5px !important;
-                bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
-                min-width: 200px !important;
-                padding: 8px !important;
+                right: 4px !important;
+                bottom: calc(62px + env(safe-area-inset-bottom, 0px)) !important;
+                min-width: 190px !important;
+                padding: 7px !important;
             }
             
             .win-text {
-                font-size: 11px !important;
+                font-size: 10px !important;
             }
             
             /* Compact forms */
             .auth-container, .payment-container {
-                padding: 5px !important;
+                padding: 4px !important;
             }
             
             .auth-card, .payment-card {
-                padding: 15px !important;
+                padding: 14px !important;
             }
             
             .form-input, .form-select {
-                padding: 8px 10px !important;
+                padding: 7px 10px !important;
                 font-size: 12px !important;
-                min-height: 36px !important;
+                min-height: 34px !important;
             }
             
             .auth-btn, .payment-btn {
-                padding: 8px 16px !important;
-                font-size: 12px !important;
-                min-height: 36px !important;
-            }
-        }
-
-        /* Small Mobile (481px - 576px) */
-        @media (min-width: 481px) and (max-width: 576px) {
-            .mobile-menu-toggle {
-                display: flex !important;
-            }
-            
-            /* Mobile sidebar behavior */
-            .sidebar {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 300px !important;
-                max-width: 80vw !important;
-                height: 100vh !important;
-                transform: translateX(-100%) !important;
-                transition: transform 0.28s ease !important;
-                z-index: 1002 !important;
-                padding: 0 !important;
-                background: rgba(10,10,20,0.98) !important;
-                backdrop-filter: blur(10px) !important;
-            }
-            
-            .sidebar.open {
-                transform: translateX(0) !important;
-            }
-            
-            .sidebar-mobile-header {
-                display: flex !important;
-            }
-            
-            .sidebar-close {
-                display: flex !important;
-            }
-            
-            .sidebar-nav {
-                padding: 10px 0 !important;
-                max-height: calc(100vh - 70px) !important;
-                overflow-y: auto !important;
-            }
-            
-            .sidebar-item {
-                padding: 16px 22px !important;
-                flex-direction: row !important;
-                justify-content: flex-start !important;
-                align-items: center !important;
-                margin-bottom: 2px !important;
-                gap: 16px !important;
-            }
-            
-            .sidebar-icon {
-                font-size: 22px !important;
-                margin-right: 0 !important;
-                margin-bottom: 0 !important;
-            }
-            
-            .sidebar-item span:last-child {
-                font-size: 15px !important;
-                line-height: 1 !important;
-            }
-            
-            .main-wrapper {
-                margin-left: 0 !important;
-                transition: margin-left 0.28s ease !important;
-            }
-            
-            .main-wrapper.sidebar-open {
-                margin-left: 0 !important;
-            }
-            
-            .main-container {
-                padding: 10px 8px calc(70px + env(safe-area-inset-bottom, 0px)) !important;
-            }
-            
-            /* Compact header */
-            .header {
-                padding: 10px 0 !important;
-            }
-            
-            .header-content {
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                gap: 10px !important;
-                padding: 0 15px 0 75px !important;
-            }
-            
-            .logo-container {
-                flex-direction: row !important;
-                align-items: center !important;
-                gap: 10px !important;
-            }
-            
-            .main-logo {
-                width: 60px !important;
-                height: 60px !important;
-            }
-            
-            .platform-title {
-                font-size: 16px !important;
-            }
-            
-            .auth-buttons {
-                flex-direction: row !important;
-                width: auto !important;
-                gap: 6px !important;
-            }
-            
-            .btn {
-                width: auto !important;
-                padding: 8px 12px !important;
-                font-size: 12px !important;
-                min-height: 36px !important;
-            }
-            
-            /* Compact jackpot and stats */
-            .jackpot-container {
-                margin: 8px 0 !important;
-                padding: 10px !important;
-            }
-            
-            .jackpot-grid {
-                grid-template-columns: 1fr !important;
-                gap: 6px !important;
-            }
-            
-            .jackpot-amount {
-                font-size: 14px !important;
-            }
-            
-            .jackpot-label {
-                font-size: 9px !important;
-            }
-            
-            .live-stats-container {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 6px !important;
-                margin: 8px 0 !important;
-            }
-            
-            .live-stat-value {
-                font-size: 13px !important;
-            }
-            
-            .live-stat-label {
-                font-size: 8px !important;
-            }
-            
-            /* Dense provider grid */
-            .provider-grid {
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 6px !important;
-            }
-            
-            .section-title {
-                font-size: 16px !important;
-                margin-bottom: 8px !important;
-            }
-            
-            .search-input {
-                padding: 10px 12px 10px 40px !important;
-                font-size: 13px !important;
-                min-height: 36px !important;
-            }
-            
-            .category-btn {
-                padding: 6px 12px !important;
-                font-size: 10px !important;
-                min-height: 28px !important;
+                padding: 7px 14px !important;
+                font-size: 11px !important;
+                min-height: 34px !important;
             }
         }
 
@@ -2329,30 +2428,20 @@
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
+            <!-- Logo and Title -->
             <div class="logo-container">
                 <div class="main-logo">
-                    <video autoplay loop muted playsinline>
+                    <video autoplay muted loop playsinline>
                         <source src="wangseng-lion.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="platform-title">WangSeng87</div>
+                <h1 class="platform-title">WangSeng87</h1>
             </div>
+            
+            <!-- Auth Buttons -->
             <div class="auth-buttons">
-                <button class="btn btn-secondary" onclick="showSection('login', this)">
-                    <span>🔐</span>
-                    <span>Login</span>
-                </button>
-                <button class="btn btn-primary" onclick="showSection('register', this)">
-                    <span>📝</span>
-                    <span>Register</span>
-                </button>
+                <button class="btn login-btn" onclick="showLogin()">Login</button>
+                <button class="btn register-btn" onclick="showRegister()">Register</button>
             </div>
         </div>
     </header>
