@@ -2421,6 +2421,435 @@
         </div>
     </nav>
 
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+        <!-- Premium Header -->
+        <header class="header">
+            <div class="header-content">
+                <!-- Logo and Title -->
+                <div class="logo-container">
+                    <div class="main-logo">
+                        <video autoplay muted loop playsinline>
+                            <source src="wangseng-lion.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h1 class="platform-title">WangSeng87</h1>
+                </div>
+                
+                <!-- Auth and Balance Area -->
+                <div class="auth-balance-area">
+                    <div class="auth-buttons" id="authButtons">
+                        <button class="btn login-btn" onclick="showLogin()">Login</button>
+                        <button class="btn register-btn" onclick="showRegister()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Banner Section -->
+        <div class="hero-banner">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Welcome to WangSeng87</h2>
+                    <p class="hero-subtitle">Premium Gaming Experience with Exclusive Providers</p>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-decoration"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Category Shortcuts -->
+        <div class="category-shortcuts">
+            <div class="shortcut-item" onclick="showSection('providers', this)">
+                <div class="shortcut-icon">🎰</div>
+                <div class="shortcut-label">Slot Games</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('live-casino', this)">
+                <div class="shortcut-icon">🎥</div>
+                <div class="shortcut-label">Live Casino</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('sports', this)">
+                <div class="shortcut-icon">⚽</div>
+                <div class="shortcut-label">Sportsbook</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('promotions', this)">
+                <div class="shortcut-icon">🎁</div>
+                <div class="shortcut-label">Promotions</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('fishing', this)">
+                <div class="shortcut-icon">🐟</div>
+                <div class="shortcut-label">Fishing</div>
+            </div>
+        </div>
+
+        <!-- Main Content Container -->
+        <main class="main-container" id="mainContent">
+            <!-- Jackpot Ticker -->
+            <div class="jackpot-container">
+                <div class="jackpot-grid">
+                    <div class="jackpot-item jackpot-grand">
+                        <div class="jackpot-label">Grand Jackpot</div>
+                        <div class="jackpot-amount" id="grand-jackpot">RM 128,456.23</div>
+                    </div>
+                    <div class="jackpot-item jackpot-major">
+                        <div class="jackpot-label">Major Jackpot</div>
+                        <div class="jackpot-amount" id="major-jackpot">RM 45,678.90</div>
+                    </div>
+                    <div class="jackpot-item jackpot-minor">
+                        <div class="jackpot-label">Minor Jackpot</div>
+                        <div class="jackpot-amount" id="minor-jackpot">RM 12,345.67</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Stats -->
+            <div class="live-stats-container">
+                <div class="live-stat-card">
+                    <div class="live-stat-value" id="active-players">2,847</div>
+                    <div class="live-stat-label">Active Players</div>
+                </div>
+                <div class="live-stat-card">
+                    <div class="live-stat-value" id="active-games">342</div>
+                    <div class="live-stat-label">Active Games</div>
+                </div>
+                <div class="live-stat-card">
+                    <div class="live-stat-value" id="live-wins">RM 892,456</div>
+                    <div class="live-stat-label">Live Wins</div>
+                </div>
+            </div>
+
+            <!-- Section Header and Search -->
+            <div class="section-header">
+                <h2 class="section-title">Premium Slot Providers</h2>
+                <div class="provider-search-container">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" placeholder="Search providers..." onkeyup="filterProviders(this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter-container">
+                <button class="category-btn active" onclick="filterCategory('all', this)">All</button>
+                <button class="category-btn" onclick="filterCategory('hot', this)">🔥 Hot</button>
+                <button class="category-btn" onclick="filterCategory('new', this)">✨ New</button>
+                <button class="category-btn" onclick="filterCategory('top', this)">⭐ Top</button>
+                <button class="category-btn" onclick="filterCategory('popular', this)">👑 Popular</button>
+                <button class="category-btn" onclick="filterCategory('recommended', this)">💎 Recommended</button>
+            </div>
+
+            <!-- Provider Grid -->
+            <div class="provider-grid">
+                <!-- EVO888 H5 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('evo888-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="EVO888 H5" class="game_image">
+                    </div>
+                </div>
+
+                <!-- EVO888-APP -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('evo888-app')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="EVO888-APP" class="game_image">
+                    </div>
+                </div>
+
+                <!-- SLOT4D -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('slot4d')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="SLOT4D" class="game_image">
+                    </div>
+                </div>
+
+                <!-- YGG -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('ygg')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="YGG" class="game_image">
+                    </div>
+                </div>
+
+                <!-- BTGAMING -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('btgaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="BTGAMING" class="game_image">
+                    </div>
+                </div>
+
+                <!-- IMPERIUM -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('imperium')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="IMPERIUM" class="game_image">
+                    </div>
+                </div>
+
+                <!-- MARIOCLUB -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('marioclub')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/7.png" alt="MARIOCLUB" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PLAYACE-YP -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('playace-yp')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="PLAYACE-YP" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PLAYACE-SLOT -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('playace-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/9.png" alt="PLAYACE-SLOT" class="game_image">
+                    </div>
+                </div>
+
+                <!-- EPICWIN -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('epicwin')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="EPICWIN" class="game_image">
+                    </div>
+                </div>
+
+                <!-- SCR888 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('scr888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="SCR888" class="game_image">
+                    </div>
+                </div>
+
+                <!-- UUSLOTS -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('uuslots')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="UUSLOTS" class="game_image">
+                    </div>
+                </div>
+
+                <!-- DUOFU -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('duofu')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/13.png" alt="DUOFU" class="game_image">
+                    </div>
+                </div>
+
+                <!-- VPOWER -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('vpower')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/14.png" alt="VPOWER" class="game_image">
+                    </div>
+                </div>
+
+                <!-- JILI -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('jili')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="JILI" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PRAGMATIC SLOT -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="PRAGMATIC SLOT" class="game_image">
+                    </div>
+                </div>
+
+                <!-- LUCKY365 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('lucky365')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="LUCKY365" class="game_image">
+                    </div>
+                </div>
+
+                <!-- MONKEY KING -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('monkey-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/18.png" alt="MONKEY KING" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PEGASUS -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('pegasus')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="PEGASUS" class="game_image">
+                    </div>
+                </div>
+
+                <!-- 918KISS H5 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('918kiss-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="918KISS H5" class="game_image">
+                    </div>
+                </div>
+
+                <!-- MEGA888 H5 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('mega888-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA888 H5" class="game_image">
+                    </div>
+                </div>
+
+                <!-- GW 99 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('gw99')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="GW 99" class="game_image">
+                    </div>
+                </div>
+
+                <!-- ADVANT PLAY -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('advant-play')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="ADVANT PLAY" class="game_image">
+                    </div>
+                </div>
+
+                <!-- ACE333 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('ace333')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/23.png" alt="ACE333" class="game_image">
+                    </div>
+                </div>
+
+                <!-- JOKER -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('joker')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/24.png" alt="JOKER" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PG SOFT -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('pg-soft')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="PG SOFT" class="game_image">
+                    </div>
+                </div>
+
+                <!-- LIVE22 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('live22')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="LIVE22" class="game_image">
+                    </div>
+                </div>
+
+                <!-- LION KING -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('lion-king')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/27.png" alt="LION KING" class="game_image">
+                    </div>
+                </div>
+
+                <!-- SPADE GAMING -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('spade-gaming')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/28.png" alt="SPADE GAMING" class="game_image">
+                    </div>
+                </div>
+
+                <!-- HABANERO -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('habanero')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/29.png" alt="HABANERO" class="game_image">
+                    </div>
+                </div>
+
+                <!-- CLOTPLAY -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('clotplay')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" class="game_image">
+                    </div>
+                </div>
+
+                <!-- MEGA H5 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('mega-h5')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" class="game_image">
+                    </div>
+                </div>
+
+                <!-- AMB SLOT -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('amb-slot')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" class="game_image">
+                    </div>
+                </div>
+
+                <!-- NEXTSPIN -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('nextspin')">
+                        <div class="provider-ribbon new">NEW</div>
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" class="game_image">
+                    </div>
+                </div>
+
+                <!-- SCR 2 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('scr2')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SCR 2" class="game_image">
+                    </div>
+                </div>
+
+                <!-- XE88 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('xe88')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/51.png" alt="XE88" class="game_image">
+                    </div>
+                </div>
+
+                <!-- SUNCITY -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('suncity')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/52.png" alt="SUNCITY" class="game_image">
+                    </div>
+                </div>
+
+                <!-- PUSSY888 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('pussy888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/53.png" alt="PUSSY888" class="game_image">
+                    </div>
+                </div>
+
+                <!-- 918KISS -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('918kiss')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="918KISS" class="game_image">
+                    </div>
+                </div>
+
+                <!-- MEGA888 -->
+                <div class="provider-container">
+                    <div class="cursor-pointer" onclick="openProvider('mega888')">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/55.png" alt="MEGA888" class="game_image">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation for Mobile -->
+        <nav class="taskbar">
+            <div class="taskbar-item active" onclick="showSection('home', this)">
+                <div class="taskbar-icon">🏠</div>
+                <div class="taskbar-label">Home</div>
+            </div>
+            <div class="taskbar-item" onclick="showSection('history', this)">
+                <div class="taskbar-icon">📜</div>
+                <div class="taskbar-label">History</div>
+            </div>
+            <div class="taskbar-item" onclick="showSection('bonus', this)">
+                <div class="taskbar-icon">🎁</div>
+                <div class="taskbar-label">Bonus</div>
+            </div>
+            <div class="taskbar-item" onclick="showSection('chat', this)">
+                <div class="taskbar-icon">💬</div>
+                <div class="taskbar-label">Live Chat</div>
+            </div>
+            <div class="taskbar-item" onclick="showSection('settings', this)">
+                <div class="taskbar-icon">⚙️</div>
+                <div class="taskbar-label">Settings</div>
+            </div>
+        </nav>
+    </div>
+
     <!-- Login Section -->
     <section id="login-section" class="content-section" style="display: none;">
         <div class="section-header">
