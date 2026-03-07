@@ -35,6 +35,12 @@
             border: 4px solid rgba(255,215,0,0.3);
             background: white;
         }
+        .main-logo video {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
         .platform-name {
             font-size: 2.5rem;
             font-weight: bold;
@@ -240,6 +246,28 @@
             gap: 1.5rem;
             margin: 2rem 0;
         }
+        .game-category {
+            margin: 3rem 0;
+        }
+        .game-category h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .game-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
         .game-card {
             background: rgba(255,255,255,0.1);
             border-radius: 15px;
@@ -366,6 +394,194 @@
             color: rgba(255,255,255,0.7);
             font-size: 0.9rem;
         }
+        
+        /* Sports Betting Styles */
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .match-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .match-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+        }
+        .match-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        .teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .team {
+            color: #ffd700;
+            flex: 1;
+        }
+        .vs {
+            color: rgba(255,255,255,0.6);
+            margin: 0 1rem;
+        }
+        .odds {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            gap: 0.5rem;
+        }
+        .odd {
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .odd:hover {
+            background: rgba(255,215,0,0.3);
+            transform: scale(1.05);
+        }
+        .match-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .league {
+            color: rgba(255,255,255,0.8);
+        }
+        .time {
+            background: rgba(255,0,0,0.2);
+            color: #ff6b6b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .sports-list {
+            margin: 2rem 0;
+        }
+        .sport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .sport-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .sport-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+        }
+        .sport-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .sport-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        .sport-count {
+            background: rgba(0,255,0,0.2);
+            color: #00ff00;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .sport-markets {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        .betting-markets {
+            margin: 2rem 0;
+        }
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .market-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .market-card:hover {
+            background: rgba(255,215,0,0.1);
+            transform: translateY(-2px);
+        }
+        .market-card h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .market-card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .market-example {
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .sports-category {
+            margin: 2rem 0;
+        }
+        .sports-category h3 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .game-category {
+            margin: 2rem 0;
+        }
+        .game-category h3 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -391,11 +607,14 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <!-- Your Logo Image - Replace with actual path -->
-            <img src="https://i.imgur.com/wangseng87.jpg" alt="WangSeng87 Logo" class="main-logo" 
-                 onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';">
+            <!-- WangSeng87 Video Logo -->
+            <video class="main-logo" autoplay muted loop playsinline 
+                   onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';">
+                <source src="wangseng-lion.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             
-            <!-- Fallback Logo if image fails -->
+            <!-- Fallback Logo if video fails -->
             <div id="fallbackLogo" style="display: none; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffed4e); align-items: center; justify-content: center; font-size: 4rem; font-weight: bold; color: #1a1a2e; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: logoPulse 3s infinite; margin: 0 auto;">
                 WS87
             </div>
@@ -408,6 +627,7 @@
                 <div class="nav-item active" onclick="showSection('home')">🏠 Home</div>
                 <div class="nav-item" onclick="showSection('games')">🎮 Games</div>
                 <div class="nav-item" onclick="showSection('livecasino')">🎰 Live Casino</div>
+                <div class="nav-item" onclick="showSection('sports')">⚽ Sports</div>
                 <div class="nav-item" onclick="showSection('promotions')">🎁 Promotions</div>
                 <div class="nav-item" onclick="showSection('vip')">👑 VIP</div>
             </div>
@@ -468,42 +688,441 @@
         <!-- Games Section -->
         <div id="games" class="section">
             <h2>🎮 Premium Games Collection</h2>
-            <div class="game-grid">
-                <div class="game-card" onclick="playGame('mega-fortune')">
-                    <div class="game-icon">💰</div>
-                    <div class="game-title">Mega Fortune</div>
-                    <div class="game-provider">NetEnt • 96.6% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
+            
+            <!-- Slot Games -->
+            <div class="game-category">
+                <h3>🎰 Slot Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('mega-fortune')">
+                        <div class="game-icon">💰</div>
+                        <div class="game-title">Mega Fortune</div>
+                        <div class="game-provider">NetEnt • 96.6% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('starburst')">
+                        <div class="game-icon">⭐</div>
+                        <div class="game-title">Starburst</div>
+                        <div class="game-provider">NetEnt • 96.1% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('gonzo')">
+                        <div class="game-icon">🗿</div>
+                        <div class="game-title">Gonzo's Quest</div>
+                        <div class="game-provider">NetEnt • 95.97% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('book-of-dead')">
+                        <div class="game-icon">📖</div>
+                        <div class="game-title">Book of Dead</div>
+                        <div class="game-provider">Play'n GO • 96.21% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('sweet-bonanza')">
+                        <div class="game-icon">🍬</div>
+                        <div class="game-title">Sweet Bonanza</div>
+                        <div class="game-provider">Pragmatic Play • 96.51% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('gates-of-olympus')">
+                        <div class="game-icon">⚡</div>
+                        <div class="game-title">Gates of Olympus</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('wolf-gold')">
+                        <div class="game-icon">🐺</div>
+                        <div class="game-title">Wolf Gold</div>
+                        <div class="game-provider">Pragmatic Play • 96.01% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('big-bass-bonanza')">
+                        <div class="game-icon">🎣</div>
+                        <div class="game-title">Big Bass Bonanza</div>
+                        <div class="game-provider">Pragmatic Play • 96.71% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fruit-party')">
+                        <div class="game-icon">🍓</div>
+                        <div class="game-title">Fruit Party</div>
+                        <div class="game-provider">Pragmatic Play • 96.47% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('mustang-gold')">
+                        <div class="game-icon">🐎</div>
+                        <div class="game-title">Mustang Gold</div>
+                        <div class="game-provider">Pragmatic Play • 96.53% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('great-rhino')">
+                        <div class="game-icon">🦏</div>
+                        <div class="game-title">Great Rhino</div>
+                        <div class="game-provider">Pragmatic Play • 96.53% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('chicken-drop')">
+                        <div class="game-icon">🐔</div>
+                        <div class="game-title">Chicken Drop</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('the-dog-house')">
+                        <div class="game-icon">🐕</div>
+                        <div class="game-title">The Dog House</div>
+                        <div class="game-provider">Pragmatic Play • 96.55% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('joker-jewels')">
+                        <div class="game-icon">🃏</div>
+                        <div class="game-title">Joker Jewels</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fire-strike')">
+                        <div class="game-icon">🔥</div>
+                        <div class="game-title">Fire Strike</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('wild-west-gold')">
+                        <div class="game-icon">🤠</div>
+                        <div class="game-title">Wild West Gold</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('sugar-rush')">
+                        <div class="game-icon">🍭</div>
+                        <div class="game-title">Sugar Rush</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('floating-dragon')">
+                        <div class="game-icon">🐉</div>
+                        <div class="game-title">Floating Dragon</div>
+                        <div class="game-provider">Pragmatic Play • 96.6% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('gates-of-gatotkaca')">
+                        <div class="game-icon">⚡</div>
+                        <div class="game-title">Gates of Gatotkaca</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('starlight-princess')">
+                        <div class="game-icon">👸</div>
+                        <div class="game-title">Starlight Princess</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('power-of-thor')">
+                        <div class="game-icon">⚡</div>
+                        <div class="game-title">Power of Thor</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('pyramid-king')">
+                        <div class="game-icon">🔺</div>
+                        <div class="game-title">Pyramid King</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('emerald-king')">
+                        <div class="game-icon">💚</div>
+                        <div class="game-title">Emerald King</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('curse-of-the-werewolf')">
+                        <div class="game-icon">🐺</div>
+                        <div class="game-title">Curse of the Werewolf</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('john-hunter')">
+                        <div class="game-icon">🏹</div>
+                        <div class="game-title">John Hunter</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('empty-the-bank')">
+                        <div class="game-icon">🏦</div>
+                        <div class="game-title">Empty the Bank</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('money-mouse')">
+                        <div class="game-icon">🐭</div>
+                        <div class="game-title">Money Mouse</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('caishen-gold')">
+                        <div class="game-icon">🧧</div>
+                        <div class="game-title">Caishen Gold</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('hot-to-burn')">
+                        <div class="game-icon">🔥</div>
+                        <div class="game-title">Hot to Burn</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('struck-gold')">
+                        <div class="game-icon">💰</div>
+                        <div class="game-title">Struck Gold</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('golden-ox')">
+                        <div class="game-icon">🐂</div>
+                        <div class="game-title">Golden Ox</div>
+                        <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('starburst')">
-                    <div class="game-icon">⭐</div>
-                    <div class="game-title">Starburst</div>
-                    <div class="game-provider">NetEnt • 96.1% RTP • Low Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Fishing Games -->
+            <div class="game-category">
+                <h3>🐟 Fishing Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('fishing-frenzy')">
+                        <div class="game-icon">🎣</div>
+                        <div class="game-title">Fishing Frenzy</div>
+                        <div class="game-provider">JILI • 97.2% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('ocean-king')">
+                        <div class="game-icon">👑</div>
+                        <div class="game-title">Ocean King</div>
+                        <div class="game-provider">Spadegaming • 96.8% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('lucky-fishing')">
+                        <div class="game-icon">🐠</div>
+                        <div class="game-title">Lucky Fishing</div>
+                        <div class="game-provider">Playtech • 95.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fishin-frenzy')">
+                        <div class="game-icon">🐟</div>
+                        <div class="game-title">Fishin' Frenzy</div>
+                        <div class="game-provider">Blueprint • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fishin-frenzy-megaways')">
+                        <div class="game-icon">🎣</div>
+                        <div class="game-title">Fishin' Frenzy Megaways</div>
+                        <div class="game-provider">Blueprint • 96.7% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('bigger-bass-bonanza')">
+                        <div class="game-icon">🐠</div>
+                        <div class="game-title">Bigger Bass Bonanza</div>
+                        <div class="game-provider">Pragmatic Play • 96.7% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('bigger-bass-blizzard')">
+                        <div class="game-icon">❄️</div>
+                        <div class="game-title">Bigger Bass Blizzard</div>
+                        <div class="game-provider">Pragmatic Play • 96.7% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('bigger-bass-cash')">
+                        <div class="game-icon">💰</div>
+                        <div class="game-title">Bigger Bass Cash</div>
+                        <div class="game-provider">Pragmatic Play • 96.7% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('deep-sea-fishing')">
+                        <div class="game-icon">🌊</div>
+                        <div class="game-title">Deep Sea Fishing</div>
+                        <div class="game-provider">JILI • 96.8% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('golden-fish')">
+                        <div class="game-icon">🐠</div>
+                        <div class="game-title">Golden Fish</div>
+                        <div class="game-provider">Spadegaming • 96.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fish-hunter')">
+                        <div class="game-icon">🎯</div>
+                        <div class="game-title">Fish Hunter</div>
+                        <div class="game-provider">JILI • 96.2% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('ocean-paradise')">
+                        <div class="game-icon">🏝️</div>
+                        <div class="game-title">Ocean Paradise</div>
+                        <div class="game-provider">Playtech • 95.8% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fish-prawn-crab')">
+                        <div class="game-icon">🦐</div>
+                        <div class="game-title">Fish Prawn Crab</div>
+                        <div class="game-provider">JILI • 96.3% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('king-ocean')">
+                        <div class="game-icon">👑</div>
+                        <div class="game-title">King Ocean</div>
+                        <div class="game-provider">Spadegaming • 96.6% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('lucky-crab')">
+                        <div class="game-icon">🦀</div>
+                        <div class="game-title">Lucky Crab</div>
+                        <div class="game-provider">JILI • 96.4% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('gonzo')">
-                    <div class="game-icon">🗿</div>
-                    <div class="game-title">Gonzo's Quest</div>
-                    <div class="game-provider">NetEnt • 95.97% RTP • Medium Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Arcade Games -->
+            <div class="game-category">
+                <h3>🕹️ Arcade Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('fruit-blast')">
+                        <div class="game-icon">🍎</div>
+                        <div class="game-title">Fruit Blast</div>
+                        <div class="game-provider">Microgaming • 96.3% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('space-shooter')">
+                        <div class="game-icon">🚀</div>
+                        <div class="game-title">Space Shooter</div>
+                        <div class="game-provider">Habanero • 94.8% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('puzzle-master')">
+                        <div class="game-icon">🧩</div>
+                        <div class="game-title">Puzzle Master</div>
+                        <div class="game-provider">Yggdrasil • 96.9% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('bubble-shooter')">
+                        <div class="game-icon">🫧</div>
+                        <div class="game-title">Bubble Shooter</div>
+                        <div class="game-provider">Isoftbet • 95.8% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('candy-crush')">
+                        <div class="game-icon">🍬</div>
+                        <div class="game-title">Candy Crush</div>
+                        <div class="game-provider">King • 96.0% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('tetris')">
+                        <div class="game-icon">🟦</div>
+                        <div class="game-title">Tetris</div>
+                        <div class="game-provider">Sega • 94.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('pac-man')">
+                        <div class="game-icon">👻</div>
+                        <div class="game-title">Pac-Man</div>
+                        <div class="game-provider">Bandai Namco • 93.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('space-invaders')">
+                        <div class="game-icon">👾</div>
+                        <div class="game-title">Space Invaders</div>
+                        <div class="game-provider">Taito • 92.5% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('galaga')">
+                        <div class="game-icon">🚀</div>
+                        <div class="game-title">Galaga</div>
+                        <div class="game-provider">Namco • 91.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('donkey-kong')">
+                        <div class="game-icon">🦍</div>
+                        <div class="game-title">Donkey Kong</div>
+                        <div class="game-provider">Nintendo • 90.5% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('mario-bros')">
+                        <div class="game-icon">🍄</div>
+                        <div class="game-title">Mario Bros</div>
+                        <div class="game-provider">Nintendo • 89.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('sonic')">
+                        <div class="game-icon">🦔</div>
+                        <div class="game-title">Sonic</div>
+                        <div class="game-provider">Sega • 88.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('street-fighter')">
+                        <div class="game-icon">🥊</div>
+                        <div class="game-title">Street Fighter</div>
+                        <div class="game-provider">Capcom • 87.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('mortal-kombat')">
+                        <div class="game-icon">⚔️</div>
+                        <div class="game-title">Mortal Kombat</div>
+                        <div class="game-provider">Midway • 86.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('nba-jam')">
+                        <div class="game-icon">🏀</div>
+                        <div class="game-title">NBA Jam</div>
+                        <div class="game-provider">Midway • 85.5% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('madden-nfl')">
+                        <div class="game-icon">🏈</div>
+                        <div class="game-title">Madden NFL</div>
+                        <div class="game-provider">EA Sports • 84.5% RTP • Low Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('fifa')">
+                        <div class="game-icon">⚽</div>
+                        <div class="game-title">FIFA</div>
+                        <div class="game-provider">EA Sports • 83.5% RTP • Medium Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('call-of-duty')">
+                        <div class="game-icon">🎮</div>
+                        <div class="game-title">Call of Duty</div>
+                        <div class="game-provider">Activision • 82.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('grand-theft-auto')">
+                        <div class="game-icon">🚗</div>
+                        <div class="game-title">Grand Theft Auto</div>
+                        <div class="game-provider">Rockstar • 81.5% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
-                <div class="game-card" onclick="playGame('book-of-dead')">
-                    <div class="game-icon">📖</div>
-                    <div class="game-title">Book of Dead</div>
-                    <div class="game-provider">Play'n GO • 96.21% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('sweet-bonanza')">
-                    <div class="game-icon">🍬</div>
-                    <div class="game-title">Sweet Bonanza</div>
-                    <div class="game-provider">Pragmatic Play • 96.51% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('gates-of-olympus')">
-                    <div class="game-icon">⚡</div>
-                    <div class="game-title">Gates of Olympus</div>
-                    <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
+            </div>
+            
+            <!-- Lottery Games -->
+            <div class="game-category">
+                <h3>🎟 Lottery Games</h3>
+                <div class="game-grid">
+                    <div class="game-card" onclick="playGame('4d-lottery')">
+                        <div class="game-icon">🎱</div>
+                        <div class="game-title">4D Lottery</div>
+                        <div class="game-provider">WangSeng • 95% RTP • High Volatility</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('toto-4d')">
+                        <div class="game-icon">�</div>
+                        <div class="game-title">Toto 4D</div>
+                        <div class="game-provider">WangSeng • 94% RTP • High Volatility</div>
+                        <div class="game-provider">SGPools • 94.5% RTP • Variable</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
+                    <div class="game-card" onclick="playGame('mega-sweep')">
+                        <div class="game-icon">🧹</div>
+                        <div class="game-title">Mega Sweep</div>
+                        <div class="game-provider">88Fortunes • 93.8% RTP • Variable</div>
+                        <button class="game-button">Play Now</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -684,6 +1303,209 @@
             </div>
         </div>
 
+        <!-- Sports Betting Section -->
+        <div id="sports" class="section">
+            <h2>⚽ Sports Betting</h2>
+            
+            <!-- Live Matches -->
+            <div class="sports-category">
+                <h3>🔴 Live Matches</h3>
+                <div class="matches-grid">
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Manchester United</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Liverpool</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">2.45</span>
+                            <span class="odd">3.20</span>
+                            <span class="odd">2.80</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">Premier League</span>
+                            <span class="time">Live 45'</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Real Madrid</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Barcelona</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.95</span>
+                            <span class="odd">3.60</span>
+                            <span class="odd">3.85</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">La Liga</span>
+                            <span class="time">Live 67'</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Lakers</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Celtics</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.85</span>
+                            <span class="odd">2.10</span>
+                            <span class="odd">2.25</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">NBA</span>
+                            <span class="time">Q3 8:24</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popular Sports -->
+            <div class="sports-list">
+                <h3>🏆 Popular Sports</h3>
+                <div class="sport-grid">
+                    <div class="sport-card" onclick="openSport('football')">
+                        <div class="sport-icon">⚽</div>
+                        <div class="sport-name">Football</div>
+                        <div class="sport-count">245 Live</div>
+                        <div class="sport-markets">1X2, Over/Under, BTTS</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('basketball')">
+                        <div class="sport-icon">🏀</div>
+                        <div class="sport-name">Basketball</div>
+                        <div class="sport-count">89 Live</div>
+                        <div class="sport-markets">Moneyline, Spread, Total</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('tennis')">
+                        <div class="sport-icon">🎾</div>
+                        <div class="sport-name">Tennis</div>
+                        <div class="sport-count">67 Live</div>
+                        <div class="sport-markets">Match Winner, Sets, Games</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('cricket')">
+                        <div class="sport-icon">🏏</div>
+                        <div class="sport-name">Cricket</div>
+                        <div class="sport-count">45 Live</div>
+                        <div class="sport-markets">Match Winner, Top Batsman</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('esports')">
+                        <div class="sport-icon">🎮</div>
+                        <div class="sport-name">E-Sports</div>
+                        <div class="sport-count">156 Live</div>
+                        <div class="sport-markets">LOL, Dota 2, CS:GO</div>
+                    </div>
+                    
+                    <div class="sport-card" onclick="openSport('boxing')">
+                        <div class="sport-icon">🥊</div>
+                        <div class="sport-name">Boxing</div>
+                        <div class="sport-count">12 Live</div>
+                        <div class="sport-markets">Winner, Round, Method</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- E-Sports Matches -->
+            <div class="sports-category">
+                <h3>🎮 E-Sports Matches</h3>
+                <div class="matches-grid">
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">Team Liquid</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Cloud9</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.75</span>
+                            <span class="odd">2.40</span>
+                            <span class="odd">3.10</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">CS:GO Major</span>
+                            <span class="time">Live Map 2</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">T1</span>
+                            <span class="vs">VS</span>
+                            <span class="team">G2 Esports</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.55</span>
+                            <span class="odd">2.85</span>
+                            <span class="odd">3.20</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">League of Legends</span>
+                            <span class="time">Game 3 Live</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="teams">
+                            <span class="team">OG</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Team Secret</span>
+                        </div>
+                        <div class="odds">
+                            <span class="odd">1.90</span>
+                            <span class="odd">2.35</span>
+                            <span class="odd">2.95</span>
+                        </div>
+                        <div class="match-info">
+                            <span class="league">Dota 2 International</span>
+                            <span class="time">Live 42:15</span>
+                        </div>
+                        <button class="game-button">Bet Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Betting Markets -->
+            <div class="betting-markets">
+                <h3>💰 Popular Markets</h3>
+                <div class="markets-grid">
+                    <div class="market-card">
+                        <h4>🏠 Match Winner</h4>
+                        <p>Bet on who will win match</p>
+                        <div class="market-example">1X2 - Home/Draw/Away</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>📊 Over/Under</h4>
+                        <p>Bet on total goals/points</p>
+                        <div class="market-example">Over 2.5 Goals</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>🎯 Both Teams Score</h4>
+                        <p>Will both teams score?</p>
+                        <div class="market-example">Yes/No</div>
+                    </div>
+                    
+                    <div class="market-card">
+                        <h4>📈 Handicap</h4>
+                        <p>Give teams virtual advantage</p>
+                        <div class="market-example">-1.5 / +1.5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Payment Methods Section -->
         <div id="payments" class="section">
             <h2>💳 Payment Methods</h2>
@@ -727,6 +1549,10 @@
                 <div class="taskbar-icon">🎰</div>
                 <div class="taskbar-label">LIVE</div>
             </div>
+            <div class="taskbar-item" onclick="showSection('sports')" id="sportsTaskbar">
+                <div class="taskbar-icon">⚽</div>
+                <div class="taskbar-label">SPORTS</div>
+            </div>
             <div class="taskbar-item" onclick="showSection('promotions')" id="promotionsTaskbar">
                 <div class="taskbar-icon">🎁</div>
                 <div class="taskbar-label">PROMO</div>
@@ -742,8 +1568,59 @@
         let currentUser = null;
 
         // User management
-        const users = JSON.parse(localStorage.getItem('wangsengUsers')) || [];
+        const users = JSON.parse(localStorage.getItem('wangsengUsers')) || [
+            // Pre-registered demo accounts
+            {
+                username: 'demo87',
+                email: 'demo@wangseng87.com',
+                password: 'demo123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Bronze'
+            },
+            {
+                username: 'vip87',
+                email: 'vip@wangseng87.com',
+                password: 'vip123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Gold'
+            },
+            {
+                username: 'highroller87',
+                email: 'highroller@wangseng87.com',
+                password: 'high123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Diamond'
+            },
+            {
+                username: 'sports87',
+                email: 'sports@wangseng87.com',
+                password: 'sports123',
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Silver'
+            }
+        ];
         let userStats = JSON.parse(localStorage.getItem('wangsengStats')) || {};
+
+        // Initialize demo accounts with stats if they don't exist
+        if (!localStorage.getItem('wangsengUsers')) {
+            localStorage.setItem('wangsengUsers', JSON.stringify(users));
+        }
+        
+        // Initialize demo user stats
+        const demoUsers = ['demo87', 'vip87', 'highroller87', 'sports87'];
+        demoUsers.forEach(username => {
+            if (!userStats[username]) {
+                userStats[username] = {
+                    totalWagered: Math.floor(Math.random() * 5000),
+                    totalWon: Math.floor(Math.random() * 3000),
+                    gamesPlayed: Math.floor(Math.random() * 100),
+                    vipPoints: Math.floor(Math.random() * 500),
+                    sportsBets: Math.floor(Math.random() * 50),
+                    totalBets: Math.floor(Math.random() * 30)
+                };
+            }
+        });
+        localStorage.setItem('wangsengStats', JSON.stringify(userStats));
 
         // Navigation
         function showSection(sectionId) {
@@ -904,6 +1781,49 @@
             }
         }
 
+        // Sports betting functions
+        function openSport(sportType) {
+            if (!currentUser) {
+                alert('🔐 Please login first to access sports betting!');
+                showSection('login');
+                return;
+            }
+            
+            alert(`⚽ Opening ${sportType.toUpperCase()} betting...\n\n📊 Browse live matches and odds!`);
+            
+            // Update user stats
+            if (currentUser) {
+                const stats = userStats[currentUser.username] || {};
+                stats.sportsBets = (stats.sportsBets || 0) + 1;
+                stats.vipPoints = (stats.vipPoints || 0) + 5;
+                localStorage.setItem('wangsengStats', JSON.stringify(userStats));
+            }
+        }
+
+        function placeBet(matchId, oddValue) {
+            if (!currentUser) {
+                alert('🔐 Please login first to place bets!');
+                showSection('login');
+                return;
+            }
+            
+            const betAmount = prompt(`💰 Enter bet amount for odds ${oddValue}:`);
+            if (betAmount && !isNaN(betAmount) && parseFloat(betAmount) > 0) {
+                alert(`✅ Bet placed successfully!\n\n📊 Match: ${matchId}\n💰 Amount: $${betAmount}\n📈 Odds: ${oddValue}\n🏆 Potential Win: $${(parseFloat(betAmount) * parseFloat(oddValue)).toFixed(2)}`);
+                
+                // Update user stats
+                if (currentUser) {
+                    const stats = userStats[currentUser.username] || {};
+                    stats.totalBets = (stats.totalBets || 0) + 1;
+                    stats.totalWagered = (stats.totalWagered || 0) + parseFloat(betAmount);
+                    stats.vipPoints = (stats.vipPoints || 0) + 15;
+                    localStorage.setItem('wangsengStats', JSON.stringify(userStats));
+                }
+            } else {
+                alert('❌ Invalid bet amount!');
+            }
+        }
+
         // Keyboard support
         document.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
@@ -926,4 +1846,3 @@
     </script>
 </body>
 </html>
-
