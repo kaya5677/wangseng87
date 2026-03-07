@@ -1031,6 +1031,100 @@
             background: rgba(0,0,0,0.2);
         }
 
+        /* Mobile Sidebar Toggle System */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.6);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .hamburger-icon {
+            color: #ffd700;
+            font-size: 20px;
+            text-shadow: 0 0 8px rgba(255,215,0,0.5);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-mobile-header {
+            display: none;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,215,0,0.1);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255,215,0,0.5);
+        }
+
+        .sidebar-close {
+            display: none;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            color: #ffd700;
+            font-size: 16px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-close:hover {
+            background: rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.6);
+            transform: scale(1.05);
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+        }
+
         /* Mobile-First Responsive Design - Netplay Style */
         
         /* Base Mobile Styles (480px and below) */
@@ -1039,35 +1133,67 @@
                 display: flex !important;
             }
             
-            /* Compact slim sidebar like Netplay */
+            /* Mobile sidebar behavior */
             .sidebar {
-                width: 60px !important;
-                display: block !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 280px !important;
+                max-width: 82vw !important;
+                height: 100vh !important;
+                transform: translateX(-100%) !important;
+                transition: transform 0.28s ease !important;
+                z-index: 1002 !important;
+                padding: 0 !important;
+                background: rgba(10,10,20,0.98) !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .sidebar.open {
                 transform: translateX(0) !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: flex !important;
+            }
+            
+            .sidebar-close {
+                display: flex !important;
+            }
+            
+            .sidebar-nav {
                 padding: 10px 0 !important;
+                max-height: calc(100vh - 70px) !important;
+                overflow-y: auto !important;
             }
             
             .sidebar-item {
-                padding: 12px 8px !important;
-                flex-direction: column !important;
-                justify-content: center !important;
+                padding: 15px 20px !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
                 align-items: center !important;
                 margin-bottom: 2px !important;
+                gap: 15px !important;
             }
             
             .sidebar-icon {
-                font-size: 18px !important;
+                font-size: 20px !important;
                 margin-right: 0 !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 0 !important;
             }
             
             .sidebar-item span:last-child {
-                font-size: 9px !important;
+                font-size: 14px !important;
                 line-height: 1 !important;
             }
             
             .main-wrapper {
-                margin-left: 60px !important;
+                margin-left: 0 !important;
+                transition: margin-left 0.28s ease !important;
+            }
+            
+            .main-wrapper.sidebar-open {
+                margin-left: 0 !important;
             }
             
             /* Compact header */
@@ -1081,7 +1207,7 @@
                 justify-content: space-between !important;
                 align-items: center !important;
                 gap: 8px !important;
-                padding: 0 10px !important;
+                padding: 0 10px 0 70px !important;
             }
             
             .logo-container {
@@ -1285,35 +1411,67 @@
                 display: flex !important;
             }
             
-            /* Compact sidebar like Netplay */
+            /* Mobile sidebar behavior */
             .sidebar {
-                width: 70px !important;
-                display: block !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 300px !important;
+                max-width: 80vw !important;
+                height: 100vh !important;
+                transform: translateX(-100%) !important;
+                transition: transform 0.28s ease !important;
+                z-index: 1002 !important;
+                padding: 0 !important;
+                background: rgba(10,10,20,0.98) !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .sidebar.open {
                 transform: translateX(0) !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: flex !important;
+            }
+            
+            .sidebar-close {
+                display: flex !important;
+            }
+            
+            .sidebar-nav {
                 padding: 10px 0 !important;
+                max-height: calc(100vh - 70px) !important;
+                overflow-y: auto !important;
             }
             
             .sidebar-item {
-                padding: 14px 8px !important;
-                flex-direction: column !important;
-                justify-content: center !important;
+                padding: 16px 22px !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
                 align-items: center !important;
                 margin-bottom: 2px !important;
+                gap: 16px !important;
             }
             
             .sidebar-icon {
-                font-size: 20px !important;
+                font-size: 22px !important;
                 margin-right: 0 !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 0 !important;
             }
             
             .sidebar-item span:last-child {
-                font-size: 10px !important;
+                font-size: 15px !important;
                 line-height: 1 !important;
             }
             
             .main-wrapper {
-                margin-left: 70px !important;
+                margin-left: 0 !important;
+                transition: margin-left 0.28s ease !important;
+            }
+            
+            .main-wrapper.sidebar-open {
+                margin-left: 0 !important;
             }
             
             .main-container {
@@ -1330,7 +1488,7 @@
                 justify-content: space-between !important;
                 align-items: center !important;
                 gap: 10px !important;
-                padding: 0 15px !important;
+                padding: 0 15px 0 75px !important;
             }
             
             .logo-container {
@@ -1424,35 +1582,67 @@
                 display: flex !important;
             }
             
-            /* Compact sidebar like Netplay */
+            /* Mobile sidebar behavior */
             .sidebar {
-                width: 80px !important;
-                display: block !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 320px !important;
+                max-width: 78vw !important;
+                height: 100vh !important;
+                transform: translateX(-100%) !important;
+                transition: transform 0.28s ease !important;
+                z-index: 1002 !important;
+                padding: 0 !important;
+                background: rgba(10,10,20,0.98) !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .sidebar.open {
                 transform: translateX(0) !important;
-                padding: 15px 0 !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: flex !important;
+            }
+            
+            .sidebar-close {
+                display: flex !important;
+            }
+            
+            .sidebar-nav {
+                padding: 10px 0 !important;
+                max-height: calc(100vh - 70px) !important;
+                overflow-y: auto !important;
             }
             
             .sidebar-item {
-                padding: 16px 10px !important;
-                flex-direction: column !important;
-                justify-content: center !important;
+                padding: 18px 25px !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
                 align-items: center !important;
                 margin-bottom: 3px !important;
+                gap: 18px !important;
             }
             
             .sidebar-icon {
-                font-size: 22px !important;
+                font-size: 24px !important;
                 margin-right: 0 !important;
-                margin-bottom: 6px !important;
+                margin-bottom: 0 !important;
             }
             
             .sidebar-item span:last-child {
-                font-size: 11px !important;
+                font-size: 16px !important;
                 line-height: 1 !important;
             }
             
             .main-wrapper {
-                margin-left: 80px !important;
+                margin-left: 0 !important;
+                transition: margin-left 0.28s ease !important;
+            }
+            
+            .main-wrapper.sidebar-open {
+                margin-left: 0 !important;
             }
             
             .main-container {
@@ -1469,7 +1659,7 @@
                 justify-content: space-between !important;
                 align-items: center !important;
                 gap: 15px !important;
-                padding: 0 20px !important;
+                padding: 0 20px 0 80px !important;
             }
             
             .logo-container {
@@ -1580,6 +1770,42 @@
             .sidebar {
                 width: 200px !important;
                 transform: translateX(0) !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                height: 100vh !important;
+                z-index: 100 !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: none !important;
+            }
+            
+            .sidebar-close {
+                display: none !important;
+            }
+            
+            .sidebar-nav {
+                padding: 10px 0 !important;
+            }
+            
+            .sidebar-item {
+                padding: 14px 16px !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-bottom: 2px !important;
+            }
+            
+            .sidebar-icon {
+                font-size: 20px !important;
+                margin-right: 0 !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .sidebar-item span:last-child {
+                font-size: 10px !important;
+                line-height: 1 !important;
             }
             
             .main-wrapper {
@@ -1587,37 +1813,11 @@
             }
             
             .main-container {
-                padding: 30px 20px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
-            }
-            
-            .main-logo {
-                width: 120px !important;
-                height: 120px !important;
-            }
-            
-            .platform-title {
-                font-size: 22px !important;
-            }
-            
-            .jackpot-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 15px !important;
-            }
-            
-            .live-stats-container {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 15px !important;
-            }
-            
-            .provider-grid {
-                grid-template-columns: repeat(5, 1fr) !important;
-                gap: 14px !important;
+                padding: 30px 20px calc(70px + env(safe-area-inset-bottom, 0px)) !important;
             }
             
             .header-content {
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
+                padding: 0 20px !important;
             }
         }
 
@@ -1630,6 +1830,42 @@
             .sidebar {
                 width: 220px !important;
                 transform: translateX(0) !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                height: 100vh !important;
+                z-index: 100 !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: none !important;
+            }
+            
+            .sidebar-close {
+                display: none !important;
+            }
+            
+            .sidebar-nav {
+                padding: 10px 0 !important;
+            }
+            
+            .sidebar-item {
+                padding: 16px 18px !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-bottom: 2px !important;
+            }
+            
+            .sidebar-icon {
+                font-size: 22px !important;
+                margin-right: 0 !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .sidebar-item span:last-child {
+                font-size: 11px !important;
+                line-height: 1 !important;
             }
             
             .main-wrapper {
@@ -1637,17 +1873,11 @@
             }
             
             .main-container {
-                padding: 35px 25px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+                padding: 35px 25px calc(70px + env(safe-area-inset-bottom, 0px)) !important;
             }
             
-            .provider-grid {
-                grid-template-columns: repeat(5, 1fr) !important;
-                gap: 14px !important;
-            }
-            
-            .jackpot-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 15px !important;
+            .header-content {
+                padding: 0 25px !important;
             }
         }
 
@@ -1660,6 +1890,42 @@
             .sidebar {
                 width: 220px !important;
                 transform: translateX(0) !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                height: 100vh !important;
+                z-index: 100 !important;
+            }
+            
+            .sidebar-mobile-header {
+                display: none !important;
+            }
+            
+            .sidebar-close {
+                display: none !important;
+            }
+            
+            .sidebar-nav {
+                padding: 10px 0 !important;
+            }
+            
+            .sidebar-item {
+                padding: 18px 20px !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-bottom: 3px !important;
+            }
+            
+            .sidebar-icon {
+                font-size: 24px !important;
+                margin-right: 0 !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .sidebar-item span:last-child {
+                font-size: 12px !important;
+                line-height: 1 !important;
             }
             
             .main-wrapper {
@@ -1667,9 +1933,13 @@
             }
             
             .main-container {
-                padding: 40px 30px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+                padding: 40px 30px calc(70px + env(safe-area-inset-bottom, 0px)) !important;
                 max-width: 1400px !important;
                 margin: 0 auto !important;
+            }
+            
+            .header-content {
+                padding: 0 30px !important;
             }
             
             .provider-grid {
@@ -1819,52 +2089,68 @@
         </div>
     </div>
 
+    <!-- Mobile Sidebar Toggle System -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+        <span class="hamburger-icon">☰</span>
+    </button>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <!-- Left Sidebar -->
-    <nav class="sidebar">
-        <a href="#" class="sidebar-item active" onclick="showSection('home', this)">
-            <span class="sidebar-icon">🏠</span>
-            <span>Home</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('hot-games', this)">
-            <span class="sidebar-icon">🔥</span>
-            <span>Hot Games</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('providers', this)">
-            <span class="sidebar-icon">🎰</span>
-            <span>Slot Providers</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('live-casino', this)">
-            <span class="sidebar-icon">🎥</span>
-            <span>Live Casino</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('sports', this)">
-            <span class="sidebar-icon">⚽</span>
-            <span>Sports</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('fishing', this)">
-            <span class="sidebar-icon">🐟</span>
-            <span>Fishing</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('promotions', this)">
-            <span class="sidebar-icon">🎁</span>
-            <span>Promotions</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('deposit', this)">
-            <span class="sidebar-icon">💳</span>
-            <span>Deposit</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('withdraw', this)">
-            <span class="sidebar-icon">💸</span>
-            <span>Withdraw</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('vip', this)">
-            <span class="sidebar-icon">👑</span>
-            <span>VIP</span>
-        </a>
-        <a href="#" class="sidebar-item" onclick="showSection('wallet', this)">
-            <span class="sidebar-icon">💰</span>
-            <span>Wallet</span>
-        </a>
+    <nav class="sidebar" id="sidebar">
+        <!-- Mobile Header -->
+        <div class="sidebar-mobile-header">
+            <span class="sidebar-title">Menu</span>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+        </div>
+        
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+            <a href="#" class="sidebar-item active" onclick="showSection('home', this)">
+                <span class="sidebar-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('hot-games', this)">
+                <span class="sidebar-icon">🔥</span>
+                <span>Hot Games</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('providers', this)">
+                <span class="sidebar-icon">🎰</span>
+                <span>Slot Providers</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('live-casino', this)">
+                <span class="sidebar-icon">🎥</span>
+                <span>Live Casino</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('sports', this)">
+                <span class="sidebar-icon">⚽</span>
+                <span>Sports</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('fishing', this)">
+                <span class="sidebar-icon">🐟</span>
+                <span>Fishing</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('promotions', this)">
+                <span class="sidebar-icon">🎁</span>
+                <span>Promotions</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('deposit', this)">
+                <span class="sidebar-icon">💳</span>
+                <span>Deposit</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('withdraw', this)">
+                <span class="sidebar-icon">💸</span>
+                <span>Withdraw</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('vip', this)">
+                <span class="sidebar-icon">👑</span>
+                <span>VIP</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="showSection('wallet', this)">
+                <span class="sidebar-icon">💰</span>
+                <span>Wallet</span>
+            </a>
+        </div>
     </nav>
 
     <!-- Login Section -->
@@ -2717,14 +3003,74 @@
             }, 5000);
         }
 
-        // Mobile Menu Toggle
+        // Mobile Sidebar Toggle System
         function toggleMobileMenu() {
-            const sidebar = document.querySelector('.sidebar');
-            const toggle = document.querySelector('.mobile-menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const mainWrapper = document.querySelector('.main-wrapper');
             
             sidebar.classList.toggle('open');
-            toggle.classList.toggle('active');
+            overlay.classList.toggle('active');
+            mainWrapper.classList.toggle('sidebar-open');
         }
+
+        function openMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const mainWrapper = document.querySelector('.main-wrapper');
+            
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            mainWrapper.classList.add('sidebar-open');
+        }
+
+        function closeMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const mainWrapper = document.querySelector('.main-wrapper');
+            
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            mainWrapper.classList.remove('sidebar-open');
+        }
+
+        // Mobile sidebar event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle button
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', openMobileSidebar);
+            }
+            
+            // Sidebar close button
+            const sidebarClose = document.getElementById('sidebarClose');
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeMobileSidebar);
+            }
+            
+            // Overlay click to close
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', closeMobileSidebar);
+            }
+            
+            // Close sidebar when clicking on a menu item (mobile only)
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        setTimeout(closeMobileSidebar, 300);
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileSidebar();
+                }
+            });
+        });
 
         // Provider Filtering
         function filterProviders(searchTerm) {
