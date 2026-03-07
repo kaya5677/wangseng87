@@ -142,19 +142,36 @@
         .sidebar-item {
             display: flex;
             align-items: center;
-            padding: 12px 20px;
+            padding: 14px 20px;
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 14px;
             font-weight: 500;
             border-left: 3px solid transparent;
+            position: relative;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.1));
+            transition: width 0.3s ease;
         }
 
         .sidebar-item:hover {
             background: rgba(255, 215, 0, 0.1);
             color: #ffd700;
             border-left-color: #ffd700;
+        }
+
+        .sidebar-item:hover::before {
+            width: 100%;
         }
 
         .sidebar-item.active {
@@ -164,17 +181,334 @@
             box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.05);
         }
 
+        .sidebar-item.active::before {
+            width: 100%;
+        }
+
         .sidebar-icon {
             margin-right: 12px;
             font-size: 16px;
             width: 20px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item:hover .sidebar-icon,
+        .sidebar-item.active .sidebar-icon {
+            transform: scale(1.1);
         }
 
         /* Main Content with Sidebar */
         .main-wrapper {
             margin-left: 220px;
             min-height: 100vh;
+        }
+
+        /* Jackpot Ticker */
+        .jackpot-container {
+            background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(10,10,20,0.9));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .jackpot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .jackpot-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,215,0,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .jackpot-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .jackpot-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.4);
+            font-family: 'Courier New', monospace;
+        }
+
+        .jackpot-grand {
+            background: linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,69,0,0.1));
+            border-color: rgba(255,0,0,0.4);
+        }
+
+        .jackpot-grand .jackpot-amount {
+            color: #ff4444;
+            text-shadow: 0 0 15px rgba(255,68,68,0.5);
+        }
+
+        /* Live Player Counter */
+        .live-stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .live-stat-card {
+            background: linear-gradient(135deg, rgba(0,50,0,0.1), rgba(0,30,0,0.05));
+            border: 1px solid rgba(0,255,0,0.2);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .live-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,255,0,0.1), transparent);
+            animation: statSweep 3s ease-in-out infinite;
+        }
+
+        @keyframes statSweep {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .live-stat-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .live-stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00ff88;
+            text-shadow: 0 0 8px rgba(0,255,136,0.4);
+        }
+
+        /* Recent Win Popup */
+        .recent-win-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(10,10,20,0.9));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 15px;
+            min-width: 280px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            animation: winPopupSlide 0.5s ease-out;
+        }
+
+        @keyframes winPopupSlide {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .win-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .win-icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .win-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.4;
+        }
+
+        .win-player {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .win-amount {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
+        /* Provider Search Bar */
+        .provider-search-container {
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 25px;
+            padding: 12px 20px 12px 50px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255,215,0,0.2);
+            background: rgba(0,0,0,0.4);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 18px;
+        }
+
+        /* Category Filter Bar */
+        .category-filter-container {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 20px;
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-btn:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,215,0,0.2);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0a0a1a;
+            border-color: #ffd700;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        /* Enhanced Provider Cards */
+        .provider-ribbon {
+            position: absolute;
+            top: 8px;
+            left: -25px;
+            background: linear-gradient(45deg, #ff3838, #ff6b6b);
+            color: white;
+            padding: 4px 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transform: rotate(-45deg);
+            z-index: 3;
+            box-shadow: 0 2px 8px rgba(255, 56, 56, 0.4);
+        }
+
+        .provider-ribbon.new {
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        .provider-ribbon.top {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0a0a1a;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Enhanced Spotlight Effect */
+        .cursor-pointer::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 140, 0, 0.1) 30%, transparent 60%);
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cursor-pointer:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffd700;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
 
         /* Premium Header */
@@ -293,7 +627,7 @@
         .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px 100px;
+            padding: 40px 20px 90px;
             position: relative;
             z-index: 10;
         }
@@ -475,26 +809,350 @@
             filter: saturate(1.08) contrast(1.05);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
+        /* Content Sections */
+        .content-section {
+            animation: sectionFadeIn 0.5s ease-out;
+        }
+
+        @keyframes sectionFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Auth Container */
+        .auth-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: linear-gradient(180deg, rgba(17,24,39,0.98), rgba(8,12,24,0.98));
+            border: 1px solid rgba(255,215,0,0.20);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .auth-header h3 {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-select {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+            background: rgba(0,0,0,0.4);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .auth-btn, .payment-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #0a0a1a;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            margin-top: 10px;
+        }
+
+        .auth-btn:hover, .payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-link {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-link:hover {
+            color: #ffed4e;
+            text-shadow: 0 0 8px rgba(255,215,0,0.3);
+        }
+
+        /* Payment Container */
+        .payment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .payment-card {
+            background: linear-gradient(180deg, rgba(17,24,39,0.98), rgba(8,12,24,0.98));
+            border: 1px solid rgba(255,215,0,0.20);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payment-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .payment-header h3 {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .payment-method {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.3);
+            transform: translateY(-2px);
+        }
+
+        .payment-method.active {
+            background: rgba(255,215,0,0.15);
+            border-color: #ffd700;
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+
+        .payment-method-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .payment-method-label {
+            color: rgba(255,255,255,0.9);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .withdraw-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(255,215,0,0.1);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Large Desktop (1200px - 1399px) */
+        @media (max-width: 1399px) and (min-width: 1200px) {
+            .provider-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 15px;
+            }
+            
+            .main-container {
+                padding: 40px 25px 90px;
+            }
+        }
+
+        /* Desktop (992px - 1199px) */
+        @media (max-width: 1199px) and (min-width: 992px) {
             .provider-grid {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 14px;
             }
+            
+            .main-container {
+                padding: 35px 20px 90px;
+            }
+            
+            .jackpot-grid {
+                gap: 15px;
+            }
+            
+            .jackpot-amount {
+                font-size: 22px;
+            }
         }
 
-        @media (max-width: 900px) {
+        /* Tablet Landscape (768px - 991px) */
+        @media (max-width: 991px) and (min-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+            
+            .main-wrapper {
+                margin-left: 200px;
+            }
+            
             .provider-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 12px;
             }
             
-            .section-title {
-                font-size: 28px;
+            .main-container {
+                padding: 30px 15px 90px;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .category-filter-container {
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .auth-buttons {
+                justify-content: center;
+            }
+            
+            .btn {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .main-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .platform-title {
+                font-size: 22px;
             }
         }
 
-        @media (max-width: 768px) {
+        /* Tablet Portrait (576px - 767px) */
+        @media (max-width: 767px) and (min-width: 576px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
             .sidebar {
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
@@ -514,108 +1172,202 @@
             }
             
             .main-container {
-                padding: 30px 15px 100px;
+                padding: 25px 12px 90px;
             }
             
-            .provider-container {
-                padding: 20px;
+            .jackpot-container {
+                margin: 15px 0;
+                padding: 15px;
+            }
+            
+            .jackpot-amount {
+                font-size: 18px;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .category-filter-container {
+                gap: 8px;
+                justify-content: center;
+            }
+            
+            .category-btn {
+                padding: 6px 16px;
+                font-size: 12px;
+            }
+            
+            .search-input {
+                padding: 10px 15px 10px 45px;
+                font-size: 14px;
+            }
+            
+            .auth-container, .payment-container {
+                padding: 12px;
+            }
+            
+            .auth-card, .payment-card {
+                padding: 25px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-methods {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Mobile Landscape (480px - 575px) */
+        @media (max-width: 575px) and (min-width: 480px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-wrapper {
+                margin-left: 0;
+            }
+            
             .provider-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
+            }
+            
+            .main-container {
+                padding: 20px 10px 90px;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .jackpot-amount {
+                font-size: 16px;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            
+            .category-filter-container {
+                gap: 6px;
+                justify-content: center;
+            }
+            
+            .category-btn {
+                padding: 5px 12px;
+                font-size: 11px;
             }
             
             .header-content {
                 flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .logo-container {
                 gap: 10px;
             }
             
             .main-logo {
                 width: 120px;
                 height: 120px;
-                border-width: 2px;
-            }
-            
-            .main-logo::before {
-                width: 250px;
-                height: 250px;
             }
             
             .platform-title {
-                font-size: 20px;
+                font-size: 18px;
+            }
+            
+            .btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+        }
+
+        /* Small Mobile (max-width: 479px) */
+        @media (max-width: 479px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-wrapper {
+                margin-left: 0;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+            
+            .main-container {
+                padding: 15px 8px 90px;
             }
             
             .section-title {
-                font-size: 24px;
+                font-size: 20px;
             }
-        }
+            
+            .jackpot-container {
+                margin: 10px 0;
+                padding: 12px;
+            }
+            
+            .jackpot-amount {
+                font-size: 14px;
+            }
+            
+            .jackpot-label {
+                font-size: 10px;
+            }
+            
+            .taskbar-item {
+                color: rgba(255,255,255,0.75);
+                font-size: 12px;
+                font-weight: 500;
+                text-decoration: none;
+                padding: 8px 12px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                min-width: 60px;
+                cursor: pointer;
+            }
 
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 20, 0.95) 100%);
-            backdrop-filter: blur(15px);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 8px 0;
-            z-index: 1000;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-content {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            min-height: 60px;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 215, 0, 0.1);
-            color: #ffd700;
+        .taskbar-item:hover {
+            background: rgba(255,215,0,0.1);
+            color: rgba(255,255,255,0.9);
             transform: translateY(-2px);
         }
 
-        .nav-item.active {
+        .taskbar-item.active {
             color: #ffd700;
-            background: rgba(255, 215, 0, 0.15);
+            text-shadow: 0 0 8px rgba(255,215,0,0.5);
+            background: rgba(255,215,0,0.15);
         }
 
-        .nav-icon {
+        .taskbar-icon {
             font-size: 20px;
             margin-bottom: 4px;
             display: block;
+            transition: all 0.3s ease;
         }
 
-        .nav-label {
-            font-size: 11px;
-            font-weight: 600;
+        .taskbar-item.active .taskbar-icon {
+            transform: scale(1.1);
+        }
+
+        .taskbar-label {
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         /* Animations */
@@ -676,46 +1428,235 @@
 
     <!-- Left Sidebar -->
     <nav class="sidebar">
-        <a href="#" class="sidebar-item active" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item active" onclick="showSection('home', this)">
             <span class="sidebar-icon">🏠</span>
             <span>Home</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('hot-games', this)">
             <span class="sidebar-icon">🔥</span>
             <span>Hot Games</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('providers', this)">
             <span class="sidebar-icon">🎰</span>
             <span>Slot Providers</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('live-casino', this)">
             <span class="sidebar-icon">🎥</span>
             <span>Live Casino</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('sports', this)">
             <span class="sidebar-icon">⚽</span>
             <span>Sports</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('fishing', this)">
             <span class="sidebar-icon">🐟</span>
             <span>Fishing</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('promotions', this)">
             <span class="sidebar-icon">🎁</span>
             <span>Promotions</span>
         </a>
-        <a href="#" class="sidebar-item" onclick="setSidebarActive(this)">
+        <a href="#" class="sidebar-item" onclick="showSection('deposit', this)">
+            <span class="sidebar-icon">💳</span>
+            <span>Deposit</span>
+        </a>
+        <a href="#" class="sidebar-item" onclick="showSection('withdraw', this)">
+            <span class="sidebar-icon">💸</span>
+            <span>Withdraw</span>
+        </a>
+        <a href="#" class="sidebar-item" onclick="showSection('vip', this)">
             <span class="sidebar-icon">👑</span>
             <span>VIP</span>
         </a>
+        <a href="#" class="sidebar-item" onclick="showSection('wallet', this)">
+            <span class="sidebar-icon">💰</span>
+            <span>Wallet</span>
+        </a>
     </nav>
+
+    <!-- Login Section -->
+    <section id="login-section" class="content-section" style="display: none;">
+        <div class="section-header">
+            <h2 class="section-title">Login</h2>
+            <div class="title-decoration"></div>
+        </div>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="auth-icon">🔐</span>
+                    <h3>Welcome Back</h3>
+                </div>
+                <form class="auth-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-input" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn primary">Login</button>
+                    <div class="auth-links">
+                        <a href="#" class="auth-link" onclick="showNotification('🔑 Reset', 'Password reset coming soon!')">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register-section" class="content-section" style="display: none;">
+        <div class="section-header">
+            <h2 class="section-title">Register</h2>
+            <div class="title-decoration"></div>
+        </div>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="auth-icon">📝</span>
+                    <h3>Create Account</h3>
+                </div>
+                <form class="auth-form" onsubmit="handleRegister(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-input" placeholder="Choose username" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" placeholder="Enter phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" placeholder="Create password" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-input" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Bank Name</label>
+                            <input type="text" class="form-input" placeholder="Enter bank name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Bank Account</label>
+                            <input type="text" class="form-input" placeholder="Account number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-btn primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deposit Section -->
+    <section id="deposit-section" class="content-section" style="display: none;">
+        <div class="section-header">
+            <h2 class="section-title">Deposit</h2>
+            <div class="title-decoration"></div>
+        </div>
+        <div class="payment-container">
+            <div class="payment-card">
+                <div class="payment-header">
+                    <span class="payment-icon">💳</span>
+                    <h3>Add Funds</h3>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-method active" onclick="selectPayment(this, 'bank')">
+                        <span class="payment-method-icon">🏦</span>
+                        <span class="payment-method-label">Bank Transfer</span>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment(this, 'ewallet')">
+                        <span class="payment-method-icon">💰</span>
+                        <span class="payment-method-label">E-Wallet</span>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment(this, 'crypto')">
+                        <span class="payment-method-icon">₿</span>
+                        <span class="payment-method-label">Crypto</span>
+                    </div>
+                </div>
+                <form class="payment-form" onsubmit="handleDeposit(event)">
+                    <div class="form-group">
+                        <label class="form-label">Deposit Amount</label>
+                        <input type="number" class="form-input" placeholder="Enter amount" min="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select">
+                            <option>Bank Transfer</option>
+                            <option>Touch 'n Go</option>
+                            <option>GrabPay</option>
+                            <option>USDT</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="payment-btn primary">Submit Deposit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Withdraw Section -->
+    <section id="withdraw-section" class="content-section" style="display: none;">
+        <div class="section-header">
+            <h2 class="section-title">Withdraw</h2>
+            <div class="title-decoration"></div>
+        </div>
+        <div class="payment-container">
+            <div class="payment-card">
+                <div class="payment-header">
+                    <span class="payment-icon">💸</span>
+                    <h3>Withdraw Funds</h3>
+                </div>
+                <form class="payment-form" onsubmit="handleWithdraw(event)">
+                    <div class="form-group">
+                        <label class="form-label">Withdraw Amount</label>
+                        <input type="number" class="form-input" placeholder="Enter amount" min="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Select Bank</label>
+                        <select class="form-select">
+                            <option>Maybank</option>
+                            <option>CIMB</option>
+                            <option>Public Bank</option>
+                            <option>RHB</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Account Number</label>
+                        <input type="text" class="form-input" placeholder="Enter account number" required>
+                    </div>
+                    <button type="submit" class="payment-btn primary">Submit Withdraw</button>
+                </form>
+                <div class="withdraw-info">
+                    <div class="info-item">
+                        <span class="info-label">Minimum withdraw:</span>
+                        <span class="info-value">RM50</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Processing time:</span>
+                        <span class="info-value">5-10 minutes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content Wrapper -->
     <div class="main-wrapper">
-
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="logo-container">
                 <div class="main-logo">
                     <video autoplay loop muted playsinline>
@@ -725,11 +1666,11 @@
                 <div class="platform-title">WangSeng87</div>
             </div>
             <div class="auth-buttons">
-                <button class="btn btn-secondary" onclick="showLogin()">
+                <button class="btn btn-secondary" onclick="showSection('login', this)">
                     <span>🔐</span>
                     <span>Login</span>
                 </button>
-                <button class="btn btn-primary" onclick="showRegister()">
+                <button class="btn btn-primary" onclick="showSection('register', this)">
                     <span>📝</span>
                     <span>Register</span>
                 </button>
@@ -737,12 +1678,76 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Jackpot Ticker -->
+    <div class="jackpot-container">
+        <div class="jackpot-grid">
+            <div class="jackpot-item jackpot-grand">
+                <div class="jackpot-label">Grand Jackpot</div>
+                <div class="jackpot-amount" id="grand-jackpot">RM 128,456.23</div>
+            </div>
+            <div class="jackpot-item">
+                <div class="jackpot-label">Major Jackpot</div>
+                <div class="jackpot-amount" id="major-jackpot">RM 25,330.80</div>
+            </div>
+            <div class="jackpot-item">
+                <div class="jackpot-label">Minor Jackpot</div>
+                <div class="jackpot-amount" id="minor-jackpot">RM 5,120.45</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Player Stats -->
+    <div class="live-stats-container">
+        <div class="live-stat-card">
+            <div class="live-stat-label">Online Players</div>
+            <div class="live-stat-value" id="online-players">12,845</div>
+        </div>
+        <div class="live-stat-card">
+            <div class="live-stat-label">Active Games</div>
+            <div class="live-stat-value" id="active-games">328</div>
+        </div>
+        <div class="live-stat-card">
+            <div class="live-stat-label">Live Wins Today</div>
+            <div class="live-stat-value" id="live-wins">RM 1,285,300</div>
+        </div>
+    </div>
+
+    <!-- Recent Win Popup -->
+    <div class="recent-win-popup" id="win-popup" style="display: none;">
+        <div class="win-header">
+            <span class="win-icon">🎉</span>
+            <span>Recent Win!</span>
+        </div>
+        <div class="win-text">
+            <span class="win-player" id="winner-name">Player123</span> won 
+            <span class="win-amount" id="win-amount">RM 1,250</span> on 
+            <span id="win-provider">PRAGMATIC SLOT</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
     <main class="main-container">
         <!-- Section Header -->
         <div class="section-header">
             <h1 class="section-title">Premium Slot Providers</h1>
             <div class="title-decoration"></div>
+        </div>
+
+        <!-- Provider Search Bar -->
+        <div class="provider-search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search provider..." onkeyup="filterProviders(this.value)">
+        </div>
+
+        <!-- Category Filter Bar -->
+        <div class="category-filter-container">
+            <button class="category-btn active" onclick="filterCategory('all', this)">All</button>
+            <button class="category-btn" onclick="filterCategory('hot', this)">Hot</button>
+            <button class="category-btn" onclick="filterCategory('new', this)">New</button>
+            <button class="category-btn" onclick="filterCategory('top', this)">Top Rated</button>
+            <button class="category-btn" onclick="filterCategory('live', this)">Live</button>
+            <button class="category-btn" onclick="filterCategory('slot', this)">Slot</button>
+            <button class="category-btn" onclick="filterCategory('fish', this)">Fish</button>
         </div>
 
         <!-- Premium Provider Container -->
@@ -970,34 +1975,32 @@
         </div>
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <div class="nav-content">
-            <a href="#" class="nav-item active" onclick="setActiveNav(this)">
-                <span class="nav-icon">🏠</span>
-                <span class="nav-label">Home</span>
-            </a>
-            <a href="#" class="nav-item" onclick="setActiveNav(this)">
-                <span class="nav-icon">🎰</span>
-                <span class="nav-label">Live</span>
-            </a>
-            <a href="#" class="nav-item" onclick="setActiveNav(this)">
-                <span class="nav-icon">⚽</span>
-                <span class="nav-label">Sports</span>
-            </a>
-            <a href="#" class="nav-item" onclick="setActiveNav(this)">
-                <span class="nav-icon">🎁</span>
-                <span class="nav-label">Promo</span>
-            </a>
-            <a href="#" class="nav-item" onclick="setActiveNav(this)">
-                <span class="nav-icon">👑</span>
-                <span class="nav-label">VIP</span>
-            </a>
-            <a href="#" class="nav-item" onclick="setActiveNav(this)">
-                <span class="nav-icon">💳</span>
-                <span class="nav-label">Pay</span>
-            </a>
-        </div>
+    <!-- Premium Bottom Navigation -->
+    <nav class="taskbar">
+        <a href="#" class="taskbar-item active" onclick="showSection('home', this)">
+            <span class="taskbar-icon">🏠</span>
+            <span class="taskbar-label">Home</span>
+        </a>
+        <a href="#" class="taskbar-item" onclick="showSection('live', this)">
+            <span class="taskbar-icon">🎰</span>
+            <span class="taskbar-label">Live</span>
+        </a>
+        <a href="#" class="taskbar-item" onclick="showSection('deposit', this)">
+            <span class="taskbar-icon">💳</span>
+            <span class="taskbar-label">Deposit</span>
+        </a>
+        <a href="#" class="taskbar-item" onclick="showSection('promotions', this)">
+            <span class="taskbar-icon">🎁</span>
+            <span class="taskbar-label">Promo</span>
+        </a>
+        <a href="#" class="taskbar-item" onclick="showSection('vip', this)">
+            <span class="taskbar-icon">👑</span>
+            <span class="taskbar-label">VIP</span>
+        </a>
+        <a href="#" class="taskbar-item" onclick="showSection('wallet', this)">
+            <span class="taskbar-icon">�</span>
+            <span class="taskbar-label">Wallet</span>
+        </a>
     </nav>
     </div>
     </div>
@@ -1053,14 +2056,80 @@
             showNotification(`🎰 Loading ${providerName}...`, 'Accessing premium slot games!');
         }
 
+        // Section Management
+        function showSection(sectionId, navElement) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Hide main content
+            const mainContent = document.querySelector('.main-container');
+            if (mainContent) {
+                mainContent.style.display = 'none';
+            }
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId + '-section');
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+            
+            // Update navigation active states
+            document.querySelectorAll('.sidebar-item, .taskbar-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (navElement) {
+                navElement.classList.add('active');
+            }
+            
+            // Show notification
+            const sectionName = sectionId.charAt(0).toUpperCase() + sectionId.slice(1).replace('-', ' ');
+            showNotification(`📱 ${sectionName}`, 'Section loaded successfully!');
+        }
+
+        // Form Handlers
+        function handleLogin(event) {
+            event.preventDefault();
+            showNotification('🔐 Login', 'Login functionality coming soon!');
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            showNotification('� Register', 'Registration functionality coming soon!');
+        }
+
+        function handleDeposit(event) {
+            event.preventDefault();
+            showNotification('💳 Deposit', 'Deposit processing coming soon!');
+        }
+
+        function handleWithdraw(event) {
+            event.preventDefault();
+            showNotification('💸 Withdraw', 'Withdrawal processing coming soon!');
+        }
+
+        function selectPayment(element, method) {
+            // Remove active from all payment methods
+            document.querySelectorAll('.payment-method').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active to selected
+            element.classList.add('active');
+            
+            showNotification('💳 Payment', `${method} selected`);
+        }
+
         // Navigation functions
-        function setActiveNav(element) {
-            document.querySelectorAll('.nav-item').forEach(item => {
+        function setActiveTaskbar(element) {
+            document.querySelectorAll('.taskbar-item').forEach(item => {
                 item.classList.remove('active');
             });
             element.classList.add('active');
             
-            const label = element.querySelector('.nav-label').textContent;
+            const label = element.querySelector('.taskbar-label').textContent;
             showNotification(`📱 ${label}`, 'Section coming soon!');
         }
 
@@ -1141,7 +2210,172 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('👑 WangSeng87 Premium Gaming Lobby Loaded');
             console.log('🎰 All providers ready for premium gaming!');
+            
+            // Start jackpot animations
+            animateJackpots();
+            
+            // Start win popup cycle
+            startWinPopupCycle();
+            
+            // Start live stats updates
+            updateLiveStats();
         });
+
+        // Jackpot Animation
+        function animateJackpots() {
+            setInterval(() => {
+                // Grand Jackpot
+                const grandElement = document.getElementById('grand-jackpot');
+                if (grandElement) {
+                    const currentValue = parseFloat(grandElement.textContent.replace(/[^\d.]/g, ''));
+                    const newValue = currentValue + (Math.random() * 10 - 5);
+                    grandElement.textContent = 'RM ' + newValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                }
+                
+                // Major Jackpot
+                const majorElement = document.getElementById('major-jackpot');
+                if (majorElement) {
+                    const currentValue = parseFloat(majorElement.textContent.replace(/[^\d.]/g, ''));
+                    const newValue = currentValue + (Math.random() * 5 - 2.5);
+                    majorElement.textContent = 'RM ' + newValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                }
+                
+                // Minor Jackpot
+                const minorElement = document.getElementById('minor-jackpot');
+                if (minorElement) {
+                    const currentValue = parseFloat(minorElement.textContent.replace(/[^\d.]/g, ''));
+                    const newValue = currentValue + (Math.random() * 2 - 1);
+                    minorElement.textContent = 'RM ' + newValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                }
+            }, 3000);
+        }
+
+        // Win Popup Cycle
+        const winMessages = [
+            { player: 'Player123', amount: 'RM 1,250', provider: 'PRAGMATIC SLOT' },
+            { player: 'VIP888', amount: 'RM 980', provider: 'JILI' },
+            { player: 'LuckyAce', amount: 'RM 2,100', provider: 'XE88' },
+            { player: 'KingKong', amount: 'RM 3,500', provider: 'MEGA888' },
+            { player: 'DragonMaster', amount: 'RM 1,800', provider: '918KISS' },
+            { player: 'GoldenTiger', amount: 'RM 5,200', provider: 'PUSSY888' },
+            { player: 'PhoenixRise', amount: 'RM 1,450', provider: 'PG SOFT' }
+        ];
+
+        let currentWinIndex = 0;
+
+        function startWinPopupCycle() {
+            setInterval(() => {
+                showWinPopup();
+            }, 8000);
+        }
+
+        function showWinPopup() {
+            const popup = document.getElementById('win-popup');
+            const winData = winMessages[currentWinIndex];
+            
+            if (popup && winData) {
+                document.getElementById('winner-name').textContent = winData.player;
+                document.getElementById('win-amount').textContent = winData.amount;
+                document.getElementById('win-provider').textContent = winData.provider;
+                
+                popup.style.display = 'block';
+                
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 5000);
+                
+                currentWinIndex = (currentWinIndex + 1) % winMessages.length;
+            }
+        }
+
+        // Live Stats Updates
+        function updateLiveStats() {
+            setInterval(() => {
+                // Online Players
+                const onlineElement = document.getElementById('online-players');
+                if (onlineElement) {
+                    const currentValue = parseInt(onlineElement.textContent.replace(/[^\d]/g, ''));
+                    const change = Math.floor(Math.random() * 200 - 100);
+                    const newValue = Math.max(10000, currentValue + change);
+                    onlineElement.textContent = newValue.toLocaleString();
+                }
+                
+                // Active Games
+                const gamesElement = document.getElementById('active-games');
+                if (gamesElement) {
+                    const currentValue = parseInt(gamesElement.textContent.replace(/[^\d]/g, ''));
+                    const change = Math.floor(Math.random() * 20 - 10);
+                    const newValue = Math.max(200, currentValue + change);
+                    gamesElement.textContent = newValue.toLocaleString();
+                }
+                
+                // Live Wins
+                const winsElement = document.getElementById('live-wins');
+                if (winsElement) {
+                    const currentValue = parseFloat(winsElement.textContent.replace(/[^\d.]/g, ''));
+                    const change = Math.random() * 10000 - 5000;
+                    const newValue = currentValue + change;
+                    winsElement.textContent = 'RM ' + newValue.toLocaleString();
+                }
+            }, 5000);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            sidebar.classList.toggle('open');
+            toggle.classList.toggle('active');
+        }
+
+        // Provider Filtering
+        function filterProviders(searchTerm) {
+            const providers = document.querySelectorAll('.cursor-pointer');
+            const term = searchTerm.toLowerCase();
+            
+            providers.forEach(provider => {
+                const alt = provider.querySelector('img').alt.toLowerCase();
+                if (alt.includes(term)) {
+                    provider.style.display = 'flex';
+                } else {
+                    provider.style.display = 'none';
+                }
+            });
+        }
+
+        function filterCategory(category, button) {
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            
+            // Filter providers based on category
+            const providers = document.querySelectorAll('.cursor-pointer');
+            providers.forEach(provider => {
+                const hasHot = provider.querySelector('.provider-ribbon.hot');
+                const hasNew = provider.querySelector('.provider-ribbon.new');
+                const hasTop = provider.querySelector('.provider-ribbon.top');
+                
+                switch(category) {
+                    case 'all':
+                        provider.style.display = 'flex';
+                        break;
+                    case 'hot':
+                        provider.style.display = hasHot ? 'flex' : 'none';
+                        break;
+                    case 'new':
+                        provider.style.display = hasNew ? 'flex' : 'none';
+                        break;
+                    case 'top':
+                        provider.style.display = hasTop ? 'flex' : 'none';
+                        break;
+                    default:
+                        provider.style.display = 'flex';
+                }
+            });
+        }
     </script>
 </body>
 </html>
