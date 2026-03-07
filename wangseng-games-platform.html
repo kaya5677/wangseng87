@@ -631,6 +631,461 @@
             background: rgba(255,215,0,0.4);
             transform: translateY(-2px);
         }
+
+        /* Promotion Section */
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .promo-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .promo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .promo-card h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .promo-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffed4e;
+            margin-bottom: 0.5rem;
+        }
+        .promo-desc {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        .promo-button {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .promo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .download-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .download-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .download-card h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .download-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        .download-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .download-features span {
+            color: #81c784;
+            font-size: 0.9rem;
+        }
+        .download-button {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        .qr-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .qr-box {
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Support Section */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .support-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .support-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .support-card h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .support-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .support-status {
+            color: #81c784;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        .support-status.online {
+            color: #4caf50;
+            background: rgba(76, 175, 80, 0.2);
+            border-color: rgba(76, 175, 80, 0.4);
+        }
+        .support-button {
+            background: linear-gradient(45deg, #17a2b8, #138496);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .support-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(23, 162, 184, 0.4);
+        }
+
+        /* Account Section */
+        .account-guest {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+        .account-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        .account-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .account-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        .account-card h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .account-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        .account-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .account-button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .account-button.primary {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+        }
+        .account-button.secondary {
+            background: rgba(255,255,255,0.1);
+            color: #ffd700;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        .account-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+        .account-user {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .account-info-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .account-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .account-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #1a1a2e;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .account-details h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .account-details p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1rem;
+        }
+        .account-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .account-stat {
+            display: flex;
+            justify-content: space-between;
+            min-width: 200px;
+        }
+        .account-stat .stat-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        .account-stat .stat-value {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .account-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .account-action-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .account-action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+        .account-action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .account-action-card h4 {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .account-action-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles for New Sections */
+        @media (max-width: 768px) {
+            .promo-grid,
+            .download-grid,
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .account-info-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .account-actions {
+                flex-direction: column;
+            }
+            
+            .account-actions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .promo-card,
+            .download-card,
+            .support-card,
+            .account-card {
+                padding: 1.5rem;
+            }
+            
+            .account-actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         
         .game-grid {
             display: grid;
@@ -1444,6 +1899,230 @@
             </div>
         </div>
 
+        <!-- Promotion Section -->
+        <div id="promotion" class="section">
+            <h2>🎁 Promotions</h2>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-icon">🎯</div>
+                    <h3>Welcome Bonus</h3>
+                    <p class="promo-amount">200% up to RM1000</p>
+                    <p class="promo-desc">Get started with our amazing welcome package</p>
+                    <button class="promo-button">Claim Now</button>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">🔥</div>
+                    <h3>Daily Reload</h3>
+                    <p class="promo-amount">50% Bonus</p>
+                    <p class="promo-desc">Get bonus every day when you deposit</p>
+                    <button class="promo-button">Claim Daily</button>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">👑</div>
+                    <h3>VIP Exclusive</h3>
+                    <p class="promo-amount">Special Rewards</p>
+                    <p class="promo-desc">Exclusive bonuses for VIP members only</p>
+                    <button class="promo-button">Join VIP</button>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">💰</div>
+                    <h3>Cashback</h3>
+                    <p class="promo-amount">10% Weekly</p>
+                    <p class="promo-desc">Get cashback on your weekly losses</p>
+                    <button class="promo-button">Get Cashback</button>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">🎉</div>
+                    <h3>Special Event</h3>
+                    <p class="promo-amount">Limited Time</p>
+                    <p class="promo-desc">Join our special tournaments and events</p>
+                    <button class="promo-button">Join Now</button>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">🎰</div>
+                    <h3>Free Spins</h3>
+                    <p class="promo-amount">100 Spins</p>
+                    <p class="promo-desc">Free spins on selected slot games</p>
+                    <button class="promo-button">Get Spins</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div id="download" class="section">
+            <h2>📱 Download</h2>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-icon">🤖</div>
+                    <h3>Android App</h3>
+                    <p>Download our premium Android app for the best gaming experience</p>
+                    <div class="download-features">
+                        <span>✓ Latest Version</span>
+                        <span>✓ Safe & Secure</span>
+                        <span>✓ Fast Performance</span>
+                    </div>
+                    <button class="download-button">
+                        <span>📥</span> Download APK
+                    </button>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">🍎</div>
+                    <h3>iOS App</h3>
+                    <p>Available for iPhone and iPad users with premium features</p>
+                    <div class="download-features">
+                        <span>✓ App Store Ready</span>
+                        <span>✓ Optimized UI</span>
+                        <span>✓ Full Features</span>
+                    </div>
+                    <button class="download-button">
+                        <span>📥</span> App Store
+                    </button>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">💻</div>
+                    <h3>Windows Desktop</h3>
+                    <p>Play on your PC with our desktop client for maximum performance</p>
+                    <div class="download-features">
+                        <span>✓ Windows 10/11</span>
+                        <span>✓ HD Graphics</span>
+                        <span>✓ Full Screen</span>
+                    </div>
+                    <button class="download-button">
+                        <span>📥</span> Download PC
+                    </button>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">📲</div>
+                    <h3>QR Code Scan</h3>
+                    <p>Scan QR code for instant download on your mobile device</p>
+                    <div class="qr-placeholder">
+                        <div class="qr-box">📱</div>
+                        <p>Scan to Download</p>
+                    </div>
+                    <button class="download-button">
+                        <span>🔍</span> Show QR
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div id="support" class="section">
+            <h2>💬 Support</h2>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Get instant help from our support team</p>
+                    <div class="support-status online">🟢 Online Now</div>
+                    <button class="support-button">Start Chat</button>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">📱</div>
+                    <h3>WhatsApp Support</h3>
+                    <p>Chat with us on WhatsApp for quick assistance</p>
+                    <div class="support-status online">🟢 Available 24/7</div>
+                    <button class="support-button">Open WhatsApp</button>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">✈️</div>
+                    <h3>Telegram Support</h3>
+                    <p>Join our Telegram channel for updates and support</p>
+                    <div class="support-status online">🟢 Active</div>
+                    <button class="support-button">Join Telegram</button>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Send us an email for detailed inquiries</p>
+                    <div class="support-status">📨 support@wangseng87.com</div>
+                    <button class="support-button">Send Email</button>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">❓</div>
+                    <h3>FAQ / Help Center</h3>
+                    <p>Find answers to common questions and issues</p>
+                    <div class="support-status">📚 100+ Articles</div>
+                    <button class="support-button">Browse FAQ</button>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">📞</div>
+                    <h3>Phone Support</h3>
+                    <p>Call us for immediate assistance during business hours</p>
+                    <div class="support-status">📞 +60 123-456-789</div>
+                    <button class="support-button">Call Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Section -->
+        <div id="account" class="section">
+            <h2>👤 Account</h2>
+            
+            <!-- Guest View -->
+            <div id="accountGuest" class="account-guest">
+                <div class="account-card">
+                    <div class="account-icon">🔐</div>
+                    <h3>Login Required</h3>
+                    <p>Please login or register to access your account</p>
+                    <div class="account-actions">
+                        <button class="account-button primary" onclick="showSection('login')">🔐 Login</button>
+                        <button class="account-button secondary" onclick="showSection('register')">📝 Register</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logged-in View -->
+            <div id="accountUser" class="account-user" style="display: none;">
+                <div class="account-info-card">
+                    <div class="account-avatar">👤</div>
+                    <div class="account-details">
+                        <h3 id="accountUsername">Player</h3>
+                        <p id="accountEmail">player@example.com</p>
+                        <div class="account-stats">
+                            <div class="account-stat">
+                                <span class="stat-label">VIP Level:</span>
+                                <span class="stat-value" id="accountVipLevel">Bronze</span>
+                            </div>
+                            <div class="account-stat">
+                                <span class="stat-label">Member Since:</span>
+                                <span class="stat-value" id="accountJoinDate">Jan 2025</span>
+                            </div>
+                            <div class="account-stat">
+                                <span class="stat-label">Balance:</span>
+                                <span class="stat-value">RM <span id="accountBalance">0.00</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="account-actions-grid">
+                    <button class="account-action-card">
+                        <div class="action-icon">💰</div>
+                        <h4>Deposit</h4>
+                        <p>Add funds to your account</p>
+                    </button>
+                    <button class="account-action-card">
+                        <div class="action-icon">💸</div>
+                        <h4>Withdraw</h4>
+                        <p>Request withdrawal</p>
+                    </button>
+                    <button class="account-action-card">
+                        <div class="action-icon">📊</div>
+                        <h4>Transaction History</h4>
+                        <p>View your transactions</p>
+                    </button>
+                    <button class="account-action-card">
+                        <div class="action-icon">⚙️</div>
+                        <h4>Settings</h4>
+                        <p>Account preferences</p>
+                    </button>
+                </div>
+                
+                <button class="logout-button" onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
         <!-- Providers Section -->
         <div id="providers" class="section">
             <h2>🎰 Premium Slot Providers</h2>
@@ -2163,16 +2842,43 @@
             const userBalance = document.getElementById('userBalance');
             const userVipPoints = document.getElementById('userVipPoints');
             
+            // Account section elements
+            const accountGuest = document.getElementById('accountGuest');
+            const accountUser = document.getElementById('accountUser');
+            const accountUsername = document.getElementById('accountUsername');
+            const accountEmail = document.getElementById('accountEmail');
+            const accountVipLevel = document.getElementById('accountVipLevel');
+            const accountBalance = document.getElementById('accountBalance');
+            const accountJoinDate = document.getElementById('accountJoinDate');
+            
             if (currentUser) {
+                // Update home section
                 if (guestContent) guestContent.style.display = 'none';
                 if (userContent) userContent.style.display = 'block';
                 if (welcomeUser) welcomeUser.textContent = currentUser.username;
                 if (userVipLevel) userVipLevel.textContent = currentUser.vipLevel || 'Bronze';
                 if (userBalance) userBalance.textContent = (currentUser.balance || 0).toFixed(2);
                 if (userVipPoints) userVipPoints.textContent = currentUser.vipPoints || 0;
+                
+                // Update account section
+                if (accountGuest) accountGuest.style.display = 'none';
+                if (accountUser) accountUser.style.display = 'block';
+                if (accountUsername) accountUsername.textContent = currentUser.username;
+                if (accountEmail) accountEmail.textContent = currentUser.email;
+                if (accountVipLevel) accountVipLevel.textContent = currentUser.vipLevel || 'Bronze';
+                if (accountBalance) accountBalance.textContent = (currentUser.balance || 0).toFixed(2);
+                if (accountJoinDate) {
+                    const joinDate = new Date(currentUser.joinDate);
+                    accountJoinDate.textContent = joinDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                }
             } else {
+                // Update home section
                 if (guestContent) guestContent.style.display = 'block';
                 if (userContent) userContent.style.display = 'none';
+                
+                // Update account section
+                if (accountGuest) accountGuest.style.display = 'flex';
+                if (accountUser) accountUser.style.display = 'none';
             }
         }
 
