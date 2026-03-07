@@ -85,8 +85,8 @@
             background: rgba(255,215,0,0.2);
         }
         
-        /* Task Bar */
-        .taskbar {
+        /* Bottom Navigation (Mobile) */
+        .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -94,42 +94,39 @@
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 10px 0;
+            padding: 8px 0;
             z-index: 1000;
-        }
-        .taskbar-content {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
         }
-        .taskbar-item {
+        .bottom-nav .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 8px;
             transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            flex: 1;
         }
-        .taskbar-item:hover {
+        .bottom-nav .nav-item:hover {
             background: rgba(255, 215, 0, 0.1);
             color: #ffd700;
             transform: translateY(-2px);
         }
-        .taskbar-item.active {
+        .bottom-nav .nav-item.active {
             color: #ffd700;
             background: rgba(255,215,0,0.2);
         }
-        .taskbar-icon {
-            font-size: 1.5rem;
-            margin-bottom: 4px;
+        .nav-icon {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
         }
-        .taskbar-label {
-            font-size: 0.75rem;
+        .nav-label {
+            font-size: 0.7rem;
             font-weight: 500;
         }
         
@@ -241,14 +238,55 @@
             box-shadow: 0 6px 20px rgba(255,215,0,0.3);
         }
         
+        /* Bootstrap Grid Support */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col-lg-2 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .col-md-3 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .col-3 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive breakpoints */
+        @media (min-width: 576px) {
+            .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+        }
+        @media (min-width: 768px) {
+            .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+        }
+        @media (min-width: 992px) {
+            .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+        }
+        @media (max-width: 576px) {
+            .col-3 { flex: 0 0 25%; max-width: 25%; }
+        }
+
         /* Provider Grid Styles */
-        .provider-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 1rem;
+        .provider-wrapper {
             margin: 2rem 0;
         }
-        .provider-container {
+        .provider-wrapper .cursor-pointer {
             position: relative;
             display: flex;
             align-items: center;
@@ -261,27 +299,25 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
+            margin-bottom: 15px;
         }
-        .provider-container:hover {
+        .provider-wrapper .cursor-pointer:hover {
             transform: translateY(-5px);
             border-color: rgba(255,215,0,0.5);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-        .cursor-pointer {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-        .game_image {
+        .provider-wrapper .game_image {
             width: 100%;
             height: 100%;
             object-fit: contain;
             object-position: center;
             border-radius: 12px;
             background: rgba(0,0,0,0.2);
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+        .provider-wrapper .cursor-pointer:hover .game_image {
+            transform: scale(1.04);
+            filter: saturate(1.08) contrast(1.05);
         }
         
         /* Search and Filter */
@@ -475,42 +511,320 @@
         }
         .pulse { animation: pulse 2s infinite; }
         .slide-in { animation: slideIn 0.5s ease-out; }
+
+        /* Header Section Styles */
+        .header-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(90deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,215,0,0.3);
+            overflow: hidden;
+        }
+        .announcement-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .announcement-icon {
+            font-size: 1.2rem;
+            color: #ffd700;
+            flex-shrink: 0;
+        }
+        .announcement-text {
+            flex: 1;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .announcement-text marquee {
+            display: block;
+            white-space: nowrap;
+        }
+
+        /* Promotion Slider */
+        .promotion-slider {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05));
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,215,0,0.3);
+            overflow: hidden;
+        }
+        .slider-container {
+            position: relative;
+            height: 120px;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide-content {
+            text-align: center;
+            color: #ffffff;
+        }
+        .slide-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        .slide-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .slide-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .slide-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background: #ffd700;
+            transform: scale(1.2);
+        }
+
+        /* Game Shortcuts */
+        .game-shortcuts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .shortcut-item {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,215,0,0.2);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .shortcut-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,215,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: rgba(255,215,0,0.1);
+        }
+        .shortcut-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .shortcut-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Game Banner Section */
+        .game-banner-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .game-banner-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ffd700;
+            font-size: 1.8rem;
+        }
+        .game-banner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .game-banner-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05));
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .game-banner-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,215,0,0.5);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .banner-image {
+            height: 150px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        .banner-icon {
+            font-size: 4rem;
+            color: #ffd700;
+            z-index: 1;
+            position: relative;
+        }
+        .banner-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .banner-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        .banner-content p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+        }
+        .banner-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .banner-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo-container">
-            <div class="main-logo">
-                <video autoplay muted loop playsinline>
-                    <source src="wangseng-lion.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="platform-name">WangSeng87</div>
-        </div>
-        
-        <div class="navbar">
-            <div class="nav-content">
-                <div class="nav-item active" onclick="showSection('home')">🏠 Home</div>
-                <div class="nav-item" onclick="showSection('providers')">🎰 Providers</div>
-                <div class="nav-item" onclick="showSection('games')">🎮 Games</div>
-                <div class="nav-item" onclick="showSection('livecasino')">🎰 Live Casino</div>
-                <div class="nav-item" onclick="showSection('promotions')">🎁 Promotions</div>
-                <div class="nav-item" onclick="showSection('vip')">👑 VIP</div>
-            </div>
-        </div>
-        
-        <div class="header">
-            <h1>👑 Premium Gaming Platform</h1>
-            
-            <!-- Authentication UI -->
-            <div id="authButtons" class="auth-buttons">
-                <button class="auth-button" onclick="showSection('login')">🔐 Login</button>
-                <button class="auth-button" onclick="showSection('register')">📝 Register</button>
+        <!-- Header Section -->
+        <div class="header-section">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="main-logo">
+                    <video autoplay muted loop playsinline>
+                        <source src="wangseng-lion.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="platform-name">WangSeng87</div>
             </div>
             
-            <div id="userInfo" class="user-info" style="display: none;">
-                <span id="displayUsername">Player</span>
-                <button class="auth-button logout" onclick="logout()">🚪 Logout</button>
+            <!-- Announcement Bar -->
+            <div class="announcement-bar">
+                <div class="announcement-content">
+                    <span class="announcement-icon">📢</span>
+                    <div class="announcement-text">
+                        <marquee behavior="scroll" direction="left">
+                            � WELCOME BONUS 200% UP TO RM1000 • 🔥 DAILY RELOAD 50% • 👑 VIP EXCLUSIVE REWARDS • 🎰 NEW GAMES ADDED WEEKLY • 💰 INSTANT WITHDRAWALS
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promotion Slider -->
+            <div class="promotion-slider">
+                <div class="slider-container">
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <h3>🎯 WELCOME BONUS</h3>
+                            <p>Get 200% up to RM1000</p>
+                            <button class="slide-btn">Claim Now</button>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>🔥 DAILY RELOAD</h3>
+                            <p>50% Bonus Every Day</p>
+                            <button class="slide-btn">Claim Daily</button>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>👑 VIP PROGRAM</h3>
+                            <p>Exclusive Rewards</p>
+                            <button class="slide-btn">Join VIP</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Shortcuts -->
+        <div class="game-shortcuts">
+            <div class="shortcut-item" onclick="showSection('providers')">
+                <div class="shortcut-icon">🎰</div>
+                <div class="shortcut-label">Slot</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('livecasino')">
+                <div class="shortcut-icon">🎥</div>
+                <div class="shortcut-label">Live</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('sports')">
+                <div class="shortcut-icon">⚽</div>
+                <div class="shortcut-label">Sport</div>
+            </div>
+            <div class="shortcut-item" onclick="showSection('app')">
+                <div class="shortcut-icon">📱</div>
+                <div class="shortcut-label">App</div>
             </div>
         </div>
 
@@ -569,563 +883,231 @@
             </div>
             
             <!-- Provider Grid -->
-            <div class="provider-grid">
-                <!-- 918KISS -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('918kiss')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="918KISS" class="game_image">
+            <div class="provider-wrapper row">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- MEGA888 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('mega888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="MEGA888" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- XE88 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('xe88')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="XE88" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- PUSSY888 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('pussy888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="PUSSY888" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- LIVE22 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('live22')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="LIVE22" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- IMPERIUM -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('imperium')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="IMPERIUM" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- MARIOCLUB -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('marioclub')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/7.png" alt="MARIOCLUB" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- PLAYACE-YP -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('playace-yp')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="PLAYACE-YP" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- PLAYACE-SLOT -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('playace-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/9.png" alt="PLAYACE-SLOT" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- EPICWIN -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('epicwin')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="EPICWIN" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- UUSLOTS -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('uuslots')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="UUSLOTS" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- UUSLOTS -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('uuslots')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="UUSLOTS" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- DUOFU -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('duofu')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/13.png" alt="DUOFU" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- VPOWER -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('vpower')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/14.png" alt="VPOWER" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- JILI -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('jili')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="JILI" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- PRAGMATIC SLOT -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="PRAGMATIC SLOT" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- LUCKY365 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('lucky365')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="LUCKY365" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- MONKEY KING -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('monkey-king')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/18.png" alt="MONKEY KING" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- PEGASUS -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('pegasus')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="PEGASUS" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- ASKGAMBLER -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('askgambler')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="ASKGAMBLER" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- CROWN918 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('crown918')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="CROWN918" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- BOSSKU -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('bossku')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="BOSSKU" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- BK8 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('bk8')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/23.png" alt="BK8" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- ME88 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('me88')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/24.png" alt="ME88" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- 12BET -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('12bet')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="12BET" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- 96M -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('96m')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="96M" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- WE88 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('we88')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/27.png" alt="WE88" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- WINBOX -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('winbox')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/28.png" alt="WINBOX" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- EVO888 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('evo888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/29.png" alt="EVO888" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- JOKER -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('joker')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="JOKER" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- ACE333 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('ace333')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/31.png" alt="ACE333" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- SKY3888 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('sky3888')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SKY3888" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- LUCKY4D -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('lucky4d')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/33.png" alt="LUCKY4D" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- MAXBET -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('maxbet')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/34.png" alt="MAXBET" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- GRAND777 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('grand777')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="GRAND777" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- TOTO88 -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('toto88')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/36.png" alt="TOTO88" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- CAMBODIA -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('cambodia')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="CAMBODIA" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- THAILAND -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('thailand')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="THAILAND" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- VIETNAM -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('vietnam')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="VIETNAM" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
-
-                <!-- INDONESIA -->
-                <div class="provider-container">
-                    <div class="cursor-pointer" onclick="openProvider('indonesia')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/40.png" alt="INDONESIA" class="game_image">
+                <div class="col-lg-2 col-md-3 col-3">
+                    <div class="cursor-pointer">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" loading="lazy" class="game_image img-fluid">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Games Section -->
-        <div id="games" class="section">
-            <h2>🎮 Premium Games Collection</h2>
-            <div class="game-grid">
-                <div class="game-card" onclick="playGame('mega-fortune')">
-                    <div class="game-icon">💰</div>
-                    <div class="game-title">Mega Fortune</div>
-                    <div class="game-provider">NetEnt • 96.6% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('starburst')">
-                    <div class="game-icon">⭐</div>
-                    <div class="game-title">Starburst</div>
-                    <div class="game-provider">NetEnt • 96.1% RTP • Low Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('gonzo')">
-                    <div class="game-icon">🗿</div>
-                    <div class="game-title">Gonzo's Quest</div>
-                    <div class="game-provider">NetEnt • 95.97% RTP • Medium Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('book-of-dead')">
-                    <div class="game-icon">📖</div>
-                    <div class="game-title">Book of Dead</div>
-                    <div class="game-provider">Play'n GO • 96.21% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('sweet-bonanza')">
-                    <div class="game-icon">🍬</div>
-                    <div class="game-title">Sweet Bonanza</div>
-                    <div class="game-provider">Pragmatic Play • 96.51% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-                <div class="game-card" onclick="playGame('gates-of-olympus')">
-                    <div class="game-icon">⚡</div>
-                    <div class="game-title">Gates of Olympus</div>
-                    <div class="game-provider">Pragmatic Play • 96.5% RTP • High Volatility</div>
-                    <button class="game-button">Play Now</button>
-                </div>
-            </div>
+    <!-- Bottom Navigation (Mobile) -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="showSection('home')">
+            <div class="nav-icon">🏠</div>
+            <div class="nav-label">Home</div>
         </div>
-
-        <!-- Live Casino Section -->
-        <div id="livecasino" class="section">
-            <h2>🎰 Live Casino Experience</h2>
-            <div class="game-grid">
-                <div class="game-card" onclick="playGame('live-blackjack')">
-                    <div class="game-icon">♠️</div>
-                    <div class="game-title">Live Blackjack</div>
-                    <div class="game-provider">Classic 21 with live dealers</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-                <div class="game-card" onclick="playGame('live-roulette')">
-                    <div class="game-icon">🎰</div>
-                    <div class="game-title">Live Roulette</div>
-                    <div class="game-provider">European & American tables</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-                <div class="game-card" onclick="playGame('live-baccarat')">
-                    <div class="game-icon">🎴</div>
-                    <div class="game-title">Live Baccarat</div>
-                    <div class="game-provider">Squeeze & No Commission tables</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-                <div class="game-card" onclick="playGame('dragon-tiger')">
-                    <div class="game-icon">🐅</div>
-                    <div class="game-title">Dragon Tiger</div>
-                    <div class="game-provider">Fast-paced card game</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-                <div class="game-card" onclick="playGame('live-sic-bo')">
-                    <div class="game-icon">🎲</div>
-                    <div class="game-title">Live Sic Bo</div>
-                    <div class="game-provider">Traditional dice game</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-                <div class="game-card" onclick="playGame('texas-holdem')">
-                    <div class="game-icon">🃏</div>
-                    <div class="game-title">Texas Hold'em</div>
-                    <div class="game-provider">Live poker tournaments</div>
-                    <button class="game-button">Join Table</button>
-                </div>
-            </div>
+        <div class="nav-item" onclick="showSection('history')">
+            <div class="nav-icon">📊</div>
+            <div class="nav-label">History</div>
         </div>
-
-        <!-- Promotions Section -->
-        <div id="promotions" class="section">
-            <h2>🎁 Promotions & Bonuses</h2>
-            <div class="promo-grid">
-                <div class="promo-card">
-                    <h3>🎯 Welcome Bonus</h3>
-                    <p style="font-size: 1.5rem; margin: 1rem 0;">Get 200% up to $1000!</p>
-                    <p>Get started with our amazing welcome package</p>
-                    <button class="game-button" style="margin-top: 1rem;">Claim Now</button>
-                </div>
-                <div class="promo-card">
-                    <h3>⚡ Daily Reload</h3>
-                    <p style="font-size: 1.5rem; margin: 1rem 0;">50% Daily Bonus!</p>
-                    <p>Get bonus every day when you deposit</p>
-                    <button class="game-button" style="margin-top: 1rem;">Claim Daily</button>
-                </div>
-                <div class="promo-card">
-                    <h3>👑 VIP Program</h3>
-                    <p style="font-size: 1.5rem; margin: 1rem 0;">Exclusive Rewards!</p>
-                    <p>Exclusive rewards for VIP members</p>
-                    <button class="game-button" style="margin-top: 1rem;">Join VIP</button>
-                </div>
-                <div class="promo-card">
-                    <h3>🎰 Cashback</h3>
-                    <p style="font-size: 1.5rem; margin: 1rem 0;">10% Weekly Cashback!</p>
-                    <p>Get cashback on your weekly losses</p>
-                    <button class="game-button" style="margin-top: 1rem;">Get Cashback</button>
-                </div>
-            </div>
+        <div class="nav-item" onclick="showSection('bonus')">
+            <div class="nav-icon">�</div>
+            <div class="nav-label">Bonus</div>
         </div>
-
-        <!-- VIP Section -->
-        <div id="vip" class="section">
-            <div class="vip-section">
-                <div class="vip-badge">👑 EXCLUSIVE</div>
-                <h2>👑 VIP Elite Club</h2>
-                <p>Experience the ultimate luxury gaming with exclusive VIP benefits</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value">5%</div>
-                        <div class="stat-label">Higher RTP</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Personal Manager</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">Instant</div>
-                        <div class="stat-label">Withdrawals</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">Exclusive</div>
-                        <div class="stat-label">Events & Trips</div>
-                    </div>
-                </div>
-                
-                <h3>🏆 VIP Levels</h3>
-                <div class="game-grid">
-                    <div class="game-card">
-                        <div class="game-icon">🥉</div>
-                        <div class="game-title">Bronze VIP</div>
-                        <div class="game-provider">$1,000 - $10,000</div>
-                        <button class="game-button">Current Level</button>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon">🥈</div>
-                        <div class="game-title">Silver VIP</div>
-                        <div class="game-provider">$10,000 - $50,000</div>
-                        <button class="game-button">Next Level</button>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon">🥇</div>
-                        <div class="game-title">Gold VIP</div>
-                        <div class="game-provider">$50,000 - $100,000</div>
-                        <button class="game-button">Premium</button>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon">💎</div>
-                        <div class="game-title">Diamond VIP</div>
-                        <div class="game-provider">$100,000+</div>
-                        <button class="game-button">Elite</button>
-                    </div>
-                </div>
-            </div>
+        <div class="nav-item" onclick="showSection('livechat')">
+            <div class="nav-icon">💬</div>
+            <div class="nav-label">Live Chat</div>
         </div>
-
-        <!-- Login Section -->
-        <div id="login" class="section">
-            <h2>🔐 Login to Your Account</h2>
-            <div class="auth-form">
-                <div class="form-group">
-                    <label for="loginUsername">👤 Username</label>
-                    <input type="text" id="loginUsername" class="input-field" placeholder="Enter your username" maxlength="20">
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">🔒 Password</label>
-                    <input type="password" id="loginPassword" class="input-field" placeholder="Enter your password">
-                </div>
-                <button class="game-button" onclick="login()">🔐 Login</button>
-                <p style="text-align: center; margin-top: 1rem;">
-                    Don't have an account? <a href="#" onclick="showSection('register')" style="color: #ffd700;">Register here</a>
-                </p>
-            </div>
-        </div>
-
-        <!-- Register Section -->
-        <div id="register" class="section">
-            <h2>📝 Create Premium Account</h2>
-            <div class="auth-form">
-                <div class="form-group">
-                    <label for="registerUsername">👤 Username</label>
-                    <input type="text" id="registerUsername" class="input-field" placeholder="Choose a username" maxlength="20">
-                </div>
-                <div class="form-group">
-                    <label for="registerEmail">📧 Email</label>
-                    <input type="email" id="registerEmail" class="input-field" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="registerPassword">🔒 Password</label>
-                    <input type="password" id="registerPassword" class="input-field" placeholder="Create a password" minlength="6">
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">🔒 Confirm Password</label>
-                    <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm your password">
-                </div>
-                <button class="game-button" onclick="register()">📝 Register</button>
-                <p style="text-align: center; margin-top: 1rem;">
-                    Already have an account? <a href="#" onclick="showSection('login')" style="color: #ffd700;">Login here</a>
-                </p>
-            </div>
-        </div>
-
-        <!-- Payment Methods Section -->
-        <div id="payments" class="section">
-            <h2>💳 Payment Methods</h2>
-            <div class="payment-methods">
-                <div class="payment-method">
-                    <div class="game-icon">🏦</div>
-                    <h4>Bank Transfer</h4>
-                    <p>Secure bank transfers</p>
-                </div>
-                <div class="payment-method">
-                    <div class="game-icon">💳</div>
-                    <h4>E-Wallet</h4>
-                    <p>Fast e-wallet payments</p>
-                </div>
-                <div class="payment-method">
-                    <div class="game-icon">₿</div>
-                    <h4>Cryptocurrency</h4>
-                    <p>Bitcoin & more</p>
-                </div>
-                <div class="payment-method">
-                    <div class="game-icon">💰</div>
-                    <h4>Credit Cards</h4>
-                    <p>Visa, Mastercard</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Task Bar -->
-    <div class="taskbar">
-        <div class="taskbar-content">
-            <div class="taskbar-item" onclick="showSection('home')" id="homeTaskbar">
-                <div class="taskbar-icon">🏠</div>
-                <div class="taskbar-label">HOME</div>
-            </div>
-            <div class="taskbar-item" onclick="showSection('providers')" id="providersTaskbar">
-                <div class="taskbar-icon">🎰</div>
-                <div class="taskbar-label">PROVIDERS</div>
-            </div>
-            <div class="taskbar-item" onclick="showSection('games')" id="gamesTaskbar">
-                <div class="taskbar-icon">🎮</div>
-                <div class="taskbar-label">GAMES</div>
-            </div>
-            <div class="taskbar-item" onclick="showSection('livecasino')" id="livecasinoTaskbar">
-                <div class="taskbar-icon">🎰</div>
-                <div class="taskbar-label">LIVE</div>
-            </div>
-            <div class="taskbar-item" onclick="showSection('promotions')" id="promotionsTaskbar">
-                <div class="taskbar-icon">🎁</div>
-                <div class="taskbar-label">PROMO</div>
-            </div>
-            <div class="taskbar-item" onclick="showSection('vip')" id="vipTaskbar">
-                <div class="taskbar-icon">👑</div>
-                <div class="taskbar-label">VIP</div>
-            </div>
+        <div class="nav-item" onclick="showSection('settings')">
+            <div class="nav-icon">⚙️</div>
+            <div class="nav-label">Setting</div>
         </div>
     </div>
 
@@ -1148,26 +1130,83 @@
                 item.classList.remove('active');
             });
             
-            // Remove active class from all taskbar items
-            document.querySelectorAll('.taskbar-item').forEach(item => {
+            // Remove active class from bottom nav items
+            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             
             // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked nav item
-            const navItem = document.querySelector(`.nav-item[onclick="showSection('${sectionId}')"]`);
-            if (navItem) {
-                navItem.classList.add('active');
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
             }
             
-            // Add active class to clicked taskbar item
-            const taskbarItem = document.getElementById(sectionId + 'Taskbar');
-            if (taskbarItem) {
-                taskbarItem.classList.add('active');
+            // Add active class to clicked bottom nav item
+            const bottomNavItem = document.querySelector(`.bottom-nav .nav-item[onclick="showSection('${sectionId}')"]`);
+            if (bottomNavItem) {
+                bottomNavItem.classList.add('active');
+            }
+            
+            // Handle special sections
+            if (sectionId === 'history') {
+                alert('📊 Game History\n\nYour recent gaming activity will appear here.');
+            } else if (sectionId === 'bonus') {
+                alert('🎁 Bonus Center\n\nCheck your available bonuses and rewards!');
+            } else if (sectionId === 'livechat') {
+                alert('💬 Live Chat\n\nConnect with our support team!');
+            } else if (sectionId === 'settings') {
+                alert('⚙️ Settings\n\nManage your account preferences.');
+            } else if (sectionId === 'sports') {
+                alert('⚽ Sports Betting\n\nSports betting coming soon!');
+            } else if (sectionId === 'app') {
+                alert('📱 Mobile App\n\nDownload our mobile app for premium gaming!');
             }
         }
+
+        // Slider functionality
+        let slideIndex = 1;
+        let slideInterval;
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+            resetSlideInterval();
+        }
+
+        function showSlide(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        // Initialize slider
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start auto-sliding
+            slideInterval = setInterval(nextSlide, 4000);
+        });
 
         // Provider functions
         function openProvider(providerId) {
