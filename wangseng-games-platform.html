@@ -593,6 +593,590 @@
             }
         }
 
+        /* XVG-Style Casino Layout */
+        
+        /* Banner Carousel */
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .banner-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .banner-slide.active {
+            opacity: 1;
+        }
+        .banner-content {
+            text-align: center;
+            color: white;
+        }
+        .banner-content h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+        .banner-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ffed4e;
+        }
+        .banner-button {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .banner-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+        }
+        .banner-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background: #ffd700;
+            box-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        /* Category Icons */
+        .category-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .category-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .category-icon:hover .icon-circle {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+        }
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));
+            border: 2px solid rgba(255,215,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .icon-emoji {
+            font-size: 3rem;
+        }
+        .icon-label {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* 3-Column Casino Layout */
+        .casino-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr 280px;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Left Column - Promotions */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .promo-block {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .promo-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.2);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .promo-block.affiliate {
+            background: linear-gradient(135deg, rgba(0, 100, 0, 0.3), rgba(0, 50, 0, 0.2));
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+        .promo-header {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .promo-amount {
+            color: #ffed4e;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .promo-desc {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        .jackpot-block {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(100, 0, 0, 0.2));
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .jackpot-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.5);
+        }
+        .jackpot-header {
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .jackpot-amount {
+            color: #ff4444;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .jackpot-desc {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        .small-promo {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .small-promo-header {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .small-promo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .small-promo-item {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .small-promo-item:hover {
+            background: rgba(255,215,0,0.1);
+            color: #ffd700;
+        }
+
+        /* Center Column - Game Lobby */
+        .center-column {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .lobby-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .lobby-header h2 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .lobby-filter {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .filter-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            color: rgba(255,255,255,0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255,215,0,0.2);
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        .provider-card {
+            aspect-ratio: 2 / 3;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .provider-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .provider-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1rem 0.5rem 0.5rem;
+            text-align: center;
+        }
+        .provider-name {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        /* Right Column - Account Panel */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .account-panel {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        .account-header {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .account-guest-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .account-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .account-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+        .account-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: #ffd700;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        .account-user-panel {
+            margin-bottom: 1.5rem;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        .user-name {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .user-level {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        .balance-display {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .balance-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .balance-amount {
+            color: #ffd700;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .account-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .action-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        .action-btn.withdraw {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+        }
+        .action-btn.withdraw:hover {
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+        .action-btn.refresh {
+            background: linear-gradient(45deg, #17a2b8, #138496);
+        }
+        .action-btn.refresh:hover {
+            box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+        }
+
+        /* Sports Widget */
+        .sports-widget {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        .sports-header {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .match-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .team-flag {
+            font-size: 1.2rem;
+        }
+        .match-score {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .match-time {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .match-odds {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .odd {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 4px;
+            padding: 0.3rem 0.5rem;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .bet-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .bet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Mobile Responsive Layout */
+        @media (max-width: 1200px) {
+            .casino-layout {
+                grid-template-columns: 220px 1fr 260px;
+                gap: 1.5rem;
+            }
+            .provider-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .casino-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .left-column,
+            .right-column {
+                order: 2;
+            }
+            .center-column {
+                order: 1;
+            }
+            .provider-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .category-icons {
+                gap: 2rem;
+            }
+            .icon-circle {
+                width: 80px;
+                height: 80px;
+            }
+            .icon-emoji {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-carousel {
+                height: 200px;
+            }
+            .banner-content h2 {
+                font-size: 2rem;
+            }
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+            .category-icons {
+                gap: 1rem;
+            }
+            .icon-circle {
+                width: 60px;
+                height: 60px;
+            }
+            .icon-emoji {
+                font-size: 2rem;
+            }
+            .provider-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-carousel {
+                height: 150px;
+            }
+            .banner-content h2 {
+                font-size: 1.5rem;
+            }
+            .banner-content p {
+                font-size: 1rem;
+            }
+            .banner-button {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            .category-icons {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .provider-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Search and Filter */
         .search-filter-container {
             background: rgba(255,255,255,0.05);
@@ -1760,52 +2344,229 @@
 
         <!-- Home Section -->
         <div id="home" class="section active">
-            <h2>🌟 Welcome to WangSeng87 Premium Gaming</h2>
-            <div id="guestContent">
-                <h3>🔐 Login to access premium gaming</h3>
-                <p>Experience the ultimate luxury gaming experience with exclusive rewards!</p>
-                <div style="text-align: center; margin: 2rem 0;">
-                    <button class="game-button" onclick="showSection('login')">🔐 Login</button>
-                    <button class="game-button" onclick="showSection('register')">📝 Register</button>
+            <!-- Top Banner Carousel -->
+            <div class="banner-carousel">
+                <div class="banner-slide active">
+                    <div class="banner-content">
+                        <h2>🎯 Welcome Bonus</h2>
+                        <p>200% up to RM1000</p>
+                        <button class="banner-button">Claim Now</button>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <div class="banner-content">
+                        <h2>💰 Cashback Promotion</h2>
+                        <p>10% Weekly Cashback</p>
+                        <button class="banner-button">Get Cashback</button>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <div class="banner-content">
+                        <h2>👑 VIP Rewards</h2>
+                        <p>Exclusive VIP Benefits</p>
+                        <button class="banner-button">Join VIP</button>
+                    </div>
+                </div>
+                <div class="banner-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
             </div>
-            
-            <div id="userContent" style="display: none;">
-                <div class="user-info-card">
-                    <div class="user-avatar">�</div>
-                    <div class="user-name" id="welcomeUser">Player</div>
-                    <div class="user-level">👑 VIP Level: <span id="userVipLevel">Bronze</span></div>
-                    <div class="user-stats">
-                        <div class="user-stat">
-                            <span class="stat-label">Balance:</span>
-                            <span class="stat-value">RM <span id="userBalance">0.00</span></span>
-                        </div>
-                        <div class="user-stat">
-                            <span class="stat-label">VIP Points:</span>
-                            <span class="stat-value" id="userVipPoints">0</span>
+
+            <!-- Game Category Icons -->
+            <div class="category-icons">
+                <div class="category-icon" onclick="showSection('providers')">
+                    <div class="icon-circle">
+                        <span class="icon-emoji">🎰</span>
+                    </div>
+                    <span class="icon-label">Slot Game</span>
+                </div>
+                <div class="category-icon" onclick="showSection('livecasino')">
+                    <div class="icon-circle">
+                        <span class="icon-emoji">🎥</span>
+                    </div>
+                    <span class="icon-label">Live Game</span>
+                </div>
+                <div class="category-icon" onclick="showSection('sports')">
+                    <div class="icon-circle">
+                        <span class="icon-emoji">⚽</span>
+                    </div>
+                    <span class="icon-label">Sportsbook</span>
+                </div>
+                <div class="category-icon" onclick="showSection('download')">
+                    <div class="icon-circle">
+                        <span class="icon-emoji">📱</span>
+                    </div>
+                    <span class="icon-label">App Download</span>
+                </div>
+            </div>
+
+            <!-- 3-Column Layout -->
+            <div class="casino-layout">
+                <!-- Left Column - Promotions -->
+                <div class="left-column">
+                    <div class="promo-block">
+                        <div class="promo-header">🎁 Referral Program</div>
+                        <div class="promo-amount">10% Commission</div>
+                        <div class="promo-desc">Earn from friends</div>
+                    </div>
+                    
+                    <div class="promo-block affiliate">
+                        <div class="promo-header">🤝 Affiliate Program</div>
+                        <div class="promo-amount">High Commission</div>
+                        <div class="promo-desc">Partner with us</div>
+                    </div>
+                    
+                    <div class="jackpot-block">
+                        <div class="jackpot-header">🎰 Jackpot Counter</div>
+                        <div class="jackpot-amount">RM 128,446.71</div>
+                        <div class="jackpot-desc">Grand Prize</div>
+                    </div>
+                    
+                    <div class="small-promo">
+                        <div class="small-promo-header">🔥 Hot Games</div>
+                        <div class="small-promo-list">
+                            <div class="small-promo-item">🎰 Mega888</div>
+                            <div class="small-promo-item">🎰 918Kiss</div>
+                            <div class="small-promo-item">🎰 Joker</div>
                         </div>
                     </div>
-                    <button class="logout-button" onclick="logout()">🚪 Logout</button>
                 </div>
-                <h3 style="text-align: center; margin-top: 2rem;">🎰 Ready for premium gaming action?</h3>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value">1000+</div>
-                    <div class="stat-label">Premium Games</div>
+
+                <!-- Center Column - Game Lobby -->
+                <div class="center-column">
+                    <div class="lobby-header">
+                        <h2>🎰 Premium Slot Providers</h2>
+                        <div class="lobby-filter">
+                            <button class="filter-btn active">All</button>
+                            <button class="filter-btn">Hot</button>
+                            <button class="filter-btn">New</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Slot Provider Grid -->
+                    <div class="provider-grid">
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">JILI</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">PRAGMATIC</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">PG SOFT</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">LUCKY365</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">MEGA888</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">918KISS</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">918KISS</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">MEGA888</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">PUSSY888</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" loading="lazy">
+                            <div class="provider-overlay">
+                                <span class="provider-name">JOKER</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">24/7</div>
-                    <div class="stat-label">Live Support</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">Instant</div>
-                    <div class="stat-label">Withdrawals</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">VIP</div>
-                    <div class="stat-label">Rewards</div>
+
+                <!-- Right Column - Account Panel -->
+                <div class="right-column">
+                    <!-- Account Panel -->
+                    <div class="account-panel">
+                        <div class="account-header">👤 Account</div>
+                        
+                        <div id="accountPanelGuest" class="account-guest-panel">
+                            <button class="account-btn primary" onclick="showSection('login')">🔐 Login</button>
+                            <button class="account-btn secondary" onclick="showSection('register')">📝 Register</button>
+                        </div>
+                        
+                        <div id="accountPanelUser" class="account-user-panel" style="display: none;">
+                            <div class="user-info">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-details">
+                                    <div class="user-name" id="panelUsername">Player</div>
+                                    <div class="user-level">VIP Bronze</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="balance-display">
+                            <div class="balance-label">Balance</div>
+                            <div class="balance-amount">RM <span id="panelBalance">0.00</span></div>
+                        </div>
+                        
+                        <div class="account-actions">
+                            <button class="action-btn deposit">💰 Deposit</button>
+                            <button class="action-btn withdraw">💸 Withdraw</button>
+                            <button class="action-btn refresh">🔄 Refresh</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Sports Widget -->
+                    <div class="sports-widget">
+                        <div class="sports-header">⚽ Football Betting</div>
+                        <div class="match-card">
+                            <div class="match-teams">
+                                <div class="team">
+                                    <span class="team-flag">🏴󐁧󐁢󐁥󐁮󐁧󐁿</span>
+                                    <span class="team-name">Man United</span>
+                                </div>
+                                <div class="match-score">2 - 1</div>
+                                <div class="team">
+                                    <span class="team-flag">🏴󐁧󐁢󐁳󐁣󐁴󐁿</span>
+                                    <span class="team-name">Liverpool</span>
+                                </div>
+                            </div>
+                            <div class="match-time">⏱️ 75'</div>
+                            <div class="match-odds">
+                                <span class="odd">1.85</span>
+                                <span class="odd">3.20</span>
+                                <span class="odd">2.10</span>
+                            </div>
+                            <button class="bet-btn">Place Bet</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2525,51 +3286,6 @@
             }
         }
 
-        // Slider functionality
-        let slideIndex = 1;
-        let slideInterval;
-
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-            resetSlideInterval();
-        }
-
-        function showSlide(n) {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('active');
-            }
-            
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active');
-            }
-            
-            slides[slideIndex - 1].classList.add('active');
-            dots[slideIndex - 1].classList.add('active');
-        }
-
-        function nextSlide() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }
-
-        function resetSlideInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 4000);
-        }
-
-        // Initialize slider
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start auto-sliding
-            slideInterval = setInterval(nextSlide, 4000);
-        });
-
         // Provider functions
         function openProvider(providerId) {
             if (!currentUser) {
@@ -2851,6 +3567,12 @@
             const accountBalance = document.getElementById('accountBalance');
             const accountJoinDate = document.getElementById('accountJoinDate');
             
+            // Homepage account panel elements
+            const accountPanelGuest = document.getElementById('accountPanelGuest');
+            const accountPanelUser = document.getElementById('accountPanelUser');
+            const panelUsername = document.getElementById('panelUsername');
+            const panelBalance = document.getElementById('panelBalance');
+            
             if (currentUser) {
                 // Update home section
                 if (guestContent) guestContent.style.display = 'none';
@@ -2871,6 +3593,12 @@
                     const joinDate = new Date(currentUser.joinDate);
                     accountJoinDate.textContent = joinDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
                 }
+                
+                // Update homepage account panel
+                if (accountPanelGuest) accountPanelGuest.style.display = 'none';
+                if (accountPanelUser) accountPanelUser.style.display = 'block';
+                if (panelUsername) panelUsername.textContent = currentUser.username;
+                if (panelBalance) panelBalance.textContent = (currentUser.balance || 0).toFixed(2);
             } else {
                 // Update home section
                 if (guestContent) guestContent.style.display = 'block';
@@ -2879,7 +3607,55 @@
                 // Update account section
                 if (accountGuest) accountGuest.style.display = 'flex';
                 if (accountUser) accountUser.style.display = 'none';
+                
+                // Update homepage account panel
+                if (accountPanelGuest) accountPanelGuest.style.display = 'flex';
+                if (accountPanelUser) accountPanelUser.style.display = 'none';
             }
+        }
+
+        // Banner Carousel Functions
+        let slideIndex = 1;
+        let slideInterval;
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+            resetSlideInterval();
+        }
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('banner-slide');
+            const dots = document.getElementsByClassName('dot');
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialize banner carousel
+        function initBannerCarousel() {
+            showSlide(slideIndex);
+            slideInterval = setInterval(nextSlide, 5000);
         }
 
         function loadCurrentUser() {
@@ -2931,6 +3707,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Load current user from localStorage
             loadCurrentUser();
+            
+            // Initialize banner carousel
+            initBannerCarousel();
             
             // Initialize other systems
             updateAuthUI();
