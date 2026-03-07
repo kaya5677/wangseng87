@@ -260,72 +260,80 @@
         .provider-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
+            gap: 14px;
             width: 100%;
         }
 
-        /* Provider Card */
-        .provider-card {
+        .provider-card,
+        .provider-grid > div {
+            min-width: 0;
+        }
+
+        .cursor-pointer {
             position: relative;
-            background: linear-gradient(180deg, rgba(20, 20, 40, 0.8), rgba(10, 10, 20, 0.9));
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            aspect-ratio: 3/4;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            padding: 8px;
+            border-radius: 22px;
+            background: linear-gradient(180deg, rgba(17,24,39,0.98), rgba(8,12,24,0.98));
+            border: 1px solid rgba(255,215,0,0.20);
+            box-shadow:
+                0 10px 24px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.04),
+                inset 0 0 0 1px rgba(255,215,0,0.06);
+            overflow: hidden;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, filter 0.28s ease;
+            cursor: pointer;
         }
 
-        .provider-card::before {
-            content: '';
+        .cursor-pointer::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: linear-gradient(
                 120deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.05) 35%,
-                rgba(255, 215, 0, 0.1) 50%,
-                rgba(255, 255, 255, 0.05) 65%,
+                rgba(255,255,255,0.04) 35%,
+                rgba(255,215,0,0.14) 50%,
+                rgba(255,255,255,0.04) 65%,
                 transparent 100%
             );
-            transform: translateX(-120%);
-            transition: transform 0.6s ease;
+            transform: translateX(-130%);
+            transition: transform 0.65s ease;
+            pointer-events: none;
             z-index: 2;
         }
 
-        .provider-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255, 215, 0, 0.4);
-            box-shadow: 
-                0 12px 30px rgba(0, 0, 0, 0.4),
-                0 0 25px rgba(255, 215, 0, 0.2);
+        .cursor-pointer:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(255,215,0,0.45);
+            box-shadow:
+                0 16px 36px rgba(0,0,0,0.45),
+                0 0 24px rgba(255,215,0,0.16),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+            filter: brightness(1.05);
         }
 
-        .provider-card:hover::before {
-            transform: translateX(120%);
+        .cursor-pointer:hover::before {
+            transform: translateX(130%);
         }
 
-        .provider-card:hover .provider-image {
-            transform: scale(1.05);
-            filter: saturate(1.1) contrast(1.05);
-        }
-
-        .provider-image {
+        .game_image {
             width: 100%;
             height: 100%;
             object-fit: contain;
             object-position: center;
-            border-radius: 20px;
+            border-radius: 18px;
             background: #0f172a;
-            padding: 6px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .cursor-pointer:hover .game_image {
+            transform: scale(1.03);
+            filter: saturate(1.05) contrast(1.03);
         }
 
         /* Responsive Design */
@@ -542,203 +550,203 @@
         <div class="provider-container">
             <div class="provider-grid">
                 <!-- EVO888 H5 -->
-                <div class="provider-card" onclick="openProvider('evo888')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('evo888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" class="game_image">
                 </div>
 
                 <!-- EVO888-APP -->
-                <div class="provider-card" onclick="openProvider('evo888-app')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('evo888-app')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" class="game_image">
                 </div>
 
                 <!-- SLOT4D -->
-                <div class="provider-card" onclick="openProvider('slot4d')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('slot4d')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" class="game_image">
                 </div>
 
                 <!-- YGG -->
-                <div class="provider-card" onclick="openProvider('ygg')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('ygg')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" class="game_image">
                 </div>
 
                 <!-- BTGAMING -->
-                <div class="provider-card" onclick="openProvider('btgaming')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('btgaming')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" class="game_image">
                 </div>
 
                 <!-- IMPERIUM -->
-                <div class="provider-card" onclick="openProvider('imperium')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('imperium')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" class="game_image">
                 </div>
 
                 <!-- MARIOCLUB -->
-                <div class="provider-card" onclick="openProvider('marioclub')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('marioclub')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" class="game_image">
                 </div>
 
                 <!-- PLAYACE-YP -->
-                <div class="provider-card" onclick="openProvider('playace-yp')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('playace-yp')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" class="game_image">
                 </div>
 
                 <!-- PLAYACE-SLOT -->
-                <div class="provider-card" onclick="openProvider('playace-slot')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('playace-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" class="game_image">
                 </div>
 
                 <!-- EPICWIN -->
-                <div class="provider-card" onclick="openProvider('epicwin')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('epicwin')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" class="game_image">
                 </div>
 
                 <!-- SCR888 -->
-                <div class="provider-card" onclick="openProvider('scr888')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('scr888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" class="game_image">
                 </div>
 
                 <!-- UUSLOTS -->
-                <div class="provider-card" onclick="openProvider('uuslots')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('uuslots')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" class="game_image">
                 </div>
 
                 <!-- DUOFU -->
-                <div class="provider-card" onclick="openProvider('duofu')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('duofu')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" class="game_image">
                 </div>
 
                 <!-- VPOWER -->
-                <div class="provider-card" onclick="openProvider('vpower')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('vpower')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" class="game_image">
                 </div>
 
                 <!-- JILI -->
-                <div class="provider-card" onclick="openProvider('jili')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('jili')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" class="game_image">
                 </div>
 
                 <!-- PRAGMATIC SLOT -->
-                <div class="provider-card" onclick="openProvider('pragmatic-slot')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" class="game_image">
                 </div>
 
                 <!-- LUCKY365 -->
-                <div class="provider-card" onclick="openProvider('lucky365')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('lucky365')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" class="game_image">
                 </div>
 
                 <!-- MONKEY KING -->
-                <div class="provider-card" onclick="openProvider('monkey-king')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('monkey-king')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" class="game_image">
                 </div>
 
                 <!-- PEGASUS -->
-                <div class="provider-card" onclick="openProvider('pegasus')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('pegasus')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" class="game_image">
                 </div>
 
                 <!-- 918KISS H5 -->
-                <div class="provider-card" onclick="openProvider('918kiss-h5')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('918kiss-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" class="game_image">
                 </div>
 
                 <!-- MEGA888 H5 -->
-                <div class="provider-card" onclick="openProvider('mega888-h5')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('mega888-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" class="game_image">
                 </div>
 
                 <!-- GW 99 -->
-                <div class="provider-card" onclick="openProvider('gw99')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('gw99')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" class="game_image">
                 </div>
 
                 <!-- ADVANT PLAY -->
-                <div class="provider-card" onclick="openProvider('advant-play')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('advant-play')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" class="game_image">
                 </div>
 
                 <!-- ACE333 -->
-                <div class="provider-card" onclick="openProvider('ace333')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('ace333')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" class="game_image">
                 </div>
 
                 <!-- JOKER -->
-                <div class="provider-card" onclick="openProvider('joker')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('joker')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" class="game_image">
                 </div>
 
                 <!-- PG SOFT -->
-                <div class="provider-card" onclick="openProvider('pg-soft')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('pg-soft')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" class="game_image">
                 </div>
 
                 <!-- LIVE22 -->
-                <div class="provider-card" onclick="openProvider('live22')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('live22')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" class="game_image">
                 </div>
 
                 <!-- LION KING -->
-                <div class="provider-card" onclick="openProvider('lion-king')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('lion-king')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" class="game_image">
                 </div>
 
                 <!-- SPADE GAMING -->
-                <div class="provider-card" onclick="openProvider('spade-gaming')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('spade-gaming')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" class="game_image">
                 </div>
 
                 <!-- HABANERO -->
-                <div class="provider-card" onclick="openProvider('habanero')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('habanero')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" class="game_image">
                 </div>
 
                 <!-- CLOTPLAY -->
-                <div class="provider-card" onclick="openProvider('clotplay')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('clotplay')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" class="game_image">
                 </div>
 
                 <!-- MEGA H5 -->
-                <div class="provider-card" onclick="openProvider('mega-h5')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('mega-h5')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" class="game_image">
                 </div>
 
                 <!-- AMB SLOT -->
-                <div class="provider-card" onclick="openProvider('amb-slot')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('amb-slot')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" class="game_image">
                 </div>
 
                 <!-- NEXTSPIN -->
-                <div class="provider-card" onclick="openProvider('nextspin')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('nextspin')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" class="game_image">
                 </div>
 
                 <!-- SCR 2 -->
-                <div class="provider-card" onclick="openProvider('scr2')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('scr2')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" class="game_image">
                 </div>
 
                 <!-- XE88 -->
-                <div class="provider-card" onclick="openProvider('xe88')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('xe88')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" class="game_image">
                 </div>
 
                 <!-- SUNCITY -->
-                <div class="provider-card" onclick="openProvider('suncity')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('suncity')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" class="game_image">
                 </div>
 
                 <!-- PUSSY888 -->
-                <div class="provider-card" onclick="openProvider('pussy888')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('pussy888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" class="game_image">
                 </div>
 
                 <!-- 918KISS -->
-                <div class="provider-card" onclick="openProvider('918kiss')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('918kiss')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" class="game_image">
                 </div>
 
                 <!-- MEGA888 -->
-                <div class="provider-card" onclick="openProvider('mega888')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" class="provider-image">
+                <div class="cursor-pointer" onclick="openProvider('mega888')">
+                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" class="game_image">
                 </div>
             </div>
         </div>
