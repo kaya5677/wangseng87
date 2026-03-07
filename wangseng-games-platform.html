@@ -129,6 +129,97 @@
             font-size: 0.7rem;
             font-weight: 500;
         }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+        }
+        .language-dropdown {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            padding: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(255,215,0,0.3);
+            color: #ffd700;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .language-btn:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.5);
+        }
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            margin-top: 4px;
+            min-width: 120px;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        .language-options.show {
+            display: block;
+        }
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            border: none;
+            background: transparent;
+            width: 100%;
+            text-align: left;
+        }
+        .language-option:hover {
+            background: rgba(255,215,0,0.1);
+            color: #ffd700;
+        }
+        .language-option.active {
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            font-weight: 500;
+        }
+        .language-flag {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        /* Mobile Language Selector */
+        @media (max-width: 768px) {
+            .language-selector {
+                position: fixed;
+                top: auto;
+                bottom: 70px;
+                left: 10px;
+                right: auto;
+            }
+            .language-dropdown {
+                padding: 6px;
+            }
+            .language-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
         
         .header {
             text-align: center;
@@ -747,10 +838,234 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255,215,0,0.3);
         }
+
+        /* TOP STATS Section */
+        .top-stats-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.1);
+        }
+
+        /* Jackpot Stack */
+        .jackpot-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .jackpot-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 18px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .jackpot-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+
+        .jackpot-card.grand {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(80, 0, 0, 0.8));
+            border-color: rgba(255, 100, 100, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .jackpot-card.grand::before {
+            background: linear-gradient(90deg, transparent, rgba(255, 100, 100, 0.5), transparent);
+        }
+
+        .jackpot-card.major {
+            border-color: rgba(255,215,0,0.4);
+            box-shadow: 0 4px 15px rgba(255,215,0,0.1);
+        }
+
+        .jackpot-card.minor {
+            border-color: rgba(255,215,0,0.3);
+            box-shadow: 0 4px 10px rgba(255,215,0,0.05);
+        }
+
+        .jackpot-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.25rem;
+        }
+
+        .jackpot-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        .jackpot-card.grand .jackpot-amount {
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        /* Live Stats Row */
+        .live-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .live-stat-card {
+            background: linear-gradient(135deg, rgba(0, 40, 0, 0.6), rgba(0, 20, 0, 0.8));
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .live-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.5), transparent);
+            animation: shimmerTop 3s infinite;
+        }
+
+        .live-stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.2);
+            border-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #00ff88;
+            text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Animations */
+        @keyframes shimmerTop {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .jackpot-amount {
+            animation: pulse 2s infinite;
+        }
+
+        .stat-value {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-stats-section {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .jackpot-card {
+                padding: 0.8rem 1rem;
+            }
+
+            .jackpot-amount {
+                font-size: 1.4rem;
+            }
+
+            .live-stat-card {
+                padding: 0.8rem;
+            }
+
+            .stat-value {
+                font-size: 1.1rem;
+            }
+
+            .jackpot-label,
+            .stat-label {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .live-stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .live-stats-row > .live-stat-card:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .jackpot-amount {
+                font-size: 1.2rem;
+            }
+
+            .stat-value {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <div class="language-dropdown">
+                <button class="language-btn" onclick="toggleLanguageDropdown()">
+                    <span>🌐</span>
+                    <span id="currentLangText">EN</span>
+                    <span>▼</span>
+                </button>
+                <div class="language-options" id="languageOptions">
+                    <button class="language-option active" onclick="setLanguage('en')">
+                        <span class="language-flag">🇬🇧</span> English
+                    </button>
+                    <button class="language-option" onclick="setLanguage('zh')">
+                        <span class="language-flag">🇨🇳</span> 中文
+                    </button>
+                    <button class="language-option" onclick="setLanguage('ms')">
+                        <span class="language-flag">🇲🇾</span> BM
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Header Section -->
         <div class="header-section">
             <!-- Logo -->
@@ -768,8 +1083,8 @@
                 <div class="announcement-content">
                     <span class="announcement-icon">📢</span>
                     <div class="announcement-text">
-                        <marquee behavior="scroll" direction="left">
-                            � WELCOME BONUS 200% UP TO RM1000 • 🔥 DAILY RELOAD 50% • 👑 VIP EXCLUSIVE REWARDS • 🎰 NEW GAMES ADDED WEEKLY • 💰 INSTANT WITHDRAWALS
+                        <marquee behavior="scroll" direction="left" data-lang="announcementText">
+                            🎉 WELCOME BONUS 200% UP TO RM1000 • 🔥 DAILY RELOAD 50% • 👑 VIP EXCLUSIVE REWARDS • 🎰 NEW GAMES ADDED WEEKLY • 💰 INSTANT WITHDRAWALS
                         </marquee>
                     </div>
                 </div>
@@ -780,23 +1095,23 @@
                 <div class="slider-container">
                     <div class="slide active">
                         <div class="slide-content">
-                            <h3>🎯 WELCOME BONUS</h3>
-                            <p>Get 200% up to RM1000</p>
-                            <button class="slide-btn">Claim Now</button>
+                            <h3 data-lang="welcomeBonus">🎯 WELCOME BONUS</h3>
+                            <p data-lang="get200UpToRM1000">Get 200% up to RM1000</p>
+                            <button class="slide-btn" data-lang="claimNow">Claim Now</button>
                         </div>
                     </div>
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>🔥 DAILY RELOAD</h3>
-                            <p>50% Bonus Every Day</p>
-                            <button class="slide-btn">Claim Daily</button>
+                            <h3 data-lang="dailyReload">🔥 DAILY RELOAD</h3>
+                            <p data-lang="fiftyPercentDailyBonus">50% Bonus Every Day</p>
+                            <button class="slide-btn" data-lang="claimDaily">Claim Daily</button>
                         </div>
                     </div>
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>👑 VIP PROGRAM</h3>
-                            <p>Exclusive Rewards</p>
-                            <button class="slide-btn">Join VIP</button>
+                            <h3 data-lang="vipProgram">👑 VIP PROGRAM</h3>
+                            <p data-lang="exclusiveRewards">Exclusive Rewards</p>
+                            <button class="slide-btn" data-lang="joinVip">Join VIP</button>
                         </div>
                     </div>
                 </div>
@@ -812,73 +1127,108 @@
         <div class="game-shortcuts">
             <div class="shortcut-item" onclick="showSection('providers')">
                 <div class="shortcut-icon">🎰</div>
-                <div class="shortcut-label">Slot</div>
+                <div class="shortcut-label" data-lang="slot">Slot</div>
             </div>
             <div class="shortcut-item" onclick="showSection('livecasino')">
                 <div class="shortcut-icon">🎥</div>
-                <div class="shortcut-label">Live</div>
+                <div class="shortcut-label" data-lang="live">Live</div>
             </div>
             <div class="shortcut-item" onclick="showSection('sports')">
                 <div class="shortcut-icon">⚽</div>
-                <div class="shortcut-label">Sport</div>
+                <div class="shortcut-label" data-lang="sports">Sport</div>
             </div>
             <div class="shortcut-item" onclick="showSection('app')">
                 <div class="shortcut-icon">📱</div>
-                <div class="shortcut-label">App</div>
+                <div class="shortcut-label" data-lang="app">App</div>
             </div>
         </div>
 
         <!-- Home Section -->
         <div id="home" class="section active">
-            <h2>🌟 Welcome to WangSeng87 Premium Gaming</h2>
+            <h2 data-lang="welcomeToWangseng87">🌟 Welcome to WangSeng87 Premium Gaming</h2>
             <div id="guestContent">
-                <h3>🔐 Login to access premium gaming</h3>
-                <p>Experience the ultimate luxury gaming experience with exclusive rewards!</p>
+                <h3 data-lang="loginToAccessPremiumGaming">🔐 Login to access premium gaming</h3>
+                <p data-lang="ultimateLuxuryGamingExperience">Experience the ultimate luxury gaming experience with exclusive rewards!</p>
                 <div style="text-align: center; margin: 2rem 0;">
-                    <button class="game-button" onclick="showSection('login')">🔐 Login</button>
-                    <button class="game-button" onclick="showSection('register')">📝 Register here</button>
+                    <button class="game-button" onclick="showSection('login')" data-lang="login">🔐 Login</button>
+                    <button class="game-button" onclick="showSection('register')" data-lang="registerHere">📝 Register here</button>
                 </div>
             </div>
             
             <div id="userContent" style="display: none;">
-                <h3>👑 Welcome back, <span id="welcomeUser">Player</span>!</h3>
-                <p>Ready for premium gaming action?</p>
+                <h3 data-lang="welcomeBackPlayer">👑 Welcome back, <span id="welcomeUser">Player</span>!</h3>
+                <p data-lang="readyForPremiumGaming">Ready for premium gaming action?</p>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-value">1000+</div>
-                    <div class="stat-label">Premium Games</div>
+                    <div class="stat-label" data-lang="premiumGames">Premium Games</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">24/7</div>
-                    <div class="stat-label">Live Support</div>
+                    <div class="stat-label" data-lang="liveSupport">Live Support</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">Instant</div>
-                    <div class="stat-label">Withdrawals</div>
+                    <div class="stat-label" data-lang="withdrawals">Withdrawals</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">VIP</div>
-                    <div class="stat-label">Rewards</div>
+                    <div class="stat-label" data-lang="rewards">Rewards</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOP STATS Section -->
+        <div class="top-stats-section">
+            <!-- Jackpot Stack -->
+            <div class="jackpot-stack">
+                <div class="jackpot-card grand">
+                    <div class="jackpot-label" data-lang="grandJackpot">GRAND JACKPOT</div>
+                    <div class="jackpot-amount" id="grandJackpot">RM 128,446.71</div>
+                </div>
+                <div class="jackpot-card major">
+                    <div class="jackpot-label" data-lang="majorJackpot">MAJOR JACKPOT</div>
+                    <div class="jackpot-amount" id="majorJackpot">RM 25,336.10</div>
+                </div>
+                <div class="jackpot-card minor">
+                    <div class="jackpot-label" data-lang="minorJackpot">MINOR JACKPOT</div>
+                    <div class="jackpot-amount" id="minorJackpot">RM 5,118.31</div>
+                </div>
+            </div>
+
+            <!-- Live Stats Row -->
+            <div class="live-stats-row">
+                <div class="live-stat-card">
+                    <div class="stat-label" data-lang="onlinePlayers">ONLINE PLAYERS</div>
+                    <div class="stat-value" id="onlinePlayers">12,639</div>
+                </div>
+                <div class="live-stat-card">
+                    <div class="stat-label" data-lang="activeGames">ACTIVE GAMES</div>
+                    <div class="stat-value" id="activeGames">311</div>
+                </div>
+                <div class="live-stat-card">
+                    <div class="stat-label" data-lang="liveWinsToday">LIVE WINS TODAY</div>
+                    <div class="stat-value" id="liveWinsToday">RM 1,293,805.56</div>
                 </div>
             </div>
         </div>
 
         <!-- Providers Section -->
         <div id="providers" class="section">
-            <h2>🎰 Premium Slot Providers</h2>
+            <h2 data-lang="premiumSlotProviders">🎰 Premium Slot Providers</h2>
             
             <!-- Search and Filter -->
             <div class="search-filter-container">
-                <input type="text" class="search-box" placeholder="🔍 Search providers..." onkeyup="filterProviders(this.value)">
+                <input type="text" class="search-box" placeholder="🔍 Search providers..." data-lang-placeholder="searchProvider" onkeyup="filterProviders(this.value)">
                 <div class="filter-chips">
-                    <div class="filter-chip active" onclick="setActiveFilter(this, 'all')">All</div>
-                    <div class="filter-chip" onclick="setActiveFilter(this, 'hot')">🔥 Hot</div>
-                    <div class="filter-chip" onclick="setActiveFilter(this, 'new')">✨ New</div>
-                    <div class="filter-chip" onclick="setActiveFilter(this, 'top')">⭐ Top Rated</div>
-                    <div class="filter-chip" onclick="setActiveFilter(this, 'live')">🔴 Live</div>
-                    <div class="filter-chip" onclick="setActiveFilter(this, 'slot')">🎰 Slot</div>
+                    <div class="filter-chip active" onclick="setActiveFilter(this, 'all')" data-lang="all">All</div>
+                    <div class="filter-chip" onclick="setActiveFilter(this, 'hot')" data-lang="hot">🔥 Hot</div>
+                    <div class="filter-chip" onclick="setActiveFilter(this, 'new')" data-lang="new">✨ New</div>
+                    <div class="filter-chip" onclick="setActiveFilter(this, 'top')" data-lang="topRated">⭐ Top Rated</div>
+                    <div class="filter-chip" onclick="setActiveFilter(this, 'live')" data-lang="live">🔴 Live</div>
+                    <div class="filter-chip" onclick="setActiveFilter(this, 'slot')" data-lang="slot">🎰 Slot</div>
                 </div>
             </div>
             
@@ -1091,23 +1441,23 @@
     <div class="bottom-nav">
         <div class="nav-item" onclick="showSection('home')">
             <div class="nav-icon">🏠</div>
-            <div class="nav-label">Home</div>
+            <div class="nav-label" data-lang="home">Home</div>
         </div>
         <div class="nav-item" onclick="showSection('history')">
             <div class="nav-icon">📊</div>
-            <div class="nav-label">History</div>
+            <div class="nav-label" data-lang="history">History</div>
         </div>
         <div class="nav-item" onclick="showSection('bonus')">
-            <div class="nav-icon">�</div>
-            <div class="nav-label">Bonus</div>
+            <div class="nav-icon">🎁</div>
+            <div class="nav-label" data-lang="bonus">Bonus</div>
         </div>
         <div class="nav-item" onclick="showSection('livechat')">
             <div class="nav-icon">💬</div>
-            <div class="nav-label">Live Chat</div>
+            <div class="nav-label" data-lang="liveChat">Live Chat</div>
         </div>
         <div class="nav-item" onclick="showSection('settings')">
             <div class="nav-icon">⚙️</div>
-            <div class="nav-label">Setting</div>
+            <div class="nav-label" data-lang="settings">Setting</div>
         </div>
     </div>
 
@@ -1117,6 +1467,300 @@
         // User management
         const users = JSON.parse(localStorage.getItem('wangsengUsers')) || [];
         let userStats = JSON.parse(localStorage.getItem('wangsengStats')) || {};
+
+        // Translation System
+        const translations = {
+            en: {
+                home: "Home",
+                slot: "Slot",
+                live: "Live",
+                sports: "Sports",
+                app: "App",
+                history: "History",
+                bonus: "Bonus",
+                liveChat: "Live Chat",
+                settings: "Settings",
+                welcomeToWangseng87: "🌟 Welcome to WangSeng87 Premium Gaming",
+                loginToAccessPremiumGaming: "🔐 Login to access premium gaming",
+                ultimateLuxuryGamingExperience: "Experience the ultimate luxury gaming experience with exclusive rewards!",
+                login: "Login",
+                registerHere: "Register here",
+                welcomeBackPlayer: "👑 Welcome back, Player",
+                readyForPremiumGaming: "Ready for premium gaming action?",
+                premiumGames: "Premium Games",
+                liveSupport: "Live Support",
+                withdrawals: "Withdrawals",
+                rewards: "Rewards",
+                premiumSlotProviders: "🎰 Premium Slot Providers",
+                searchProvider: "🔍 Search providers...",
+                all: "All",
+                hot: "🔥 Hot",
+                new: "✨ New",
+                topRated: "⭐ Top Rated",
+                live: "🔴 Live",
+                slot: "🎰 Slot",
+                welcomeBonus: "🎯 WELCOME BONUS",
+                get200UpToRM1000: "Get 200% up to RM1000",
+                claimNow: "Claim Now",
+                dailyReload: "🔥 DAILY RELOAD",
+                fiftyPercentDailyBonus: "50% Bonus Every Day",
+                claimDaily: "Claim Daily",
+                vipProgram: "👑 VIP PROGRAM",
+                exclusiveRewards: "Exclusive Rewards",
+                joinVip: "Join VIP",
+                announcementText: "🎉 WELCOME BONUS 200% UP TO RM1000 • 🔥 DAILY RELOAD 50% • 👑 VIP EXCLUSIVE REWARDS • 🎰 NEW GAMES ADDED WEEKLY • 💰 INSTANT WITHDRAWALS",
+                grandJackpot: "GRAND JACKPOT",
+                majorJackpot: "MAJOR JACKPOT",
+                minorJackpot: "MINOR JACKPOT",
+                onlinePlayers: "ONLINE PLAYERS",
+                activeGames: "ACTIVE GAMES",
+                liveWinsToday: "LIVE WINS TODAY"
+            },
+            zh: {
+                home: "主页",
+                slot: "老虎机",
+                live: "真人",
+                sports: "体育",
+                app: "应用",
+                history: "历史",
+                bonus: "奖金",
+                liveChat: "在线客服",
+                settings: "设置",
+                welcomeToWangseng87: "🌟 欢迎来到WangSeng87高级游戏平台",
+                loginToAccessPremiumGaming: "🔐 登录以访问高级游戏",
+                ultimateLuxuryGamingExperience: "体验终极奢华游戏体验，享受专属奖励！",
+                login: "登录",
+                registerHere: "在此注册",
+                welcomeBackPlayer: "👑 欢迎回来，玩家",
+                readyForPremiumGaming: "准备好进行高级游戏了吗？",
+                premiumGames: "高级游戏",
+                liveSupport: "24/7支持",
+                withdrawals: "提款",
+                rewards: "奖励",
+                premiumSlotProviders: "🎰 高级老虎机平台",
+                searchProvider: "🔍 搜索平台...",
+                all: "全部",
+                hot: "🔥 热门",
+                new: "✨ 新品",
+                topRated: "⭐ 顶级",
+                live: "🔴 现场",
+                slot: "🎰 老虎机",
+                welcomeBonus: "🎯 欢迎奖金",
+                get200UpToRM1000: "获得高达1000令吉的200%奖金",
+                claimNow: "立即领取",
+                dailyReload: "🔥 每日充值",
+                fiftyPercentDailyBonus: "每日50%奖金",
+                claimDaily: "每日领取",
+                vipProgram: "👑 VIP计划",
+                exclusiveRewards: "专属奖励",
+                joinVip: "加入VIP",
+                announcementText: "🎉 欢迎奖金高达1000令吉200% • 🔥 每日充值50% • 👑 VIP专属奖励 • 🎰 每周新增游戏 • 💰 即时提款",
+                grandJackpot: "超级大奖",
+                majorJackpot: "主要大奖",
+                minorJackpot: "次要大奖",
+                onlinePlayers: "在线玩家",
+                activeGames: "活跃游戏",
+                liveWinsToday: "今日实时赢奖"
+            },
+            ms: {
+                home: "Laman Utama",
+                slot: "Slot",
+                live: "Live",
+                sports: "Sukan",
+                app: "Aplikasi",
+                history: "Sejarah",
+                bonus: "Bonus",
+                liveChat: "Sembang Langsung",
+                settings: "Tetapan",
+                welcomeToWangseng87: "🌟 Selamat datang ke Platform Gaming Premium WangSeng87",
+                loginToAccessPremiumGaming: "🔐 Log masuk untuk akses gaming premium",
+                ultimateLuxuryGamingExperience: "Alami pengalaman gaming mewah yang ultimate dengan ganjaran eksklusif!",
+                login: "Log Masuk",
+                registerHere: "Daftar di sini",
+                welcomeBackPlayer: "👑 Selamat kembali, Pemain",
+                readyForPremiumGaming: "Sedia untuk aksi gaming premium?",
+                premiumGames: "Permainan Premium",
+                liveSupport: "Sokongan 24/7",
+                withdrawals: "Pengeluaran",
+                rewards: "Ganjaran",
+                premiumSlotProviders: "🎰 Penyedia Slot Premium",
+                searchProvider: "🔍 Cari penyedia...",
+                all: "Semua",
+                hot: "🔥 Panas",
+                new: "✨ Baharu",
+                topRated: "⭐ Teratas",
+                live: "🔴 Langsung",
+                slot: "🎰 Slot",
+                welcomeBonus: "🎯 BONUS SELAMAT DATANG",
+                get200UpToRM1000: "Dapatkan 200% sehingga RM1000",
+                claimNow: "Tuntut Sekarang",
+                dailyReload: "🔥 MUAT SEMULA HARIAN",
+                fiftyPercentDailyBonus: "Bonus 50% Setiap Hari",
+                claimDaily: "Tuntut Harian",
+                vipProgram: "👑 PROGRAM VIP",
+                exclusiveRewards: "Ganjaran Eksklusif",
+                joinVip: " sertai VIP",
+                announcementText: "🎉 BONUS SELAMAT DATANG 200% SEHINGGA RM1000 • 🔥 MUAT SEMULA HARIAN 50% • 👑 GANJARAN EKSKLUSIF VIP • 🎰 PERMAINAN BAHAR DITAMBAH MINGGUAN • 💰 PENGGELUARAN SEGERA",
+                grandJackpot: "JACKPOT BESAR",
+                majorJackpot: "JACKPOT UTAMA",
+                minorJackpot: "JACKPOT KECIL",
+                onlinePlayers: "PEMAIN DALAM TALIAN",
+                activeGames: "PERMAINAN AKTIF",
+                liveWinsToday: "KEMENANGAN LANGSUNG HARI INI"
+            }
+        };
+
+        // Language Management
+        let currentLanguage = localStorage.getItem('siteLanguage') || 'en';
+
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.toggle('show');
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('siteLanguage', lang);
+            updateLanguageUI();
+            applyTranslations();
+            toggleLanguageDropdown();
+        }
+
+        function updateLanguageUI() {
+            const currentLangText = document.getElementById('currentLangText');
+            const langOptions = document.querySelectorAll('.language-option');
+            
+            // Update current language display
+            const langDisplay = {
+                'en': 'EN',
+                'zh': '中文',
+                'ms': 'BM'
+            };
+            currentLangText.textContent = langDisplay[currentLanguage];
+            
+            // Update active state in dropdown
+            langOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.onclick.toString().includes(`'${currentLanguage}'`)) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function applyTranslations() {
+            const trans = translations[currentLanguage];
+            
+            // Update all elements with data-lang attributes
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (trans[key]) {
+                    element.textContent = trans[key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-lang-placeholder');
+                if (trans[key]) {
+                    element.placeholder = trans[key];
+                }
+            });
+            
+            // Update marquee text
+            const marquee = document.querySelector('[data-lang="announcementText"]');
+            if (marquee && trans.announcementText) {
+                marquee.textContent = trans.announcementText;
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('languageOptions');
+            const languageBtn = document.querySelector('.language-btn');
+            
+            if (!languageBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Live Stats Updates
+        function updateLiveStats() {
+            // Simulate live updates for stats
+            const stats = {
+                grandJackpot: {
+                    current: 128446.71,
+                    min: 100000,
+                    max: 200000,
+                    increment: 0.01
+                },
+                majorJackpot: {
+                    current: 25336.10,
+                    min: 20000,
+                    max: 50000,
+                    increment: 0.05
+                },
+                minorJackpot: {
+                    current: 5118.31,
+                    min: 5000,
+                    max: 15000,
+                    increment: 0.1
+                },
+                onlinePlayers: {
+                    current: 12639,
+                    min: 10000,
+                    max: 20000,
+                    increment: 1
+                },
+                activeGames: {
+                    current: 311,
+                    min: 200,
+                    max: 500,
+                    increment: 1
+                },
+                liveWinsToday: {
+                    current: 1293805.56,
+                    min: 1000000,
+                    max: 2000000,
+                    increment: 10.50
+                }
+            };
+
+            // Update jackpot amounts with random increments
+            updateStatValue('grandJackpot', stats.grandJackpot);
+            updateStatValue('majorJackpot', stats.majorJackpot);
+            updateStatValue('minorJackpot', stats.minorJackpot);
+            updateStatValue('onlinePlayers', stats.onlinePlayers, true);
+            updateStatValue('activeGames', stats.activeGames, true);
+            updateStatValue('liveWinsToday', stats.liveWinsToday);
+        }
+
+        function updateStatValue(elementId, config, isInteger = false) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            // Random increment
+            const increment = (Math.random() * 2 - 1) * config.increment;
+            config.current += increment;
+
+            // Keep within bounds
+            if (config.current < config.min) config.current = config.min;
+            if (config.current > config.max) config.current = config.max;
+
+            // Format and update display
+            const formattedValue = isInteger 
+                ? Math.floor(config.current).toLocaleString()
+                : config.current.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
+            element.textContent = element.textContent.includes('RM') 
+                ? `RM ${formattedValue}`
+                : formattedValue;
+        }
+
+        // Start live stats updates
+        setInterval(updateLiveStats, 3000);
+
+        // Initial stats update
+        setTimeout(updateLiveStats, 1000);
 
         // Navigation
         function showSection(sectionId) {
@@ -1458,9 +2102,15 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language system
+            updateLanguageUI();
+            applyTranslations();
+            
+            // Initialize other systems
             updateAuthUI();
             console.log('👑 WangSeng87 Premium Gaming Platform Loaded');
             console.log('🚀 All systems ready for premium gaming action!');
+            console.log(`🌐 Language: ${currentLanguage}`);
         });
     </script>
 </body>
