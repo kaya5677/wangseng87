@@ -1026,387 +1026,517 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-        }
-
-        .withdraw-info {
             margin-top: 25px;
             padding: 20px;
             background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-            border: 1px solid rgba(255,215,0,0.1);
         }
 
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-label {
-            color: rgba(255,255,255,0.7);
-            font-size: 14px;
-        }
-
-        .info-value {
-            color: #ffd700;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Large Desktop (1200px - 1399px) */
-        @media (max-width: 1399px) and (min-width: 1200px) {
-            .provider-grid {
-                grid-template-columns: repeat(6, 1fr);
-                gap: 15px;
+        /* Mobile-First Responsive Design */
+        
+        /* Base Mobile Styles (480px and below) */
+        @media (max-width: 480px) {
+            .mobile-menu-toggle {
+                display: flex !important;
             }
             
-            .main-container {
-                padding: 40px 25px 90px;
-            }
-        }
-
-        /* Desktop (992px - 1199px) */
-        @media (max-width: 1199px) and (min-width: 992px) {
-            .provider-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 14px;
-            }
-            
-            .main-container {
-                padding: 35px 20px 90px;
-            }
-            
-            .jackpot-grid {
-                gap: 15px;
-            }
-            
-            .jackpot-amount {
-                font-size: 22px;
-            }
-        }
-
-        /* Tablet Landscape (768px - 991px) */
-        @media (max-width: 991px) and (min-width: 768px) {
             .sidebar {
-                width: 200px;
+                display: none !important;
             }
             
             .main-wrapper {
-                margin-left: 200px;
-            }
-            
-            .provider-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
+                margin-left: 0 !important;
             }
             
             .main-container {
-                padding: 30px 15px 90px;
+                padding: 15px 8px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+                margin-bottom: env(safe-area-inset-bottom, 0px);
             }
             
-            .jackpot-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .live-stats-container {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .category-filter-container {
-                justify-content: center;
+            .header {
+                padding: 12px 0 !important;
             }
             
             .header-content {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
+                flex-direction: column !important;
+                gap: 12px !important;
+                padding: 0 15px !important;
+            }
+            
+            .main-logo {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .platform-title {
+                font-size: 16px !important;
             }
             
             .auth-buttons {
-                justify-content: center;
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 8px !important;
             }
             
             .btn {
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-            
-            .main-logo {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .platform-title {
-                font-size: 22px;
-            }
-        }
-
-        /* Tablet Portrait (576px - 767px) */
-        @media (max-width: 767px) and (min-width: 576px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-wrapper {
-                margin-left: 0;
-            }
-            
-            .provider-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            
-            .main-container {
-                padding: 25px 12px 90px;
+                width: 100% !important;
+                padding: 10px 16px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
             }
             
             .jackpot-container {
-                margin: 15px 0;
-                padding: 15px;
-            }
-            
-            .jackpot-amount {
-                font-size: 18px;
-            }
-            
-            .live-stats-container {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            
-            .category-filter-container {
-                gap: 8px;
-                justify-content: center;
-            }
-            
-            .category-btn {
-                padding: 6px 16px;
-                font-size: 12px;
-            }
-            
-            .search-input {
-                padding: 10px 15px 10px 45px;
-                font-size: 14px;
-            }
-            
-            .auth-container, .payment-container {
-                padding: 12px;
-            }
-            
-            .auth-card, .payment-card {
-                padding: 25px;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .payment-methods {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-        }
-
-        /* Mobile Landscape (480px - 575px) */
-        @media (max-width: 575px) and (min-width: 480px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .main-wrapper {
-                margin-left: 0;
-            }
-            
-            .provider-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-            }
-            
-            .main-container {
-                padding: 20px 10px 90px;
+                margin: 10px 0 !important;
+                padding: 12px !important;
             }
             
             .jackpot-grid {
-                grid-template-columns: 1fr;
-                gap: 8px;
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
             }
             
             .jackpot-amount {
-                font-size: 16px;
-            }
-            
-            .live-stats-container {
-                grid-template-columns: 1fr;
-                gap: 6px;
-            }
-            
-            .category-filter-container {
-                gap: 6px;
-                justify-content: center;
-            }
-            
-            .category-btn {
-                padding: 5px 12px;
-                font-size: 11px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .main-logo {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .platform-title {
-                font-size: 18px;
-            }
-            
-            .btn {
-                padding: 8px 14px;
-                font-size: 12px;
-            }
-        }
-
-        /* Small Mobile (max-width: 479px) */
-        @media (max-width: 479px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .main-wrapper {
-                margin-left: 0;
-            }
-            
-            .provider-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
-            }
-            
-            .main-container {
-                padding: 15px 8px 90px;
-            }
-            
-            .section-title {
-                font-size: 20px;
-            }
-            
-            .jackpot-container {
-                margin: 10px 0;
-                padding: 12px;
-            }
-            
-            .jackpot-amount {
-                font-size: 14px;
+                font-size: 16px !important;
             }
             
             .jackpot-label {
-                font-size: 10px;
+                font-size: 10px !important;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+                margin: 10px 0 !important;
+            }
+            
+            .live-stat-card {
+                padding: 12px !important;
+            }
+            
+            .live-stat-value {
+                font-size: 18px !important;
+            }
+            
+            .live-stat-label {
+                font-size: 10px !important;
+            }
+            
+            .section-title {
+                font-size: 18px !important;
+                text-align: center !important;
+            }
+            
+            .provider-search-container {
+                margin: 15px 0 !important;
+            }
+            
+            .search-input {
+                padding: 12px 15px 12px 45px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
+            }
+            
+            .category-filter-container {
+                gap: 6px !important;
+                justify-content: center !important;
+                margin: 15px 0 !important;
+            }
+            
+            .category-btn {
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+                min-height: 36px !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            
+            .provider-container {
+                padding: 0 !important;
+            }
+            
+            .taskbar {
+                height: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+                padding-bottom: env(safe-area-inset-bottom, 0px) !important;
             }
             
             .taskbar-item {
-                color: rgba(255,255,255,0.75);
-                font-size: 12px;
-                font-weight: 500;
-                text-decoration: none;
-                padding: 8px 12px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-                min-width: 60px;
-                cursor: pointer;
+                min-width: 50px !important;
+                padding: 8px 6px !important;
             }
-
-        .taskbar-item:hover {
-            background: rgba(255,215,0,0.1);
-            color: rgba(255,255,255,0.9);
-            transform: translateY(-2px);
-        }
-
-        .taskbar-item.active {
-            color: #ffd700;
-            text-shadow: 0 0 8px rgba(255,215,0,0.5);
-            background: rgba(255,215,0,0.15);
-        }
-
-        .taskbar-icon {
-            font-size: 20px;
-            margin-bottom: 4px;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .taskbar-item.active .taskbar-icon {
-            transform: scale(1.1);
-        }
-
-        .taskbar-label {
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        /* Animations */
-        @keyframes backgroundGlow {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        @keyframes shimmerEffect {
-            0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
-            50% { opacity: 0.8; transform: scale(1.1) rotate(1deg); }
-        }
-
-        @keyframes particleFloat {
-            0% { opacity: 0; transform: translateY(100vh) translateX(0) scale(0); }
-            5% { opacity: 0.8; transform: translateY(95vh) translateX(5px) scale(1); }
-            25% { opacity: 1; transform: translateY(75vh) translateX(-3px) scale(1); }
-            50% { opacity: 1; transform: translateY(50vh) translateX(8px) scale(1); }
-            75% { opacity: 1; transform: translateY(25vh) translateX(-5px) scale(1); }
-            95% { opacity: 0.8; transform: translateY(5vh) translateX(3px) scale(1); }
-            100% { opacity: 0; transform: translateY(0vh) translateX(0) scale(0); }
-        }
-
-        @keyframes decorationPulse {
-            0%, 100% { width: 200px; opacity: 0.6; }
-            50% { width: 260px; opacity: 1; }
-        }
-
-        @keyframes logoRadialGlow {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.6;
-                filter: brightness(1);
+            
+            .taskbar-icon {
+                font-size: 18px !important;
             }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.15);
-                opacity: 0.8;
-                filter: brightness(1.2);
+            
+            .taskbar-label {
+                font-size: 10px !important;
             }
+            
+            .recent-win-popup {
+                right: 10px !important;
+                bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+                min-width: 250px !important;
+                padding: 12px !important;
+            }
+            
+            .auth-container, .payment-container {
+                padding: 8px !important;
+            }
+            
+            .auth-card, .payment-card {
+                padding: 20px !important;
+            }
+            
+            .form-input, .form-select {
+                padding: 12px 14px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
+            }
+            
+            .auth-btn, .payment-btn {
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
+            }
+        }
+
+        /* Small Mobile (481px - 576px) */
+        @media (min-width: 481px) and (max-width: 576px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+            
+            .sidebar {
+                display: none !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 0 !important;
+            }
+            
+            .main-container {
+                padding: 20px 12px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+            }
+            
+            .main-logo {
+                width: 90px !important;
+                height: 90px !important;
+            }
+            
+            .platform-title {
+                font-size: 18px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+            }
+            
+            .category-btn {
+                padding: 8px 14px !important;
+                font-size: 12px !important;
+            }
+        }
+
+        /* Tablet Portrait (577px - 768px) */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+            
+            .sidebar {
+                transform: translateX(-100%) !important;
+                transition: transform 0.3s ease !important;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0) !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 0 !important;
+            }
+            
+            .main-container {
+                padding: 25px 15px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+            }
+            
+            .main-logo {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .platform-title {
+                font-size: 20px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 12px !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 12px !important;
+            }
+            
+            .header-content {
+                flex-direction: column !important;
+                gap: 15px !important;
+                text-align: center !important;
+            }
+            
+            .auth-buttons {
+                justify-content: center !important;
+            }
+        }
+
+        /* Tablet Landscape (769px - 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+            
+            .sidebar {
+                width: 200px !important;
+                transform: translateX(0) !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 200px !important;
+            }
+            
+            .main-container {
+                padding: 30px 20px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+            }
+            
+            .main-logo {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            .platform-title {
+                font-size: 22px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 15px !important;
+            }
+            
+            .live-stats-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 15px !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(5, 1fr) !important;
+                gap: 14px !important;
+            }
+            
+            .header-content {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+        }
+
+        /* Desktop (993px - 1199px) */
+        @media (min-width: 993px) and (max-width: 1199px) {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+            
+            .sidebar {
+                width: 220px !important;
+                transform: translateX(0) !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 220px !important;
+            }
+            
+            .main-container {
+                padding: 35px 25px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(5, 1fr) !important;
+                gap: 14px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 15px !important;
+            }
+        }
+
+        /* Large Desktop (1200px and above) */
+        @media (min-width: 1200px) {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+            
+            .sidebar {
+                width: 220px !important;
+                transform: translateX(0) !important;
+            }
+            
+            .main-wrapper {
+                margin-left: 220px !important;
+            }
+            
+            .main-container {
+                padding: 40px 30px calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+                max-width: 1400px !important;
+                margin: 0 auto !important;
+            }
+            
+            .provider-grid {
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 16px !important;
+            }
+            
+            .jackpot-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 20px !important;
+            }
+            
+            .jackpot-amount {
+                font-size: 24px !important;
+            }
+        }
+
+        /* Cross-Browser Mobile Compatibility */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS Safari specific fixes */
+            .taskbar {
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+            }
+            
+            .main-logo video {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            
+            .provider-grid {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @supports not (-webkit-touch-callout: none) {
+            /* Non-iOS browsers */
+            .search-input:focus {
+                outline: 2px solid #ffd700;
+                outline-offset: 2px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor-pointer:hover::after {
+                display: none !important;
+            }
+            
+            .category-btn:hover {
+                transform: none !important;
+            }
+            
+            .sidebar-item:hover::before {
+                display: none !important;
+            }
+            
+            .taskbar-item:hover {
+                transform: none !important;
+            }
+            
+            .auth-btn:hover, .payment-btn:hover {
+                transform: none !important;
+            }
+            
+            .btn {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .main-logo::before {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .provider-ribbon {
+                box-shadow: 0 1px 4px rgba(255, 56, 56, 0.6);
+            }
+            
+            .jackpot-amount {
+                text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        /* Prevent horizontal scrolling */
+        body {
+            overflow-x: hidden !important;
+            width: 100vw !important;
+        }
+        
+        .main-wrapper {
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
+        
+        .main-container {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        
+        .provider-grid {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Fix appearance and user-select for compatibility */
+        .search-input {
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 25px;
+        }
+        
+        .btn {
+            -webkit-appearance: none;
+            appearance: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
     </style>
 </head>
