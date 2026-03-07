@@ -1726,7 +1726,7 @@
     </div>
 
     <!-- Main Content Area -->
-    <main class="main-container">
+    <main class="main-container" style="display: block;">
         <!-- Section Header -->
         <div class="section-header">
             <h1 class="section-title">Premium Slot Providers</h1>
@@ -2063,15 +2063,19 @@
                 section.style.display = 'none';
             });
             
-            // Hide main content
+            // Show or hide main content based on section
             const mainContent = document.querySelector('.main-container');
             if (mainContent) {
-                mainContent.style.display = 'none';
+                if (sectionId === 'home' || sectionId === 'providers') {
+                    mainContent.style.display = 'block';
+                } else {
+                    mainContent.style.display = 'none';
+                }
             }
             
-            // Show selected section
+            // Show selected section if not homepage
             const targetSection = document.getElementById(sectionId + '-section');
-            if (targetSection) {
+            if (targetSection && sectionId !== 'home' && sectionId !== 'providers') {
                 targetSection.style.display = 'block';
             }
             
