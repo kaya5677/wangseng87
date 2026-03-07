@@ -888,6 +888,52 @@
             transition: transform 0.35s ease, filter 0.35s ease;
         }
 
+        .game_image[src=""],
+        .game_image:not([src]),
+        .game_image[src="data:,"] {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05));
+            border: 2px dashed rgba(255,215,0,0.3);
+        }
+
+        .game_image[src=""]::before,
+        .game_image:not([src])::before,
+        .game_image[src="data:,"]::before {
+            content: "🎰";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .game_image[src=""]::after,
+        .game_image:not([src])::after,
+        .game_image[src="data:,"]::after {
+            content: "Provider";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        .game_image.fallback-image {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05));
+            border: 2px dashed rgba(255,215,0,0.3);
+        }
+
+        .game_image.fallback-image:hover {
+            transform: scale(1.04);
+            filter: saturate(1.08) contrast(1.05) brightness(1.1);
+        }
+
         .cursor-pointer:hover .game_image {
             transform: scale(1.04);
             filter: saturate(1.08) contrast(1.05);
@@ -2587,21 +2633,30 @@
                 <!-- MARIOCLUB -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('marioclub')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/7.png" alt="MARIOCLUB" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/7.png" 
+                             alt="MARIOCLUB" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1BUklPQ0xVQjwvdGV4dD4KPC9zdmc+'">
                     </div>
                 </div>
 
                 <!-- PLAYACE-YP -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('playace-yp')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="PLAYACE-YP" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" 
+                             alt="PLAYACE-YP" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkBMQVlBQ0UtWVA8L3RleHQ+Cjwvc3ZnPg=='">
                     </div>
                 </div>
 
                 <!-- PLAYACE-SLOT -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('playace-slot')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/9.png" alt="PLAYACE-SLOT" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/9.png" 
+                             alt="PLAYACE-SLOT" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkBMQVlBQ0UtU0xPVDwvdGV4dD4KPC9zdmc+'">
                     </div>
                 </div>
 
@@ -2629,14 +2684,20 @@
                 <!-- DUOFU -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('duofu')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/13.png" alt="DUOFU" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/13.png" 
+                             alt="DUOFU" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRVT0ZVPC90ZXh0Pgo8L3N2Zz4='">
                     </div>
                 </div>
 
                 <!-- VPOWER -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('vpower')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/14.png" alt="VPOWER" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/14.png" 
+                             alt="VPOWER" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlZQT1dFUjwvdGV4dD4KPC9zdmc+'">
                     </div>
                 </div>
 
@@ -2664,7 +2725,10 @@
                 <!-- MONKEY KING -->
                 <div class="provider-container">
                     <div class="cursor-pointer" onclick="openProvider('monkey-king')">
-                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/18.png" alt="MONKEY KING" class="game_image">
+                        <img src="https://img.netplay.info/public/netplay/Upload/SLOT/18.png" 
+                             alt="MONKEY KING" 
+                             class="game_image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCByZ2JhKDI1NSwgMjE1LCAwLCAwLjEpLCByZ2JhKDI1NSwgMTQwLCAwLCAwLjA1KSkiLz4KPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjE1LCAwLCAwLjMpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNSIvPgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1zaXplPSI0OCIgZmlsbD0icmdiYSgyNTUsIDIxNSwgMCwgMC4zKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+8J+QjDwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIyMDAiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1PTktFWSBLSU5HPC90ZXh0Pgo8L3N2Zz4='">
                     </div>
                 </div>
 
@@ -3248,6 +3312,9 @@
             // Initialize authentication system
             loadCurrentUser();
             
+            // Setup provider image fallbacks
+            setupProviderImageFallbacks();
+            
             // Start jackpot animations
             animateJackpots();
             
@@ -3257,6 +3324,69 @@
             // Start live stats updates
             updateLiveStats();
         });
+
+        // Provider Image Fallback System
+        function setupProviderImageFallbacks() {
+            const providerImages = document.querySelectorAll('.game_image');
+            
+            providerImages.forEach(img => {
+                // Add error handler
+                img.onerror = function() {
+                    console.log(`Failed to load image: ${img.src}`);
+                    // Create fallback content
+                    createFallbackImage(img);
+                };
+                
+                // Check if image is already broken
+                if (!img.complete || img.naturalWidth === 0) {
+                    createFallbackImage(img);
+                }
+            });
+        }
+        
+        function createFallbackImage(imgElement) {
+            // Get provider name from alt attribute or parent element
+            const providerName = imgElement.alt || 'Provider';
+            
+            // Create fallback using CSS data URI or gradient
+            const fallbackCanvas = document.createElement('canvas');
+            fallbackCanvas.width = 200;
+            fallbackCanvas.height = 267; // 3:4 aspect ratio
+            
+            const ctx = fallbackCanvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 200, 267);
+            gradient.addColorStop(0, 'rgba(255, 215, 0, 0.1)');
+            gradient.addColorStop(1, 'rgba(255, 140, 0, 0.05)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 200, 267);
+            
+            // Add border
+            ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.strokeRect(10, 10, 180, 247);
+            
+            // Add casino icon
+            ctx.font = '48px Arial';
+            ctx.fillStyle = 'rgba(255, 215, 0, 0.3)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🎰', 100, 100);
+            
+            // Add provider name
+            ctx.font = 'bold 14px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.fillText(providerName.toUpperCase(), 100, 200);
+            
+            // Convert to data URL and set as src
+            const dataURL = fallbackCanvas.toDataURL();
+            imgElement.src = dataURL;
+            
+            // Add fallback class for styling
+            imgElement.classList.add('fallback-image');
+        }
 
         // Jackpot Animation
         function animateJackpots() {
