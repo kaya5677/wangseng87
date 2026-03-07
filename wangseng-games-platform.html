@@ -593,6 +593,243 @@
             }
         }
 
+        /* Netplay-Style Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1f1f1f);
+            border-right: 1px solid rgba(255,215,0,0.2);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            box-shadow: 2px 0 20px rgba(0,0,0,0.5);
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
+            text-align: center;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .sidebar-logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.6));
+        }
+
+        .sidebar-logo-text {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 5px rgba(255,215,0,0.5);
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.8rem 0.5rem;
+            margin: 0.2rem 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            gap: 0.3rem;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,215,0,0.1);
+            transform: translateX(2px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));
+            border: 1px solid rgba(255,215,0,0.3);
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 70%;
+            background: #ffd700;
+            border-radius: 2px;
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .nav-item.active .nav-label {
+            color: #ffd700;
+        }
+
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid rgba(255,215,0,0.1);
+        }
+
+        .user-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4caf50;
+            box-shadow: 0 0 8px rgba(76,175,80,0.6);
+        }
+
+        .status-text {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Mobile Sidebar Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(20,20,40,0.8));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.5);
+        }
+
+        .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: #ffd700;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Main Content Adjustment */
+        .container {
+            margin-left: 120px;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Responsive Sidebar */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .container {
+                margin-left: 0;
+            }
+
+            .sidebar.active ~ .container {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .nav-item {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 1rem;
+                margin: 0.2rem 0.5rem;
+            }
+
+            .nav-icon {
+                font-size: 1.2rem;
+                margin-bottom: 0;
+                margin-right: 0.8rem;
+            }
+
+            .nav-label {
+                font-size: 0.9rem;
+            }
+
+            .sidebar-logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .sidebar-logo-text {
+                font-size: 0.7rem;
+            }
+        }
+
         /* Main 3-Column Casino Layout */
         .main-layout {
             display: grid;
@@ -2724,6 +2961,105 @@
     </style>
 </head>
 <body>
+    <!-- Left Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">🦁</div>
+                <div class="sidebar-logo-text">WS87</div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-item active" onclick="showSection('home')">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Home</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('providers')">
+                <div class="nav-icon">🔥</div>
+                <div class="nav-label">Hot Games</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('providers')">
+                <div class="nav-icon">🎰</div>
+                <div class="nav-label">Slots</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('livecasino')">
+                <div class="nav-icon">🎥</div>
+                <div class="nav-label">Live Casino</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('sports')">
+                <div class="nav-icon">⚽</div>
+                <div class="nav-label">Sports</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('fishing')">
+                <div class="nav-icon">🐟</div>
+                <div class="nav-label">Fishing</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('promotion')">
+                <div class="nav-icon">🎁</div>
+                <div class="nav-label">Promotions</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('deposit')">
+                <div class="nav-icon">💰</div>
+                <div class="nav-label">Deposit</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('withdraw')">
+                <div class="nav-icon">💸</div>
+                <div class="nav-label">Withdraw</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('vip')">
+                <div class="nav-icon">👑</div>
+                <div class="nav-label">VIP</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('wallet')">
+                <div class="nav-icon">💳</div>
+                <div class="nav-label">Wallet</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('download')">
+                <div class="nav-icon">📱</div>
+                <div class="nav-label">Download</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('support')">
+                <div class="nav-icon">📞</div>
+                <div class="nav-label">Support</div>
+            </div>
+            
+            <div class="nav-item" onclick="showSection('account')">
+                <div class="nav-icon">👤</div>
+                <div class="nav-label">Account</div>
+            </div>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-status">
+                <div class="status-indicator online"></div>
+                <div class="status-text">Online</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Mobile Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleSidebar()">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
     <div class="container">
         <!-- Header Section -->
         <div class="header-section">
@@ -4275,6 +4611,42 @@
             if (statAnimationInterval) clearInterval(statAnimationInterval);
         }
 
+        // Sidebar Toggle Function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Update Active Navigation Item
+        function updateActiveNavItem(sectionId) {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find and activate the matching nav item
+            const activeItem = document.querySelector(`.nav-item[onclick*="${sectionId}"]`);
+            if (activeItem) {
+                activeItem.classList.add('active');
+            }
+            
+            // Close sidebar on mobile after selection
+            if (window.innerWidth <= 992) {
+                toggleSidebar();
+            }
+        }
+
+        // Enhanced showSection function to update navigation
+        const originalShowSection = showSection;
+        showSection = function(sectionId) {
+            originalShowSection(sectionId);
+            updateActiveNavItem(sectionId);
+        };
+
         function loadCurrentUser() {
             const savedUser = localStorage.getItem('wangsengCurrentUser');
             if (savedUser) {
@@ -4330,6 +4702,19 @@
             
             // Initialize jackpot animations
             initJackpotAnimations();
+            
+            // Initialize sidebar
+            updateActiveNavItem('home');
+            
+            // Handle window resize for sidebar
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    const sidebar = document.getElementById('sidebar');
+                    const overlay = document.getElementById('sidebarOverlay');
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
             
             // Initialize other systems
             updateAuthUI();
