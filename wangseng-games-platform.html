@@ -3233,6 +3233,21 @@
             console.log('👑 WangSeng87 Premium Gaming Lobby Loaded');
             console.log('🎰 All providers ready for premium gaming!');
             
+            // Ensure homepage content is visible by default
+            const mainContent = document.querySelector('.main-container');
+            if (mainContent) {
+                mainContent.style.display = 'block';
+            }
+            
+            // Set home section as active by default
+            const homeNavItem = document.querySelector('.sidebar-item');
+            if (homeNavItem) {
+                homeNavItem.classList.add('active');
+            }
+            
+            // Initialize authentication system
+            loadCurrentUser();
+            
             // Start jackpot animations
             animateJackpots();
             
