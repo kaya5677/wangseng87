@@ -490,6 +490,122 @@
         }
 
         .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .auth-balance-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 140, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 120px;
+            position: relative;
+        }
+
+        .hero-decoration {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Category Shortcuts */
+        .category-shortcuts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 30px;
+        }
+
+        .shortcut-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.08) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shortcut-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+
+        .shortcut-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .shortcut-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .header-content {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
@@ -1169,6 +1285,7 @@
             .main-wrapper {
                 margin-left: 0 !important;
                 transition: margin-left 0.28s ease !important;
+                flex: 1 !important;
             }
             
             .main-wrapper.sidebar-open {
@@ -1187,6 +1304,7 @@
                 align-items: center !important;
                 gap: 6px !important;
                 padding: 0 8px 0 60px !important;
+                max-width: 100% !important;
             }
             
             .logo-container {
@@ -1205,6 +1323,12 @@
                 line-height: 1 !important;
             }
             
+            .auth-balance-area {
+                flex-direction: row !important;
+                width: auto !important;
+                gap: 3px !important;
+            }
+            
             .auth-buttons {
                 flex-direction: row !important;
                 width: auto !important;
@@ -1217,6 +1341,51 @@
                 font-size: 10px !important;
                 min-height: 28px !important;
                 min-width: 45px !important;
+            }
+            
+            /* Compact hero banner */
+            .hero-banner {
+                margin: 8px 0 !important;
+                padding: 15px !important;
+            }
+            
+            .hero-content {
+                gap: 20px !important;
+            }
+            
+            .hero-title {
+                font-size: 20px !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 12px !important;
+            }
+            
+            .hero-image {
+                width: 120px !important;
+                height: 80px !important;
+            }
+            
+            /* Compact category shortcuts */
+            .category-shortcuts {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+                margin: 15px 0 !important;
+                padding: 0 8px !important;
+            }
+            
+            .shortcut-item {
+                padding: 12px !important;
+            }
+            
+            .shortcut-icon {
+                font-size: 24px !important;
+                margin-bottom: 4px !important;
+            }
+            
+            .shortcut-label {
+                font-size: 11px !important;
             }
             
             /* Ultra-compact jackpot and stats */
@@ -2423,354 +2592,6 @@
         </div>
     </section>
 
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-    <!-- Premium Header -->
-    <header class="header">
-        <div class="header-content">
-            <!-- Logo and Title -->
-            <div class="logo-container">
-                <div class="main-logo">
-                    <video autoplay muted loop playsinline>
-                        <source src="wangseng-lion.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <h1 class="platform-title">WangSeng87</h1>
-            </div>
-            
-            <!-- Auth Buttons -->
-            <div class="auth-buttons">
-                <button class="btn login-btn" onclick="showLogin()">Login</button>
-                <button class="btn register-btn" onclick="showRegister()">Register</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Jackpot Ticker -->
-    <div class="jackpot-container">
-        <div class="jackpot-grid">
-            <div class="jackpot-item jackpot-grand">
-                <div class="jackpot-label">Grand Jackpot</div>
-                <div class="jackpot-amount" id="grand-jackpot">RM 128,456.23</div>
-            </div>
-            <div class="jackpot-item">
-                <div class="jackpot-label">Major Jackpot</div>
-                <div class="jackpot-amount" id="major-jackpot">RM 25,330.80</div>
-            </div>
-            <div class="jackpot-item">
-                <div class="jackpot-label">Minor Jackpot</div>
-                <div class="jackpot-amount" id="minor-jackpot">RM 5,120.45</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Live Player Stats -->
-    <div class="live-stats-container">
-        <div class="live-stat-card">
-            <div class="live-stat-label">Online Players</div>
-            <div class="live-stat-value" id="online-players">12,845</div>
-        </div>
-        <div class="live-stat-card">
-            <div class="live-stat-label">Active Games</div>
-            <div class="live-stat-value" id="active-games">328</div>
-        </div>
-        <div class="live-stat-card">
-            <div class="live-stat-label">Live Wins Today</div>
-            <div class="live-stat-value" id="live-wins">RM 1,285,300</div>
-        </div>
-    </div>
-
-    <!-- Recent Win Popup -->
-    <div class="recent-win-popup" id="win-popup" style="display: none;">
-        <div class="win-header">
-            <span class="win-icon">🎉</span>
-            <span>Recent Win!</span>
-        </div>
-        <div class="win-text">
-            <span class="win-player" id="winner-name">Player123</span> won 
-            <span class="win-amount" id="win-amount">RM 1,250</span> on 
-            <span id="win-provider">PRAGMATIC SLOT</span>
-        </div>
-    </div>
-
-    <!-- Main Content Area -->
-    <main class="main-container" style="display: block;">
-        <!-- Section Header -->
-        <div class="section-header">
-            <h1 class="section-title">Premium Slot Providers</h1>
-            <div class="title-decoration"></div>
-        </div>
-
-        <!-- Provider Search Bar -->
-        <div class="provider-search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" placeholder="Search provider..." onkeyup="filterProviders(this.value)">
-        </div>
-
-        <!-- Category Filter Bar -->
-        <div class="category-filter-container">
-            <button class="category-btn active" onclick="filterCategory('all', this)">All</button>
-            <button class="category-btn" onclick="filterCategory('hot', this)">Hot</button>
-            <button class="category-btn" onclick="filterCategory('new', this)">New</button>
-            <button class="category-btn" onclick="filterCategory('top', this)">Top Rated</button>
-            <button class="category-btn" onclick="filterCategory('live', this)">Live</button>
-            <button class="category-btn" onclick="filterCategory('slot', this)">Slot</button>
-            <button class="category-btn" onclick="filterCategory('fish', this)">Fish</button>
-        </div>
-
-        <!-- Premium Provider Container -->
-        <div class="provider-container">
-            <div class="provider-grid">
-                <!-- EVO888 H5 -->
-                <div class="cursor-pointer" onclick="openProvider('evo888')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png" alt="EVO888 H5" class="game_image">
-                </div>
-
-                <!-- EVO888-APP -->
-                <div class="cursor-pointer" onclick="openProvider('evo888-app')">
-                    <div class="provider-ribbon new">NEW</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png" alt="EVO888-APP" class="game_image">
-                </div>
-
-                <!-- SLOT4D -->
-                <div class="cursor-pointer" onclick="openProvider('slot4d')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png" alt="SLOT4D" class="game_image">
-                </div>
-
-                <!-- YGG -->
-                <div class="cursor-pointer" onclick="openProvider('ygg')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png" alt="YGG" class="game_image">
-                </div>
-
-                <!-- BTGAMING -->
-                <div class="cursor-pointer" onclick="openProvider('btgaming')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png" alt="BTGAMING" class="game_image">
-                </div>
-
-                <!-- IMPERIUM -->
-                <div class="cursor-pointer" onclick="openProvider('imperium')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png" alt="IMPERIUM" class="game_image">
-                </div>
-
-                <!-- MARIOCLUB -->
-                <div class="cursor-pointer" onclick="openProvider('marioclub')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png" alt="MARIOCLUB" class="game_image">
-                </div>
-
-                <!-- PLAYACE-YP -->
-                <div class="cursor-pointer" onclick="openProvider('playace-yp')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png" alt="PLAYACE-YP" class="game_image">
-                </div>
-
-                <!-- PLAYACE-SLOT -->
-                <div class="cursor-pointer" onclick="openProvider('playace-slot')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png" alt="PLAYACE-SLOT" class="game_image">
-                </div>
-
-                <!-- EPICWIN -->
-                <div class="cursor-pointer" onclick="openProvider('epicwin')">
-                    <div class="provider-ribbon new">NEW</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png" alt="EPICWIN" class="game_image">
-                </div>
-
-                <!-- SCR888 -->
-                <div class="cursor-pointer" onclick="openProvider('scr888')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png" alt="SCR888" class="game_image">
-                </div>
-
-                <!-- UUSLOTS -->
-                <div class="cursor-pointer" onclick="openProvider('uuslots')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png" alt="UUSLOTS" class="game_image">
-                </div>
-
-                <!-- DUOFU -->
-                <div class="cursor-pointer" onclick="openProvider('duofu')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png" alt="DUOFU" class="game_image">
-                </div>
-
-                <!-- VPOWER -->
-                <div class="cursor-pointer" onclick="openProvider('vpower')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png" alt="VPOWER" class="game_image">
-                </div>
-
-                <!-- JILI -->
-                <div class="cursor-pointer" onclick="openProvider('jili')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png" alt="JILI" class="game_image">
-                </div>
-
-                <!-- PRAGMATIC SLOT -->
-                <div class="cursor-pointer" onclick="openProvider('pragmatic-slot')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png" alt="PRAGMATIC SLOT" class="game_image">
-                </div>
-
-                <!-- LUCKY365 -->
-                <div class="cursor-pointer" onclick="openProvider('lucky365')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png" alt="LUCKY365" class="game_image">
-                </div>
-
-                <!-- MONKEY KING -->
-                <div class="cursor-pointer" onclick="openProvider('monkey-king')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png" alt="MONKEY KING" class="game_image">
-                </div>
-
-                <!-- PEGASUS -->
-                <div class="cursor-pointer" onclick="openProvider('pegasus')">
-                    <div class="provider-ribbon new">NEW</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png" alt="PEGASUS" class="game_image">
-                </div>
-
-                <!-- 918KISS H5 -->
-                <div class="cursor-pointer" onclick="openProvider('918kiss-h5')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png" alt="918KISS H5" class="game_image">
-                </div>
-
-                <!-- MEGA888 H5 -->
-                <div class="cursor-pointer" onclick="openProvider('mega888-h5')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png" alt="MEGA888 H5" class="game_image">
-                </div>
-
-                <!-- GW 99 -->
-                <div class="cursor-pointer" onclick="openProvider('gw99')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png" alt="GW 99" class="game_image">
-                </div>
-
-                <!-- ADVANT PLAY -->
-                <div class="cursor-pointer" onclick="openProvider('advant-play')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png" alt="ADVANT PLAY" class="game_image">
-                </div>
-
-                <!-- ACE333 -->
-                <div class="cursor-pointer" onclick="openProvider('ace333')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png" alt="ACE333" class="game_image">
-                </div>
-
-                <!-- JOKER -->
-                <div class="cursor-pointer" onclick="openProvider('joker')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png" alt="JOKER" class="game_image">
-                </div>
-
-                <!-- PG SOFT -->
-                <div class="cursor-pointer" onclick="openProvider('pg-soft')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png" alt="PG SOFT" class="game_image">
-                </div>
-
-                <!-- LIVE22 -->
-                <div class="cursor-pointer" onclick="openProvider('live22')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png" alt="LIVE22" class="game_image">
-                </div>
-
-                <!-- LION KING -->
-                <div class="cursor-pointer" onclick="openProvider('lion-king')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png" alt="LION KING" class="game_image">
-                </div>
-
-                <!-- SPADE GAMING -->
-                <div class="cursor-pointer" onclick="openProvider('spade-gaming')">
-                    <div class="provider-ribbon new">NEW</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png" alt="SPADE GAMING" class="game_image">
-                </div>
-
-                <!-- HABANERO -->
-                <div class="cursor-pointer" onclick="openProvider('habanero')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png" alt="HABANERO" class="game_image">
-                </div>
-
-                <!-- CLOTPLAY -->
-                <div class="cursor-pointer" onclick="openProvider('clotplay')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png" alt="CLOTPLAY" class="game_image">
-                </div>
-
-                <!-- MEGA H5 -->
-                <div class="cursor-pointer" onclick="openProvider('mega-h5')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png" alt="MEGA H5" class="game_image">
-                </div>
-
-                <!-- AMB SLOT -->
-                <div class="cursor-pointer" onclick="openProvider('amb-slot')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png" alt="AMB SLOT" class="game_image">
-                </div>
-
-                <!-- NEXTSPIN -->
-                <div class="cursor-pointer" onclick="openProvider('nextspin')">
-                    <div class="provider-ribbon new">NEW</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png" alt="NEXTSPIN" class="game_image">
-                </div>
-
-                <!-- SCR 2 -->
-                <div class="cursor-pointer" onclick="openProvider('scr2')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png" alt="SCR 2" class="game_image">
-                </div>
-
-                <!-- XE88 -->
-                <div class="cursor-pointer" onclick="openProvider('xe88')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png" alt="XE88" class="game_image">
-                </div>
-
-                <!-- SUNCITY -->
-                <div class="cursor-pointer" onclick="openProvider('suncity')">
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png" alt="SUNCITY" class="game_image">
-                </div>
-
-                <!-- PUSSY888 -->
-                <div class="cursor-pointer" onclick="openProvider('pussy888')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png" alt="PUSSY888" class="game_image">
-                </div>
-
-                <!-- 918KISS -->
-                <div class="cursor-pointer" onclick="openProvider('918kiss')">
-                    <div class="provider-ribbon top">TOP</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png" alt="918KISS" class="game_image">
-                </div>
-
-                <!-- MEGA888 -->
-                <div class="cursor-pointer" onclick="openProvider('mega888')">
-                    <div class="provider-ribbon hot">HOT</div>
-                    <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png" alt="MEGA888" class="game_image">
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Premium Bottom Navigation -->
-    <nav class="taskbar">
-        <a href="#" class="taskbar-item active" onclick="showSection('home', this)">
-            <span class="taskbar-icon">🏠</span>
-            <span class="taskbar-label">Home</span>
-        </a>
-        <a href="#" class="taskbar-item" onclick="showSection('live', this)">
-            <span class="taskbar-icon">🎰</span>
-            <span class="taskbar-label">Live</span>
-        </a>
-        <a href="#" class="taskbar-item" onclick="showSection('deposit', this)">
-            <span class="taskbar-icon">💳</span>
-            <span class="taskbar-label">Deposit</span>
-        </a>
-        <a href="#" class="taskbar-item" onclick="showSection('promotions', this)">
-            <span class="taskbar-icon">🎁</span>
-            <span class="taskbar-label">Promo</span>
-        </a>
-        <a href="#" class="taskbar-item" onclick="showSection('vip', this)">
-            <span class="taskbar-icon">👑</span>
-            <span class="taskbar-label">VIP</span>
-        </a>
-        <a href="#" class="taskbar-item" onclick="showSection('wallet', this)">
-            <span class="taskbar-icon">�</span>
-            <span class="taskbar-label">Wallet</span>
-        </a>
-    </nav>
-    </div>
     </div>
 
     <script>
@@ -3123,59 +2944,6 @@
             mainWrapper.classList.remove('sidebar-open');
         }
 
-        // Mobile sidebar event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle button
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', openMobileSidebar);
-            }
-            
-            // Sidebar close button
-            const sidebarClose = document.getElementById('sidebarClose');
-            if (sidebarClose) {
-                sidebarClose.addEventListener('click', closeMobileSidebar);
-            }
-            
-            // Overlay click to close
-            const sidebarOverlay = document.getElementById('sidebarOverlay');
-            if (sidebarOverlay) {
-                sidebarOverlay.addEventListener('click', closeMobileSidebar);
-            }
-            
-            // Close sidebar when clicking on a menu item (mobile only)
-            const sidebarItems = document.querySelectorAll('.sidebar-item');
-            sidebarItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        setTimeout(closeMobileSidebar, 300);
-                    }
-                });
-            });
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    closeMobileSidebar();
-                }
-            });
-        });
-
-        // Provider Filtering
-        function filterProviders(searchTerm) {
-            const providers = document.querySelectorAll('.cursor-pointer');
-            const term = searchTerm.toLowerCase();
-            
-            providers.forEach(provider => {
-                const alt = provider.querySelector('img').alt.toLowerCase();
-                if (alt.includes(term)) {
-                    provider.style.display = 'flex';
-                } else {
-                    provider.style.display = 'none';
-                }
-            });
-        }
-
         function filterCategory(category, button) {
             // Update active button
             document.querySelectorAll('.category-btn').forEach(btn => {
@@ -3208,6 +2976,350 @@
                 }
             });
         }
+        
+        // ==========================================
+        // AUTHENTICATION SYSTEM
+        // ==========================================
+        
+        // Initialize demo users if none exist
+        function initializeDemoUsers() {
+            const existingUsers = localStorage.getItem('wangsengUsers');
+            if (!existingUsers) {
+                const demoUsers = [
+                    {
+                        username: 'demo87',
+                        email: 'demo@wangseng87.com',
+                        password: 'demo123',
+                        joinDate: new Date().toISOString(),
+                        vipLevel: 'Silver'
+                    },
+                    {
+                        username: 'vip87',
+                        email: 'vip@wangseng87.com',
+                        password: 'vip123',
+                        joinDate: new Date().toISOString(),
+                        vipLevel: 'Gold'
+                    }
+                ];
+                localStorage.setItem('wangsengUsers', JSON.stringify(demoUsers));
+            }
+        }
+        
+        // User Registration
+        function register() {
+            const username = document.getElementById('register-username').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm').value;
+            
+            // Clear previous messages
+            clearAuthMessages();
+            
+            // Validation
+            if (!username || !email || !password || !confirmPassword) {
+                showAuthMessage('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showAuthMessage('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showAuthMessage('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showAuthMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Check for existing users
+            const users = JSON.parse(localStorage.getItem('wangsengUsers') || '[]');
+            const existingUser = users.find(user => user.username === username);
+            
+            if (existingUser) {
+                showAuthMessage('Username already exists', 'error');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                username: username,
+                email: email,
+                password: password, // In real app, this would be hashed
+                joinDate: new Date().toISOString(),
+                vipLevel: 'Bronze'
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('wangsengUsers', JSON.stringify(users));
+            
+            showAuthMessage('Registration successful! Please login.', 'success');
+            
+            // Clear form
+            document.getElementById('register-username').value = '';
+            document.getElementById('register-email').value = '';
+            document.getElementById('register-password').value = '';
+            document.getElementById('register-confirm').value = '';
+            
+            // Switch to login after 2 seconds
+            setTimeout(() => {
+                showLogin();
+            }, 2000);
+        }
+        
+        // User Login
+        function login() {
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value;
+            
+            // Clear previous messages
+            clearAuthMessages();
+            
+            // Validation
+            if (!username || !password) {
+                showAuthMessage('Please enter username and password', 'error');
+                return;
+            }
+            
+            // Check users
+            const users = JSON.parse(localStorage.getItem('wangsengUsers') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                // Successful login
+                localStorage.setItem('wangsengCurrentUser', JSON.stringify(user));
+                showAuthMessage('Login successful!', 'success');
+                
+                // Update UI
+                updateAuthUI();
+                
+                // Clear form
+                document.getElementById('login-username').value = '';
+                document.getElementById('login-password').value = '';
+                
+                // Switch to home section after 1 second
+                setTimeout(() => {
+                    showSection('home', document.querySelector('.sidebar-item'));
+                }, 1000);
+                
+            } else {
+                // Failed login
+                showAuthMessage('Invalid username or password', 'error');
+            }
+        }
+        
+        // User Logout
+        function logout() {
+            localStorage.removeItem('wangsengCurrentUser');
+            showAuthMessage('Logged out successfully', 'success');
+            updateAuthUI();
+            
+            // Switch to home section
+            setTimeout(() => {
+                showSection('home', document.querySelector('.sidebar-item'));
+            }, 500);
+        }
+        
+        // Update Authentication UI
+        function updateAuthUI() {
+            const currentUser = JSON.parse(localStorage.getItem('wangsengCurrentUser') || 'null');
+            const authButtons = document.querySelector('.auth-buttons');
+            const headerContent = document.querySelector('.header-content');
+            
+            if (currentUser) {
+                // User is logged in
+                if (authButtons) {
+                    authButtons.innerHTML = `
+                        <div class="user-info">
+                            <span class="user-welcome">Welcome, ${currentUser.username}</span>
+                            <button class="btn logout-btn" onclick="logout()">Logout</button>
+                        </div>
+                    `;
+                }
+            } else {
+                // User is not logged in
+                if (authButtons) {
+                    authButtons.innerHTML = `
+                        <button class="btn login-btn" onclick="showLogin()">Login</button>
+                        <button class="btn register-btn" onclick="showRegister()">Register</button>
+                    `;
+                }
+            }
+        }
+        
+        // Load Current User
+        function loadCurrentUser() {
+            initializeDemoUsers();
+            updateAuthUI();
+        }
+        
+        // Show Authentication Message
+        function showAuthMessage(message, type) {
+            // Create message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `auth-message ${type}`;
+            messageDiv.textContent = message;
+            
+            // Style the message
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                z-index: 10000;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                backdrop-filter: blur(10px);
+                ${type === 'error' 
+                    ? 'background: rgba(220, 38, 38, 0.9); border: 1px solid rgba(255,255,255,0.2); color: #fff;'
+                    : 'background: rgba(34, 197, 94, 0.9); border: 1px solid rgba(255,255,255,0.2); color: #fff;'
+                }
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.style.opacity = '0';
+                    messageDiv.style.transform = 'translateX(-50%) translateY(-20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(messageDiv);
+                    }, 300);
+                }
+            }, 3000);
+        }
+        
+        // Clear Authentication Messages
+        function clearAuthMessages() {
+            const messages = document.querySelectorAll('.auth-message');
+            messages.forEach(msg => {
+                if (msg.parentNode) {
+                    document.body.removeChild(msg);
+                }
+            });
+        }
+        
+        // Email Validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Enhanced showLogin and showRegister functions
+        function showLogin() {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            const mainContent = document.querySelector('.main-container');
+            if (mainContent) {
+                mainContent.style.display = 'none';
+            }
+            const loginSection = document.getElementById('login-section');
+            if (loginSection) {
+                loginSection.style.display = 'block';
+            }
+            document.querySelectorAll('.sidebar-item, .taskbar-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            showNotification('🔐', 'Login page opened');
+        }
+        
+        function showRegister() {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            const mainContent = document.querySelector('.main-container');
+            if (mainContent) {
+                mainContent.style.display = 'none';
+            }
+            const registerSection = document.getElementById('register-section');
+            if (registerSection) {
+                registerSection.style.display = 'block';
+            }
+            document.querySelectorAll('.sidebar-item, .taskbar-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            showNotification('📝', 'Registration page opened');
+        }
+        
+        // Add CSS for user info and logout button
+        const authStyles = `
+            <style>
+                .user-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .user-welcome {
+                    color: #ffd700;
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-shadow: 0 0 8px rgba(255,215,0,0.5);
+                }
+                
+                .logout-btn {
+                    background: rgba(220, 38, 38, 0.8) !important;
+                    border: 1px solid rgba(255,255,255,0.2) !important;
+                    color: #fff !important;
+                    font-size: 11px !important;
+                    padding: 5px 12px !important;
+                    min-height: 28px !important;
+                    transition: all 0.3s ease !important;
+                }
+                
+                .logout-btn:hover {
+                    background: rgba(220, 38, 38, 1) !important;
+                    transform: scale(1.05) !important;
+                }
+                
+                .auth-message {
+                    animation: slideDown 0.3s ease;
+                }
+                
+                @keyframes slideDown {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-50%) translateY(-20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(-50%) translateY(0);
+                    }
+                }
+                
+                /* Mobile auth styles */
+                @media (max-width: 768px) {
+                    .user-info {
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-end;
+                    }
+                    
+                    .user-welcome {
+                        font-size: 10px !important;
+                    }
+                    
+                    .logout-btn {
+                        font-size: 10px !important;
+                        padding: 4px 10px !important;
+                        min-height: 24px !important;
+                    }
+                }
+            </style>
+        `;
+        
+        // Inject styles
+        document.head.insertAdjacentHTML('beforeend', authStyles);
     </script>
 </body>
 </html>
