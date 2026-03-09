@@ -12,12 +12,353 @@
             min-height: 100vh;
             color: white;
         }
+        
+        /* Sidebar Toggle Button */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255,215,0,0.2);
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .sidebar-toggle:hover {
+            background: rgba(255,215,0,0.3);
+            transform: scale(1.1);
+        }
+        
+        .sidebar-toggle.sidebar-hidden {
+            left: 20px;
+        }
+        
+        .sidebar-toggle.sidebar-visible {
+            left: 140px;
+        }
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 1rem;
         }
         
+        /* Responsive Header Video */
+        @media (max-width: 768px) {
+            .header-video-container video {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        /* Background Video */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background-video video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        /* Hero Banner Section */
+        .hero-banner {
+            position: relative;
+            width: 100vw;
+            height: 60vh;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .hero-logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            border: 3px solid rgba(255,215,0,0.8);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .hero-logo video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0 0 1rem 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin: 0 0 1.5rem 0;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .hero-cta {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+
+        /* Responsive Hero Banner */
+        @media (max-width: 768px) {
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+                border-width: 2px;
+            }
+            
+            .hero-content {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-cta {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Header Video Container */
+        .header-video-container {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            width: 100%;
+            max-width: none;
+        }
+
+        .header-video-container video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            border: 2px solid rgba(255,215,0,0.5);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* Bottom Layout Section */
+        .bottom-layout {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .bottom-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bottom-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 0 1.5rem 0;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .bottom-description {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin: 0 0 2rem 0;
+            line-height: 1.6;
+        }
+
+        .bottom-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,215,0,0.6);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .feature-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive Bottom Layout */
+        @media (max-width: 768px) {
+            .bottom-layout {
+                margin-top: 2rem;
+                padding: 1rem;
+            }
+            
+            .bottom-title {
+                font-size: 2rem;
+            }
+            
+            .bottom-features {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .feature-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Logo Background Video */
+        .logo-background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .logo-background-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: blur(1px);
+            transform: scale(1.1);
+        }
+
+        .main-logo video {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
         /* Logo Styles */
         .logo-container {
             text-align: center;
@@ -2982,7 +3323,1274 @@
     </style>
 </head>
 <body>
-    <!-- Left Sidebar Navigation -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WangSeng87 - Premium Gaming Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Left Sidebar - Netplay Style */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 120px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 50%, #0f0f1e 100%);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            z-index: 1000;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.5);
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar.visible {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,140,0,0.02));
+        }
+
+        .sidebar-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            border-bottom: 2px solid rgba(255,215,0,0.2);
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+            border: 2px solid #FFD700;
+            border-radius: 16px;
+            box-shadow: 
+                0 0 20px rgba(255,215,0,0.3),
+                0 0 40px rgba(255,215,0,0.2);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,215,0,0.3); }
+            50% { transform: scale(1.03); box-shadow: 0 0 20px rgba(255,215,0,0.5); }
+        }
+
+        .sidebar-logo-text {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 6px rgba(255,215,0,0.4);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        /* Account Section */
+        .account-section {
+            padding: 15px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 8px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.08));
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 6px;
+            color: #ffd700;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(135deg, rgba(255,215,0,0.25), rgba(255,140,0,0.15));
+            border-color: rgba(255,215,0,0.4);
+            box-shadow: 0 0 10px rgba(255,215,0,0.2);
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 8px;
+            margin: 3px 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.08), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05));
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(255,215,0,0.18), rgba(255,140,0,0.1));
+            border: 1px solid rgba(255,215,0,0.25);
+            box-shadow: 0 0 12px rgba(255,215,0,0.25);
+            transform: translateX(3px);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 50%;
+            background: linear-gradient(180deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+
+        .nav-icon {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+            transition: all 0.25s ease;
+        }
+
+        .nav-item:hover .nav-icon {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+        }
+
+        .nav-item.active .nav-icon {
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.5));
+        }
+
+        .nav-label {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-item:hover .nav-label {
+            color: #ffd700;
+            text-shadow: 0 0 4px rgba(255,215,0,0.4);
+        }
+
+        .nav-item.active .nav-label {
+            color: #ffd700;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255,215,0,0.5);
+        }
+
+        .sidebar-footer {
+            padding: 15px 10px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(135deg, rgba(255,215,0,0.03), rgba(255,140,0,0.01));
+            text-align: center;
+        }
+
+        .footer-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+            box-shadow: 0 0 8px rgba(0,255,0,0.4);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 120px;
+            min-height: 100vh;
+            display: flex;
+            transition: margin-left 0.3s ease;
+        }
+
+        .sidebar.hidden ~ .main-content {
+            margin-left: 0;
+        }
+
+        /* Category Rail */
+        .category-rail {
+            width: 60px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+            border-right: 1px solid rgba(255,215,0,0.1);
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .category-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .category-btn:hover {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.3);
+            color: #ffd700;
+            transform: scale(1.05);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+            border-color: #ffd700;
+            color: #ffd700;
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+        }
+
+        /* Game Lobby Container - BK8-Inspired Premium Theme */
+        .game-lobby {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #0F172A;
+            position: relative;
+        }
+
+        .game-lobby::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(245,179,1,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255,138,0,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, rgba(245,179,1,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Header Strip - BK8-Inspired Premium Sportsbook */
+        .lobby-header {
+            height: 100px;
+            background: linear-gradient(135deg, #111827 0%, #0F172A 50%, #111827 100%);
+            border-bottom: 2px solid #F5B301;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lobby-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 30px,
+                rgba(245,179,1,0.03) 30px,
+                rgba(245,179,1,0.03) 60px
+            );
+            animation: premiumPattern 20s linear infinite;
+        }
+
+        @keyframes premiumPattern {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200%); }
+        }
+
+        .lobby-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(245,179,1,0.3);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            animation: goldGlow 3s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .lobby-title::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, transparent, rgba(245,179,1,0.08));
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .lobby-subtitle {
+            font-size: 1.2rem;
+            color: #D1D5DB;
+            margin-top: 5px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        @keyframes goldGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(245,179,1,0.3);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(245,179,1,0.5);
+            }
+        }
+
+        @keyframes patternMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200%); }
+        }
+
+        /* Game Grid Container - Clean Casino Lobby */
+        .game-grid-container {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            background: transparent;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .sidebar-toggle {
+                display: block;
+            }
+
+            /* Mobile Grid Layout */
+            .provider-wrapper {
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            .col-lg-2,
+            .col-md-3,
+            .col-3 {
+                flex: 0 0 calc(33.333% - 10px);
+                max-width: calc(33.333% - 10px);
+            }
+
+            .cursor-pointer {
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Small Mobile Grid */
+            .col-lg-2,
+            .col-md-3,
+            .col-3 {
+                flex: 0 0 calc(50% - 5px);
+                max-width: calc(50% - 5px);
+            }
+
+            .provider-wrapper {
+                gap: 5px;
+            }
+        }
+
+        /* MAIN GRID - Clean Image Only */
+        .games-grid{
+            display:grid;
+            grid-template-columns:repeat(6,1fr);
+            gap:12px;
+            padding:20px;
+        }
+
+        /* Banner Section - Professional Casino Style */
+        .banner-section {
+            padding: 0 20px 20px 20px;
+        }
+
+        .ramadan-banner {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .banner-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(0,0,0,0.7) 0%, 
+                rgba(0,0,0,0.8) 50%, 
+                rgba(0,0,0,0.7) 100%);
+            z-index: 2;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .banner-text-container {
+            margin-bottom: 25px;
+        }
+
+        .banner-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 0 20px rgba(255,215,0,0.8),
+                0 0 40px rgba(255,215,0,0.6),
+                0 0 60px rgba(255,215,0,0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: goldGlow 2s ease-in-out infinite alternate;
+        }
+
+        .banner-subtitle {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0 0 10px 0;
+            text-shadow: 
+                0 2px 4px rgba(0,0,0,0.8),
+                0 0 20px rgba(255,255,255,0.3);
+            letter-spacing: 1px;
+        }
+
+        .banner-offer {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin: 0;
+            text-shadow: 
+                0 2px 4px rgba(0,0,0,0.8),
+                0 0 15px rgba(255,215,0,0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .claim-bonus-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 4px 15px rgba(255,215,0,0.4),
+                0 0 30px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .claim-bonus-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 
+                0 6px 25px rgba(255,215,0,0.6),
+                0 0 40px rgba(255,215,0,0.5),
+                0 0 60px rgba(255,215,0,0.3);
+            background: linear-gradient(135deg, #FFED4E, #FFD700);
+        }
+
+        .claim-bonus-btn:active {
+            transform: translateY(0) scale(1);
+        }
+
+        @keyframes goldGlow {
+            0% {
+                text-shadow: 
+                    0 0 20px rgba(255,215,0,0.8),
+                    0 0 40px rgba(255,215,0,0.6),
+                    0 0 60px rgba(255,215,0,0.4);
+            }
+            100% {
+                text-shadow: 
+                    0 0 30px rgba(255,215,0,1),
+                    0 0 50px rgba(255,215,0,0.8),
+                    0 0 70px rgba(255,215,0,0.6);
+            }
+        }
+
+        /* Welcome Marquee Ticker - BK8-Inspired Premium */
+        .welcome-ticker {
+            background: linear-gradient(90deg, #111827 0%, #0F172A 50%, #111827 100%);
+            border-top: 1px solid rgba(245,179,1,0.25);
+            border-bottom: 1px solid rgba(245,179,1,0.25);
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: tickerMove 25s linear infinite;
+            white-space: nowrap;
+            font-size: 1rem;
+            color: #F5B301;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Date & Time Display - Premium */
+        .datetime-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #FFD700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        @keyframes tickerMove {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* VIP Level System - BK8-Inspired Premium Card */
+        .vip-level-section {
+            padding: 20px;
+            background: #0F172A;
+        }
+
+        .vip-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vip-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            background: linear-gradient(135deg, #1E293B, #243047);
+            border: 1px solid rgba(245,179,1,0.25);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .vip-crown {
+            font-size: 3rem;
+            animation: crownGlow 2s ease-in-out infinite alternate;
+        }
+
+        .vip-info {
+            flex: 1;
+        }
+
+        .vip-current-level {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .vip-progress-container {
+            margin-top: 12px;
+        }
+
+        .vip-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(245,179,1,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vip-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #F5B301, #FF8A00);
+            border-radius: 4px;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+
+        .vip-progress-text {
+            font-size: 0.9rem;
+            color: #D1D5DB;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .vip-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .benefit-item {
+            background: rgba(245,179,1,0.1);
+            border: 1px solid rgba(245,179,1,0.25);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            color: #F5B301;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(245,179,1,0.15);
+            transform: translateY(-1px);
+        }
+
+        @keyframes crownGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px rgba(245,179,1,0.3); }
+            100% { box-shadow: 0 0 15px rgba(245,179,1,0.5); }
+        }
+
+        /* Live Chat Support - Premium Widget */
+        .live-chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255,215,0,0.6);
+        }
+
+        .chat-icon {
+            font-size: 1.2rem;
+        }
+
+        .chat-text {
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .chat-panel {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            height: 400px;
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-panel.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,215,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .chat-status {
+            color: #00ff00;
+            font-size: 0.8rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .support-message {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .support-avatar {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,215,0,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .support-text {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 8px;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-message-input {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .chat-send-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .telegram-connect-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0088cc, #00a0e3);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .telegram-connect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,136,204,0.4);
+            background: linear-gradient(135deg, #00a0e3, #0088cc);
+        }
+
+        @keyframes crownGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.3); }
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px rgba(255,215,0,0.5); }
+            100% { box-shadow: 0 0 15px rgba(255,215,0,0.8); }
+        }
+
+        /* Game Categories & Search - BK8-Inspired Premium */
+        .game-categories-section {
+            padding: 20px;
+            background: #0F172A;
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, #1E293B, #243047);
+            border: 1px solid rgba(245,179,1,0.25);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .search-icon {
+            font-size: 1.3rem;
+            color: #F5B301;
+        }
+
+        .search-input {
+            flex: 1;
+            background: rgba(245,179,1,0.05);
+            border: 1px solid rgba(245,179,1,0.15);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #F5B301;
+            box-shadow: 0 0 10px rgba(245,179,1,0.2);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: #FFFFFF;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(245,179,1,0.3);
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 5px;
+        }
+
+        .category-tab {
+            background: rgba(245,179,1,0.05);
+            border: 1px solid rgba(245,179,1,0.15);
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: #D1D5DB;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .category-tab:hover {
+            background: rgba(245,179,1,0.1);
+            border-color: #F5B301;
+            color: #F5B301;
+            transform: translateY(-1px);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            color: #FFFFFF;
+            border-color: #F5B301;
+        }
+
+        /* Quick Deposit Methods - BK8-Inspired Premium */
+        .quick-deposit-section {
+            padding: 20px;
+            background: #0F172A;
+        }
+
+        .deposit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            background: linear-gradient(135deg, #1E293B, #243047);
+            border: 1px solid rgba(245,179,1,0.25);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .deposit-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .deposit-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .deposit-subtitle {
+            color: #D1D5DB;
+            font-size: 0.9rem;
+        }
+
+        .deposit-methods {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .deposit-method {
+            background: rgba(245,179,1,0.05);
+            border: 1px solid rgba(245,179,1,0.15);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .deposit-method:hover {
+            background: rgba(245,179,1,0.1);
+            border-color: #F5B301;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(245,179,1,0.2);
+        }
+
+        .method-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .method-name {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .quick-deposit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #F5B301, #FF8A00);
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quick-deposit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(245,179,1,0.4);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255,215,0,0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .video-container {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0,0,0,0.4),
+                0 0 60px rgba(255,215,0,0.1);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .streak-video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* GAME TILE - Image Only */
+        .provider-card{
+            position:relative;
+            width:100%;
+            aspect-ratio:3/5;
+            border-radius:22px;
+            overflow:hidden;
+            transition:all 0.25s ease;
+        }
+
+        /* TILE IMAGE */
+        .provider-card-inner{
+            width:100%;
+            height:100%;
+        }
+
+        .provider-card-inner img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center bottom;
+            display:block;
+        }
+
+        /* HOVER EFFECT */
+        .provider-card:hover{
+            transform:translateY(-4px);
+            box-shadow:0 8px 24px rgba(255,215,0,0.2);
+        }
+
+        /* BADGE */
+        .badge{
+            position:absolute;
+            top:8px;
+            left:8px;
+            font-size:11px;
+            padding:2px 6px;
+            border-radius:4px;
+            font-weight:600;
+            text-transform:uppercase;
+        }
+
+        .badge.hot{background:#ff9c00;color:#000;}
+        .badge.new{background:#00c6ff;color:#fff;}
+        .badge.h5{background:#ff3c3c;color:#fff;}
+
+        /* Responsive Grid */
+        @media (max-width: 1200px) {
+            .games-grid{grid-template-columns:repeat(5,1fr);}
+            .video-grid{grid-template-columns:repeat(4,1fr);}
+        }
+
+        @media (max-width: 992px) {
+            .games-grid{grid-template-columns:repeat(4,1fr);}
+            .video-grid{grid-template-columns:repeat(3,1fr);}
+            .section-title{font-size:1.8rem;}
+        }
+
+        @media (max-width: 768px) {
+            .games-grid{grid-template-columns:repeat(3,1fr);gap:10px;}
+            .video-grid{grid-template-columns:repeat(2,1fr);gap:15px;}
+            .streak-video{height:160px;}
+            .video-container{padding:20px;}
+            .section-title{font-size:1.6rem;}
+            .ramadan-banner{height:220px;}
+            .banner-title{font-size:2.2rem;margin-bottom:12px;}
+            .banner-subtitle{font-size:1.5rem;margin-bottom:8px;}
+            .banner-offer{font-size:1.1rem;}
+            .claim-bonus-btn{padding:12px 30px;font-size:1rem;}
+        }
+
+        @media (max-width: 480px) {
+            .games-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+            .video-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+            .streak-video{height:140px;}
+            .video-container{padding:15px;}
+            .section-title{font-size:1.4rem;}
+            .ramadan-banner{height:200px;}
+            .banner-content{padding:20px;}
+            .banner-title{font-size:1.8rem;margin-bottom:12px;}
+            .banner-subtitle{font-size:1.3rem;margin-bottom:8px;}
+            .banner-offer{font-size:1rem;}
+            .claim-bonus-btn{padding:10px 25px;font-size:0.9rem;}
+        }
+
+        /* Sidebar Overlay */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Toggle Button -->
+    <div class="sidebar-toggle sidebar-visible" onclick="toggleSidebar()">☰</div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Left Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
@@ -2995,162 +4603,498 @@
             </div>
         </div>
         
+        <div class="account-section">
+            <button class="login-btn">Login</button>
+        </div>
+        
         <nav class="sidebar-nav">
-            <div class="nav-item active" onclick="showSection('home')">
+            <div class="nav-item active">
                 <div class="nav-icon">🏠</div>
                 <div class="nav-label">Home</div>
             </div>
-            
-            <div class="nav-item" onclick="showSection('providers')">
-                <div class="nav-icon">🔥</div>
-                <div class="nav-label">Hot Games</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('providers')">
-                <div class="nav-icon">🎰</div>
-                <div class="nav-label">Slots</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('livecasino')">
-                <div class="nav-icon">🎥</div>
-                <div class="nav-label">Live Casino</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('sports')">
-                <div class="nav-icon">⚽</div>
-                <div class="nav-label">Sports</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('fishing')">
-                <div class="nav-icon">🐟</div>
-                <div class="nav-label">Fishing</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('promotion')">
+            <div class="nav-item">
                 <div class="nav-icon">🎁</div>
-                <div class="nav-label">Promotions</div>
+                <div class="nav-label">Promotion</div>
             </div>
-            
-            <div class="nav-item" onclick="showSection('deposit')">
-                <div class="nav-icon">💰</div>
-                <div class="nav-label">Deposit</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('withdraw')">
-                <div class="nav-icon">💸</div>
-                <div class="nav-label">Withdraw</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('vip')">
-                <div class="nav-icon">👑</div>
-                <div class="nav-label">VIP</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('wallet')">
-                <div class="nav-icon">💳</div>
-                <div class="nav-label">Wallet</div>
-            </div>
-            
-            <div class="nav-item" onclick="showSection('download')">
+            <div class="nav-item">
                 <div class="nav-icon">📱</div>
                 <div class="nav-label">Download</div>
             </div>
-            
-            <div class="nav-item" onclick="showSection('support')">
-                <div class="nav-icon">📞</div>
+            <div class="nav-item">
+                <div class="nav-icon">💬</div>
                 <div class="nav-label">Support</div>
             </div>
-            
-            <div class="nav-item" onclick="showSection('account')">
+            <div class="nav-item">
                 <div class="nav-icon">👤</div>
                 <div class="nav-label">Account</div>
             </div>
         </nav>
         
         <div class="sidebar-footer">
-            <div class="user-status">
-                <div class="status-indicator online"></div>
-                <div class="status-text">Online</div>
+            <div class="footer-status">
+                <div class="status-dot"></div>
+                <span>Online</span>
             </div>
         </div>
     </div>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-
-    <!-- Mobile Hamburger Menu -->
-    <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleSidebar()">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-    </div>
-
-    <div class="container">
-        <!-- Logo Section -->
-        <div class="logo-container">
-            <div class="main-logo">
-                <video autoplay muted loop playsinline>
-                    <source src="wangseng-lion.mp4" type="video/mp4">
-                    <img src="https://www.wangseng87.com/logo.png" alt="WangSeng87">
-                </video>
+    <!-- Main Content -->
+    <div class="main-content">
+                
+        <!-- Game Lobby -->
+        <div class="game-lobby">
+            <!-- Header Strip -->
+            <div class="lobby-header">
+                <div>
+                    <div class="lobby-title">WangSeng87</div>
+                    <div class="lobby-subtitle">PREMIUM VVIP SLOT LOBBY</div>
+                </div>
             </div>
-            <div class="platform-name">🦁 WangSeng87 👑</div>
+            
+            <!-- Welcome Marquee Ticker -->
+            <div class="welcome-ticker">
+                <div class="ticker-content">
+                    👑 Welcome to WangSeng87 Premium VVIP Lobby • Exclusive Rewards • Fast Withdrawals • Royal Gaming Experience •
+                </div>
+            </div>
+            
+            <!-- VIP Level System -->
+            <div class="vip-level-section">
+                <div class="vip-container">
+                    <div class="vip-header">
+                        <div class="vip-crown">👑</div>
+                        <div class="vip-info">
+                            <div class="vip-current-level">GOLD VIP</div>
+                            <div class="vip-progress-container">
+                                <div class="vip-progress-bar">
+                                    <div class="vip-progress-fill" style="width: 65%;"></div>
+                                </div>
+                                <div class="vip-progress-text">6,500 / 10,000 XP</div>
+                            </div>
+                        </div>
+                        <div class="vip-benefits">
+                            <div class="benefit-item">💰 15% Cashback</div>
+                            <div class="benefit-item">🎁 Weekly Bonus</div>
+                            <div class="benefit-item">⚡ Fast Withdrawal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Live Chat Support -->
+            <div class="live-chat-widget">
+                <div class="chat-button" onclick="openTelegram()">
+                    <div class="chat-icon">💬</div>
+                    <div class="chat-text">VIP Support</div>
+                </div>
+                <div class="chat-panel" id="chatPanel">
+                    <div class="chat-header">
+                        <div class="chat-title">VIP Live Support</div>
+                        <div class="chat-status">● Online</div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="support-message">
+                            <div class="support-avatar">👤</div>
+                            <div class="support-text">Welcome to WangSeng87 VIP Support! Click below to connect via Telegram for instant assistance.</div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <button class="telegram-connect-btn" onclick="openTelegram()">
+                            📱 Connect on Telegram
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Banner Section -->
+            <div class="banner-section">
+                <div class="ramadan-banner">
+                    <video class="banner-video" autoplay muted loop playsinline>
+                        <source src="Traditional Lanterns Ramadan Islamic Background 2.mp4" type="video/mp4">
+                    </video>
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <div class="banner-text-container">
+                            <h1 class="banner-title">RAMADAN MEGA BONUS</h1>
+                            <p class="banner-subtitle">Get 200% Welcome Bonus</p>
+                            <p class="banner-offer">Ramadan Lucky Spin Event</p>
+                        </div>
+                        <button class="claim-bonus-btn">CLAIM BONUS</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game Categories & Search -->
+            <div class="game-categories-section">
+                <div class="categories-container">
+                    <div class="search-bar">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" placeholder="Search games..." class="search-input" id="gameSearch">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <div class="category-tabs">
+                        <div class="category-tab active" data-category="all">🎰 ALL GAMES</div>
+                        <div class="category-tab" data-category="slots">🎰 SLOTS</div>
+                        <div class="category-tab" data-category="live">🎥 LIVE CASINO</div>
+                        <div class="category-tab" data-category="sports">⚽ SPORTS</div>
+                        <div class="category-tab" data-category="fishing">🎣 FISHING</div>
+                        <div class="category-tab" data-category="arcade">🕹️ ARCADE</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Deposit Methods -->
+            <div class="quick-deposit-section">
+                <div class="deposit-container">
+                    <div class="deposit-header">
+                        <div class="deposit-title">⚡ Quick Deposit</div>
+                        <div class="deposit-subtitle">Instant processing • 100% secure</div>
+                    </div>
+                    <div class="deposit-methods">
+                        <div class="deposit-method">
+                            <div class="method-icon">🏦</div>
+                            <div class="method-name">Bank Transfer</div>
+                        </div>
+                        <div class="deposit-method">
+                            <div class="method-icon">💳</div>
+                            <div class="method-name">Credit Card</div>
+                        </div>
+                        <div class="deposit-method">
+                            <div class="method-icon">📱</div>
+                            <div class="method-name">E-Wallet</div>
+                        </div>
+                        <div class="deposit-method">
+                            <div class="method-icon">₿</div>
+                            <div class="method-name">Crypto</div>
+                        </div>
+                    </div>
+                    <button class="quick-deposit-btn">Deposit Now</button>
+                </div>
+            </div>
+            <div class="live-casino-section">
+                <div class="section-header">
+                    <h2 class="section-title">LIVE CASINO</h2>
+                </div>
+                <div class="video-container">
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <video class="streak-video" autoplay muted loop playsinline>
+                                <source src="tangan judi.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item">
+                            <video class="streak-video" autoplay muted loop playsinline>
+                                <source src="tangan atas meja.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item">
+                            <video class="streak-video" autoplay muted loop playsinline>
+                                <source src="bacarrat.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item">
+                            <video class="streak-video" autoplay muted loop playsinline>
+                                <source src="amoi main slot.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game Grid Container -->
+            <div class="game-grid-container">
+                <div class="games-grid">
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/8.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/15.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/70.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/54.png">
+                        </div>
+                        <span class="badge new">NEW</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/68.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/64.png">
+                        </div>
+                        <span class="badge new">NEW</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/44.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/63.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/62.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/61.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/59.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/37.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/35.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/38.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/1.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/2.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/4.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/22.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/43.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/6.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/5.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/16.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/30.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/17.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/19.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/3.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/25.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/21.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/50.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/48.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/42.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/20.png">
+                        </div>
+                        <span class="badge h5">H5</span>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/39.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/49.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/26.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/45.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/32.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/12.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/10.png">
+                        </div>
+                    </div>
+                    
+                    <div class="provider-card">
+                        <div class="provider-card-inner">
+                            <img src="https://img.netplay.info/public/netplay/Upload/SLOT/11.png">
+                        </div>
+                        <span class="badge hot">HOT</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-            <div class="jackpot-stack">
-                <div class="jackpot-card grand">
-                    <div class="jackpot-label">GRAND JACKPOT</div>
-                    <div class="jackpot-amount" id="grandJackpot">RM 128,446.71</div>
-                </div>
-                <div class="jackpot-card major">
-                    <div class="jackpot-label">MAJOR JACKPOT</div>
-                    <div class="jackpot-amount" id="majorJackpot">RM 25,336.10</div>
-                </div>
-                <div class="jackpot-card minor">
-                    <div class="jackpot-label">MINOR JACKPOT</div>
-                    <div class="jackpot-amount" id="minorJackpot">RM 5,118.31</div>
-                </div>
-            </div>
 
-            <!-- Live Stats Row -->
-            <div class="live-stats-row">
-                <div class="live-stat-card">
-                    <div class="stat-label">ONLINE PLAYERS</div>
-                    <div class="stat-value" id="onlinePlayers">12,639</div>
-                </div>
-                <div class="live-stat-card">
-                    <div class="stat-label">ACTIVE GAMES</div>
-                    <div class="stat-value" id="activeGames">311</div>
-                </div>
-                <div class="live-stat-card">
-                    <div class="stat-label">LIVE WINS TODAY</div>
-                    <div class="stat-value" id="liveWinsToday">RM 1,293,805.56</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Login Section -->
-        <div id="login" class="section">
-            <div class="auth-card">
-                <h2 class="auth-title">🔐 Login</h2>
-                <div class="auth-form">
-                    <div class="form-group">
-                        <label for="loginUsername">👤 Username</label>
-                        <input type="text" id="loginUsername" class="auth-input" placeholder="Enter your username" maxlength="20">
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">🔒 Password</label>
-                        <input type="password" id="loginPassword" class="auth-input" placeholder="Enter your password">
-                    </div>
-                    <div id="loginError" class="auth-message error" style="display: none;"></div>
-                    <div id="loginSuccess" class="auth-message success" style="display: none;"></div>
-                    <button class="auth-button" onclick="login()">🔐 Login</button>
-                    <div class="auth-switch">
-                        Don't have an account? <a href="#" onclick="showSection('register')" class="auth-link">Register</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script>
+        // Toggle sidebar hide/show
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.querySelector('.sidebar-toggle');
+            const overlay = document.querySelector('.sidebar-overlay');
+            
+            // Toggle sidebar visibility
+            if (sidebar.classList.contains('hidden')) {
+                // Show sidebar
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('visible');
+                toggleBtn.classList.remove('sidebar-hidden');
+                toggleBtn.classList.add('sidebar-visible');
+                toggleBtn.innerHTML = '☰';
+            } else {
+                // Hide sidebar
+                sidebar.classList.remove('visible');
+                sidebar.classList.add('hidden');
+                toggleBtn.classList.remove('sidebar-visible');
+                toggleBtn.classList.add('sidebar-hidden');
+                toggleBtn.innerHTML = '☰';
+            }
+            
+            // Handle mobile overlay
+            if (window.innerWidth <= 768) {
+                overlay.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
 
         <!-- Register Section -->
         <div id="register" class="section">
@@ -3397,11 +5341,19 @@
         </div>
 
     <script>
-        // Start live stats updates
-        setInterval(updateLiveStats, 4000);
-
-        // Initial stats update after page load
-        setTimeout(updateLiveStats, 1500);
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load current user from localStorage
+            loadCurrentUser();
+            
+            // Initialize jackpot animations
+            initJackpotAnimations();
+            
+            // Initialize sidebar
+            updateActiveNavItem('home');
+            
+            // Handle window resize for sidebar
+        });
 
         // Navigation
         function showSection(sectionId) {
@@ -3566,39 +5518,34 @@
                 });
             }
         }
+    }
 
-        // Authentication functions
-        function showMessage(elementId, message, isError = false) {
-            const element = document.getElementById(elementId);
-            const errorElement = document.getElementById(elementId.replace('Success', 'Error'));
-            const successElement = document.getElementById(elementId.replace('Error', 'Success'));
+    // Authentication functions
+    function showMessage(elementId, message, isError = false) {
+        const element = document.getElementById(elementId);
+        const errorElement = document.getElementById(elementId.replace('Success', 'Error'));
+        const successElement = document.getElementById(elementId.replace('Error', 'Success'));
+        
+        // Hide both messages first
+        if (errorElement) errorElement.style.display = 'none';
+        if (successElement) successElement.style.display = 'none';
+        
+        // Show the appropriate message
+        if (element) {
+            element.textContent = message;
+            element.style.display = 'block';
             
-            // Hide both messages first
-            if (errorElement) errorElement.style.display = 'none';
-            if (successElement) successElement.style.display = 'none';
-            
-            // Show the appropriate message
-            if (element) {
-                element.textContent = message;
-                element.style.display = 'block';
-                
-                // Auto-hide after 5 seconds
-                setTimeout(() => {
-                    element.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        function hideMessage(elementId) {
-            const element = document.getElementById(elementId);
-            if (element) {
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
                 element.style.display = 'none';
-            }
+            }, 5000);
         }
+    }
 
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
+    function hideMessage(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.style.display = 'none';
         }
 
         function login() {
@@ -3786,11 +5733,6 @@
         let slideIndex = 1;
         let slideInterval;
 
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-            resetSlideInterval();
-        }
-
         function showSlide(n) {
             const slides = document.getElementsByClassName('banner-slide');
             const dots = document.getElementsByClassName('dot');
@@ -3810,27 +5752,64 @@
             dots[slideIndex - 1].classList.add('active');
         }
 
-        function nextSlide() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('banner-slide');
+            const dots = document.getElementsByClassName('dot');
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
 
-        function resetSlideInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
+    // Minor Jackpot - smallest increments
+    const minorElement = document.getElementById('minorJackpot');
+    if (minorElement) {
+        const currentValue = parseFloat(minorElement.textContent.replace(/[^0-9.]/g, ''));
+        const increment = Math.random() * 0.1 + 0.02; // Random increment between 0.02-0.12
+        const newValue = currentValue + increment;
+        minorElement.textContent = 'RM ' + newValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+}
 
-        // Initialize banner carousel
-        function initBannerCarousel() {
-            showSlide(slideIndex);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
+function animateStats() {
+    // Online Players - fluctuates
+    const onlineElement = document.getElementById('onlinePlayers');
+    if (onlineElement) {
+        const currentValue = parseInt(onlineElement.textContent.replace(/[^0-9]/g, ''));
+        const change = Math.floor(Math.random() * 21) - 10; // Random change between -10 and +10
+        const newValue = Math.max(10000, currentValue + change); // Minimum 10,000
+        onlineElement.textContent = newValue.toLocaleString();
+    }
 
-        // Jackpot Animation Functions
-        let jackpotAnimationInterval;
-        let statAnimationInterval;
+    // Active Games - fluctuates
+    const gamesElement = document.getElementById('activeGames');
+    if (gamesElement) {
+        const currentValue = parseInt(gamesElement.textContent.replace(/[^0-9]/g, ''));
+        const change = Math.floor(Math.random() * 11) - 5; // Random change between -5 and +5
+        const newValue = Math.max(300, currentValue + change); // Minimum 300
+        gamesElement.textContent = newValue.toLocaleString();
+    }
 
-        function animateJackpots() {
+    // Live Wins - increases
+    const winsElement = document.getElementById('liveWins');
+    if (winsElement) {
+        const currentValue = parseFloat(winsElement.textContent.replace(/[^0-9.]/g, ''));
+        const increment = Math.random() * 100 + 50; // Random increment between 50-150
+        const newValue = currentValue + increment;
+        winsElement.textContent = 'RM ' + newValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+}
+
+function initJackpotAnimations() {
+    // Animate jackpots every 2 seconds
+    jackpotAnimationInterval = setInterval(animateJackpots, 2000);
+    
+    // Animate stats every 3 seconds
+    statAnimationInterval = setInterval(animateStats, 3000);
+}
             // Grand Jackpot - increases gradually
             const grandElement = document.getElementById('grandJackpot');
             if (grandElement) {
@@ -3987,9 +5966,6 @@
             // Load current user from localStorage
             loadCurrentUser();
             
-            // Initialize banner carousel
-            initBannerCarousel();
-            
             // Initialize jackpot animations
             initJackpotAnimations();
             
@@ -4003,14 +5979,5 @@
                     const overlay = document.getElementById('sidebarOverlay');
                     sidebar.classList.remove('active');
                     overlay.classList.remove('active');
-                }
-            });
-            
-            // Initialize other systems
-            updateAuthUI();
-            console.log('👑 WangSeng87 Premium Gaming Platform Loaded');
-            console.log('🚀 All systems ready for premium gaming action!');
-        });
-    </script>
 </body>
 </html>
